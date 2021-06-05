@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
 
-  eleventyConfig.setTemplateFormats("html,njk");
+
+  //seleventyConfig.setTemplateFormats("html,njk");
 
 
   eleventyConfig.addPassthroughCopy("src/js");
@@ -15,4 +16,16 @@ module.exports = function(eleventyConfig) {
       output: "dist"
     }
   };
+
+
+  // date filter (localized)
+  eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
+    locale = locale ? locale : "en";
+    moment.locale(locale);
+    return moment(date).format(format);
+  });
+
+
+
+
 };
