@@ -1,7 +1,20 @@
 module.exports = {
-  buildTime: new Date(),
-  baseUrl: "https://www.tghb.studio/",
+  url: "https://www.tghb.studio",
+  baseUrl: "/",
   name: "TheGrandHeavyBold Design Studio – Christian Kriegsheim & Tomas Nims-Matousek",
+  author: "Christian Kriegsheim & Tomas Nims-Matousek",
+  authorTwitter: "@tghbstudio",
+  buildTime: new Date(),
+  languages: [
+    {
+      label: "deutsch",
+      code: "de",
+    },
+    {
+      label: "english",
+      code: "en",
+    },
+  ],
   de: {
     metaTitle: "TheGrandHeavyBold – Design Studio für Strategie, Gestaltung, Interaktion und Realisation.",
     metaDescription: "Medienübergreifende Markenkommunikation – wir erwecken Inhalte zum Leben.",
