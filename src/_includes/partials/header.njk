@@ -1,0 +1,97 @@
+<header>
+
+  <div class="wrapper">
+
+    <div class="header_bar">
+
+      <div class="header_bar__left">
+
+        <nav id="site-navigation" class="main-navigation">
+
+          <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+            <div class="hamburger">
+              <span></span>
+            </div>
+          </button>
+
+          <div class="menu">
+
+            <div class="wrapper">
+
+              <div class="menu__content">
+
+                <div class="menu__items">
+
+                  <ul class="menu__links">
+                    <li><a href="/{{ locale }}/{{ navigation[locale].projects }}">{{ navigation[locale].projects }}</a></li>
+                    <li><a href="/{{ locale }}/{{ navigation[locale].services }}">{{ navigation[locale].services }}</a></li>
+                    <li><a href="/{{ locale }}/studio/index.html">Studio</a></li>
+                    <li><a href="#">#</a></li>
+                  </ul>
+
+                  {%- include "partials/language_switcher.njk" -%}
+
+                </div><!-- .menu__items -->
+
+                <div class="menu__info">
+
+                  <ul class="footer__adress">
+                    <li><strong>{{ footer[locale].ffm_addressTitle }}</strong></li>
+                    <li>{{ footer[locale].ffm_addressStreet }} {{ footer[locale].ffm_addressNumber }}</li>
+                    <li>{{ footer[locale].ffm_addressPostcode }} {{ footer[locale].ffm_addressCity }}</li>
+                    <li><a href="tel:{{ footer[locale].ffm_phone }}">{{ footer[locale].ffm_phone }}</a></li>
+                  </ul>
+
+                  <ul class="footer__adress">
+                    <li><strong>{{ footer[locale].cgn_addressTitle }}</strong></li>
+                    <li>{{ footer[locale].cgn_addressStreet }} {{ footer[locale].cgn_addressNumber }}</li>
+                    <li>{{ footer[locale].cgn_addressPostcode }} {{ footer[locale].cgn_addressCity }}</li>
+                    <li><a href="tel:{{ footer[locale].cgn_phone }}">{{ footer[locale].cgn_phone }}</a></li>
+                  </ul>
+
+                  <ul class="footer__social">
+                    <li><a href="">LinkedIn</a></li>
+                    <li><a href="">Xing</a></li>
+                  </ul>
+
+                  <ul class="footer__social">
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="">Twitter</a></li>
+                    <li><a href="">Bechance</a></li>
+                  </ul>
+
+                  <ul class="footer__links legal">
+                    <li><a href="">{{ footer[locale].link_BusinessTerms }}</a></li>
+                    <li><a href="">{{ footer[locale].link_Imprint }}</a></li>
+                    <li><a href="">{{ footer[locale].link_PrivacyPolicy }}</a></li>
+                    <li><span class="copyrights">{{ footer[locale].copyrights }}</span></li>
+                  </ul>
+
+                </div><!-- .menu__info -->
+
+              </div><!-- .menu__content -->
+
+            </div><!-- .wrapper -->
+
+          </div><!-- .menu -->
+
+        </nav><!-- #site-navigation -->
+
+        <h6 class="tghb_subline">{{ header[locale].tghb_name }} </span> <span>{{ header[locale].tghb_subline }}</span></h6>
+
+      </div><!-- .header_bar__left -->
+
+      <div class="site-branding">
+  			<a id="logo" href="/{{ locale }}/index.html" rel="home" title="">
+  				<svg class="tghb_logo">
+  					<use xlink:href="#tghb_logo"></use>
+  				</svg>
+  			</a>
+  		</div><!-- .site-branding -->
+
+    </div><!-- .header_bar -->
+
+  </div><!-- .wrapper -->
+
+</header>

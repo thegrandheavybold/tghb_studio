@@ -1,0 +1,31 @@
+header
+  margin: 0
+  position: fixed
+  top: 0
+  width: 100vw
+  background: transparent
+  z-index: 100
+
+  .header_bar
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    &__left
+      display: flex
+      align-items: center
+
+    h6
+      margin: 0 17px
+      span
+        font-family: $font__book
+
+  p
+    margin: 0
+    padding: 0
+
+@media only screen and (max-width: 768px)
+  .tghb_subline
+    display: none
+    opacity: 0
+    visibility: hidden

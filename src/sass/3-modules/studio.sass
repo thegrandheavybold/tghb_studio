@@ -1,0 +1,101 @@
+
+.studio_shrt
+  background: $light
+  h3
+    font-size: min(max(6vw), 51px)
+    line-height: min(max(8vw), 82px)
+    letter-spacing: normal
+
+.partner
+  .sctn__hdr
+    height: auto
+
+.partner_imgs, .network_imgs__item
+  picture
+    margin: 0 0 2vw 0
+    display: block
+
+.network
+  .network_imgs__item
+    p.copy
+      margin: 0
+
+.ccrdntls
+  background: $light
+
+  ul.crdntls_list
+    list-style: none
+    display: flex
+
+    li.crdntls__item
+      margin: 0 3rem 0 0
+      h1
+        hyphens: none
+      //cursor: pointer
+      //transition: all ease .4s
+      //&:hover
+        color: $neon
+
+
+.lctns_list > .grd
+  grid-template-areas: 'a b' 'a b'
+
+  .item__1
+    grid-area: a
+
+  .item__2
+    grid-area: b
+
+.lft > .grd
+  grid-template-areas: 'b a' 'b a'
+
+  .item__1
+    grid-area: a
+
+  .item__2
+    grid-area: b
+
+.lctns > .wrapper
+  padding-bottom: 0
+
+.lctns > div.lctns_nf > div.lctns_list.lft
+  margin-top: min(max(6vw), 2.688rem)
+  margin-bottom: min(max(6vw), 2.688rem)
+
+.lctns
+    .lctns__items
+      //picture
+        img
+          width: 940px
+          height: 625px
+          display: block
+          object-fit: cover
+    .lctns__nf
+      display: flex
+      flex-flow: column wrap
+      width: auto
+      justify-content: space-evenly
+      align-content: center
+      span:first-of-type
+        display: flex
+        flex-flow: column wrap
+        font-size: min(max(3vw), 42px)
+        line-height: min(max(5vw), 51px)
+
+@media only screen and (max-width: 768px)
+  .lctns
+    .lctns_list
+      .grd
+        grid-template-areas: 'a a' 'b b'
+
+  .lctns_list .lft
+    .grd
+      grid-template-areas: 'a a' 'b b'
+
+  .lctns .lctns__nf
+    align-content: flex-start
+    padding: min(max(5vw), 3.024rem)
+
+  .lctns .lctns__nf span:first-of-type
+    font-size: min(max(5vw), 42px)
+    line-height: min(max(7vw), 51px)

@@ -1,0 +1,94 @@
+.tsr
+  .grd
+    grid-template-areas: 'a b' 'a b' 'c d' 'c d' 'e f' 'e f'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+
+    .item__4
+      grid-area: d
+
+    .item__5
+      grid-area: e
+
+    .item__6
+      grid-area: f
+  article
+    width: 100%
+    height: 100%
+
+    a
+      text-decoration: none
+      line-height: 0
+      height: 100%
+      width: 100%
+      figure
+        width: 100%
+        height: 100%
+        margin: 0
+        display: block
+        overflow: hidden
+        position: relative
+        cursor: pointer
+        background: $neon
+        backface-visibility: hidden
+        img
+          opacity: 1
+          position: relative
+          transition: all ease .9s
+          height: 101%
+          width: 100%
+          display: block
+          object-fit: cover
+
+      figcaption
+        .teaser_intro
+          hyphens: none
+          opacity: 0
+          position: absolute
+          color: $gray
+          top: 0
+          left: 0
+          transition: transform ease 1.2s, opacity ease .7s
+          transform: translateY(160px)
+        .teaser_btn
+          stroke: $gray
+          margin: 5vw 0 0
+          stroke-dashoffset: -150
+          stroke-dasharray: 150
+          transition: all ease .9s
+
+      figure:hover > figcaption .teaser_intro .teaser_btn
+        stroke-dashoffset: 0
+
+      figure:hover > img
+        opacity: 0
+        transform: scale(1.5)
+
+      figure:hover > figcaption .teaser_intro
+        opacity: 1
+        transform: translateY(0px)
+
+@media only screen and (max-width: 768px)
+  .tsr
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f'
+
+@media only screen and (min-width: 769px) and (max-width: 1280px)
+  .tsr article a figcaption .teaser_intro
+    h2
+      font-size: 3.5vw
+      line-height: 3.5vw
+    h5
+      font-size: 2.5vw
+      line-height: 2.5vw
+
+  .tsr article a figcaption .teaser_btn
+    margin: 1vw 0 0
+    zoom: .7

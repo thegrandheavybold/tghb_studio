@@ -1,0 +1,40 @@
+.cocoon
+  background: url("assets/img/tghb.studio_cocoonclub__09.jpg")
+  background-size: cover
+  background-position: 50% center
+
+.cocoon__a
+  .grd
+    grid-template-areas: 'a b' 'c b' 'c d' '. d'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+      align-self: flex-end
+
+    .item__3
+      grid-area: c
+      align-self: flex-end
+
+    .item__4
+      grid-area: d
+
+.cocoon__b
+  .grd
+    grid-template-areas: 'a .' 'a b' 'c b' 'c .'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+
+@media only screen and (max-width: 768px)
+  .cocoon__a, .cocoon__b
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d'

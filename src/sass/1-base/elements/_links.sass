@@ -1,0 +1,83 @@
+a
+	color: $gray
+	//text-decoration: none
+	font-family: $font__bold
+	transition: all ease .7s
+
+	&:visited
+		color: $gray
+
+
+	&:hover,
+	&:focus,
+	&:active
+		color: $gray
+
+	&:hover,
+	&:active
+		outline: 0
+
+.big__link
+	@include rhythm(42,0)
+	margin: 1rem 0
+
+.lnk__18
+	text-decoration: none
+
+.hypr
+	margin: 0 6vw 0 0
+
+.teaser__links
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	
+@media only screen and (max-width: 392px)
+	.teaser__links .hypr:nth-child(2)
+		margin: 3vw 6vw 0 0
+
+.download_btn, .hyperlink_btn, .external_btn, .teaser_btn
+	fill: none
+	stroke: $gray
+	stroke-width: 1.5
+
+.hyperlink_btn
+	width: 22px
+	height: 9px
+
+.download_btn
+	width: 10px
+	height: 14px
+	position: relative
+	top: 1px
+
+.external_btn
+	width: 13px
+	height: 16px
+	position: relative
+	top: 1px
+
+.teaser_btn
+	height: 25px
+	width: 143px
+	stroke-width: 4
+
+//a.main__link
+	display: inline-block
+	height: 2rem
+	position: relative
+	z-index: 1
+	&::after
+		content: ''
+		background: $gray
+		height: 2.5rem
+		width: 7rem
+		right: -3rem
+		display: block
+		position: relative
+		transform: translateY(-2.3rem)
+		z-index: -1
+		transition: all ease .7s
+//.no-touch a.main__link:hover
+	&::after
+		transform: scaleY(.1) translateY(-12rem)

@@ -1,0 +1,80 @@
+.frnt_srvcs__clmns
+  .grd
+    grid-template-areas: 'a a .' 'b b .' 'c c .'
+
+    .clmn__1
+      grid-area: a
+    .clmn__2
+      grid-area: b
+    .clmn__3
+      grid-area: c
+
+
+.srvcs__1, .srvcs__2
+  .grd
+    grid-template-areas: 'a b' 'a b' 'd c' 'd c'
+
+  .item__1
+    grid-area: a
+
+  .item__2
+    grid-area: b
+
+  .item__3
+    grid-area: c
+
+  .item__4
+    grid-area: d
+
+.srvcs__3
+  .grd
+    grid-template-areas: 'a b' 'a b'
+
+  .item__1
+    grid-area: a
+
+  .item__2
+    grid-area: b
+
+.srvc
+  align-items: center
+
+.srvc__item
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  height: 100%
+  h2
+    font-size: min(max(6vw), 72px)
+    line-height: min(max(6vw), 75px)
+
+  .srvc_list
+    margin: 0 0 2rem 0
+    .srvc_list__item
+      font-size: min(max(4vw), 42px)
+      line-height: min(max(5vw), 51px)
+
+
+
+
+@media only screen and (min-width: 1200px)
+  .frnt_srvcs__clmns
+    .grd
+      grid-template-areas: 'a b c'
+
+      .clmn__1
+        grid-area: a
+      .clmn__2
+        grid-area: b
+      .clmn__3
+        grid-area: c
+
+
+@media only screen and (max-width: 768px)
+  .srvcs__1, .srvcs__2
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d'
+      
+  .srvcs__3
+    .grd
+      grid-template-areas: 'a a' 'b b'

@@ -1,0 +1,21 @@
+//.cs_hro
+
+.cs_items
+  //div
+    margin: 0 0 2.688rem 0
+    &:last-child
+      margin: 0
+
+  //intro copy max-width
+  .prjct__ntr
+    width: 75vw
+
+  .cs_items__lft
+    grid-column: 1 / 2
+
+  .cs_items__rght
+    grid-column: 2 / 3
+
+  @media only screen and (max-width: 768px)
+    .cs_items__lft, .cs_items__rght
+      grid-column: 1 / 3

@@ -1,0 +1,3 @@
+{
+  "permalink": "/{{ locale }}/{{ navigation[locale].projects }}/{{ page.fileSlug }}/index.html"
+}

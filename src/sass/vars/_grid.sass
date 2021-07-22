@@ -1,0 +1,83 @@
+.grd
+  display: grid !important
+  grid-template-columns: repeat(auto-fit, minmax(249px, 1fr))
+  //grid-template-rows: repeat(auto-fit, minmax(249px, 1fr))
+  column-gap: min(max(6vw), 2.688rem)
+  row-gap: min(max(6vw), 2.688rem)
+
+.grdcss
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(249px, 1fr))
+  //grid-template-rows: repeat(auto-fit, minmax(249px, 1fr))
+  column-gap: 2.688rem
+  row-gap: 2.688rem
+
+
+.spn1
+  grid-column: span 1
+
+.spn2
+  grid-column: span 2
+
+.spn3
+  grid-column: span 3
+
+.spn4
+  grid-column: span 4
+
+.spn5
+  grid-column: span 5
+
+.spn6
+  grid-column: span 6
+
+.medium
+  grid-row: span 1
+
+.tall
+  grid-row: span 2
+
+.big
+  grid-row: span 3
+
+.cntr
+  align-self: center
+
+.wrapper
+  @include wrapper(140,108)
+  //padding: min(max(5vw), 3.024rem)
+
+.wrapper_w_img
+  @include wrapper(48,48)
+  padding: min(max(5vw), 3.024rem)
+
+.wrapper_zr_wdth
+  @include wrapper(48,0)
+
+.wrapper_cpy
+  @include wrapper(55,55)
+
+.wrapper_ntr
+  @include wrapper(55,55)
+
+header
+  .wrapper
+    @include wrapper(41,48)
+    padding-top: min(max(5vw), 2.583rem)
+    padding-bottom: min(max(5vw), 2.583rem)
+    padding-left: min(max(5vw), 3.024rem)
+    padding-right: min(max(5vw), 3.024rem)
+
+footer
+  .legal
+    grid-column: span 1
+  @media only screen and (min-width: 1790px)
+    .legal
+      grid-column: span 2
+  @media only screen and (max-width: 729px)
+    .legal
+      order: 5
+
+@media only screen and (max-width: 768px)
+  .wrapper
+    padding: min(max(5vw), 3.024rem)

@@ -1,0 +1,63 @@
+---
+permalink: /{{ locale }}/{{ navigation[locale].projects}}/index.html
+translationKey: "projekte"
+---
+
+<section class="pg_hro">
+  <div class="wrapper">
+
+    <div class="sctn__hdr __15 grd">
+
+      <div class="spn2 filter">
+        <h4>Alle</h4>
+      </div>
+
+
+  </div>
+</section>
+
+
+<section class="">
+  <div class="wrapper_w_img">
+
+    <div class="tsr">
+
+      {% for post in collections.posts_de | reverse %}
+        {% if loop.first %}<ul class="grd">{% endif %}
+          {% set counter = ( counter | default(0) ) + 1 %}
+          <li class="item__{{ counter }}">
+
+            <article>
+              <a href="{{ post.url }}">
+              <figure class="lazy lazy_initial">
+                <source srcset="{{ post.data.featuredImage }}" media="(min-width: 1200px)">
+                <source srcset="{{ post.data.featuredImage }}" media="(min-width: 740px)">
+                <img src="{{ post.data.featuredImage }}" alt="{{ post.data.title }} – {{ post.data.description }}" />
+
+                <figcaption>
+
+                  <div class="teaser_intro wrapper_ntr">
+
+                    <h2 class="ease_in">{{ post.data.title }}</h2>
+                    <h5 class="ease_in">{{ post.data.description }}</h5>
+                    <svg class="teaser_btn">
+                      <use xlink:href="#teaser_btn"></use>
+                    </svg>
+
+                  </div>
+
+                </figcaption>
+
+              </figure>
+            </a>
+            </article>
+
+          </li>
+
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>

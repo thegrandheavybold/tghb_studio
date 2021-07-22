@@ -1,0 +1,150 @@
+---
+permalink: /{{ locale }}/leistungen/index.html
+translationKey: "leistungen"
+---
+<section class="pg_hro">
+  <div class="wrapper">
+
+    <div class="sctn__hdr __50 grd">
+
+      <div class="spn2">
+        <h1>Lorem Ipsum dolor Sit dolor lorem. </h1>
+      </div>
+
+      <div class="sbln_lnk spn2">
+
+        <p class="intro">Lorem ipsum dolor sit atem et dolor sit atom lore it.</p>
+
+      </div>
+
+  </div>
+</section>
+<section class="srvcs__1">
+  <div class="wrapper_w_img grd">
+
+    <div class="item__1">
+      {% lazypicture "placeholder.jpg", "Placeholder"%}
+    </div>
+
+    <div class="srvc__item item__2">
+      <h2>Identität & Strategie</h2>
+      <ul class="srvc_list">
+        <li class="srvc_list__item">Markenentwicklung</li>
+        <li class="srvc_list__item">Markenführung</li>
+        <li class="srvc_list__item">Corporate Identity</li>
+        <li class="srvc_list__item">Corporate Design</li>
+      </ul>
+      <!-- <a class="big__link" href="#">A main link.</a> -->
+    </div>
+
+    <div class="item__3">
+      {% lazypicture "placeholder.jpg", "Placeholder"%}
+    </div>
+
+    <div class="srvc__item item__4">
+      <h2>Kommunikation & Design</h2>
+      <ul class="srvc_list">
+        <li class="srvc_list__item">Kampagne</li>
+        <li class="srvc_list__item">Content</li>
+        <li class="srvc_list__item">Corporate Publishing</li>
+        <li class="srvc_list__item">Packaging & POS</li>
+      </ul>
+      <!-- <a class="big__link" href="#">A main link.</a> -->
+    </div>
+
+  </div>
+</section>
+
+<section class="hro">
+  {% lazypicture "placeholder.jpg", "Placeholder"%}
+</section>
+
+<section class="srvcs__2">
+  <div class="wrapper_w_img grd">
+
+    <div class="item__1">
+      {% lazypicture "placeholder.jpg", "Placeholder"%}
+    </div>
+
+    <div class="srvc__item item__2">
+      <h2>Web & Digital</h2>
+      <ul class="srvc_list">
+        <li class="srvc_list__item">Websites</li>
+        <li class="srvc_list__item">Social Media</li>
+        <li class="srvc_list__item">SEM (SEO, SEA)</li>
+        <li class="srvc_list__item">Interfaces (UI/UX)</li>
+      </ul>
+      <!-- <a class="big__link" href="#">A main link.</a> -->
+    </div>
+
+    <div class="item__3">
+      {% lazypicture "placeholder.jpg", "Placeholder"%}
+    </div>
+
+    <div class="srvc__item item__4">
+      <h2>Interior & Produktion</h2>
+      <ul class="srvc_list">
+        <li class="srvc_list__item">Planung</li>
+        <li class="srvc_list__item">Entwicklung</li>
+        <li class="srvc_list__item">Design</li>
+        <li class="srvc_list__item">Realisation</li>
+      </ul>
+      <!-- <a class="big__link" href="#">A main link.</a> -->
+    </div>
+
+  </div>
+</section>
+
+<section class="hro __100">
+  {% lazypicture "placeholder.jpg", "Placeholder"%}
+</section>
+
+<section class="srvcs__3">
+  <div class="wrapper_w_img grd">
+
+    <div class="item__1">
+      {% lazypicture "placeholder.jpg", "Placeholder"%}
+    </div>
+
+    <div class="srvc__item item__2">
+      <h2>Fotografie & Motion</h2>
+      <ul class="srvc_list">
+        <li class="srvc_list__item">Image Fotografie</li>
+        <li class="srvc_list__item">TV Spots & Markenfilme</li>
+        <li class="srvc_list__item">Social Media Videos</li>
+        <li class="srvc_list__item">3D & Animationen</li>
+      </ul>
+      <!-- <a class="big__link" href="#">A main link.</a> -->
+    </div>
+
+  </div>
+</section>
+
+<section class="frnt_sctn qts">
+
+  <div class="wrapper grd">
+
+    <div class="sctn_ttl">{{ translate[locale].attitude }}</div>
+    <!-- Slider main container -->
+    <div class="swiper-container qts_swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for quotes in quoteList.de %}
+
+        <div class="swiper-slide"><h1>{{ quotes }}</h1></div>
+
+        {% endfor %}
+
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination swiper-bullets"></div>
+    </div>
+
+  </div>
+
+</section>
+
+{%- include "partials/newsletter.njk" -%}
+
+{%- include "partials/contact.njk" -%}
