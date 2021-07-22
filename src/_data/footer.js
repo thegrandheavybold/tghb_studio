@@ -14,9 +14,9 @@ module.exports = {
     cgn_addressCity: "Köln",
     cgn_phone: "+49 163 203 27 54",
 
-    link_BusinessTerms: "AVG",
-    link_Imprint: "Impressum",
-    link_PrivacyPolicy: "Datenschutz",
+    link_BusinessTerms: "avg",
+    link_Imprint: "impressum",
+    link_PrivacyPolicy: "datenschutz",
     copyrights: "©2021 TheGrandHeavyBold GbR",
   },
   en: {
@@ -34,9 +34,9 @@ module.exports = {
     cgn_addressCity: "Cologne",
     cgn_phone: "+49 163 203 27 54",
 
-    link_BusinessTerms: "AVG",
-    link_Imprint: "Imprint",
-    link_PrivacyPolicy: "Privacy Policy",
-    copyrights: "©2021 TheGrandHeavyBold GbR",
+    link_BusinessTerms: "avg",
+    link_Imprint: "imprint",
+    link_PrivacyPolicy: "privacy",
+    copyrights: "©{{ year }} TheGrandHeavyBold GbR",
   },
 };

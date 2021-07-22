@@ -2,7 +2,7 @@
   "name": "tghb_studio",
   "version": "1.0.0",
   "description": "TheGrandHeavyBold is a Creative Design Studio",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
@@ -13,6 +13,12 @@
   "author": "Christian Kriegsheim <kriegsheim@tghb.studio>",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1",
+    "normalize.css": "^8.0.1",
+    "swiper": "^6.7.0"
+  },
+  "devDependencies": {
     "@11ty/eleventy": "^0.12.1"
   }
 }

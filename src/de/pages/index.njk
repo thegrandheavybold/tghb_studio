@@ -1,11 +1,210 @@
 ---
 permalink: /{{ locale }}/index.html
+translationKey: "home"
 ---
 
-{% set metaTitle = site[locale].metaTitle %}
-{% set metaDescription = site[locale].metaDescription %}
-{% set metaImage = site[locale].metaImage %}
+<section class="frnt_hro">
 
-{% block content %}
-  {# page content #}
-{% endblock %}
+  <div class="wrapper">
+
+    <h2>Strategie & Identität, <br>Gestaltung & Realisation.</h2>
+
+  </div>
+
+
+</section>
+
+<section class="frnt_sctn">
+
+  <div class="wrapper">
+
+    <div class="sctn_ttl">{{ translate[locale].services }}</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2">
+        <h2>Markenerlebnisse & Produkte die begeistern und inspirieren.</h2>
+      </div>
+
+      <div class="sbln_lnk spn2">
+
+        <p class="intro">Medienübergreifende Markenkommunikation – wir erwecken Inhalte zum Leben.</p>
+
+        <div class="teaser__links">
+
+          <a class="lnk__18 hypr" href="/{{ locale }}/index.html">
+            <svg class="hyperlink_btn">
+              <use xlink:href="#hyperlink_btn"></use>
+            </svg> Alle Leistungen</a>
+
+          <a class="lnk__18 hypr" href="/{{ locale }}/index.html">
+            <svg class="hyperlink_btn">
+              <use xlink:href="#hyperlink_btn"></use>
+            </svg> Mehr über uns</a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="frnt_srvcs__clmns">
+      <div class="grd">
+        <div class="clmn__1">
+          <h6>Identität & Strategie</h6>
+          <p>
+            In einem offenen Dialog explorieren wir gemeinsam zum Beginn eines Projekts den Zweck, die Bedeutung und die Beziehungen Ihrer Unternehmung. Wir legen frei was Ihr Unternemen, Ihr Produkt einzigartig macht und erschaffen eine unverwechselbare und klare Identität. Darauf basierend entwickeln wir eine Kommunikationsstrategie für nachhaltigen Erfolg.
+          </p>
+        </div>
+
+        <div class="clmn__2">
+          <h6>Gestaltung</h6>
+          <p>
+            Wir erwecken die visuelle Haltung Ihrer Marke zum Leben. Medienübergreifend, im realen oder virtuellen Raum, und auf Basis einer fundierten Markenstrategie. Wir entwickeln den nötigen charakteristischen Auftritt Ihrer Marke und machen den Wert Ihrer Marke sichtbar um Ihr die Wiedererkennbarkeit und die positive Wahrnehmung zu sichern.
+          </p>
+        </div>
+
+        <div class="clmn__3">
+          <h6>Realisation</h6>
+          <p>
+            Das Maß für unsere Arbeit ist die Qualität Ihrer Interaktion. In einer schnellen und komplexen Welt schaffen wir einfache und intelligente Lösungen. Ob analog oder digital, wir übersetzen abstrakte Inhalte mit un­konventio­nellen Ideen in emotionales Design und machen Ihre Marke sichtbar und erlebbar und sorgen für ein unverwechselbares Marken­erleb­nis am Puls der Zeit.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="frnt_sctn prjcts drk">
+
+  <div class="wrapper">
+
+    <div class="sctn_ttl">{{ translate[locale].projects }}</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2">
+        <h2>Zwei flinke Boxer jagen die quirlige Eva.</h2>
+      </div>
+
+      <div class="ntr_lnk spn2">
+
+        <p class="intro">Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett.</p>
+
+        <a class="lnk__18" href="/{{ locale }}/{{ navigation[locale].projects }}">
+          <svg class="hyperlink_btn">
+            <use xlink:href="#hyperlink_btn"></use>
+          </svg> {{ translate[locale].all_projects }}</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="frnt_prjcts">
+
+      <div class="tsr">
+
+        {% for post in collections.posts_de.slice(0, 6) | reverse %}
+          {% if loop.first %}<ul class="grd">{% endif %}
+            {% set counter = ( counter | default(0) ) + 1 %}
+            <li class="item__{{ counter }}">
+
+              <article>
+                <a href="{{ post.url }}">
+                <figure class="lazy lazy_initial">
+                  <source srcset="{{ post.data.featuredImage }}" media="(min-width: 1200px)">
+                  <source srcset="{{ post.data.featuredImage }}" media="(min-width: 740px)">
+                  <img src="{{ post.data.featuredImage }}" alt="{{ post.data.title }} – {{ post.data.description }}" />
+
+                  <figcaption>
+
+                    <div class="teaser_intro wrapper_ntr">
+
+                      <h2 class="ease_in">{{ post.data.title }}</h2>
+                      <h5 class="ease_in">{{ post.data.description }}</h5>
+                      <svg class="teaser_btn">
+                        <use xlink:href="#teaser_btn"></use>
+                      </svg>
+
+                    </div>
+
+                  </figcaption>
+
+                </figure>
+              </a>
+              </article>
+
+            </li>
+
+          {% if loop.last %}</ul>{% endif %}
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+    <a class="big__link cntr" href="/{{ locale }}/{{ navigation[locale].projects }}">{{ translate[locale].all_projects }}</a>
+
+  </div>
+
+</section>
+
+<section class="frnt_sctn qts">
+
+  <div class="wrapper grd">
+
+    <div class="sctn_ttl">{{ translate[locale].attitude }}</div>
+    <!-- Slider main container -->
+    <div class="swiper-container qts_swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for quotes in quoteList.de %}
+
+        <div class="swiper-slide"><h1>{{ quotes }}</h1></div>
+
+        {% endfor %}
+
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination swiper-bullets"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="ppl">
+
+  <!-- Slider main container -->
+  <div class="swiper-container ppl_sldr">
+
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">{% lazypicture "tghb_studio-team_christian_01.jpg", "Christian Kriegsheim" %}</div>
+      <div class="swiper-slide">{% lazypicture "tghb_studio-team_tomas_01.jpg", "Tomas Nims-Matousek" %}</div>
+      <div class="swiper-slide">{% lazypicture "tghb_studio-team_feli_01.jpg", "Felicity Nims-Matousek" %}</div>
+      <div class="swiper-slide">{% lazypicture "tghb_studio-team_christian_02.jpg", "Christian Kriegsheim" %}</div>
+      <div class="swiper-slide">{% lazypicture "tghb_studio-team_tomas_03.jpg", "Tomas Nims-Matousek" %}</div>
+      <div class="swiper-slide">{% lazypicture "tghb_studio-team_feli_02.jpg", "Felicity Nims-Matousek" %}</div>
+    </div>
+
+    <div class="ppl_sldr__wrapper">
+      <div class="sctn_ttl">Team</div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination swiper-bullets"></div>
+    </div>
+
+  </div>
+
+</section>
+
+{%- include "partials/newsletter.njk" -%}
+
+{%- include "partials/contact.njk" -%}

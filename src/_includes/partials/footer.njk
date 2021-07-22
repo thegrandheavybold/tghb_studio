@@ -1,40 +1,44 @@
 <footer>
 
-  <h1>Bold never Regular.</h1>
+  <div class="wrapper">
 
-  <div class="footer__info">
+    <h4>Bold <span>never Regular.</span></h4>
 
-    <div class="footer__adress">
-      {{ footer[locale].ffm_addressTitle }}
-      {{ footer[locale].ffm_addressStreet }} {{ footer[locale].ffm_addressNumber }}
-      {{ footer[locale].ffm_addressPostcode }} {{ footer[locale].ffm_addressCity }}
-      <a href="tel:{{ footer[locale].ffm_phone }}">{{ footer[locale].ffm_phone }}</a>
-    </div>
+    <div class="footer__info grd">
 
-    <div class="footer__adress">
-      {{ footer[locale].cgn_addressTitle }}
-      {{ footer[locale].cgn_addressStreet }} {{ footer[locale].cgn_addressNumber }}
-      {{ footer[locale].cgn_addressPostcode }} {{ footer[locale].cgn_addressCity }}
-      <a href="tel:{{ footer[locale].cgn_phone }}">{{ footer[locale].cgn_phone }}</a>
-    </div>
+      <ul class="footer__adress">
+        <li><strong>{{ footer[locale].ffm_addressTitle }}</strong></li>
+        <li>{{ footer[locale].ffm_addressStreet }} {{ footer[locale].ffm_addressNumber }}</li>
+        <li>{{ footer[locale].ffm_addressPostcode }} {{ footer[locale].ffm_addressCity }}</li>
+        <li><a href="tel:{{ footer[locale].ffm_phone }}">{{ footer[locale].ffm_phone }}</a></li>
+      </ul>
 
-    <div class="footer__links">
-      <a href="">{{ footer[locale].link_BusinessTerms }}</a>
-      <a href="">{{ footer[locale].link_Imprint }}</a>
-      <a href="">{{ footer[locale].link_PrivacyPolicy }}</a>
-      <span>{{ footer[locale].copyrights }}</span>
-    </div>
+      <ul class="footer__adress">
+        <li><strong>{{ footer[locale].cgn_addressTitle }}</strong></li>
+        <li>{{ footer[locale].cgn_addressStreet }} {{ footer[locale].cgn_addressNumber }}</li>
+        <li>{{ footer[locale].cgn_addressPostcode }} {{ footer[locale].cgn_addressCity }}</li>
+        <li><a href="tel:{{ footer[locale].cgn_phone }}">{{ footer[locale].cgn_phone }}</a></li>
+      </ul>
 
-    <div class="footer__social">
-      <a href="">LinkedIn</a>
-      <a href="">Xing</a>
-    </div>
+      <ul class="footer__links legal">
+        <li><a class="llcps" href="/{{ locale}}/{{ footer[locale].link_BusinessTerms }}">{{ footer[locale].link_BusinessTerms }}</a></li>
+        <li><a class="cps" href="/{{ locale}}/{{ footer[locale].link_Imprint }}">{{ footer[locale].link_Imprint }}</a></li>
+        <li><a class="cps" href="/{{ locale}}/{{ footer[locale].link_PrivacyPolicy }}">{{ footer[locale].link_PrivacyPolicy }}</a></li>
+        <li><span class="copyrights">{{ footer[locale].copyrights }}</span></li>
+      </ul>
 
-    <div class="footer__social">
-      <a href="">Instagram</a>
-      <a href="">Facebook</a>
-      <a href="">Twitter</a>
-      <a href="">Bechance</a>
+      <ul class="footer__social">
+        <li><a href="">LinkedIn</a></li>
+        <li><a href="">Xing</a></li>
+      </ul>
+
+      <ul class="footer__social">
+        <li><a href="https://instagram.com/tghb.studio">Instagram</a></li>
+        <li><a href="https://www.facebook.com/tghb.studio/">Facebook</a></li>
+        <li><a href="https://twitter.com/tghbstudio/">Twitter</a></li>
+        <li><a href="">Bechance</a></li>
+      </ul>
+
     </div>
 
   </div>

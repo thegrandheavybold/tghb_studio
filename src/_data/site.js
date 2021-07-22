@@ -1,17 +1,17 @@
 module.exports = {
   url: "https://www.tghb.studio",
   baseUrl: "/",
-  name: "TheGrandHeavyBold Design Studio – Christian Kriegsheim & Tomas Nims-Matousek",
-  author: "Christian Kriegsheim & Tomas Nims-Matousek",
+  name: "TheGrandHeavyBold Design Studio – Christian Kriegsheim & Tomáš Nims-Matoušek",
+  author: "Christian Kriegsheim & Tomáš Nims-Matoušek",
   authorTwitter: "@tghbstudio",
-  buildTime: new Date(),
+  //buildTime: new Date(),
   languages: [
     {
-      label: "deutsch",
+      label: "Deutsch",
       code: "de",
     },
     {
-      label: "english",
+      label: "English",
       code: "en",
     },
   ],
