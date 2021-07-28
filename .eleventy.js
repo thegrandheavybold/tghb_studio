@@ -2,7 +2,7 @@ module.exports = function(eleventyConfig) {
 
   const moment = require("moment");
 
-  eleventyConfig.addPassthroughCopy("src/js/main.js");
+  eleventyConfig.addPassthroughCopy("src/js/main-min.js");
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/style.css");
 
