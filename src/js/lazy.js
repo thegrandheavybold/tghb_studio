@@ -10,7 +10,7 @@ function updateAttributeURL(element, attr, swapOut, swapIn) {
 function loadImage(picture) {
 
   var sources = picture.children;
-  var loadingPath = "assets/img/tiny";
+  var loadingPath = "assets/img/placeholder.jpg";
   var sizes = ["large","medium","small"];
 
   for(var s=0; s<sources.length; s++) {
@@ -43,7 +43,7 @@ function lazyLoad(elements) {
 // Set up the intersection observer to detect when to define
 // and load the real image source
 var options = {
-  rootMargin: "50px",
+  rootMargin: "100px",
   threshold: 1.0
 };
 var observer = new IntersectionObserver(lazyLoad, options);
