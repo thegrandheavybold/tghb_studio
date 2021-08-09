@@ -1202,19 +1202,23 @@ hr {
   margin-bottom: 1.5em;
 }
 
+figure {
+  margin: 0;
+}
+
 img {
   height: auto;
   width: 100%;
 }
 
-.lazy, .lazy_initial {
+.lazy .lazy_initial {
   line-height: 0;
   font-size: 0;
   display: block;
 }
 
-figure {
-  margin: 0;
+picture.lazy_initial {
+  filter: blur(20px);
 }
 
 /*** */
