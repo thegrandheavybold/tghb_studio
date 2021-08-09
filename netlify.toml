@@ -6,6 +6,12 @@
 [dev]
   command = "npm run build"
 
+[build.processing.html]
+  pretty_urls = true
+  
+[build.processing.images]
+  compress = true
+
 [[redirects]]
   from = "/img/tiny/*"
   to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=20"
@@ -13,17 +19,17 @@
 
 [[redirects]]
   from = "/img/small/*"
-  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=500"
+  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=700"
   status = 302
 
 [[redirects]]
   from = "/img/medium/*"
-  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=600"
+  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=800"
   status = 302
 
 [[redirects]]
   from = "/img/large/*"
-  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=700"
+  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=1200"
   status = 302
 
 [[redirects]]
