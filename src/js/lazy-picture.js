@@ -4,6 +4,6 @@ module.exports = (ImageName, ImageAlt) => {
   return `<picture class="lazy lazy-initial">
             <source srcset="/assets/img/tiny/${ImageName}" media="(min-width: 1200px)">
             <source srcset="/assets/img/tiny/${ImageName}" media="(min-width: 740px)">
-            <img src="/assets/img/tiny/${ImageName}" alt="${ImageAlt}" />
+            <img src="/assets/img/placeholder.jpg" alt="${ImageAlt}" />
           </picture>`;
 };

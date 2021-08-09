@@ -1471,7 +1471,9 @@ picture.lazy-initial {
   background: #EBFE62;
 }
 picture.lazy-initial img {
-  display: none;
+  width: calc(100% + 2 * $blurRadius);
+  filter: blur(40px);
+  margin: -20px -40px -40px -20px;
 }
 
 /*** */
