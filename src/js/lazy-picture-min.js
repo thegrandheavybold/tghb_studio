@@ -1,0 +1,1 @@
+module.exports=(s,i)=>`<picture class="lazy lazy_initial">\n            <source srcset="/assets/img/tiny/${s}" media="(min-width: 1200px)">\n            <source srcset="/assets/img/tiny/${s}" media="(min-width: 740px)">\n            <img src="/assets/img/tiny/${s}" alt="${i}" />\n          </picture>`;
