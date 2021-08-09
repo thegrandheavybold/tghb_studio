@@ -23,7 +23,7 @@ function loadImage(picture) {
 
     // remove the lazy-initial class when the full image is loaded to unblur
     sources[s].addEventListener('load', image => {
-      image.target.closest("picture").classList.remove("lazy-initial")
+      image.target.closest("picture").classList.remove("lazy_initial")
     }, false);
   }
 
