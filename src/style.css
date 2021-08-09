@@ -1601,6 +1601,7 @@ button.menu-toggle {
   left: 0;
   background: #A5D5DA;
   transition: all ease 0.7s;
+  transition-property: transform, opacity;
   z-index: -1;
   overflow-x: scroll;
 }

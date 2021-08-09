@@ -1,6 +1,5 @@
 import 'navigation.js'
 import 'lazy.js'
-//import 'swiper.js'
 
 // import Swiper bundle with all modules installed
 import Swiper from 'swiper/swiper-bundle.js';
