@@ -1,5 +1,4 @@
 import 'navigation.js'
-import 'picture.js'
 import 'lazy.js'
 //import 'swiper.js'
 

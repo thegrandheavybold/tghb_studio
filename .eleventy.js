@@ -6,14 +6,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/style.css");
 
-  // Universl Shortcode -- Responsive Images
-  eleventyConfig.addShortcode("lazypicture", function(ImageName, ImageAlt){
-    return `<picture class="lazy lazy_initial">
-              <source srcset="/assets/img/tiny/${ImageName}" media="(min-width: 1200px)">
-              <source srcset="/assets/img/tiny/${ImageName}" media="(min-width: 740px)">
-              <img src="/assets/img/tiny/${ImageName}" alt="${ImageAlt}" />
-            </picture>`;
-  });
+  // A responsive image helper using Netlify Large Media - image transformation
+  eleventyConfig.addShortcode("picture", require("./src/js/picture.js"));
+  // A lazy loading image helper using Netlify Large Media - image transformation
+  eleventyConfig.addShortcode("lazypicture", require("./src/js/lazy-picture.js"));
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
