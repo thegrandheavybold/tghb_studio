@@ -1211,16 +1211,6 @@ img {
   width: 100%;
 }
 
-.lazy .lazy_initial {
-  line-height: 0;
-  font-size: 0;
-  display: block;
-}
-
-picture.lazy_initial {
-  filter: blur(20px);
-}
-
 /*** */
 a {
   color: #383838;
@@ -1465,6 +1455,24 @@ strong {
 
 /* ========================================================================== */
 /* End. Typography Styles*/
+picture {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
+}
+picture img {
+  width: 100%;
+  transition: filter 0.5s;
+}
+
+picture.lazy-initial img {
+  width: calc(100% + 2 * $blurRadius);
+  filter: blur(40px);
+  margin: -20px -40px -40px -20px;
+}
+
 /*** */
 header {
   margin: 0;
