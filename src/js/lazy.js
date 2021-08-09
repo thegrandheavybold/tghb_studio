@@ -16,14 +16,14 @@ function loadImage(picture) {
   for(var s=0; s<sources.length; s++) {
     // update the src or srcset urls
     if (sources[s].hasAttribute("srcset")) {
-      updateAttributeURL(sources[s], "srcset", loadingPath, "assets/img/"+sizes[s] );
+      updateAttributeURL(sources[s], "srcset", loadingPath, "img/"+sizes[s] );
     } else {
-      updateAttributeURL(sources[s], "src", loadingPath, "assets/img/"+sizes[s] );
+      updateAttributeURL(sources[s], "src", loadingPath, "img/"+sizes[s] );
     }
 
     // remove the lazy-initial class when the full image is loaded to unblur
     sources[s].addEventListener('load', image => {
-      image.target.closest("picture").classList.remove("lazy_initial")
+      image.target.closest("picture").classList.remove("lazy-initial")
     }, false);
   }
 
