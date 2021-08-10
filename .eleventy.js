@@ -7,9 +7,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/style.css");
 
   // A responsive image helper using Netlify Large Media - image transformation
-  eleventyConfig.addShortcode("picture", require("./src/js/picture.js"));
+  eleventyConfig.addShortcode("picture_w", require("./src/js/picture_l.js"));
+  eleventyConfig.addShortcode("picture_h", require("./src/js/picture_p.js"));
   // A lazy loading image helper using Netlify Large Media - image transformation
-  eleventyConfig.addShortcode("lazypicture", require("./src/js/lazy-picture.js"));
+  eleventyConfig.addShortcode("lazypicture_w", require("./src/js/lazy-picture_l.js"));
+  eleventyConfig.addShortcode("lazypicture_h", require("./src/js/lazy-picture_p.js"));
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
