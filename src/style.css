@@ -1467,9 +1467,6 @@ picture img {
   transition: filter 0.5s;
 }
 
-picture.lazy-initial {
-  background: #EBFE62;
-}
 picture.lazy-initial img {
   width: calc(100% + 2 * $blurRadius);
   filter: blur(40px);

@@ -10,7 +10,7 @@ function updateAttributeURL(element, attr, swapOut, swapIn) {
 function loadImage(picture) {
 
   var sources = picture.children;
-  var loadingPath = "assets/img/placeholder.jpg";
+  var loadingPath = "assets/img/tiny";
   var sizes = ["large","medium","small"];
 
   for(var s=0; s<sources.length; s++) {
