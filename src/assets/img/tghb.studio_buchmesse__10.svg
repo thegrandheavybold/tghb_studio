@@ -1,10 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440">
-  <g id="typo" transform="translate(0)">
-    <path id="Path_77" data-name="Path 77" d="M0,0H2560V1440H0Z" transform="translate(0)" fill="#e5e5e5"/>
-    <g id="Group_88" data-name="Group 88" transform="translate(216.762 1063.585)">
-      <text id="Bold" transform="translate(1186.14 74.854)" fill="#fd0d1b" font-size="97" font-family="ITCAvantGardePro-Bold, ITC Avant Garde Gothic Pro" font-weight="700"><tspan x="0" y="0">Bold</tspan></text>
-      <text id="Avant_Garde_Gothic_Pro" data-name="Avant Garde Gothic Pro" transform="translate(0.14 72)" fill="#222" font-size="96" font-family="ITCAvantGardePro-Bold, ITC Avant Garde Gothic Pro" font-weight="700"><tspan x="0" y="0">Avant Garde Gothic Pro</tspan></text>
-    </g>
-    <path id="Intersection_2" data-name="Intersection 2" d="M1085.262,399.516c0-140.094,96.853-255.977,241.258-255.977,52.756,0,111.557,19.895,140.1,67.457h1.735v-51.02h143.537v479.93H1468.351V588.027h-1.735c-25.937,49.293-88.207,68.316-140.1,68.316C1178.659,656.344,1085.262,542.2,1085.262,399.516Zm143.552,1.715c0,66.6,51.875,121.07,119.335,121.07,70.048,0,120.2-53.605,120.2-122.785,0-70.051-51.021-121.941-121.069-121.941S1228.813,332.922,1228.813,401.23ZM2263.921,639.906V268.93h-70.915V159.977h70.915V0h71.391V639.906Zm-260.3,0V377.9c0-53.621-10.381-99.453-75.225-99.453-66.593,0-82.163,43.242-82.163,100.3V639.906H1702.7V159.977h134.024V211h1.734c30.274-49.285,72.637-67.457,130.583-67.457,40.642,0,91.663,15.57,122.79,41.5,45.832,38.055,55.345,98.59,55.345,154.8V639.906Zm-1241.782,0L589.763,159.977H738.491l91.662,299.2h1.735l91.662-299.2h148.742L899.334,639.906Zm-299.205,0-31.128-92.531H209.276l-33.729,92.531H0L256.829,0H385.677l254.24,639.906Zm-208.4-222.23H388.278L322.554,198.895h-2.6Z" transform="translate(224.682 292.917)" fill="#fd0d1b"/>
-  </g>
-</svg>
+version https://git-lfs.github.com/spec/v1
+oid sha256:818e90fce68980093a4b055f290b5e765353b5615b4e2f8fcbc28606c23732cf
+size 1564
