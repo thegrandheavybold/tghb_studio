@@ -6,7 +6,8 @@ module.exports = (ImageName, ImageAlt) => {
             <source srcset="/assets/img/tiny/${ImageName}.jpg" type="image/jpeg" media="(min-width: 1025px)">
             <source srcset="/assets/img/tiny/${ImageName}.jpg?nf_resize=fit&w=480" type="image/jpeg" media="(min-width: 769px) and (max-width: 1024px)">
             <source srcset="/assets/img/tiny/${ImageName}.jpg?nf_resize=fit&w=768" type="image/jpeg" media="(min-width: 481px) and (max-width: 768px)">
+            <source srcset="/assets/img/${ImageName}.jpg?nf_resize=fit&w=480" type="image/jpeg" media="(max-width: 480px)">
 
-            <img src="/assets/img/tiny/${ImageName}.jpg?nf_resize=fit&w=480" alt="${ImageAlt}" />
+            <img src="/assets/img/${ImageName}.jpg" alt="${ImageAlt}" />
           </picture>`;
 };
