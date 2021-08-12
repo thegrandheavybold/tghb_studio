@@ -9,15 +9,14 @@
 	transition-property: transform, opacity
 	z-index: -1
 	overflow-x: scroll
-	backface-visibility: hidden
 
 .menu-toggle[aria-expanded= "false"] + .menu
-	transform: scale3d(0, 0, 0)
+	transform: scale(0)
 	opacity: 0
 	visibility: hidden
 
 .menu-toggle[aria-expanded="true"] + .menu
-	transform: scale3d(0, 0, 1rem)
+	transform: scale(1)
 	opacity: 1
 	visibility: visible
 

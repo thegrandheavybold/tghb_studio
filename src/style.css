@@ -1603,17 +1603,16 @@ button.menu-toggle {
   transition-property: transform, opacity;
   z-index: -1;
   overflow-x: scroll;
-  backface-visibility: hidden;
 }
 
 .menu-toggle[aria-expanded=false] + .menu {
-  transform: scale3d(0, 0, 0);
+  transform: scale(0);
   opacity: 0;
   visibility: hidden;
 }
 
 .menu-toggle[aria-expanded=true] + .menu {
-  transform: scale3d(0, 0, 1rem);
+  transform: scale(1);
   opacity: 1;
   visibility: visible;
 }
@@ -2095,12 +2094,12 @@ section.hro picture img {
 .tsr article a figcaption .teaser_btn {
   stroke: #383838;
   margin: 5vw 0 0;
-  stroke-dashoffset: -150;
+  stroke-dashoffset: 150;
   stroke-dasharray: 150;
   transition: all ease 0.9s;
 }
 .tsr article a figure:hover > figcaption .teaser_intro .teaser_btn {
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 300;
 }
 .tsr article a figure:hover > img {
   opacity: 0;
