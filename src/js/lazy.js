@@ -7,9 +7,9 @@ function updateAttributeURL(element, attr, swapOut, swapIn) {
 
 
 // Update the image source on elements in the picture element
-function loadImage(picture, figure) {
+function loadImage(picture) {
 
-  var sources = ["picture.children", "figure.children"];
+  var sources = picture.children;
   var loadingPath = "assets/img/tiny";
   var sizes = ["original","large","medium","small"];
 
@@ -23,12 +23,37 @@ function loadImage(picture, figure) {
 
     // remove the lazy-initial class when the full image is loaded to unblur
     sources[s].addEventListener('load', image => {
-      image.target.closest("picture", "figure").classList.remove("lazy-initial")
+      image.target.closest("picture").classList.remove("lazy-initial")
     }, false);
   }
 
 }
 
+
+
+
+// Update the image source on elements in the picture element
+function loadImageFigure(figure) {
+
+  var sources = figure.children;
+  var loadingPath = "assets/img/tiny";
+  var sizes = ["original","large","medium","small"];
+
+  for(var s=0; s<sources.length; s++) {
+    // update the src or srcset urls
+    if (sources[s].hasAttribute("srcset")) {
+      updateAttributeURL(sources[s], "srcset", loadingPath, "assets/img/"+sizes[s] );
+    } else {
+      updateAttributeURL(sources[s], "src", loadingPath, "assets/img/"+sizes[s] );
+    }
+
+    // remove the lazy-initial class when the full image is loaded to unblur
+    sources[s].addEventListener('load', image => {
+      image.target.closest("figure").classList.remove("lazy-initial")
+    }, false);
+  }
+
+}
 
 // Stop observing this image and load its source
 function lazyLoad(elements) {
@@ -36,10 +61,10 @@ function lazyLoad(elements) {
     if (item.intersectionRatio > 0) {
       observer.unobserve(item.target);
       loadImage(item.target);
+      loadImageFigure(item.target);
     };
   });
 };
-
 
 // Set up the intersection observer to detect when to define
 // and load the real image source
@@ -50,13 +75,7 @@ var options = {
 var observer = new IntersectionObserver(lazyLoad, options);
 
 // Watch for all pictures with a "lazy" class
-var pictures = document.querySelectorAll('picture.lazy');
+var pictures = document.querySelectorAll('lazy');
 pictures.forEach(pic => {
-  observer.observe(pic);
-});
-
-// Watch for all figures with a "lazy" class
-var figures = document.querySelectorAll('figure.lazy');
-figures.forEach(pic => {
   observer.observe(pic);
 });
