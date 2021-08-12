@@ -1603,6 +1603,7 @@ button.menu-toggle {
   transition-property: transform, opacity;
   z-index: -1;
   overflow-x: scroll;
+  backface-visibility: hidden;
 }
 
 .menu-toggle[aria-expanded=false] + .menu {
@@ -2100,7 +2101,7 @@ section.hro picture img {
 .tsr article a figure:hover > figcaption .teaser_intro .teaser_btn {
   stroke-dashoffset: 0;
 }
-.tsr article a figure:hover > img {
+.tsr article a figure:hover > picture img {
   opacity: 0;
   transform: scale(1.5);
 }
