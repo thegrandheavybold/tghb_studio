@@ -9,8 +9,7 @@ function updateAttributeURL(element, attr, swapOut, swapIn) {
 // Update the image source on elements in the picture element
 function loadImage(picture) {
 
-  var sources = picture.children;
-  var sources = figure.children;
+  var sources = ["picture.children", "figure.children"];
   var loadingPath = "assets/img/tiny";
   var sizes = ["original","large","medium","small"];
 
