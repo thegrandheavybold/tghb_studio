@@ -117,12 +117,11 @@ translationKey: "home"
               <article>
                 <a href="{{ post.url }}">
                 <figure class="lazy lazy_initial">
-                  <source srcset="{{ post.data.featuredImage }}.webp" type="image/webp">
+                  <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}" type="image/jpeg" media="(min-width: 1025px)">
+                  <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}?nf_resize=fit&w=1024" type="image/jpeg" media="(min-width: 769px)">
+                  <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}?nf_resize=fit&w=768" type="image/jpeg" media="(min-width: 481px)">
 
-                  <source srcset="{{ post.data.featuredImage }}.jpg" type="image/jpeg" media="(min-width: 1025px)">
-                  <source srcset="{{ post.data.featuredImage }}.jpg?nf_resize=fit&w=1024" type="image/jpeg" media="(min-width: 769px)">
-                  <source srcset="{{ post.data.featuredImage }}.jpg?nf_resize=fit&w=768" type="image/jpeg" media="(min-width: 481px)">
-                  <img src="{{ post.data.featuredImage }}.jpg?nf_resize=fit&w=480" alt="{{ post.data.title }} – {{ post.data.description }}" />
+                  <img src="/assets/img/tiny/{{ post.data.featuredImage }}.jpg?nf_resize=fit&w=480" alt="{{ post.data.title }} – {{ post.data.description }}" />
 
                   <figcaption>
 
