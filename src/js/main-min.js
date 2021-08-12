@@ -90,7 +90,7 @@
 	// Update the image source on elements in the picture element
 	function loadImage(picture, figure) {
 
-	  var sources = [picture.children, figure.children];
+	  var sources = ["picture.children", "figure.children"];
 	  var loadingPath = "assets/img/tiny";
 	  var sizes = ["original","large","medium","small"];
 
