@@ -2072,7 +2072,7 @@ section.hro picture img {
   backface-visibility: hidden;
   transition: brackground ease 0.6s;
 }
-.tsr article a figure img {
+.tsr article a figure picture img {
   opacity: 1;
   position: relative;
   transition: all ease 0.9s;
@@ -2101,7 +2101,7 @@ section.hro picture img {
 .tsr article a figure:hover > figcaption .teaser_intro .teaser_btn {
   stroke-dashoffset: 300;
 }
-.tsr article a figure:hover > img {
+.tsr article a figure:hover > picture img {
   opacity: 0;
   transform: scale(1.5);
 }

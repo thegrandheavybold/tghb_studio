@@ -19,6 +19,7 @@
 
     .item__6
       grid-area: f
+      
   article
     width: 100%
     height: 100%
@@ -28,6 +29,7 @@
       line-height: 0
       height: 100%
       width: 100%
+
       figure
         width: 100%
         height: 100%
@@ -40,14 +42,15 @@
         backface-visibility: hidden
         transition: brackground ease .6s
 
-        img
-          opacity: 1
-          position: relative
-          transition: all ease .9s
-          height: 101%
-          width: 100%
-          display: block
-          object-fit: cover
+        picture
+          img
+            opacity: 1
+            position: relative
+            transition: all ease .9s
+            height: 101%
+            width: 100%
+            display: block
+            object-fit: cover
 
       figcaption
         .teaser_intro
@@ -69,7 +72,7 @@
       figure:hover > figcaption .teaser_intro .teaser_btn
         stroke-dashoffset: 300
 
-      figure:hover > img
+      figure:hover > picture img
         opacity: 0
         transform: scale(1.5)
 
