@@ -2069,8 +2069,9 @@ section.hro picture img {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  background: #EBFE62;
+  background: transparent;
   backface-visibility: hidden;
+  transition: brackground ease 0.6s;
 }
 .tsr article a figure img {
   opacity: 1;
@@ -2108,6 +2109,9 @@ section.hro picture img {
 .tsr article a figure:hover > figcaption .teaser_intro {
   opacity: 1;
   transform: translateY(0px);
+}
+.tsr article a figure:hover {
+  background: #EBFE62;
 }
 
 @media only screen and (max-width: 768px) {

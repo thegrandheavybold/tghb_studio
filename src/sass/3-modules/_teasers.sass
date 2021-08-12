@@ -36,8 +36,10 @@
         overflow: hidden
         position: relative
         cursor: pointer
-        background: $neon
+        background: transparent
         backface-visibility: hidden
+        transition: brackground ease .6s
+
         img
           opacity: 1
           position: relative
@@ -74,6 +76,10 @@
       figure:hover > figcaption .teaser_intro
         opacity: 1
         transform: translateY(0px)
+
+      figure:hover
+        background: $neon
+
 
 @media only screen and (max-width: 768px)
   .tsr
