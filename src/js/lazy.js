@@ -9,7 +9,7 @@ function updateAttributeURL(element, attr, swapOut, swapIn) {
 // Update the image source on elements in the picture element
 function loadImage(picture) {
 
-  var sources = picture.children;
+  var sources = picture.children = figure.children;
   var loadingPath = "assets/img/tiny";
   var sizes = ["original","large","medium","small"];
 
@@ -23,7 +23,7 @@ function loadImage(picture) {
 
     // remove the lazy-initial class when the full image is loaded to unblur
     sources[s].addEventListener('load', image => {
-      image.target.closest("picture").classList.remove("lazy-initial")
+      image.target.closest("picture", "figure").classList.remove("lazy-initial")
     }, false);
   }
 
@@ -49,7 +49,7 @@ var options = {
 var observer = new IntersectionObserver(lazyLoad, options);
 
 // Watch for all pictures with a "lazy" class
-var pictures = document.querySelectorAll('picture.lazy');
+var pictures = document.querySelectorAll('picture.lazy', 'figure.lazy');
 pictures.forEach(pic => {
   observer.observe(pic);
 });
