@@ -2,6 +2,6 @@
 
 module.exports = (ImageName, ImageAlt) => {
   return `<picture class="lazy lazy-initial>
-            <img src="/assets/img/${ImageName}.svg" alt="${ImageAlt}" />
+            <img src="/assets/img/tiny/${ImageName}.svg" alt="${ImageAlt}" />
           </picture>`;
 };

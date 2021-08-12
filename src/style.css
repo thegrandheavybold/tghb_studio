@@ -1464,13 +1464,11 @@ picture {
 }
 picture img {
   width: 100%;
-  transition: filter 0.5s;
+  transition: all ease 0.7s;
 }
 
-picture.lazy-initial img {
-  width: calc(100% + 2 * $blurRadius);
+picture.lazy-initial {
   filter: blur(40px);
-  margin: -20px -40px -40px -20px;
 }
 
 /*** */

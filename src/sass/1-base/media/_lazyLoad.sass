@@ -7,11 +7,7 @@ picture
 
   img
     width: 100%
-    transition: filter 0.5s,
+    transition: all ease 0.7s
 
 picture.lazy-initial
-  //background: $neon
-  img
-    width: calc(100% + 2 * $blurRadius)
     filter: blur($blurRadius *2)
-    margin: ($blurRadius * -1) ($blurRadius * -2) ($blurRadius * -2)  ($blurRadius * -1)
