@@ -8,10 +8,8 @@ module.exports = function(eleventyConfig) {
 
   // A responsive image helper using Netlify Large Media - image transformation
   eleventyConfig.addShortcode("picture", require("./src/js/picture.js"));
-  eleventyConfig.addShortcode("svg", require("./src/js/svg.js"));
   // A lazy loading image helper using Netlify Large Media - image transformation
   eleventyConfig.addShortcode("lazypicture", require("./src/js/lazy-picture.js"));
-  eleventyConfig.addShortcode("lazysvg", require("./src/js/lazy-svg.js"));
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
