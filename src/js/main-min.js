@@ -159,6 +159,12 @@
 	  observer.observe(pic);
 	});
 
+	// Watch for all pictures with a "lazy" class
+	var figures = document.querySelectorAll('lazy');
+	figures.forEach(pic => {
+	  observer.observe(pic);
+	});
+
 	var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 	function createCommonjsModule(fn) {

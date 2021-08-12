@@ -79,3 +79,9 @@ var pictures = document.querySelectorAll('lazy');
 pictures.forEach(pic => {
   observer.observe(pic);
 });
+
+// Watch for all pictures with a "lazy" class
+var figures = document.querySelectorAll('lazy');
+figures.forEach(pic => {
+  observer.observe(pic);
+});
