@@ -43,8 +43,8 @@ function lazyLoad(elements) {
 // Set up the intersection observer to detect when to define
 // and load the real image source
 var options = {
-  rootMargin: "100px",
-  threshold: 1.0
+  rootMargin: "0px",
+  threshold: 0
 };
 var observer = new IntersectionObserver(lazyLoad, options);
 
