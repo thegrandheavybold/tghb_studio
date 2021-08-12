@@ -1467,7 +1467,8 @@ picture img {
   transition: all ease 0.7s;
 }
 
-picture.lazy-initial {
+picture.lazy-initial img {
+  width: calc(100% + $blurRadius *2);
   filter: blur(40px);
 }
 
