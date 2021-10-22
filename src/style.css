@@ -1146,6 +1146,16 @@ button.swiper-pagination-bullet {
   bottom: 0;
 }
 
+.hero_slider {
+  height: 100vh;
+  width: 100vw;
+}
+.hero_slider .swiper-slide picture img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .ppl_sldr .swiper-slide picture img {
   object-fit: cover;
   width: 100%;
