@@ -49,7 +49,7 @@ const ppl_sldr = new Swiper('.ppl_sldr', {
 
 });
 
-const hero_slider = new Swiper('.hero_slider', {
+const hro__sldr = new Swiper('.hro__sldr', {
   // Optional parameters
   direction: 'fade',
   loop: true,
