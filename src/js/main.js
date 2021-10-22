@@ -54,6 +54,7 @@ const hro__sldr = new Swiper('.hro__sldr', {
   effect: 'fade',
   loop: true,
   slidesPerView: 1,
+  spaceBetween: 40,
   //autoHeight: true,
   speed: 800,
   autoplay: {

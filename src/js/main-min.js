@@ -20901,6 +20901,7 @@
 	  effect: 'fade',
 	  loop: true,
 	  slidesPerView: 1,
+	  spaceBetween: 40,
 	  //autoHeight: true,
 	  speed: 800,
 	  autoplay: {
