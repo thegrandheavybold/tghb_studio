@@ -20896,7 +20896,7 @@
 
 	});
 
-	new Swiper('.hero_slider', {
+	new Swiper('.hro__sldr', {
 	  // Optional parameters
 	  direction: 'fade',
 	  loop: true,
