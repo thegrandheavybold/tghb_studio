@@ -653,7 +653,7 @@ footer .legal {
   top: 50%;
   width: calc(var(--swiper-navigation-size) / 44 * 27);
   height: var(--swiper-navigation-size);
-  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  margin-top: calc(0px - var(--swiper-navigation-size) / 2);
   z-index: 10;
   cursor: pointer;
   display: flex;
@@ -1146,12 +1146,12 @@ button.swiper-pagination-bullet {
   bottom: 0;
 }
 
-.ppl_sldr .swiper-slide picture img {
+.ppl_sldr .swiper-slide picture img, .hro__sldr .swiper-slide picture img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
-.ppl_sldr .ppl_sldr__wrapper {
+.ppl_sldr .ppl_sldr__wrapper, .hro__sldr .ppl_sldr__wrapper {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -1468,7 +1468,7 @@ picture img {
 }
 
 .lazy-initial img {
-  width: calc(100% + $blurRadius *2);
+  width: calc(100% + 40px);
   filter: blur(40px);
 }
 
@@ -1490,10 +1490,11 @@ header .header_bar__left {
   display: flex;
   align-items: center;
 }
-header .header_bar h6 {
+header .header_bar h6.tghb_subline {
   margin: 0 17px;
+  color: #0F0F0F;
 }
-header .header_bar h6 span {
+header .header_bar h6.tghb_subline span {
   font-family: "CircularStd-Book", sans-serif;
 }
 header p {
@@ -1512,7 +1513,7 @@ header p {
 svg.tghb_logo {
   height: min(max(15vw), 6.804rem);
   width: min(max(15vw), 6.804rem);
-  fill: #383838;
+  fill: #0F0F0F;
 }
 
 /*** */
@@ -1538,7 +1539,7 @@ button.menu-toggle {
   height: 6px;
   display: block;
   position: absolute;
-  background: #383838;
+  background: #0F0F0F;
   transition: all ease 0.7s;
 }
 .hamburger span::before, .hamburger span::after {
@@ -1598,7 +1599,7 @@ button.menu-toggle {
   position: fixed;
   top: 0;
   left: 0;
-  background: #A5D5DA;
+  background: #EBFE62;
   transition: all ease 0.7s;
   transition-property: transform, opacity;
   z-index: -1;

@@ -10,7 +10,8 @@ translationKey: "home"
     <h2>Strategie & Identität, <br>Gestaltung & Realisation.</h2>
 
   </div>
-
+  
+  {%- include "partials/hero_slider.njk" -%}
 
 </section>
 
@@ -88,12 +89,12 @@ translationKey: "home"
     <div class="sctn__hdr grd spcr">
 
       <div class="spn2">
-        <h2>Zwei flinke Boxer jagen die quirlige Eva.</h2>
+        <h2>Strategisch, progressiv und Nachhaltig.</h2>
       </div>
 
       <div class="ntr_lnk spn2">
 
-        <p class="intro">Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett.</p>
+        <p class="intro">Wir verstehen Kommunikation ganzheitlich und liefern alles aus einer Hand.</p>
 
         <a class="lnk__18" href="/{{ locale }}/{{ navigation[locale].projects }}">
           <svg class="hyperlink_btn">
@@ -119,7 +120,7 @@ translationKey: "home"
                 <figure>
 
                   <picture class="lazy lazy-initial">
-                    
+
                     <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}" media="(min-width: 1025px)">
                     <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}?nf_resize=fit&w=1024" media="(min-width: 769px)">
                     <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}?nf_resize=fit&w=768" media="(min-width: 481px)">

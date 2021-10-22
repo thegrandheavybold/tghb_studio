@@ -49,6 +49,18 @@ const ppl_sldr = new Swiper('.ppl_sldr', {
 
 });
 
+const hro__sldr = new Swiper('.hro__sldr', {
+  // Optional parameters
+  direction: 'fade',
+  loop: true,
+  slidesPerView: 1,
+  //autoHeight: true,
+  speed: 800,
+  autoplay: {
+   delay: 8000
+  },
+
+});
 
 import $ from 'jquery'
   $(document).ready(function()

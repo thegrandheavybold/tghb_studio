@@ -9,7 +9,7 @@ module.exports = {
 
     cgn_addressTitle: "Bureuau & Design",
     cgn_addressStreet: "Sömmeringstraße",
-    cgn_addressNumber: "71-73",
+    cgn_addressNumber: "71-75",
     cgn_addressPostcode: "50823",
     cgn_addressCity: "Köln",
     cgn_phone: "+49 163 203 27 54",
@@ -29,7 +29,7 @@ module.exports = {
 
     cgn_addressTitle: "Bureuau & Design",
     cgn_addressStreet: "Soemmeringstrasse",
-    cgn_addressNumber: "71-73",
+    cgn_addressNumber: "71-75",
     cgn_addressPostcode: "50823",
     cgn_addressCity: "Cologne",
     cgn_phone: "+49 163 203 27 54",

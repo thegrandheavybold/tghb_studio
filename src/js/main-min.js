@@ -136,10 +136,7 @@
 
 	var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-	function createCommonjsModule(fn) {
-	  var module = { exports: {} };
-		return fn(module, module.exports), module.exports;
-	}
+	var swiperBundle = {exports: {}};
 
 	/**
 	 * Swiper 6.7.0
@@ -153,7 +150,7 @@
 	 * Released on: May 31, 2021
 	 */
 
-	var swiperBundle = createCommonjsModule(function (module, exports) {
+	(function (module, exports) {
 	(function (global, factory) {
 	  module.exports = factory() ;
 	}(commonjsGlobal, (function () {
@@ -9992,8 +9989,12 @@
 	  return Swiper;
 
 	})));
-	//# sourceMappingURL=swiper-bundle.js.map
-	});
+
+	}(swiperBundle));
+
+	var Swiper = swiperBundle.exports;
+
+	var jquery = {exports: {}};
 
 	/*!
 	 * jQuery JavaScript Library v3.6.0
@@ -10009,7 +10010,7 @@
 	 * Date: 2021-03-02T17:08Z
 	 */
 
-	var jquery = createCommonjsModule(function (module) {
+	(function (module) {
 	( function( global, factory ) {
 
 		{
@@ -10040,9 +10041,7 @@
 
 	var slice = arr.slice;
 
-	var flat = arr.flat ? function( array ) {
-		return arr.flat.call( array );
-	} : function( array ) {
+	var flat = function( array ) {
 		return arr.concat.apply( [], array );
 	};
 
@@ -20847,9 +20846,11 @@
 
 	return jQuery;
 	} );
-	});
+	}(jquery));
 
-	new swiperBundle('.qts_swiper', {
+	var $ = jquery.exports;
+
+	new Swiper('.qts_swiper', {
 	  // Optional parameters
 	  direction: 'horizontal',
 	  loop: true,
@@ -20872,7 +20873,7 @@
 
 	});
 
-	new swiperBundle('.ppl_sldr', {
+	new Swiper('.ppl_sldr', {
 	  // Optional parameters
 	  direction: 'horizontal',
 	  loop: true,
@@ -20894,7 +20895,20 @@
 	  }
 
 	});
-	  jquery(document).ready(function()
+
+	new Swiper('.hro__sldr', {
+	  // Optional parameters
+	  direction: 'horizontal',
+	  loop: true,
+	  slidesPerView: 1,
+	  //autoHeight: true,
+	  speed: 800,
+	  autoplay: {
+	   delay: 8000
+	  },
+
+	});
+	  $(document).ready(function()
 	  {
 
 	});

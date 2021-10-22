@@ -7,7 +7,7 @@ translationKey: "home"
 
   <div class="wrapper">
 
-    <h2>Strategie & Identität, <br>Gestaltung & Realisation.</h2>
+    <h2>Strategy & Identity, <br>Design & Realization.</h2>
 
   </div>
 
@@ -18,56 +18,60 @@ translationKey: "home"
 
   <div class="wrapper">
 
-    <div class="sctn_ttl">Leistungen</div>
+    <div class="sctn_ttl">{{ translate[locale].services }}</div>
 
     <div class="sctn__hdr grd spcr">
 
       <div class="spn2">
-        <h2>Markenerlebnisse & Produkte die begeistern und inspirieren.</h2>
+        <h2>Brand experiences & products that excite and inspire.</h2>
       </div>
 
       <div class="sbln_lnk spn2">
 
-        <p class="intro">Medienübergreifende Markenkommunikation – wir erwecken Inhalte zum Leben.</p>
+        <p class="intro">Cross-media brand communication - we bring content to life.</p>
 
-        <a class="lnk__18 hypr" href="/{{ locale }}/index.html">
-          <svg class="hyperlink_btn">
-            <use xlink:href="#hyperlink_btn"></use>
-          </svg> Alle Leistungen</a>
+        <div class="teaser__links">
 
-        <a class="lnk__18 hypr" href="/{{ locale }}/index.html">
-          <svg class="hyperlink_btn">
-            <use xlink:href="#hyperlink_btn"></use>
-          </svg> Mehr über uns</a>
+          <a class="lnk__18 hypr" href="/{{ locale }}/index.html">
+            <svg class="hyperlink_btn">
+              <use xlink:href="#hyperlink_btn"></use>
+            </svg> All Services</a>
+
+          <a class="lnk__18 hypr" href="/{{ locale }}/index.html">
+            <svg class="hyperlink_btn">
+              <use xlink:href="#hyperlink_btn"></use>
+            </svg> More about us</a>
+
+        </div>
+
 
       </div>
 
     </div>
 
-    <div class="frnt_srvcs__clmns grd">
+    <div class="frnt_srvcs__clmns">
+      <div class="grd">
+        <div class="clmn__1">
+          <h6>Identity & Strategy</h6>
+          <p>
+            At the beginning of a project, we jointly explore the purpose, significance and relationships of your company in an open dialogue. We reveal what makes your company, your product unique and create a distinctive and clear identity. Based on this, we develop a communication strategy for sustainable success.
+          </p>
+        </div>
 
-      <div class="clmn spn2">
-        <h6>Identität & Strategie</h6>
-        <p>
-          In einem offenen Dialog explorieren wir gemeinsam zum Beginn eines Projekts den Zweck, die Bedeutung und die Beziehungen Ihrer Unternehmung. Wir legen frei was Ihr Unternemen, Ihr Produkt einzigartig macht und erschaffen eine unverwechselbare und klare Identität. Darauf basierend entwickeln wir eine Kommunikationsstrategie für nachhaltigen Erfolg.
-        </p>
+        <div class="clmn__2">
+          <h6>Layout</h6>
+          <p>
+            We bring your brand's visual attitude to life. Cross-media, in real or virtual space, and based on a well-founded brand strategy. We develop the necessary characteristic appearance of your brand and make the value of your brand visible in order to ensure your recognition and positive perception.
+          </p>
+        </div>
+
+        <div class="clmn__3">
+          <h6>Realization</h6>
+          <p>
+            The measure of our work is the quality of your interaction. In a fast and complex world, we create simple and intelligent solutions. Whether analog or digital, we translate abstract content with unconventional ideas into emotional design and make your brand visible and tangible and ensure an unmistakable brand experience at the cutting edge.
+          </p>
+        </div>
       </div>
-
-      <div class="clmn spn2">
-        <h6>Gestaltung</h6>
-        <p>
-          Wir erwecken die visuelle Haltung Ihrer Marke zum Leben. Medienübergreifend, im realen oder virtuellen Raum, und auf Basis einer fundierten Markenstrategie. Wir entwickeln den nötigen charakteristischen Auftritt Ihrer Marke und machen den Wert Ihrer Marke sichtbar um Ihr die Wiedererkennbarkeit und die positive Wahrnehmung zu sichern.
-        </p>
-      </div>
-
-      <div class="clmn spn2">
-        <h6>Realisation</h6>
-        <p>
-          Das Maß für unsere Arbeit ist die Qualität Ihrer Interaktion. In einer schnellen und komplexen Welt schaffen wir einfache und intelligente Lösungen. Ob analog oder digital, wir übersetzen abstrakte Inhalte mit un­konventio­nellen Ideen in emotionales Design und machen Ihre Marke sichtbar und erlebbar und sorgen für ein unverwechselbares Marken­erleb­nis am Puls der Zeit.
-        </p>
-      </div>
-
-
 
     </div>
 
@@ -84,17 +88,17 @@ translationKey: "home"
     <div class="sctn__hdr grd spcr">
 
       <div class="spn2">
-        <h2>Zwei flinke Boxer jagen die quirlige Eva.</h2>
+        <h2>Strategic, progressive and sustainable.</h2>
       </div>
 
       <div class="ntr_lnk spn2">
 
-        <p class="intro">Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett.</p>
+        <p class="intro">We understand communication holistically and deliver everything from a single source.</p>
 
-        <a class="lnk__18" href="/{{ locale }}/index.html">
+        <a class="lnk__18" href="/{{ locale }}/{{ navigation[locale].projects }}">
           <svg class="hyperlink_btn">
             <use xlink:href="#hyperlink_btn"></use>
-          </svg> Alle Projekte</a>
+          </svg> {{ translate[locale].all_projects }}</a>
 
       </div>
 
@@ -103,9 +107,56 @@ translationKey: "home"
 
     <div class="frnt_prjcts">
 
+      <div class="tsr">
+
+        {% for post in collections.posts_de.slice(0, 6) | reverse %}
+          {% if loop.first %}<ul class="grd">{% endif %}
+            {% set counter = ( counter | default(0) ) + 1 %}
+            <li class="item__{{ counter }}">
+
+              <article>
+                <a href="{{ post.url }}">
+                <figure>
+
+                  <picture class="lazy lazy-initial">
+
+                    <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}" media="(min-width: 1025px)">
+                    <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}?nf_resize=fit&w=1024" media="(min-width: 769px)">
+                    <source srcset="/assets/img/tiny/{{ post.data.featuredImage }}?nf_resize=fit&w=768" media="(min-width: 481px)">
+
+                    <img src="/assets/img/tiny/{{ post.data.featuredImage }}?nf_resize=fit&w=480" alt="{{ post.data.title }} – {{ post.data.description }}" />
+
+                  </picture>
+
+
+                  <figcaption>
+
+                    <div class="teaser_intro wrapper_ntr">
+
+                      <h2 class="ease_in">{{ post.data.title }}</h2>
+                      <h5 class="ease_in">{{ post.data.description }}</h5>
+                      <svg class="teaser_btn">
+                        <use xlink:href="#teaser_btn"></use>
+                      </svg>
+
+                    </div>
+
+                  </figcaption>
+
+                </figure>
+              </a>
+              </article>
+
+            </li>
+
+          {% if loop.last %}</ul>{% endif %}
+        {% endfor %}
+
+      </div>
+
     </div>
 
-    <a class="big__link cntr" href="#">Alle Projekte</a>
+    <a class="big__link cntr" href="/{{ locale }}/{{ navigation[locale].projects }}">{{ translate[locale].all_projects }}</a>
 
   </div>
 
@@ -113,7 +164,7 @@ translationKey: "home"
 
 <section class="frnt_sctn qts">
 
-  <div class="wrapper">
+  <div class="wrapper grd">
 
     <div class="sctn_ttl">{{ translate[locale].attitude }}</div>
     <!-- Slider main container -->
@@ -121,7 +172,7 @@ translationKey: "home"
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-        {% for quotes in quoteList.en %}
+        {% for quotes in quoteList.de %}
 
         <div class="swiper-slide"><h1>{{ quotes }}</h1></div>
 
