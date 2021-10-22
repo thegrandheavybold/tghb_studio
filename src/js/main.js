@@ -51,7 +51,7 @@ const ppl_sldr = new Swiper('.ppl_sldr', {
 
 const hro__sldr = new Swiper('.hro__sldr', {
   // Optional parameters
-  direction: 'fade',
+  effect: 'fade',
   loop: true,
   slidesPerView: 1,
   //autoHeight: true,
