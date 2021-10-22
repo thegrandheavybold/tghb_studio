@@ -20896,9 +20896,9 @@
 
 	});
 
-	new Swiper('.hro__sldr', {
+	new Swiper('.hero_slider', {
 	  // Optional parameters
-	  direction: 'horizontal',
+	  direction: 'fade',
 	  loop: true,
 	  slidesPerView: 1,
 	  //autoHeight: true,
