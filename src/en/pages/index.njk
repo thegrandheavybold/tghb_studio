@@ -11,27 +11,7 @@ translationKey: "home"
 
   </div>
 
-  <div class="hero_slider">
-
-    <!-- Slider main container -->
-    <div class="swiper-container hro__sldr">
-
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">{% picture "tghb.studio_hero__01.jpg", "TheGrandHeavyBold – Emporium" %}</div>
-        <div class="swiper-slide">{% picture "tghb.studio_hero__02.jpg", "TheGrandHeavyBold – xcllnt.shop" %}</div>
-        <div class="swiper-slide">{% picture "tghb.studio_hero__03.jpg", "TheGrandHeavyBold – Frankfurter Buchmesse" %}</div>
-        <div class="swiper-slide">{% picture "tghb.studio_hero__04.jpg", "TheGrandHeavyBold – Best Shop Berlin" %}</div>
-        <div class="swiper-slide">{% picture "tghb.studio_hero__05.jpg", "TheGrandHeavyBold – Tollkühnmedia" %}</div>
-        <div class="swiper-slide">{% picture "tghb.studio_hero__06.jpg", "TheGrandHeavyBold – mint&things" %}</div>
-        <div class="swiper-slide">{% picture "tghb.studio_hero__07.jpg", "TheGrandHeavyBold – scitech" %}</div>
-      </div>
-
-    </div>
-
-
-  </div>
+    {%- include "partials/hero_slider.njk" -%}
 
 </section>
 
@@ -116,10 +96,10 @@ translationKey: "home"
 
         <p class="intro">We understand communication holistically and deliver everything from a single source.</p>
 
-        <a class="lnk__18" href="/{{ locale }}/{{ navigation[locale].projects }}">
+        {#<a class="lnk__18" href="/{{ locale }}/{{ navigation[locale].projects }}">
           <svg class="hyperlink_btn">
             <use xlink:href="#hyperlink_btn"></use>
-          </svg> {{ translate[locale].all_projects }}</a>
+          </svg> {{ translate[locale].all_projects }}</a>#}
 
       </div>
 
@@ -177,7 +157,7 @@ translationKey: "home"
 
     </div>
 
-    <a class="big__link cntr" href="/{{ locale }}/{{ navigation[locale].projects }}">{{ translate[locale].all_projects }}</a>
+    {#<a class="big__link cntr" href="/{{ locale }}/{{ navigation[locale].projects }}">{{ translate[locale].all_projects }}</a>#}
 
   </div>
 
@@ -193,7 +173,7 @@ translationKey: "home"
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-        {% for quotes in quoteList.de %}
+        {% for quotes in quoteList.en %}
 
         <div class="swiper-slide"><h1>{{ quotes }}</h1></div>
 
@@ -210,27 +190,7 @@ translationKey: "home"
 
 <section class="ppl">
 
-  <!-- Slider main container -->
-  <div class="swiper-container ppl_sldr">
-
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-      <!-- Slides -->
-      <div class="swiper-slide">{% lazypicture "tghb_studio-team_christian_01.jpg", "Christian Kriegsheim" %}</div>
-      <div class="swiper-slide">{% lazypicture "tghb_studio-team_tomas_01.jpg", "Tomas Nims-Matousek" %}</div>
-      <div class="swiper-slide">{% lazypicture "tghb_studio-team_feli_01.jpg", "Felicity Nims-Matousek" %}</div>
-      <div class="swiper-slide">{% lazypicture "tghb_studio-team_christian_02.jpg", "Christian Kriegsheim" %}</div>
-      <div class="swiper-slide">{% lazypicture "tghb_studio-team_tomas_03.jpg", "Tomas Nims-Matousek" %}</div>
-      <div class="swiper-slide">{% lazypicture "tghb_studio-team_feli_02.jpg", "Felicity Nims-Matousek" %}</div>
-    </div>
-
-    <div class="ppl_sldr__wrapper">
-      <div class="sctn_ttl">Team</div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination swiper-bullets"></div>
-    </div>
-
-  </div>
+  {%- include "partials/team_slider.njk" -%}
 
 </section>
 
