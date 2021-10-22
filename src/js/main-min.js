@@ -20877,6 +20877,7 @@
 	  // Optional parameters
 	  direction: 'horizontal',
 	  loop: true,
+	  lazy: true,
 	  slidesPerView: 1,
 	  //autoHeight: true,
 	  speed: 800,
@@ -20900,8 +20901,9 @@
 	  // Optional parameters
 	  effect: 'fade',
 	  loop: true,
+	  lazy: true,
 	  slidesPerView: 1,
-	  spaceBetween: 40,
+	  spaceBetween: 0,
 	  //autoHeight: true,
 	  speed: 800,
 	  autoplay: {

@@ -30,6 +30,7 @@ const ppl_sldr = new Swiper('.ppl_sldr', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
+  lazy: true,
   slidesPerView: 1,
   //autoHeight: true,
   speed: 800,
@@ -53,8 +54,9 @@ const hro__sldr = new Swiper('.hro__sldr', {
   // Optional parameters
   effect: 'fade',
   loop: true,
+  lazy: true,
   slidesPerView: 1,
-  spaceBetween: 40,
+  spaceBetween: 0,
   //autoHeight: true,
   speed: 800,
   autoplay: {
