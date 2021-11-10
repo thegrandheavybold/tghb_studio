@@ -56,7 +56,6 @@ const hro__sldr = new Swiper('.hro__sldr', {
   loop: true,
   lazy: true,
   slidesPerView: 1,
-  spaceBetween: 0,
   //autoHeight: true,
   speed: 800,
   autoplay: {
@@ -65,8 +64,21 @@ const hro__sldr = new Swiper('.hro__sldr', {
 
 });
 
+//Scroll & Parallax Function
+window.addEventListener('scroll', function(e) {
+
+  const target = document.querySelector('.parallax');
+
+  var scrolled = window.pageYOffset;
+  var rate = scrolled * .35;
+  target.style.transform = 'translate3D(0px, '+rate+'px, 0px)';
+
+});
+
 import $ from 'jquery'
   $(document).ready(function()
   {
+
+
 
 });

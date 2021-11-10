@@ -1209,7 +1209,7 @@ img {
   width: 100%;
 }
 
-/*** */
+/*** links */
 a {
   color: #383838;
   font-family: "CircularStd-Bold", sans-serif;
@@ -1871,6 +1871,15 @@ footer .footer__info ul li span.copyrights {
 }
 .lght svg {
   stroke: #F5F4F4;
+}
+
+.wht {
+  background: #ffffff;
+}
+
+.parallax {
+  position: relative;
+  z-index: -1 !important;
 }
 
 .frnt_hro {
