@@ -1,0 +1,91 @@
+button,
+input,
+select,
+textarea
+  border: none
+  outline: none
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus
+  outline: none
+
+fieldset
+  padding: 0
+
+// Mailchimp CSS
+.mc-field-group
+  margin: 2rem 0
+
+.content__gdpr
+  .mc-field-group
+    margin: 2rem 0 0 0
+
+#mc-embedded-subscribe-form
+  input[type=checkbox]
+    display: inline
+    width: 15px
+    height: 15px
+    margin-right: 10px
+  input[type=checkbox]:checked
+    background-color: $gray
+
+#mergeRow-gdpr
+  margin-top: 20px
+
+#mergeRow-gdpr
+  fieldset label
+    font-weight: normal
+
+#mc-embedded-subscribe-form
+  .mc_fieldset
+    border: none
+    min-height: 0px
+    padding-bottom: 0px
+
+.mc-field-group
+  border: none
+  max-width: 1080px
+
+  input
+    border-bottom: 2px solid $gray
+    border-radius: 0px
+    width: 100%
+    text-indent: 1%
+    padding: 8px 0
+    display: block
+    transition: all ease .7s
+
+    label
+      display: block
+      margin: 3px 0
+
+  input:focus, select:focus
+    border-bottom: 2px solid $neon
+
+#mc_embed_signup div.mce_inline_error
+  margin: 0 0 1em 0
+  padding: 5px 10px
+  background: transparent !important
+  font-weight: bold
+  z-index: 1
+  color: #e85c41 !important
+
+
+#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error
+  border-bottom: 2px solid #e85c41
+
+
+
+#mc-embedded-subscribe
+  height: auto
+  width: auto
+  display: block
+  background: transparent
+  border: none
+  font-size: min(max(7vw), 2.625rem)
+  line-height: min(max(8vw), 3rem)
+  margin: 0 0 2vw 0
+  cursor: pointer
+  text-decoration: underline

@@ -1191,8 +1191,6 @@ html {
 
 body {
   background: #fff;
-  overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 hr {
@@ -1321,6 +1319,105 @@ table {
   width: 100%;
 }
 
+/*** forms */
+button,
+input,
+select,
+textarea {
+  border: none;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+fieldset {
+  padding: 0;
+}
+
+.mc-field-group {
+  margin: 2rem 0;
+}
+
+.content__gdpr .mc-field-group {
+  margin: 2rem 0 0 0;
+}
+
+#mc-embedded-subscribe-form input[type=checkbox] {
+  display: inline;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+#mc-embedded-subscribe-form input[type=checkbox]:checked {
+  background-color: #383838;
+}
+
+#mergeRow-gdpr {
+  margin-top: 20px;
+}
+
+#mergeRow-gdpr fieldset label {
+  font-weight: normal;
+}
+
+#mc-embedded-subscribe-form .mc_fieldset {
+  border: none;
+  min-height: 0px;
+  padding-bottom: 0px;
+}
+
+.mc-field-group {
+  border: none;
+  max-width: 1080px;
+}
+.mc-field-group input {
+  border-bottom: 2px solid #383838;
+  border-radius: 0px;
+  width: 100%;
+  text-indent: 1%;
+  padding: 8px 0;
+  display: block;
+  transition: all ease 0.7s;
+}
+.mc-field-group input label {
+  display: block;
+  margin: 3px 0;
+}
+.mc-field-group input:focus, .mc-field-group select:focus {
+  border-bottom: 2px solid #EBFE62;
+}
+
+#mc_embed_signup div.mce_inline_error {
+  margin: 0 0 1em 0;
+  padding: 5px 10px;
+  background: transparent !important;
+  font-weight: bold;
+  z-index: 1;
+  color: #e85c41 !important;
+}
+
+#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error {
+  border-bottom: 2px solid #e85c41;
+}
+
+#mc-embedded-subscribe {
+  height: auto;
+  width: auto;
+  display: block;
+  background: transparent;
+  border: none;
+  font-size: min(max(7vw), 2.625rem);
+  line-height: min(max(8vw), 3rem);
+  margin: 0 0 2vw 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 /* Typography Styles*/
 /* ========================================================================== */
 body,
@@ -1342,6 +1439,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 2vw 0;
   padding: 0;
   overflow-wrap: break-word;
+  font-weight: 400;
 }
 
 h1 {
@@ -1402,6 +1500,12 @@ p.copy {
   line-height: min(max(9vw), 2.079rem);
 }
 
+p.smll {
+  font-family: "CircularStd-Book", sans-serif;
+  font-size: min(max(4vw), 14px);
+  line-height: min(max(7vw), 33px);
+}
+
 dfn, cite, em, i {
   font-style: italic;
 }
@@ -1430,11 +1534,10 @@ pre {
 }
 
 code, kbd, tt, var {
-  font-family: "CircularStd-Book", sans-serif;
-  font-size: 16px;
-  font-size: 1.008rem;
-  line-height: 18px;
-  line-height: 1.134rem;
+  font-size: 14px;
+  font-size: 0.882rem;
+  line-height: 16px;
+  line-height: 1.008rem;
   letter-spacing: 0px;
   letter-spacing: 0rem;
 }
