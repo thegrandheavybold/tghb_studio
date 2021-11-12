@@ -9,6 +9,16 @@
 /*	Normalizing styles have been helped along thanks to the fine work of
  * Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/ */
 /*-------------------------------------------------------------- */
+/* Above the fold */
+@import "/assets/fonts/CircularStd-Book.css";
+@import "/assets/fonts/CircularStd-Bold.css";
+.menu-toggle[aria-expanded=false] + .menu {
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease 0.7s;
+}
+
 /* Normalize */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -17,8 +27,6 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import "/assets/fonts/CircularStd-Book.css";
-@import "/assets/fonts/CircularStd-Bold.css";
 html {
   line-height: 1.15;
   /* 1 */
@@ -1179,214 +1187,6 @@ button.swiper-pagination-bullet {
     padding: 8.82rem 6.804rem;
   }
 }
-/* Above the fold */
-/*** */
-header {
-  margin: 0;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  background: transparent;
-  z-index: 100;
-}
-header .header_bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-header .header_bar__left {
-  display: flex;
-  align-items: center;
-}
-header .header_bar h6.tghb_subline {
-  margin: 0 17px;
-  color: #0F0F0F;
-}
-header .header_bar h6.tghb_subline span {
-  font-family: "CircularStd-Book", sans-serif;
-}
-header p {
-  margin: 0;
-  padding: 0;
-}
-
-@media only screen and (max-width: 768px) {
-  .tghb_subline {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-/*** */
-svg.tghb_logo {
-  height: min(max(15vw), 6.804rem);
-  width: min(max(15vw), 6.804rem);
-  fill: #0F0F0F;
-}
-
-/*** */
-button.menu-toggle {
-  border: none;
-  border-radius: 0;
-  background: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.hamburger {
-  width: 45px;
-  height: 30px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.hamburger span, .hamburger span::before, .hamburger span::after {
-  width: 45px;
-  height: 6px;
-  display: block;
-  position: absolute;
-  background: #0F0F0F;
-  transition: all ease 0.7s;
-}
-.hamburger span::before, .hamburger span::after {
-  content: "";
-  display: block;
-}
-.hamburger span::before {
-  top: -12px;
-}
-.hamburger span::after {
-  bottom: -12px;
-}
-
-[aria-expanded=true] > .hamburger span {
-  transform: rotate(225deg);
-  transition: transform ease 0.5s 0.5s;
-}
-[aria-expanded=true] > .hamburger span::before {
-  top: 0;
-  opacity: 0;
-  transition: top ease 0.5s, opacity 0.5s 0.3s;
-}
-[aria-expanded=true] > .hamburger span::after {
-  bottom: 0;
-  transform: rotate(-90deg);
-  transition: bottom ease 0.5s, transform ease 0.5s 0.3s;
-}
-
-[aria-expanded=false] > .hamburger span {
-  transform: rotate(0deg);
-  transition: transform 0.5s, width ease 0.7s;
-}
-[aria-expanded=false] > .hamburger span::before {
-  top: -12px;
-  opacity: 1;
-  transition: opacity ease 0.5s 0.7s, top 0.5s 0.7s, width ease 0.7s;
-}
-[aria-expanded=false] > .hamburger span::after {
-  bottom: -12px;
-  transform: rotate(0);
-  transition: transform ease 0.5s 0.2s, bottom ease 0.5s 0.7s, width ease 0.7s;
-}
-[aria-expanded=false] > .hamburger:hover span {
-  width: 20px;
-}
-[aria-expanded=false] > .hamburger:hover span::after {
-  width: 10px;
-}
-[aria-expanded=false] > .hamburger:hover span::before {
-  width: 15px;
-}
-
-/*** */
-.menu {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #EBFE62;
-  transition: all ease 0.7s;
-  transition-property: transform, opacity;
-  z-index: -1;
-  overflow-x: scroll;
-}
-
-.menu-toggle[aria-expanded=false] + .menu {
-  transform: scale(0);
-  opacity: 0;
-  visibility: hidden;
-  transition: all ease 0.7s;
-}
-
-.menu-toggle[aria-expanded=true] + .menu {
-  transform: scale(1);
-  opacity: 1;
-  visibility: visible;
-}
-
-.menu__content {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-content: center;
-  padding: 15vw 0 0;
-}
-.menu__content .menu__items {
-  display: flex;
-  flex-direction: column;
-}
-.menu__content .menu__items ul.menu__links li a {
-  text-transform: capitalize;
-  font-size: min(max(17vw), 81px);
-  line-height: min(max(21vw), 84px);
-  letter-spacing: -0.2rem;
-}
-.menu__content .menu__info {
-  display: flex;
-  flex-direction: column;
-}
-.menu__content .menu__info ul {
-  list-style: none;
-  margin: 1rem 0;
-  padding: 0;
-}
-.menu__content .menu__info ul li {
-  font-size: min(max(6vw), 21px);
-  line-height: min(max(7vw), 33px);
-}
-.menu__content .menu__info ul li span.copyrights {
-  font-family: "CircularStd-Book", sans-serif;
-  font-size: min(max(4vw), 16px);
-  line-height: min(max(7vw), 33px);
-}
-.menu__content .menu__info .legal {
-  text-transform: capitalize;
-}
-.menu__content .menu__info .legal li:first-of-type {
-  text-transform: uppercase;
-}
-
-ul.lg_nav {
-  list-style: none;
-  display: flex;
-  margin: 3rem 0 0;
-}
-ul.lg_nav li.lg_nav__item {
-  width: auto;
-}
-ul.lg_nav li.lg_nav__item:nth-child(1) {
-  margin: 0 2rem 0 0;
-}
-ul.lg_nav li.lg_nav__item a.lg_nav__link {
-  font-family: "CircularStd-Book", sans-serif;
-}
-ul.lg_nav li.lg_nav__item a.lg_nav__link.is-active {
-  font-family: "CircularStd-Bold", sans-serif;
-}
-
 /* Import all styles */
 /*** elements */
 html,
@@ -1790,6 +1590,206 @@ picture img {
 .lazy-initial img {
   width: calc(100% + 40px);
   filter: blur(40px);
+}
+
+/*** */
+header {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background: transparent;
+  z-index: 100;
+}
+header .header_bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .header_bar__left {
+  display: flex;
+  align-items: center;
+}
+header .header_bar h6.tghb_subline {
+  margin: 0 17px;
+  color: #0F0F0F;
+}
+header .header_bar h6.tghb_subline span {
+  font-family: "CircularStd-Book", sans-serif;
+}
+header p {
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .tghb_subline {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/*** */
+svg.tghb_logo {
+  height: min(max(15vw), 6.804rem);
+  width: min(max(15vw), 6.804rem);
+  fill: #0F0F0F;
+}
+
+/*** */
+button.menu-toggle {
+  border: none;
+  border-radius: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 45px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hamburger span, .hamburger span::before, .hamburger span::after {
+  width: 45px;
+  height: 6px;
+  display: block;
+  position: absolute;
+  background: #0F0F0F;
+  transition: all ease 0.7s;
+}
+.hamburger span::before, .hamburger span::after {
+  content: "";
+  display: block;
+}
+.hamburger span::before {
+  top: -12px;
+}
+.hamburger span::after {
+  bottom: -12px;
+}
+
+[aria-expanded=true] > .hamburger span {
+  transform: rotate(225deg);
+  transition: transform ease 0.5s 0.5s;
+}
+[aria-expanded=true] > .hamburger span::before {
+  top: 0;
+  opacity: 0;
+  transition: top ease 0.5s, opacity 0.5s 0.3s;
+}
+[aria-expanded=true] > .hamburger span::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom ease 0.5s, transform ease 0.5s 0.3s;
+}
+
+[aria-expanded=false] > .hamburger span {
+  transform: rotate(0deg);
+  transition: transform 0.5s, width ease 0.7s;
+}
+[aria-expanded=false] > .hamburger span::before {
+  top: -12px;
+  opacity: 1;
+  transition: opacity ease 0.5s 0.7s, top 0.5s 0.7s, width ease 0.7s;
+}
+[aria-expanded=false] > .hamburger span::after {
+  bottom: -12px;
+  transform: rotate(0);
+  transition: transform ease 0.5s 0.2s, bottom ease 0.5s 0.7s, width ease 0.7s;
+}
+[aria-expanded=false] > .hamburger:hover span {
+  width: 20px;
+}
+[aria-expanded=false] > .hamburger:hover span::after {
+  width: 10px;
+}
+[aria-expanded=false] > .hamburger:hover span::before {
+  width: 15px;
+}
+
+/*** */
+.menu {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #EBFE62;
+  transition: all ease 0.7s;
+  transition-property: transform, opacity;
+  z-index: -1;
+  overflow-x: scroll;
+}
+
+.menu-toggle[aria-expanded=true] + .menu {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu__content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 15vw 0 0;
+}
+.menu__content .menu__items {
+  display: flex;
+  flex-direction: column;
+}
+.menu__content .menu__items ul.menu__links li a {
+  text-transform: capitalize;
+  font-size: min(max(17vw), 81px);
+  line-height: min(max(21vw), 84px);
+  letter-spacing: -0.2rem;
+}
+.menu__content .menu__info {
+  display: flex;
+  flex-direction: column;
+}
+.menu__content .menu__info ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+.menu__content .menu__info ul li {
+  font-size: min(max(6vw), 21px);
+  line-height: min(max(7vw), 33px);
+}
+.menu__content .menu__info ul li span.copyrights {
+  font-family: "CircularStd-Book", sans-serif;
+  font-size: min(max(4vw), 16px);
+  line-height: min(max(7vw), 33px);
+}
+.menu__content .menu__info .legal {
+  text-transform: capitalize;
+}
+.menu__content .menu__info .legal li:first-of-type {
+  text-transform: uppercase;
+}
+
+ul.lg_nav {
+  list-style: none;
+  display: flex;
+  margin: 3rem 0 0;
+}
+ul.lg_nav li.lg_nav__item {
+  width: auto;
+}
+ul.lg_nav li.lg_nav__item:nth-child(1) {
+  margin: 0 2rem 0 0;
+}
+ul.lg_nav li.lg_nav__item a.lg_nav__link {
+  font-family: "CircularStd-Book", sans-serif;
+}
+ul.lg_nav li.lg_nav__item a.lg_nav__link.is-active {
+  font-family: "CircularStd-Bold", sans-serif;
 }
 
 .sctn_ttl {
