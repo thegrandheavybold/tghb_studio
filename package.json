@@ -13,6 +13,7 @@
   "author": "Christian Kriegsheim <kriegsheim@tghb.studio>",
   "license": "ISC",
   "dependencies": {
+    "eleventy-favicon": "^1.1.1",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",

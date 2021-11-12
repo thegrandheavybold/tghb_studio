@@ -10,11 +10,15 @@
 	z-index: -1
 	overflow-x: scroll
 
+.menu-toggle[aria-expanded= "false"] + .menu
+	transform: scale(0)
+	transition: all ease .7s
+
 .menu-toggle[aria-expanded="true"] + .menu
 	transform: scale(1)
 	opacity: 1
 	visibility: visible
-
+	display: block
 
 .menu__content
 	display: flex

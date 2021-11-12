@@ -10,13 +10,10 @@
  * Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/ */
 /*-------------------------------------------------------------- */
 /* Above the fold */
-@import "/assets/fonts/CircularStd-Book.css";
-@import "/assets/fonts/CircularStd-Bold.css";
 .menu-toggle[aria-expanded=false] + .menu {
-  transform: scale(0);
   opacity: 0;
   visibility: hidden;
-  transition: all ease 0.7s;
+  display: none;
 }
 
 /* Normalize */
@@ -492,7 +489,7 @@ footer .legal {
 }
 
 /**
- * Swiper 6.7.0
+ * Swiper 6.8.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -500,7 +497,7 @@ footer .legal {
  *
  * Released under the MIT License
  *
- * Released on: May 31, 2021
+ * Released on: August 23, 2021
  */
 @font-face {
   font-family: "swiper-icons";
@@ -814,6 +811,10 @@ button.swiper-pagination-bullet {
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
   cursor: pointer;
+}
+
+.swiper-pagination-bullet:only-child {
+  display: none !important;
 }
 
 .swiper-pagination-bullet-active {
@@ -1446,8 +1447,6 @@ textarea {
   color: #383838;
   font-family: "CircularStd-Book", sans-serif;
   font-weight: 400;
-  font-style: 400;
-  font-family: "CircularStd-Book", sans-serif;
   font-size: min(max(5vw), 1.134rem);
   line-height: min(max(7vw), 1.701rem);
 }
@@ -1726,10 +1725,16 @@ button.menu-toggle {
   overflow-x: scroll;
 }
 
+.menu-toggle[aria-expanded=false] + .menu {
+  transform: scale(0);
+  transition: all ease 0.7s;
+}
+
 .menu-toggle[aria-expanded=true] + .menu {
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+  display: block;
 }
 
 .menu__content {

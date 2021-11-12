@@ -2,10 +2,21 @@
 <html lang="{{ locale }}">
   <head>
     <meta charset="utf-8">
+    <title>{{ site[locale].metaTitle }}</title>
+    <meta name="description" content="{{ site[locale].metaDescription }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ site[locale].metaTitle }}</title>
+
+    <!-- favicon -->
+    {% favicon './favicon.svg' %}
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- styles -->
+    <link rel="preload" href="/assets/fonts/CircularStd-Book.css" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/CircularStd-Bold.css" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/style.css">
+
+    <meta name="theme-color" content="#383838">
 
     <!-- open graph -->
     <meta property="og:type" content="article">
