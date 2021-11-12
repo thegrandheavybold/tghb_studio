@@ -61,6 +61,8 @@ const hro__sldr = new Swiper('.hro__sldr', {
   autoplay: {
    delay: 8000
   },
+  observer: true,
+  observeParents: true,
 
 });
 

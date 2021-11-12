@@ -20908,6 +20908,8 @@
 	  autoplay: {
 	   delay: 8000
 	  },
+	  observer: true,
+	  observeParents: true,
 
 	});
 
