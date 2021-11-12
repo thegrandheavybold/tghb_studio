@@ -1501,6 +1501,7 @@ p {
   font-size: min(max(5vw), 1.134rem);
   line-height: min(max(7vw), 1.701rem);
   margin: 0 0 2vw 0;
+  font-weight: 400;
 }
 
 p.intro {

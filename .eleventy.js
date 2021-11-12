@@ -5,7 +5,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/js/main-min.js");
   eleventyConfig.addPassthroughCopy("./src/assets");
   eleventyConfig.addPassthroughCopy("./src/style.css");
-  eleventyConfig.addPassthroughCopy("./favicon.svg");
+  eleventyConfig.addPassthroughCopy("./icon.svg");
+  eleventyConfig.addPassthroughCopy("./favicon.ico");
   eleventyConfig.addPassthroughCopy("./icon-192.png");
   eleventyConfig.addPassthroughCopy("./icon-512.png");
   eleventyConfig.addPassthroughCopy("./site.webmanifest");
@@ -36,12 +37,6 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addCollection("posts_en", function (collection) {
       return collection.getFilteredByGlob("./src/en/posts/*.njk");
     });
-  };
-
-  //Plugin for favicon generation
-  const faviconPlugin = require("eleventy-favicon");
-  module.exports = function (eleventyConfig) {
-    eleventyConfig.addPlugin(faviconPlugin, options);
   };
 
   // You can return your Config object (optional).
