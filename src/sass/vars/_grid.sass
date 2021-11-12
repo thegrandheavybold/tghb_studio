@@ -78,6 +78,13 @@ footer
     .legal
       order: 5
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 768px) and (orientation: portrait)
   .wrapper
     padding: min(max(5vw), 3.024rem)
+
+@media only screen and (max-width: 1024px) and (orientation: landscape)
+  .wrapper
+    padding-top: min(max(5vw), 10rem)
+    padding-bottom: min(max(5vw), 2.583rem)
+    padding-left: min(max(5vw), 3.024rem)
+    padding-right: min(max(5vw), 3.024rem)
