@@ -5,12 +5,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/js/main-min.js");
   eleventyConfig.addPassthroughCopy("./src/assets");
   eleventyConfig.addPassthroughCopy("./src/style.css");
-  eleventyConfig.addPassthroughCopy("./icon.svg");
-  eleventyConfig.addPassthroughCopy("./favicon.ico");
-  eleventyConfig.addPassthroughCopy("./icon-192.png");
-  eleventyConfig.addPassthroughCopy("./icon-512.png");
-  eleventyConfig.addPassthroughCopy("./apple-touch-icon.png");
-  eleventyConfig.addPassthroughCopy("./site.webmanifest");
+  eleventyConfig.addPassthroughCopy("./src/icon.svg");
+  eleventyConfig.addPassthroughCopy("./src/favicon.ico");
+  eleventyConfig.addPassthroughCopy("./src/icon-192.png");
+  eleventyConfig.addPassthroughCopy("./src/icon-512.png");
+  eleventyConfig.addPassthroughCopy("./src/apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("./src/site.webmanifest");
 
   // A responsive image helper using Netlify Large Media - image transformation
   eleventyConfig.addShortcode("picture", require("./src/js/picture.js"));
