@@ -37,6 +37,6 @@ module.exports = {
     link_BusinessTerms: "avg",
     link_Imprint: "imprint",
     link_PrivacyPolicy: "privacy",
-    copyrights: "©{{ year }} TheGrandHeavyBold GbR",
+    copyrights: "©2021 TheGrandHeavyBold GbR",
   },
 };
