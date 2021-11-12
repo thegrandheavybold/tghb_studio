@@ -63,7 +63,6 @@ const hro__sldr = new Swiper('.hro__sldr', {
   },
   observer: true,
   observeParents: true,
-
 });
 
 //Scroll & Parallax Function

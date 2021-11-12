@@ -29,8 +29,8 @@
 		}
 
 		menu.setAttribute( 'aria-expanded', 'false' );
-		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-			menu.className += ' nav-menu';
+		if ( -1 === menu.className.indexOf( 'menu' ) ) {
+			menu.className += ' menu';
 		}
 
 		button.onclick = function() {
@@ -60,8 +60,8 @@
 		function toggleFocus() {
 			var self = this;
 
-			// Move up through the ancestors of the current link until we hit .nav-menu.
-			while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+			// Move up through the ancestors of the current link until we hit .menu.
+			while ( -1 === self.className.indexOf( 'menu' ) ) {
 
 				// On li elements toggle the class .focus.
 				if ( 'li' === self.tagName.toLowerCase() ) {
@@ -20910,7 +20910,6 @@
 	  },
 	  observer: true,
 	  observeParents: true,
-
 	});
 
 	//Scroll & Parallax Function
