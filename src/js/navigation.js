@@ -26,8 +26,8 @@
 	}
 
 	menu.setAttribute( 'aria-expanded', 'false' );
-	if ( -1 === menu.className.indexOf( 'menu' ) ) {
-		menu.className += ' menu';
+	if ( -1 === menu.className.indexOf( 'menu__items' ) ) {
+		menu.className += ' menu__items';
 	}
 
 	button.onclick = function() {
@@ -57,8 +57,8 @@
 	function toggleFocus() {
 		var self = this;
 
-		// Move up through the ancestors of the current link until we hit .menu.
-		while ( -1 === self.className.indexOf( 'menu' ) ) {
+		// Move up through the ancestors of the current link until we hit .menu__items.
+		while ( -1 === self.className.indexOf( 'menu__items' ) ) {
 
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
