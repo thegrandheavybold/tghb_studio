@@ -9,6 +9,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./favicon.ico");
   eleventyConfig.addPassthroughCopy("./icon-192.png");
   eleventyConfig.addPassthroughCopy("./icon-512.png");
+  eleventyConfig.addPassthroughCopy("./apple-touch-icon.png");
   eleventyConfig.addPassthroughCopy("./site.webmanifest");
 
   // A responsive image helper using Netlify Large Media - image transformation
