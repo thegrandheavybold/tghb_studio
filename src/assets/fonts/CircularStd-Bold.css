@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: "CircularStd-Bold";
-    src: local('CircularStd Bold'), local('CircularStd-Bold'), url("/assets/fonts/CircularStd-Bold.woff2") format("woff2"),url("/assets/fonts/CircularStd-Bold.woff") format("woff"),url("/assets/fonts/CircularStd-Bold.otf") format("opentype");
+    src: local('CircularStd-Bold'), url("/assets/fonts/CircularStd-Bold.woff2") format("woff2"),url("/assets/fonts/CircularStd-Bold.woff") format("woff"),url("/assets/fonts/CircularStd-Bold.otf") format("opentype");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
