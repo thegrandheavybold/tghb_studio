@@ -33,3 +33,15 @@
   from = "/assets/img/original/*"
   to = "https://tghb-studio-dev.netlify.app/assets/img/:splat"
   status = 302
+
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  # to audit a sub path of the build directory
+  # route1 audit will use the top level thresholds
+  [[plugins.inputs.audits]]
+    path = "/en/"
+
+    # you can specify output_path per audit, relative to the path
+    output_path = "reports/lighthouse.html"
