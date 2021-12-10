@@ -1,0 +1,69 @@
+.barrylaffair
+
+.barrylaffair__a
+  .grd
+    grid-template-areas: 'a b' 'a b' 'c .' 'c d' '. d' 'e f' 'g h' 'g h' 'i j' 'i j'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+
+    .item__4
+      grid-area: d
+      align-self: flex-end
+
+    .item__5
+      grid-area: e
+
+    .item__6
+      grid-area: f
+
+    .item__7
+      grid-area: g
+
+    .item__8
+      grid-area: h
+
+    .item__9
+      grid-area: i
+
+    .item__10
+      grid-area: j
+
+.barrylaffair__b
+  .grd
+    grid-template-areas: 'a b' 'c b' 'e f' 'e d' '. d'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: e
+      //align-self: flex-end
+
+    .item__4
+      grid-area: d
+
+    .item__5
+      grid-area: c
+      align-self: flex-end
+
+    .item__6
+      grid-area: f
+
+@media only screen and (max-width: 768px)
+  .barrylaffair__a
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f' 'g g' 'h h' 'i i' 'j j'
+
+  .barrylaffair__b
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f'

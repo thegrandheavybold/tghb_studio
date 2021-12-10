@@ -36,9 +36,9 @@ function lazyLoad(elements) {
     if (item.intersectionRatio > 0) {
       observer.unobserve(item.target);
       loadImage(item.target);
-    };
-  });
-};
+    }
+  })
+}
 
 
 // Set up the intersection observer to detect when to define

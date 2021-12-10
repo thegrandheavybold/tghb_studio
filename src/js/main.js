@@ -72,7 +72,10 @@ window.addEventListener('scroll', function(e) {
 
   var scrolled = window.pageYOffset;
   var rate = scrolled * .35;
-  target.style.transform = 'translate3D(0px, '+rate+'px, 0px)';
+
+    if (target){
+      target.style.transform = 'translate3D(0px, '+rate+'px, 0px)';
+    }
 
 });
 
