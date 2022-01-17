@@ -5,7 +5,8 @@ module.exports = {
     "Manchmal geht es darum den Mut zu haben sich unbeliebt zu machen.",
     "Jedes Projekt hat seine Persönlichkeit, und es liegt an uns, diese zu gestalten.",
     "Verwechsel niemals Tools mit Strategien.",
-    "Taten sagen mehr als Worte."
+    "Taten sagen mehr als Worte.",
+    "Alte Schlüssel passen nicht auf neue Türen."
   ],
   en: [
     "In a complex world, we develop simple and intelligent solutions.",
@@ -13,6 +14,7 @@ module.exports = {
     "Sometimes it’s about having the guts to have yourself be unpopular.",
     "Every project has a personality, and it is up to us to create it.",
     "Never confuse tools with strategies.",
-    "Action speaks louder than words."
+    "Action speaks louder than words.",
+    "Old keys doesn't fit to new doors."
   ]
 };

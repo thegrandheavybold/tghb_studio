@@ -1,0 +1,46 @@
+.pegasus_club
+  background: #CAFF01
+  color: #D6D6D6
+
+.pegasus_club__a
+  .grd
+    grid-template-areas: 'a b' 'a b'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+
+.pegasus_club__b
+  .grd
+    grid-template-areas: 'a .' 'a b' 'c b' 'c d' '. f' 'e f' 'e .'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+      align-self: flex-start
+
+    .item__4
+      grid-area: d
+
+    .item__5
+      grid-area: e
+
+    .item__6
+      grid-area: f
+
+@media only screen and (max-width: 768px)
+  .pegasus_club__a
+    .grd
+      grid-template-areas: 'a a' 'b b'
+
+  .pegasus_club__b
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f'
