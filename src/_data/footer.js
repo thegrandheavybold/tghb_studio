@@ -17,7 +17,7 @@ module.exports = {
     link_BusinessTerms: "avg",
     link_Imprint: "impressum",
     link_PrivacyPolicy: "datenschutz",
-    copyrights: "©2021 TheGrandHeavyBold GbR",
+    copyrights: "©2022 TheGrandHeavyBold GbR",
   },
   en: {
     ffm_addressTitle: "Bureuau & Production",
@@ -37,6 +37,6 @@ module.exports = {
     link_BusinessTerms: "avg",
     link_Imprint: "imprint",
     link_PrivacyPolicy: "privacy",
-    copyrights: "©2021 TheGrandHeavyBold GbR",
+    copyrights: "©2022 TheGrandHeavyBold GbR",
   },
 };
