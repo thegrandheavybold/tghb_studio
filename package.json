@@ -13,13 +13,14 @@
   "author": "Christian Kriegsheim <kriegsheim@tghb.studio>",
   "license": "ISC",
   "dependencies": {
+    "@sindresorhus/slugify": "^2.1.0",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
     "require-dir": "^1.2.0",
-    "swiper": "^6.7.0"
+    "swiper": "^8.0.6"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^1.0.0"
   }
 }
