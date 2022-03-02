@@ -2,18 +2,21 @@ import 'navigation.js'
 import 'lazy.js'
 
 // import Swiper bundle with all modules installed
-import Swiper from 'swiper';
-const qts_swiper = new Swiper('.qts_swiper', {
+import Swiper, { Lazy, Pagination, Autoplay, EffectFade } from 'swiper';
+
+const qtsSwiper = new Swiper('.qts_swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
   slidesPerView: 1,
-  //autoHeight: true,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay],
+
   speed: 800,
   autoplay: {
-   delay: 8500
+    delay: 8500
   },
-
   // If we need pagination
   pagination: {
     el: '.swiper-bullets',
@@ -26,43 +29,65 @@ const qts_swiper = new Swiper('.qts_swiper', {
 
 });
 
-const ppl_sldr = new Swiper('.ppl_sldr', {
+const pplSldr = new Swiper('.ppl_sldr', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
+  preloadImages: false,
   lazy: true,
   slidesPerView: 1,
-  //autoHeight: true,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+
   speed: 800,
   autoplay: {
-   delay: 8000
+    delay: 8000
   },
 
-  // If we need pagination
   pagination: {
     el: '.swiper-bullets',
     type: 'bullets',
     clickable: true
   },
+
   renderBullet: function (index, className) {
     return '<span class="' + className + '">' + (index + 1) + '</span>';
   }
 
 });
 
-const hro__sldr = new Swiper('.hro__sldr', {
+const hroSldr = new Swiper('.hro__sldr', {
   // Optional parameters
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Autoplay, Lazy, EffectFade],
+
   effect: 'fade',
-  loop: true,
-  lazy: true,
-  slidesPerView: 1,
-  //autoHeight: true,
+  fadeEffect: {
+    crossFade: true
+  },
+
+  lazy: {
+    loadPrevNext: true
+   },
+
   speed: 800,
   autoplay: {
-   delay: 8000
+    delay: 8000
   },
+
   observer: true,
-  observeParents: true,
+  observeParents: true
+
 });
 
 //Scroll & Parallax Function
