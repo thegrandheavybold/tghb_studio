@@ -2,7 +2,7 @@ import 'navigation.js'
 import 'lazy.js'
 
 // import Swiper bundle with all modules installed
-import Swiper from 'swiper/swiper-bundle.js';
+import Swiper from 'swiper';
 const qts_swiper = new Swiper('.qts_swiper', {
   // Optional parameters
   direction: 'horizontal',
