@@ -6,7 +6,7 @@ module.exports = {
     "Jedes Projekt hat seine Persönlichkeit, und es liegt an uns, diese zu gestalten.",
     "Verwechsel niemals Tools mit Strategien.",
     "Taten sagen mehr als Worte.",
-    "Alte Schlüssel passen nicht auf neue Türen."
+    "Alte Schlüssel öffnen neue Türen nicht."
   ],
   en: [
     "In a complex world, we develop simple and intelligent solutions.",
@@ -15,6 +15,6 @@ module.exports = {
     "Every project has a personality, and it is up to us to create it.",
     "Never confuse tools with strategies.",
     "Action speaks louder than words.",
-    "Old keys doesn't fit to new doors."
+    "Old keys won't open new doors."
   ]
 };
