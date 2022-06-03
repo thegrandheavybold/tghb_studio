@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" id="{{ page.fileSlug }}">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site[locale].metaTitle }}</title>
+    <meta name="description" content="{{ site[locale].metaDescription }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-N2Q9VPP');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- styles -->
+    <link rel="preload" href="/assets/fonts/CircularStd-Book.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/CircularStd-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/style.css">
+
+    <meta name="theme-color" content="#383838">
+
+    <!-- open graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ site[locale].metaTitle }}">
+    <meta property="og:image" content="{{ metaImage }}">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:description" content="{{ site[locale].metaDescription }}">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@tghbstudio">
+    <meta name="twitter:title" content="{{ site[locale].metaTitle }}">
+    <meta name="twitter:description" content="{{ site[locale].metaDescription }}">
+    <meta name="twitter:image" content="{{ metaImage }}">
+
+
+  </head>
+  <svg style="display:none;">
+    <symbol id="tghb_logo" viewBox="0 0 108 108">
+      <path class="tghb_logo__path" d="M89.8,75.3c0,6.5-6,13.8-17.8,21.6c-8.4,5.6-17.8,9.8-17.8,9.8l-0.2,0.1l-0.2-0.1c-0.1,0-9.4-4.3-17.8-9.8
+      	c-11.8-7.8-17.8-15-17.8-21.6V26.6h-6.5v49.1H8.3V14.5H0v-3.4h11.7v12.1h6.5v-22h71.6v17.3h-3.4V4.6H21.6v18.6h27.3v3.4H21.6v48.7
+      	c0,5.2,5.6,11.7,16.2,18.7c7,4.6,14.2,8.1,16.3,9.1c1.7-1,8.9-4.4,16-9.1c10.6-7,16.3-13.5,16.3-18.7V34.6h-10v-3.4h13.4L89.8,75.3
+      	L89.8,75.3z M55.7,14.5v35h8.5c0.4,0,4.3-0.2,4.3-5c0-1.8-0.4-3.1-1.3-3.9c-1.2-1.2-3-1.2-3-1.2h-5.1v-3.4h5.1
+      	c0.3,0,3.2,0.1,5.4,2.2c1.5,1.5,2.3,3.7,2.3,6.4c0,2.6-0.8,4.7-2.3,6.2c-0.1,0.1-0.2,0.2-0.3,0.3c0.1,0.1,0.3,0.2,0.4,0.2
+      	c2.5,1.5,5.4,4.8,5.4,11.5c0,6.7-3,9.9-5.4,11.5c-2.7,1.7-5.4,1.7-5.5,1.7h-5.1v-3.4h5.2c0,0,2-0.1,3.8-1.2c2.5-1.6,3.8-4.5,3.8-8.5
+      	c0-4.1-1.3-6.9-3.8-8.5c-1.9-1.2-3.8-1.2-3.9-1.2h-8.5v35.1h4.1v3.4H48.2v-3.4h4.1V52.8H40.3v19.5h8.7v3.4H32.8v-3.4h4.1V39.2h-4.1
+      	v-3.4h16.1v3.4h-8.7v10.2h12.1v-35H31.5v4.1h-3.4v-7.5h51.7v7.5h-3.4v-4.1L55.7,14.5L55.7,14.5z M108,14.5h-8.3v61.2h-3.4V26.6H59.1
+      	v-3.4h37.2V11.1H108V14.5z"/>
+    </symbol>
+    <symbol width="21.707" height="8.844" viewBox="0 0 21.707 8.844">
+      <g id="hyperlink_btn" data-name="hyperlink_btn" transform="translate(-887.396 195.842) rotate(-90)">
+      <path id="Path_5" data-name="Path 5" d="M0,0,4.068,4.068,8.136,0" transform="translate(187.352 904.327)"/>
+      <path id="Path_6" data-name="Path 6" d="M0,21V0" transform="translate(191.42 887.396)"/>
+      </g>
+    </symbol>
+    <symbol width="9.888" height="13.227" viewBox="0 0 9.888 13.227">
+      <g id="download_btn" data-name="download btn" transform="translate(-186.425 -898.506)">
+        <line id="Line_15" data-name="Line 15" x2="9.888" transform="translate(186.425 910.983)"/>
+        <path id="Path_5" data-name="Path 5" d="M0,0,4.068,4.068,8.136,0" transform="translate(187.351 904.326)"/>
+        <path id="Path_6" data-name="Path 6" d="M0,9.89V0" transform="translate(191.419 898.506)"/>
+      </g>
+    </symbol>
+    <symbol width="12.493" height="15.781" viewBox="0 0 12.493 15.781">
+      <g id="external_btn" data-name="external_btn" transform="translate(-186.425 -895.952)">
+        <line id="Line_15" data-name="Line 15" x2="9.888" transform="translate(186.425 910.983)"/>
+        <path id="Path_5" data-name="Path 5" d="M0,0,4.068,4.068,8.136,0" transform="translate(194.916 905.707) rotate(-135)"/>
+        <path id="Path_6" data-name="Path 6" d="M0,9.89V0" transform="translate(187.924 906.947) rotate(-135)"/>
+      </g>
+    </symbol>
+    <symbol width="143" height="25" viewBox="0 0 143 25">
+      <g id="teaser_btn" data-name="download btn" transform="translate(-814.895 211.322) rotate(-90)">
+        <path id="arrow_head" data-name="arrow_head" d="M0,0,11.3,10.646,22.6,0" transform="translate(187.352 944.561)"/>
+        <path id="line" data-name="line" d="M0,139.914V0" transform="translate(198.651 814.895)"/>
+      </g>
+    </symbol>
+
+
+  </svg>
+
+  <body>
+
+    <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2Q9VPP"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->

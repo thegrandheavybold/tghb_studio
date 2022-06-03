@@ -89,6 +89,110 @@ const hroSldr = new Swiper('.hro__sldr', {
   observeParents: true
 
 });
+const mintSldr1 = new Swiper('.mintandthings_01__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+const mintSldr2 = new Swiper('.mintandthings_02__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+const mintSldr3 = new Swiper('.mintandthings_03__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+const mintSldr4 = new Swiper('.mintandthings_04__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
 
 //Scroll & Parallax Function
 window.addEventListener('scroll', function(e) {

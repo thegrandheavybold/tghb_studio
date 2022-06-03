@@ -1,6 +1,6 @@
 .tsr
   .grd
-    grid-template-areas: 'a b' 'a b' 'c d' 'c d' 'e f' 'e f' 'g .' 'g .'
+    grid-template-areas: 'a b' 'a b' 'c d' 'c d' 'e f' 'e f' 'g h' 'g h' 'i .' 'i .'
 
     .item__1
       grid-area: a
@@ -22,6 +22,12 @@
 
     .item__7
       grid-area: g
+
+    .item__8
+      grid-area: h
+
+    .item__9
+      grid-area: i
 
   article
     width: 100%
@@ -90,7 +96,7 @@
 @media only screen and (max-width: 768px)
   .tsr
     .grd
-      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f' 'g g'
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f' 'g g' 'h h'
 
 @media only screen and (min-width: 769px) and (max-width: 1280px)
   .tsr article a figcaption .teaser_intro

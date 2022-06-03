@@ -1,5 +1,5 @@
 module.exports = function(eleventyConfig) {
-  
+
   const moment = require("moment");
 
   eleventyConfig.addPassthroughCopy("./src/js/main-min.js");
@@ -37,7 +37,7 @@ module.exports = function(eleventyConfig) {
   //Post Collections
   module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("posts_de", function (collection) {
-    return collection.getFilteredByGlob("./src/en/posts/*.njk");
+    return collection.getFilteredByGlob("./src/de/posts/*.njk");
   });
   };
 
