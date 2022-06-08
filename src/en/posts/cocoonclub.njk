@@ -6,7 +6,7 @@ featuredImage: tghb.studio_cocoonclub__feat.jpg
 tags: posts_en
 ---
 
-<section class="pg_hro cocoon parallax">
+<section class="pg_hro {{ page.fileSlug }} {{ tags | join(' ') }} parallax">
 
   <div class="wrapper">
 
@@ -49,7 +49,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_cocoonclub__01.jpg", "Cocoon Club" %}
 </section>
 
-<section class="cocoon__a">
+<section class="{{ page.fileSlug }}__a">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 
@@ -84,7 +84,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_cocoonclub__05.jpg", "Cocoon Club" %}
 </section>
 
-<section class="cocoon__b">
+<section class="{{ page.fileSlug }}__b">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 

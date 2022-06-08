@@ -6,7 +6,7 @@ featuredImage: tghb.studio_pegasus-club__feat_01.jpg
 tags: posts_en
 ---
 
-<section class="pg_hro pegasus_club">
+<section class="pg_hro {{ page.fileSlug }} {{ tags | join(' ') }} parallax">
 
   <div class="wrapper">
 
@@ -51,7 +51,7 @@ tags: posts_en
 
 
 
-<section class="pegasus_club__a">
+<section class="{{ page.fileSlug }}__a">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 
@@ -71,7 +71,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_pegasus-club__04.jpg", "Pegasus Club Prag – Editorial Design" %}
 </section>
 
-<section class="pegasus_club__b">
+<section class="{{ page.fileSlug }}__b">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 

@@ -6,7 +6,7 @@ featuredImage: tghb.studio_kbw__feat_01.gif
 tags: posts_en
 ---
 
-<section class="pg_hro kbw">
+<section class="pg_hro {{ page.fileSlug }} {{ tags | join(' ') }} parallax">
 
   <div class="wrapper">
 
@@ -49,7 +49,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_kbw__01.jpg", "KBW – Branding" %}
 </section>
 
-<section class="kbw__a">
+<section class="{{ page.fileSlug }}__a">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 

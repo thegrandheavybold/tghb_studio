@@ -6,7 +6,7 @@ featuredImage: tghb.studio_barrylaffair-ci__18.jpg
 tags: posts_en
 ---
 
-<section class="pg_hro barrylaffair">
+<section class="pg_hro {{ page.fileSlug }} {{ tags | join(' ') }} parallax">
 
   <div class="wrapper">
 
@@ -49,7 +49,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_barrylaffair-ci__01.jpg", "Barry L'Affair Corporate Design" %}
 </section>
 
-<section class="barrylaffair__a">
+<section class="{{ page.fileSlug }}__a">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 
@@ -111,7 +111,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_barrylaffair-ci__09.jpg", "Barry L'Affair Website" %}
 </section>
 
-<section class="barrylaffair__b">
+<section class="{{ page.fileSlug }}__b">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 

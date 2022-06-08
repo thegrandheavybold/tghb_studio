@@ -194,6 +194,60 @@ const mintSldr4 = new Swiper('.mintandthings_04__sldr', {
 
 });
 
+const emporiumSldr1 = new Swiper('.emporium_01__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+const emporiumSldr2 = new Swiper('.emporium_02__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
 //Scroll & Parallax Function
 window.addEventListener('scroll', function(e) {
 

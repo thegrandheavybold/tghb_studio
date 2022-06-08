@@ -6,7 +6,7 @@ featuredImage: tghb.studio_mvd__feat_01.jpg
 tags: posts_en
 ---
 
-<section class="pg_hro mvd">
+<section class="pg_hro {{ page.fileSlug }} {{ tags | join(' ') }} parallax">
 
   <div class="wrapper">
 
@@ -49,7 +49,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_mvd__02.jpg", "MVD – Branding" %}
 </section>
 
-<section class="mvd__a">
+<section class="{{ page.fileSlug }}__a">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 
@@ -104,7 +104,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_mvd__10.jpg", "MVD – Website" %}
 </section>
 
-<section class="mvd__b">
+<section class="{{ page.fileSlug }}__b">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 

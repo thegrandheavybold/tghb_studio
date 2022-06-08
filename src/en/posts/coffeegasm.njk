@@ -6,7 +6,7 @@ featuredImage: tghb.studio_coffeegasm__07.jpg
 tags: posts_en
 ---
 
-<section class="pg_hro coffeegasm">
+<section class="pg_hro {{ page.fileSlug }} {{ tags | join(' ') }} parallax">
 
   <div class="wrapper">
 
@@ -50,7 +50,7 @@ tags: posts_en
   </div>
 </section>
 
-<section class="coffeegasm__a">
+<section class="{{ page.fileSlug }}__a">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 
@@ -82,7 +82,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_coffeegasm__04.jpg", "Coffeegasm – Posters" %}
 </section>
 
-<section class="coffeegasm__b">
+<section class="{{ page.fileSlug }}__b">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 

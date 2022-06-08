@@ -6,7 +6,7 @@ featuredImage: tghb.studio_graceyoung__04.jpg
 tags: posts_en
 ---
 
-<section class="pg_hro parallax">
+<section class="pg_hro {{ page.fileSlug }} {{ tags | join(' ') }} parallax">
   <div class="wrapper">
 
     <div class="sctn__hdr __50 grd">
@@ -48,7 +48,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_graceyoung__01.jpg", "Grace Young Website" %}
 </section>
 
-<section class="graceyoung__a">
+<section class="{{ page.fileSlug }}__a">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 
@@ -120,7 +120,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_graceyoung__07.jpg", "Grace Young Website"%}
 </section>
 
-<section class="graceyoung__b">
+<section class="{{ page.fileSlug }}__b">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 

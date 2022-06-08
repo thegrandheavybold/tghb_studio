@@ -6,7 +6,7 @@ featuredImage: tghb.studio_buchmesse__feat.jpg
 tags: posts_en
 ---
 
-<section class="pg_hro buchmesse parallax">
+<section class="pg_hro {{ page.fileSlug }} {{ tags | join(' ') }} parallax">
   <div class="wrapper">
 
     <div class="sctn__hdr __50 grd">
@@ -47,7 +47,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_buchmesse__09.jpg", "Frankfurter Buchmesse – Ehrengast China" %}
 </section>
 
-<section class="buchmesse__a">
+<section class="{{ page.fileSlug }}__a">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 
@@ -94,7 +94,7 @@ tags: posts_en
   {% lazypicture "tghb.studio_buchmesse__08.jpg", "Frankfurter Buchmesse – Ehrengast China" %}
 </section>
 
-<section class="buchmesse__b">
+<section class="{{ page.fileSlug }}__b">
   <div class="wrapper_w_img">
     <div class="grd cs_items">
 
