@@ -262,10 +262,20 @@ window.addEventListener('scroll', function(e) {
 
 });
 
-import $ from 'jquery'
-  $(document).ready(function()
-  {
+//Fade in when in view Function
+const inViewport = (entries) => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle("is_inview", entry.isIntersecting);
+  });
+};
 
+const Obs = new IntersectionObserver(inViewport);
+const obsOptions = {
+  threshold: 1
+};
 
-
+// Attach observer to every [data-inview] element:
+const ELs_inViewport = document.querySelectorAll('[data]');
+ELs_inViewport.forEach(EL => {
+  Obs.observe(EL, obsOptions);
 });

@@ -8,11 +8,11 @@ translationKey: "studio"
 
     <div class="sctn__hdr __50 grd">
 
-      <div class="spn2">
+      <div class="spn2" data="fade-up st">
         <h1>Bold, <span>never Regular</span>.</h1>
       </div>
 
-      <div class="sbln_lnk spn2">
+      <div class="sbln_lnk spn2" data="fade-up nd">
 
         <p class="intro">Wir entwerfen Marken & Räume von URL bis IRL.</p>
 
@@ -32,7 +32,7 @@ translationKey: "studio"
 #}
 <section class="studio_shrt wht">
   <div class="wrapper">
-    <h3>
+    <h3 data="fade-up">
       <strong>TheGrandHeavyBold</strong> ist ein junges, inhabergeführtes, kreatives und interdisziplinäres Design Studio für Beratung, Gestaltung, Interaktion und Realisation. Wir entwickeln Marken und Produkte von URL bis hin zu IRL. Wir entwerfen Kampagnen, Websites, Print-Produkte und Interiors für Kunden aus Wirtschaft, Kultur, Bildung oder von privater Natur und arbeiten ganzheitlich, ideengetrieben und auf den Punkt.
     </h3>
   </div>
@@ -41,15 +41,15 @@ translationKey: "studio"
 <section class="network drk">
   <div class="wrapper">
 
-    <div class="sctn_ttl">Netzwerk</div>
+    <div class="sctn_ttl" data="fade-up">Netzwerk</div>
 
     <div class="sctn__hdr grd spcr">
 
-      <div class="spn2">
+      <div class="spn2" data="fade-up st">
         <h1>Ein Kernteam und ein Netzwerk von Spezialisten.</h1>
       </div>
 
-      <div class="sbln_lnk spn2">
+      <div class="sbln_lnk spn2" data="fade-up nd">
 
         <p class="intro">Für jedes Projekt stellen wie ein crossfunktionales Team von Fachleuten ganz speziell zusammen.</p>
 
@@ -59,17 +59,17 @@ translationKey: "studio"
 
     <div class="network_imgs grd">
 
-      <div class="network_imgs__item">
+      <div class="network_imgs__item" data="fade-up st">
         {% lazypicture "tghb_studio-christian_kriegsheim.jpg", "Christian Kriegsheim | Founder & Designer"%}
         <p class="copy"><strong>Christian Kriegsheim</strong></p>
         <p>Gründer / Designer</p>
       </div>
-      <div class="network_imgs__item">
+      <div class="network_imgs__item" data="fade-up nd">
         {% lazypicture "tghb_studio-tomas_nims-matousek.jpg", "Tomáš Nims-Matoušek | Founder & Designer"%}
         <p class="copy"><strong>Tomáš Nims-Matoušek</strong></p>
         <p>Gründer / Designer</p>
       </div>
-      <div class="network_imgs__item">
+      <div class="network_imgs__item" data="fade-up rd">
         {% lazypicture "tghb_studio-felicity_nims-matousek.jpg", "Felicity Nims-Matoušek | Illustration & Motion Design"%}
         <p class="copy"><strong>Felicity Nims-Matoušek</strong></p>
         <p>Illustration & Motion Design</p>
@@ -88,15 +88,15 @@ translationKey: "studio"
 <section class="ccrdntls">
   <div class="wrapper">
 
-    <div class="sctn_ttl">Referenzen</div>
+    <div class="sctn_ttl" data="fade-up">Referenzen</div>
 
     <div class="sctn__hdr grd spcr">
 
-      <div class="spn2">
+      <div class="spn2" data="fade-up st">
         <h1>In good company.</h1>
       </div>
 
-      <div class="sbln_lnk spn2">
+      <div class="sbln_lnk spn2" data="fade-up nd">
 
         <p class="intro">Erfolgreiche Projekte beginnen mit mutigen AuftraggebernInnen.</p>
 
@@ -108,7 +108,7 @@ translationKey: "studio"
 
       {% for clients in clientList.de %}
 
-      <li class="crdntls__item"><h1>{{ clients }}</h1></li>
+      <li class="crdntls__item" data="fade-up"><h1>{{ clients }}</h1></li>
 
       {% endfor %}
 
@@ -120,15 +120,15 @@ translationKey: "studio"
 <section class="lctns" id="contact">
   <div class="wrapper">
 
-    <div class="sctn_ttl">Standorte</div>
+    <div class="sctn_ttl" data="fade-up">Standorte</div>
 
     <div class="sctn__hdr grd spcr">
 
-      <div class="spn2">
+      <div class="spn2" data="fade-up st">
         <h1>Remote-First und vor den Toren der Welt.</h1>
       </div>
 
-      <div class="sbln_lnk spn2">
+      <div class="sbln_lnk spn2" data="fade-up nd">
 
         <p class="intro">Wir sind in Deutschland ansässig, aber unser Team ist international, agile und informell.</p>
 
@@ -144,21 +144,21 @@ translationKey: "studio"
 
       <div class="lctns__items grd">
 
-        <div class="item__1">
+        <div class="item__1" data="fade-up">
           {% lazypicture "tghb.studio_cologne.jpg", "Bureau Cologne"%}
         </div>
 
         <div class="item__2 lctns__nf">
 
-          <h2>Köln</h2>
-          <span>
+          <h2 data="fade-up st">Köln</h2>
+          <span data="fade-up nd">
             <a href="tel:{{ footer[locale].cgn_phone }}">{{ footer[locale].cgn_phone }}</a>
             <a href="mailto:kriegsheim@tghb.studio">kriegsheim@tghb.studio</a>
             <span>{{ footer[locale].cgn_addressStreet }} {{ footer[locale].cgn_addressNumber }}<br />
             {{ footer[locale].cgn_addressPostcode }} {{ footer[locale].cgn_addressCity }}</span>
           </span>
 
-          <a class="lnk__18" target="_blank" href="https://www.google.com/maps/dir//S%C3%B6mmeringstra%C3%9Fe+71,+50823+K%C3%B6ln/@50.9468776,6.912763,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47bf253c42d1422b:0xa43b4cf674da8bfb!2m2!1d6.9149517!2d50.9468742?ucbcb=1">
+          <a class="lnk__18" target="_blank" href="https://www.google.com/maps/dir//S%C3%B6mmeringstra%C3%9Fe+71,+50823+K%C3%B6ln/@50.9468776,6.912763,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47bf253c42d1422b:0xa43b4cf674da8bfb!2m2!1d6.9149517!2d50.9468742?ucbcb=1" data="fade-up rd">
             Route <svg class="external_btn">
               <use xlink:href="#external_btn"></use>
             </svg></a>
@@ -173,21 +173,21 @@ translationKey: "studio"
 
       <div class="lctns__items grd">
 
-        <div class="item__1">
+        <div class="item__1" data="fade-up">
           {% lazypicture "tghb.studio_frankfurt.jpg", "Bureau & Production Frankfurt"%}
         </div>
 
         <div class="item__2 lctns__nf">
 
-          <h2>Frankfurt</h2>
-          <span>
+          <h2 data="fade-up st">Frankfurt</h2>
+          <span data="fade-up nd">
             <a href="tel:{{ footer[locale].ffm_phone }}">‭{{ footer[locale].ffm_phone }}‬</a>
             <a href="mailto:matousek@tghb.studio">matousek@tghb.studio</a>
             <span>{{ footer[locale].ffm_addressStreet }} {{ footer[locale].ffm_addressNumber }}<br />
             {{ footer[locale].ffm_addressPostcode }} {{ footer[locale].ffm_addressCity }}</span>
           </span>
 
-          <a class="lnk__18" target="_blank" href="https://www.google.com/maps/dir//Herzbergstra%C3%9Fe+4,+61138+Niederdorfelden/@50.1929701,8.7934953,18.2z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47bd054dc5a2ad53:0xa7d592b7ae369e5b!2m2!1d8.79389!2d50.19292?ucbcb=1">
+          <a class="lnk__18" target="_blank" href="https://www.google.com/maps/dir//Herzbergstra%C3%9Fe+4,+61138+Niederdorfelden/@50.1929701,8.7934953,18.2z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47bd054dc5a2ad53:0xa7d592b7ae369e5b!2m2!1d8.79389!2d50.19292?ucbcb=1" data="fade-up rd">
             Route <svg class="external_btn">
               <use xlink:href="#external_btn"></use>
             </svg></a>

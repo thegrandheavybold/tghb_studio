@@ -6,6 +6,8 @@ module.exports = (ImageName, ImageAlt) => {
             <source data-srcset="/assets/img/${ImageName}?nf_resize=fit&w=1024" media="(min-width: 769px)">
             <source data-srcset="/assets/img/${ImageName}?nf_resize=fit&w=768" media="(min-width: 481px)">
 
+            <source data-srcset="/assets/img/${ImageName}?nf_resize=fit&w=1024" media="(orientation: portrait) and (max-height: 920px)">
+
             <img class="swiper-lazy" data-src="/assets/img/${ImageName}?nf_resize=fit&w=480" alt="${ImageAlt}" type="image/jpg"/>
           </picture>`;
 };

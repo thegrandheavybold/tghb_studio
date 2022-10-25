@@ -62,11 +62,13 @@
 
 header
   .wrapper
-    @include wrapper(41,48)
+    //@include wrapper(41,48)
     padding-top: min(max(5vw), 2.583rem)
     padding-bottom: min(max(5vw), 2.583rem)
     padding-left: min(max(5vw), 3.024rem)
     padding-right: min(max(5vw), 3.024rem)
+    @media only screen and (max-width: 920px) and (max-height: 420px)
+      padding: min(max(5vw), 3.024rem)
 
 footer
   .legal
@@ -80,7 +82,10 @@ footer
 
 @media only screen and (max-width: 768px) and (orientation: portrait)
   .wrapper
-    padding: min(max(5vw), 3.024rem)
+    padding-top: min(max(5vw), 2.583rem)
+    padding-bottom: min(max(5vw), 2.583rem)
+    padding-left: min(max(5vw), 3.024rem)
+    padding-right: min(max(5vw), 3.024rem)
 
 @media only screen and (max-width: 1024px) and (orientation: landscape)
   .wrapper
@@ -88,3 +93,8 @@ footer
     padding-bottom: min(max(5vw), 2.583rem)
     padding-left: min(max(5vw), 3.024rem)
     padding-right: min(max(5vw), 3.024rem)
+
+
+@media only screen and (max-width: 420px) and (orientation: portrait)
+  .wrapper_ntr
+    padding: 0

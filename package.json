@@ -2,9 +2,9 @@
   "name": "tghb_studio",
   "version": "1.0.0",
   "description": "TheGrandHeavyBold is a Creative Design Studio",
-  "main": "main.js",
+  "main": "eleventy.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "npx @11ty/eleventy",
     "start": "eleventy --serve",
     "watch": "eleventy --watch",
     "debug": "DEBUG=*"
@@ -21,6 +21,6 @@
     "swiper": "^8.0.6"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.2"
   }
 }

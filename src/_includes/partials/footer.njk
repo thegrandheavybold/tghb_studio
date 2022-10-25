@@ -2,37 +2,37 @@
 
       <div class="wrapper">
 
-        <h4>Bold <span>never Regular.</span></h4>
+        <h4 data="fade-up">Bold <span>never Regular.</span></h4>
 
         <div class="footer__info grd">
 
-          <ul class="footer__adress">
+          <ul class="footer__adress" data="fade-up st">
             <li><strong>{{ footer[locale].ffm_addressTitle }}</strong></li>
             <li>{{ footer[locale].ffm_addressStreet }} {{ footer[locale].ffm_addressNumber }}</li>
             <li>{{ footer[locale].ffm_addressPostcode }} {{ footer[locale].ffm_addressCity }}</li>
             <li><a href="tel:{{ footer[locale].ffm_phone }}">{{ footer[locale].ffm_phone }}</a></li>
           </ul>
 
-          <ul class="footer__adress">
+          <ul class="footer__adress" data="fade-up nd">
             <li><strong>{{ footer[locale].cgn_addressTitle }}</strong></li>
             <li>{{ footer[locale].cgn_addressStreet }} {{ footer[locale].cgn_addressNumber }}</li>
             <li>{{ footer[locale].cgn_addressPostcode }} {{ footer[locale].cgn_addressCity }}</li>
             <li><a href="tel:{{ footer[locale].cgn_phone }}">{{ footer[locale].cgn_phone }}</a></li>
           </ul>
 
-          <ul class="footer__links legal">
+          <ul class="footer__links legal" data="fade-up rd">
             <li><a class="llcps" href="/{{ locale}}/{{ footer[locale].link_BusinessTerms }}">{{ footer[locale].link_BusinessTerms }}</a></li>
             <li><a class="cps" href="/{{ locale}}/{{ footer[locale].link_Imprint }}">{{ footer[locale].link_Imprint }}</a></li>
             <li><a class="cps" href="/{{ locale}}/{{ footer[locale].link_PrivacyPolicy }}">{{ footer[locale].link_PrivacyPolicy }}</a></li>
-            <li><span class="copyrights">{{ footer[locale].copyrights }}</span></li>
+            <li><span class="copyrights">©{% year %}{{ footer[locale].copyrights }}</span></li>
           </ul>
 
-          <ul class="footer__social">
+          <ul class="footer__social" data="fade-up st">
             <li><a href="https://www.linkedin.com/company/thegrandheavybold/" target="_blank" rel="noopener" >LinkedIn</a></li>
             <li><a href="https://www.xing.com/profile/Christian_Kriegsheim" target="_blank" rel="noopener">Xing</a></li>
           </ul>
 
-          <ul class="footer__social">
+          <ul class="footer__social" data="fade-up nd">
             <li><a href="https://instagram.com/tghb.studio" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="https://www.facebook.com/tghb.studio/" target="_blank" rel="noopener">Facebook</a></li>
             <li><a href="https://twitter.com/tghbstudio/" target="_blank" rel="noopener">Twitter</a></li>

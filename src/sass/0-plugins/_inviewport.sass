@@ -1,0 +1,46 @@
+/* inViewport */
+[data="fade-up"],
+[data="fade-up delay"],
+[data="fade-up st"],
+[data="fade-up nd"],
+[data="fade-up rd"],
+[data="fade-up frth"],
+[data="fade-up fvth"],
+[data="fade-up sxth"],
+[data="fade-up svth"]
+  transition: transform ease 2s, opacity ease 1.5s
+  opacity: 0
+  transform: translateY(5vw)
+
+[data="fade-up"].is_inview,
+[data="fade-up delay"].is_inview,
+[data="fade-up st"].is_inview,
+[data="fade-up nd"].is_inview,
+[data="fade-up rd"].is_inview,
+[data="fade-up frth"].is_inview,
+[data="fade-up fvth"].is_inview,
+[data="fade-up sxth"].is_inview,
+[data="fade-up svth"].is_inview
+  opacity: 1
+  transform: translateY(0)
+
+[data="fade-up st"]
+  transition-delay: .25s
+
+[data="fade-up nd"]
+  transition-delay: .5s
+
+[data="fade-up rd"]
+  transition-delay: .75s
+
+[data="fade-up frth"]
+  transition-delay: 1s
+
+[data="fade-up fvth"]
+  transition-delay: 1.25s
+
+[data="fade-up sxth"]
+  transition-delay: 1.5s
+
+[data="fade-up svth"]
+  transition-delay: 1.75s

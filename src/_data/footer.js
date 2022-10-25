@@ -9,7 +9,7 @@ module.exports = {
 
     cgn_addressTitle: "Bureau & Design",
     cgn_addressStreet: "Sömmeringstraße",
-    cgn_addressNumber: "71-75",
+    cgn_addressNumber: "71-73",
     cgn_addressPostcode: "50823",
     cgn_addressCity: "Köln",
     cgn_phone: "+49 163 203 27 54",
@@ -17,7 +17,7 @@ module.exports = {
     link_BusinessTerms: "avg",
     link_Imprint: "impressum",
     link_PrivacyPolicy: "datenschutz",
-    copyrights: "©2022 TheGrandHeavyBold GbR",
+    copyrights: "TheGrandHeavyBold GbR",
   },
   en: {
     ffm_addressTitle: "Bureau & Production",
@@ -29,7 +29,7 @@ module.exports = {
 
     cgn_addressTitle: "Bureau & Design",
     cgn_addressStreet: "Soemmeringstrasse",
-    cgn_addressNumber: "71-75",
+    cgn_addressNumber: "71-73",
     cgn_addressPostcode: "50823",
     cgn_addressCity: "Cologne",
     cgn_phone: "+49 163 203 27 54",
@@ -37,6 +37,6 @@ module.exports = {
     link_BusinessTerms: "avg",
     link_Imprint: "imprint",
     link_PrivacyPolicy: "privacy",
-    copyrights: "©2022 TheGrandHeavyBold GbR",
+    copyrights: "TheGrandHeavyBold GbR",
   },
 };
