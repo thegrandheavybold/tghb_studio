@@ -110,7 +110,7 @@ translationKey: "home"
 
       <div class="tsr">
 
-        {% for post in collections.posts_en.slice(0, 4) | reverse %}
+        {% for post in collections.posts_en.slice(6, 10) | reverse %}
           {% if loop.first %}<ul class="grd">{% endif %}
             {% set counter = ( counter | default(0) ) + 1 %}
             <li class="item__{{ counter }} c-nvrtd">
