@@ -2,7 +2,6 @@ ul.fltrs
   display: flex
   justify-content: flex-start
   align-items: center
-  margin-top: 10vw
   flex-wrap: wrap
   width: 100%
   li
@@ -19,6 +18,10 @@ ul.fltrs
     &.prjcts-fltr-active > h6.link::before
       visibility: visible
       transform: scaleX(1)
+
+@media only screen and (max-width: 1024px)
+  ul.fltrs
+    margin-top: 10vw
 
 @media only screen and (max-width: 768px)
   ul.fltrs
