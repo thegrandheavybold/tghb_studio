@@ -1,6 +1,6 @@
 ---
 permalink: /{{ locale }}/{{ navigation[locale].projects}}/index.html
-translationKey: "projekte"
+translationKey: "projects"
 ---
 
 <section class="pg_hro">
@@ -9,9 +9,9 @@ translationKey: "projekte"
     <div class="sctn__hdr grd">
 
       <ul class="spn2 fltrs" data-logic="and">
-        <li data-filter="all"><h6 class="link">Alle</h6><sub id="all-prjcts"></sub></li>
-        <li data-filter=".identity"><h6 class="link">Identität</h6><sub id="dntty-prjcts"></sub></li>
-        <li data-filter=".communication"><h6 class="link">Kommunikation</h6><sub id="cmmnctn-prjcts"></sub></li>
+        <li data-filter="all"><h6 class="link">All</h6><sub id="all-prjcts"></sub></li>
+        <li data-filter=".identity"><h6 class="link">Identity</h6><sub id="dntty-prjcts"></sub></li>
+        <li data-filter=".communication"><h6 class="link">Communication</h6><sub id="cmmnctn-prjcts"></sub></li>
         <li data-filter=".digital"><h6 class="link">Digital</h6><sub id="dgtl-prjcts"></sub></li>
         <li data-filter=".interior"><h6 class="link">Interior</h6><sub id="ntrr-prjcts"></sub></li>
       </ul>
@@ -27,7 +27,7 @@ translationKey: "projekte"
 
     <div>
 
-      {% for post in collections.posts_de | reverse %}
+      {% for post in collections.posts_en | reverse %}
         {% if loop.first %}<ul class="grd prjcts">{% endif %}
           {% set counter = ( counter | default(0) ) + 1 %}
             <li class="item__{{ counter }} prjct mix {{ post.data.tags | join(' ') }}">

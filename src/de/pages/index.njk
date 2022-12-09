@@ -80,7 +80,7 @@ translationKey: "home"
 
 </section>
 
-<section id="frnt_prjcts__link"  class="frnt_sctn prjcts drk">
+<section class="frnt_sctn tsrs drk">
 
   <div class="wrapper">
 
@@ -96,10 +96,10 @@ translationKey: "home"
 
         <p class="intro">Wir verstehen Kommunikation ganzheitlich und liefern alles aus einer Hand.</p>
 
-        {#<a class="lnk__18" href="/{{ locale }}/{{ navigation[locale].projects }}">
+        <a class="lnk__18" href="/{{ locale }}/{{ navigation[locale].projects }}">
           <svg class="hyperlink_btn">
             <use xlink:href="#hyperlink_btn"></use>
-          </svg> {{ translate[locale].all_projects }}</a>#}
+          </svg> {{ translate[locale].all_projects }}</a>
 
       </div>
 
@@ -110,10 +110,10 @@ translationKey: "home"
 
       <div class="tsr">
 
-        {% for post in collections.posts_de.slice(0, 10) | reverse %}
+        {% for post in collections.posts_de.slice(0, 4) | reverse %}
           {% if loop.first %}<ul class="grd">{% endif %}
             {% set counter = ( counter | default(0) ) + 1 %}
-            <li class="item__{{ counter }}">
+            <li class="item__{{ counter }} c-nvrtd">
 
               <article>
                 <a href="{{ post.url }}">
@@ -157,36 +157,15 @@ translationKey: "home"
 
     </div>
 
-    {#<a class="big__link cntr" href="/{{ locale }}/{{ navigation[locale].projects }}">{{ translate[locale].all_projects }}</a>#}
-
-  </div>
-
-</section>
-
-<section class="frnt_sctn qts">
-
-  <div class="wrapper grd">
-
-    <div class="sctn_ttl" data="fade-up">{{ translate[locale].attitude }}</div>
-    <!-- Slider main container -->
-    <div class="swiper qts_swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        {% for quotes in quoteList.de %}
-
-        <div class="swiper-slide"><h1 data="fade-up st">{{ quotes }}</h1></div>
-
-        {% endfor %}
-
-      </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination swiper-bullets"></div>
+    <div class="cntr">
+      <a class="big__link" href="/{{ locale }}/{{ navigation[locale].projects }}" data="fade-up">{{ translate[locale].all_projects }}</a>
     </div>
 
   </div>
 
 </section>
+
+{%- include "partials/qts_slider_de.njk" -%}
 
 <section class="ppl">
 

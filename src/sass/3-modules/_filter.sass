@@ -1,0 +1,25 @@
+ul.fltrs
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  margin-top: 10vw
+  flex-wrap: wrap
+  width: 100%
+  li
+    display: flex
+    flex-wrap: nowrap
+    margin-top: 3vw
+    margin-right: 3vw
+    &:last-child
+      margin-right: 0
+
+    h6
+      margin: 0
+
+    &.prjcts-fltr-active > h6.link::before
+      visibility: visible
+      transform: scaleX(1)
+
+@media only screen and (max-width: 768px)
+  ul.fltrs
+    margin-top: 21vw

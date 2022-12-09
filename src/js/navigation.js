@@ -6,6 +6,8 @@
  */
 ( function() {
 	var container, button, menu, links, i, len;
+  var cursorDot = document.querySelector(".c-cursor__dot");
+  var main = document.querySelector("main");
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -35,10 +37,14 @@
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
+      cursorDot.classList.remove('c-cursor__inverted');
+      main.setAttribute("style", "display:block;");
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
+      cursorDot.className += ' c-cursor__inverted';
+      main.setAttribute("style", "display:none;");
 		}
 	};
 

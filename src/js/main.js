@@ -1,7 +1,8 @@
 import 'navigation.js'
 import 'lazy.js'
 
-// import Swiper bundle with all modules installed
+
+//import Swiper bundle with all modules installed
 import Swiper, { Lazy, Pagination, Autoplay, EffectFade } from 'swiper';
 
 const qtsSwiper = new Swiper('.qts_swiper', {
@@ -76,7 +77,7 @@ const hroSldr = new Swiper('.hro__sldr', {
     crossFade: true
   },
 
-  lazy: {
+lazy: {
     loadPrevNext: true
    },
 
@@ -100,7 +101,7 @@ const mintSldr1 = new Swiper('.mintandthings_01__sldr', {
 
   modules: [Pagination, Autoplay, Lazy],
 
-  lazy: {
+ lazy: {
     loadPrevNext: true
    },
 
@@ -278,4 +279,136 @@ const obsOptions = {
 const ELs_inViewport = document.querySelectorAll('[data]');
 ELs_inViewport.forEach(EL => {
   Obs.observe(EL, obsOptions);
+});
+
+
+//Custom Cursor
+const cursor = document.querySelector(".c-cursor"),
+      cursorDot = document.querySelector(".c-cursor__dot"),
+      links = document.querySelectorAll("a,.menu-toggle,.fltrs li"),
+      teaser = document.querySelector(".frnt_prjcts"),
+      nvrtd = document.querySelectorAll(".c-nvrtd"),
+      ttl = document.querySelectorAll(".ttl").innerHTML,
+      prjcts = document.querySelectorAll(".prjct"),
+      msg = document.querySelector(".c-cursor__msg"),
+      drag = document.querySelectorAll(".swiper-slide");
+
+window.addEventListener('mousemove', e => {
+  cursor.setAttribute("style", "transform: matrix(1, 0, 0, 1, "+e.clientX+", "+e.clientY+")")
+  });
+    if (links.length)
+      for (var n = 0; n < links.length; n++)
+          (links[n].onmouseenter = function () {
+            cursor.classList.add("c-cursor__hovering");
+          }),
+            (links[n].onmouseleave = function () {
+              cursor.classList.remove("c-cursor__hovering");
+            });
+
+    if (nvrtd.length)
+      for (var n = 0; n < nvrtd.length; n++)
+          (nvrtd[n].onmouseenter = function () {
+            cursorDot.classList.add("c-cursor__inverted");
+          }),
+            (nvrtd[n].onmouseleave = function () {
+              cursorDot.classList.remove("c-cursor__inverted");
+            });
+
+    if (drag.length)
+      for (var n = 0; n < drag.length; n++)
+          (drag[n].onmouseenter = function () {
+            cursor.classList.add("c-cursor__drag");
+          }),
+            (drag[n].onmouseleave = function () {
+              cursor.classList.remove("c-cursor__drag");
+            });
+
+    prjcts.forEach(prjct => {
+      prjct.addEventListener('mouseover', function () {
+        msg.classList.add("visible")
+        msg.innerHTML = prjct.querySelector('.ttl').innerHTML
+      })
+      prjct.addEventListener('mouseout', function () {
+        msg.classList.remove("visible")
+      })
+    })
+
+
+//projects Filtering
+import mixitup from 'mixitup';
+import mixitupMultifilter from 'mixitup-multifilter';
+
+mixitup.use(mixitupMultifilter);
+
+var containerEl = document.querySelector('.prjcts');
+var mixer;
+
+if (containerEl) {
+  mixer = mixitup('.prjcts', {
+    classNames: {
+      block: 'prjcts',
+      elementFilter: 'fltr',
+      elementContainer: 'prjcts'
+      },
+    animation: {
+        effects: 'fade scale(0.7)',
+        easing: 'ease-in-out'
+    },
+    multifilter: {
+        enable: true
+      },
+    controls: {
+      toggleLogic: 'and'
+    }
+  });
+}
+
+const digiAll = document.querySelectorAll(".digital").length;
+const postsAll = document.querySelectorAll(".prjct").length;
+const interiorAll = document.querySelectorAll(".interior").length;
+const identityAll = document.querySelectorAll(".identity").length;
+const communicationyAll = document.querySelectorAll(".communication").length;
+
+const allSpan = document.getElementById('all-prjcts');
+const digiSpan = document.getElementById('dgtl-prjcts');
+const interiorSpan = document.getElementById('ntrr-prjcts');
+const identitySpan = document.getElementById('dntty-prjcts');
+const communicationSpan = document.getElementById('cmmnctn-prjcts');
+
+if(allSpan) {
+  allSpan.textContent = postsAll;
+}
+if(digiSpan) {
+  digiSpan.textContent = digiAll;
+}
+if(interiorSpan) {
+  interiorSpan.textContent = interiorAll;
+}
+if(identitySpan) {
+  identitySpan.textContent = identityAll;
+}
+if(communicationSpan) {
+  communicationSpan.textContent = communicationyAll;
+}
+
+
+//gsap Magic
+import  gsap  from 'gsap';
+import  ScrollTrigger  from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+//gsap outofview imdb list items
+const oov = gsap.utils.toArray('.oov');
+oov.forEach(oov => {
+  gsap.from(oov, {
+  y: 150,
+  opacity: 0,
+    scrollTrigger: {
+      trigger: oov,
+      marker: true,
+      scrub: 2,
+      end: "bottom 90%"
+    }
+  })
 });

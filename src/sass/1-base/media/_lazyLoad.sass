@@ -9,8 +9,11 @@ picture
     width: 100%
     transition: all ease 0.7s
 
+
 .lazy-initial
   img
     width: calc(100% + $blurRadius *2)
     filter: blur($blurRadius *2)
     margin: ($blurRadius * -1) ($blurRadius * -2) ($blurRadius * -2)  ($blurRadius * -1)
+    transition: all ease 0.7s
+    will-change: width, filter, margin

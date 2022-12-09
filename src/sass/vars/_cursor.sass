@@ -1,0 +1,67 @@
+.c-cursor
+  position: fixed
+  height: 34px
+  width: 34px
+  top: -17px
+  left: -17px
+  pointer-events: none
+  z-index: 9999
+  will-change: transform, width, left, height, top
+  transition: width ease .7s, height ease .7s
+  &__dot
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    border-radius: 50px
+    background-color: $neon
+    outline: transparent solid 1px
+    transition: border-radius ease .7s
+  &__msg
+    position: inherit
+    top: 35px
+    left: 15px
+    width: 25vw
+    font-family: $font__bold
+    //font-size: min(max(8vw), 54px)
+    //line-height: min(max(7vw), 62px)
+    font-size: min(max(8vw), 72px)
+    line-height: min(max(7vw), 75px)
+    opacity: 0
+    transition: opacity ease .7s, transform ease .4s
+    transform: translateX(-5vw)
+    will-change: opacity, transform
+    &.visible
+      opacity: 1
+      transform: translateX(0)
+    span
+      font-family: $font__book
+      font-size: min(max(5vw), 26px)
+      line-height: min(max(5vw), 32px)
+      height: auto
+      display: block
+  &__inverted
+    background-color: $mid_gray
+
+.c-cursor__hovering
+  width: 102px
+  left: -51px
+.c-cursor__drag
+  height: 102px
+  top: -51px
+
+.c-cursor__msg
+  .teaser_btn
+    stroke: $gray
+    stroke-width: 6
+    margin: 2vw 0 0
+    stroke-dashoffset: 150
+    stroke-dasharray: 150
+    transition: all ease .7s
+    will-change: stroke-dashoffset
+
+.c-cursor__msg
+  &.visible
+    .teaser_btn
+      stroke-dashoffset: 300

@@ -1,0 +1,24 @@
+<section class="frnt_sctn qts c-nvrtd">
+
+  <div class="wrapper grd">
+
+    <div class="sctn_ttl">{{ translate[locale].attitude }}</div>
+    <!-- Slider main container -->
+    <div class="swiper-container qts_swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for quotes in quoteList.en %}
+
+        <div class="swiper-slide"><h1>{{ quotes }}</h1></div>
+
+        {% endfor %}
+
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination swiper-bullets"></div>
+    </div>
+
+  </div>
+
+</section>
