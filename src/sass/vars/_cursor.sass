@@ -7,7 +7,7 @@
   pointer-events: none
   z-index: 9999
   will-change: transform, width, left, height, top
-  transition: width ease .7s, height ease .7s
+  transition: width ease .4s, height ease .7s
   &__dot
     position: absolute
     top: 0
@@ -17,7 +17,7 @@
     border-radius: 50px
     background-color: $neon
     outline: transparent solid 1px
-    transition: border-radius ease .7s
+    transition: border-radius ease .4s
   &__msg
     position: inherit
     top: 35px
@@ -29,7 +29,7 @@
     font-size: min(max(8vw), 72px)
     line-height: min(max(7vw), 75px)
     opacity: 0
-    transition: opacity ease .7s, transform ease .4s
+    transition: opacity ease .4s, transform ease .4s
     transform: translateX(-5vw)
     will-change: opacity, transform
     &.visible
@@ -58,7 +58,7 @@
     margin: 2vw 0 0
     stroke-dashoffset: 150
     stroke-dasharray: 150
-    transition: all ease .7s
+    transition: all ease .4s
     will-change: stroke-dashoffset
 
 .c-cursor__msg

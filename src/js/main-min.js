@@ -979,7 +979,7 @@ function filter(callback) {
   return $(result);
 }
 
-function html(html) {
+function html$1(html) {
   if (typeof html === 'undefined') {
     return this[0] ? this[0].innerHTML : null;
   }
@@ -1784,7 +1784,7 @@ const Methods = {
   offset,
   css,
   each,
-  html,
+  html: html$1,
   text,
   is,
   index,
@@ -32348,6 +32348,22 @@ ScrollTrigger.core = {
   }
 };
 _getGSAP() && gsap.registerPlugin(ScrollTrigger);
+
+//JS Support check and touch screen check
+var html = document.querySelector("html");
+  html.classList.remove("no-js");
+  html.classList.add("js");
+
+function is_touch_device() {
+  return !!('ontouchstart' in window);
+}
+
+  if(is_touch_device()) {
+    html.classList.add("touch");
+  }
+  else {
+    html.classList.remove("touch");
+  }
 
 const qtsSwiper = new Swiper('.qts_swiper', {
   // Optional parameters
