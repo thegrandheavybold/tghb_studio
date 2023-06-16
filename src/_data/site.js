@@ -16,11 +16,11 @@ module.exports = {
     },
   ],
   de: {
-    metaTitle: "TheGrandHeavyBold – Design Studio für Strategie, Gestaltung, Interaktion und Realisation.",
+    metaTitle: "TheGrandHeavyBold × Design Studio Köln & Frankfurt",
     metaDescription: "Medienübergreifende Markenkommunikation – wir erwecken Inhalte zum Leben.",
   },
   en: {
-    metaTitle: "TheGrandHeavyBold - Design studio for strategy, design, interaction and realization.",
+    metaTitle: "TheGrandHeavyBold x Design studio Cologne & Frankfurt",
     metaDescription: "Cross-media brand communication - we bring content to life.",
   },
 };

@@ -1,0 +1,74 @@
+.shyndirty
+  overflow: hidden
+  span.shyndirty_stripe
+    background: #FF0096
+    height: 640px
+    width: 200vw
+    transform: rotate(54deg) translateY(50vw)
+    display: block
+    position: absolute
+    top: 0
+    /* left: 0; */
+    z-index: -1
+
+.shyndirty__a
+  .grd
+    grid-template-areas: 'a .' 'a b' '. b' 'c d' 'c e' 'f e' 'f g' 'h g'
+    row-gap: 0
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+      @include row-gap
+
+    .item__3
+      grid-area: c
+      @include row-gap
+
+    .item__4
+      grid-area: d
+      @include row-gap
+
+    .item__5
+      grid-area: e
+      //@include row-gap
+
+    .item__6
+      grid-area: f
+      //align-self: flex-end
+
+    .item__7
+      grid-area: g
+
+    .item__8
+      grid-area: h
+      aspect-ratio: 1.9
+
+.shyndirty__b
+  .grd
+    grid-template-areas: 'a b' 'c b' 'c d' '. d'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+      align-self: flex-end
+
+    .item__4
+      grid-area: d
+
+
+@include s
+  .barrylaffair__a
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f' 'g g' 'h h'
+
+  .barrylaffair__b
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d'
