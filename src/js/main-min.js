@@ -6434,6 +6434,309 @@ new Swiper('.shyndirty_03__sldr', {
 
 });
 
+
+new Swiper('.snd_01__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 1900
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+new Swiper('.snd_02__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2500
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+new Swiper('.snd_03__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2000
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+new Swiper('.snd_04__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2500
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+new Swiper('.snd_05__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2000
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+
+//Gumbrecht sliders
+new Swiper('.gumbrecht_01__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2500
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+new Swiper('.gumbrecht_02__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2000
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+new Swiper('.gumbrecht_03__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2500
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+new Swiper('.gumbrecht_04__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2000
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+new Swiper('.gumbrecht_05__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2500
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
 function getDefaultExportFromCjs (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
 }

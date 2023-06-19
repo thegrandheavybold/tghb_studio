@@ -1,0 +1,52 @@
+.gumbrecht
+  background: url("assets/img/tghb_studio__gumbrecht__01.jpg")
+  background-size: cover
+  background-position: 50% center
+  color: #D4551C
+
+
+.gumbrecht__a
+  .grd
+    grid-template-areas: '. a' 'b c'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+    
+    .item__3
+      grid-area: c
+
+
+.gumbrecht__b
+  .grd
+    grid-template-areas: 'a b' 
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+
+.gumbrecht__c
+  .grd
+    grid-template-areas: 'a .'
+
+    .item__1
+      grid-area: a
+      width: 75%
+
+
+@include s
+  .gumbrecht__a
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c'
+      
+  .gumbrecht__b
+    .grd
+      grid-template-areas: 'a a' 'b b'
+
+  .gumbrecht__c
+    .grd
+      grid-template-areas: 'a a'
