@@ -6,5 +6,6 @@ dist
 src/assets/images
 .vscode
 .fleet
+mixitup-multifilter
 # Local Netlify folder
 .netlify
