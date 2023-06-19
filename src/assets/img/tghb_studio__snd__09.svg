@@ -1,8 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="2880" viewBox="0 0 2560 2880">
-  <g id="Group_147" data-name="Group 147" transform="translate(-981 -5570)">
-    <rect id="Rectangle_153" data-name="Rectangle 153" width="2560" height="1441" transform="translate(981 7009)" fill="#d8d1c9"/>
-    <rect id="Rectangle_154" data-name="Rectangle 154" width="2560" height="1441" transform="translate(981 5570)" fill="#31b1cb"/>
-    <rect id="Rectangle_155" data-name="Rectangle 155" width="360.122" height="360.122" transform="translate(2262.226 7190.083) rotate(180)" fill="#fff"/>
-    <rect id="Rectangle_156" data-name="Rectangle 156" width="360.122" height="360.122" transform="translate(2622.347 7190.083) rotate(180)" fill="#686868"/>
-  </g>
-</svg>
+version https://git-lfs.github.com/spec/v1
+oid sha256:0fb0230c59a1c770580c83c569cd1813f92061211ddf878fd3b8672df035b47e
+size 758
