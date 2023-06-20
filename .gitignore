@@ -9,3 +9,4 @@ src/assets/images
 # Local Netlify folder
 .netlify
 mixitup-multifilter
+.idea
