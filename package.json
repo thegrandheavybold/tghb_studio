@@ -16,7 +16,6 @@
     "@sindresorhus/slugify": "^2.1.0",
     "gsap": "npm:@gsap/shockingly@^3.11.3",
     "jquery": "^3.6.0",
-    "mixitup-multifilter": "file:mixitup-multifilter",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
     "require-dir": "^1.2.0",

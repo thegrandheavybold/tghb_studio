@@ -112,7 +112,7 @@ window.addEventListener('mousemove', e => {
 
 //projects Filtering
 import mixitup from 'mixitup';
-import mixitupMultifilter from 'mixitup-multifilter';
+import mixitupMultifilter from '../../mixitup-multifilter';
 
 mixitup.use(mixitupMultifilter);
 
