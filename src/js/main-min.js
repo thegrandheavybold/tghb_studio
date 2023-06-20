@@ -1,3 +1,5 @@
+import mixitupMultifilter from 'mixitup-multifilter';
+
 /**
  * File navigation.js.
  *
@@ -287,15 +289,15 @@ function getWindow() {
 }
 
 /**
- * Dom7 4.0.4
+ * Dom7 4.0.6
  * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
  * https://framework7.io/docs/dom7.html
  *
- * Copyright 2022, Vladimir Kharlampidi
+ * Copyright 2023, Vladimir Kharlampidi
  *
  * Licensed under MIT
  *
- * Released on: January 11, 2022
+ * Released on: February 2, 2023
  */
 
 /* eslint-disable no-proto */
@@ -17422,1271 +17424,15 @@ var mixitup$1 = {exports: {}};
 var mixitupExports = mixitup$1.exports;
 var mixitup = /*@__PURE__*/getDefaultExportFromCjs(mixitupExports);
 
-var mixitupMultifilter$1 = {exports: {}};
-
-/**!
- * MixItUp MultiFilter v3.3.6
- * A UI-builder for powerful multidimensional filtering
- * Build 293e0dda-087e-4a76-aadf-e3e8b311b81f
- *
- * Requires mixitup.js >= v^3.1.2
- *
- * @copyright Copyright 2014-2020 KunkaLabs Limited.
- * @author    KunkaLabs Limited.
- * @link      https://www.kunkalabs.com/mixitup-multifilter/
- *
- * @license   Commercial use requires a commercial license.
- *            https://www.kunkalabs.com/mixitup-multifilter/licenses/
- *
- *            Non-commercial use permitted under same terms as  license.
- *            http://creativecommons.org/licenses/by-nc/3.0/
- */
-
-(function (module, exports) {
-	(function(window) {
-
-	    var mixitupMultifilter = function(mixitup) {
-	        var h = mixitup.h;
-	        var diacriticsMap;
-
-	        diacriticsMap = [
-	            ['A', /[\u0041\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F]/g],
-	            ['AA', /[\uA732]/g],
-	            ['AE', /[\u00C6\u01FC\u01E2]/g],
-	            ['AO', /[\uA734]/g],
-	            ['AU', /[\uA736]/g],
-	            ['AV', /[\uA738\uA73A]/g],
-	            ['AY', /[\uA73C]/g],
-	            ['B', /[\u0042\u24B7\uFF22\u1E02\u1E04\u1E06\u0243\u0182\u0181]/g],
-	            ['C', /[\u0043\u24B8\uFF23\u0106\u0108\u010A\u010C\u00C7\u1E08\u0187\u023B\uA73E]/g],
-	            ['D', /[\u0044\u24B9\uFF24\u1E0A\u010E\u1E0C\u1E10\u1E12\u1E0E\u0110\u018B\u018A\u0189\uA779]/g],
-	            ['DZ', /[\u01F1\u01C4]/g],
-	            ['Dz', /[\u01F2\u01C5]/g],
-	            ['E', /[\u0045\u24BA\uFF25\u00C8\u00C9\u00CA\u1EC0\u1EBE\u1EC4\u1EC2\u1EBC\u0112\u1E14\u1E16\u0114\u0116\u00CB\u1EBA\u011A\u0204\u0206\u1EB8\u1EC6\u0228\u1E1C\u0118\u1E18\u1E1A\u0190\u018E]/g],
-	            ['F', /[\u0046\u24BB\uFF26\u1E1E\u0191\uA77B]/g],
-	            ['G', /[\u0047\u24BC\uFF27\u01F4\u011C\u1E20\u011E\u0120\u01E6\u0122\u01E4\u0193\uA7A0\uA77D\uA77E]/g],
-	            ['H', /[\u0048\u24BD\uFF28\u0124\u1E22\u1E26\u021E\u1E24\u1E28\u1E2A\u0126\u2C67\u2C75\uA78D]/g],
-	            ['I', /[\u0049\u24BE\uFF29\u00CC\u00CD\u00CE\u0128\u012A\u012C\u0130\u00CF\u1E2E\u1EC8\u01CF\u0208\u020A\u1ECA\u012E\u1E2C\u0197]/g],
-	            ['J', /[\u004A\u24BF\uFF2A\u0134\u0248]/g],
-	            ['K', /[\u004B\u24C0\uFF2B\u1E30\u01E8\u1E32\u0136\u1E34\u0198\u2C69\uA740\uA742\uA744\uA7A2]/g],
-	            ['L', /[\u004C\u24C1\uFF2C\u013F\u0139\u013D\u1E36\u1E38\u013B\u1E3C\u1E3A\u0141\u023D\u2C62\u2C60\uA748\uA746\uA780]/g],
-	            ['LJ', /[\u01C7]/g],
-	            ['Lj', /[\u01C8]/g],
-	            ['M', /[\u004D\u24C2\uFF2D\u1E3E\u1E40\u1E42\u2C6E\u019C]/g],
-	            ['N', /[\u004E\u24C3\uFF2E\u01F8\u0143\u00D1\u1E44\u0147\u1E46\u0145\u1E4A\u1E48\u0220\u019D\uA790\uA7A4]/g],
-	            ['NJ', /[\u01CA]/g],
-	            ['Nj', /[\u01CB]/g],
-	            ['O', /[\u004F\u24C4\uFF2F\u00D2\u00D3\u00D4\u1ED2\u1ED0\u1ED6\u1ED4\u00D5\u1E4C\u022C\u1E4E\u014C\u1E50\u1E52\u014E\u022E\u0230\u00D6\u022A\u1ECE\u0150\u01D1\u020C\u020E\u01A0\u1EDC\u1EDA\u1EE0\u1EDE\u1EE2\u1ECC\u1ED8\u01EA\u01EC\u00D8\u01FE\u0186\u019F\uA74A\uA74C]/g],
-	            ['OI', /[\u01A2]/g],
-	            ['OO', /[\uA74E]/g],
-	            ['OU', /[\u0222]/g],
-	            ['P', /[\u0050\u24C5\uFF30\u1E54\u1E56\u01A4\u2C63\uA750\uA752\uA754]/g],
-	            ['Q', /[\u0051\u24C6\uFF31\uA756\uA758\u024A]/g],
-	            ['R', /[\u0052\u24C7\uFF32\u0154\u1E58\u0158\u0210\u0212\u1E5A\u1E5C\u0156\u1E5E\u024C\u2C64\uA75A\uA7A6\uA782]/g],
-	            ['S', /[\u0053\u24C8\uFF33\u1E9E\u015A\u1E64\u015C\u1E60\u0160\u1E66\u1E62\u1E68\u0218\u015E\u2C7E\uA7A8\uA784]/g],
-	            ['T', /[\u0054\u24C9\uFF34\u1E6A\u0164\u1E6C\u021A\u0162\u1E70\u1E6E\u0166\u01AC\u01AE\u023E\uA786]/g],
-	            ['TZ', /[\uA728]/g],
-	            ['U', /[\u0055\u24CA\uFF35\u00D9\u00DA\u00DB\u0168\u1E78\u016A\u1E7A\u016C\u00DC\u01DB\u01D7\u01D5\u01D9\u1EE6\u016E\u0170\u01D3\u0214\u0216\u01AF\u1EEA\u1EE8\u1EEE\u1EEC\u1EF0\u1EE4\u1E72\u0172\u1E76\u1E74\u0244]/g],
-	            ['V', /[\u0056\u24CB\uFF36\u1E7C\u1E7E\u01B2\uA75E\u0245]/g],
-	            ['VY', /[\uA760]/g],
-	            ['W', /[\u0057\u24CC\uFF37\u1E80\u1E82\u0174\u1E86\u1E84\u1E88\u2C72]/g],
-	            ['X', /[\u0058\u24CD\uFF38\u1E8A\u1E8C]/g],
-	            ['Y', /[\u0059\u24CE\uFF39\u1EF2\u00DD\u0176\u1EF8\u0232\u1E8E\u0178\u1EF6\u1EF4\u01B3\u024E\u1EFE]/g],
-	            ['Z', /[\u005A\u24CF\uFF3A\u0179\u1E90\u017B\u017D\u1E92\u1E94\u01B5\u0224\u2C7F\u2C6B\uA762]/g],
-	            ['a', /[\u0061\u24D0\uFF41\u1E9A\u00E0\u00E1\u00E2\u1EA7\u1EA5\u1EAB\u1EA9\u00E3\u0101\u0103\u1EB1\u1EAF\u1EB5\u1EB3\u0227\u01E1\u00E4\u01DF\u1EA3\u00E5\u01FB\u01CE\u0201\u0203\u1EA1\u1EAD\u1EB7\u1E01\u0105\u2C65\u0250]/g],
-	            ['aa', /[\uA733]/g],
-	            ['ae', /[\u00E6\u01FD\u01E3]/g],
-	            ['ao', /[\uA735]/g],
-	            ['au', /[\uA737]/g],
-	            ['av', /[\uA739\uA73B]/g],
-	            ['ay', /[\uA73D]/g],
-	            ['b', /[\u0062\u24D1\uFF42\u1E03\u1E05\u1E07\u0180\u0183\u0253]/g],
-	            ['c', /[\u0063\u24D2\uFF43\u0107\u0109\u010B\u010D\u00E7\u1E09\u0188\u023C\uA73F\u2184]/g],
-	            ['d', /[\u0064\u24D3\uFF44\u1E0B\u010F\u1E0D\u1E11\u1E13\u1E0F\u0111\u018C\u0256\u0257\uA77A]/g],
-	            ['dz', /[\u01F3\u01C6]/g],
-	            ['e', /[\u0065\u24D4\uFF45\u00E8\u00E9\u00EA\u1EC1\u1EBF\u1EC5\u1EC3\u1EBD\u0113\u1E15\u1E17\u0115\u0117\u00EB\u1EBB\u011B\u0205\u0207\u1EB9\u1EC7\u0229\u1E1D\u0119\u1E19\u1E1B\u0247\u025B\u01DD]/g],
-	            ['f', /[\u0066\u24D5\uFF46\u1E1F\u0192\uA77C]/g],
-	            ['g', /[\u0067\u24D6\uFF47\u01F5\u011D\u1E21\u011F\u0121\u01E7\u0123\u01E5\u0260\uA7A1\u1D79\uA77F]/g],
-	            ['h', /[\u0068\u24D7\uFF48\u0125\u1E23\u1E27\u021F\u1E25\u1E29\u1E2B\u1E96\u0127\u2C68\u2C76\u0265]/g],
-	            ['hv', /[\u0195]/g],
-	            ['i', /[\u0069\u24D8\uFF49\u00EC\u00ED\u00EE\u0129\u012B\u012D\u00EF\u1E2F\u1EC9\u01D0\u0209\u020B\u1ECB\u012F\u1E2D\u0268\u0131]/g],
-	            ['j', /[\u006A\u24D9\uFF4A\u0135\u01F0\u0249]/g],
-	            ['k', /[\u006B\u24DA\uFF4B\u1E31\u01E9\u1E33\u0137\u1E35\u0199\u2C6A\uA741\uA743\uA745\uA7A3]/g],
-	            ['l', /[\u006C\u24DB\uFF4C\u0140\u013A\u013E\u1E37\u1E39\u013C\u1E3D\u1E3B\u017F\u0142\u019A\u026B\u2C61\uA749\uA781\uA747]/g],
-	            ['lj', /[\u01C9]/g],
-	            ['m', /[\u006D\u24DC\uFF4D\u1E3F\u1E41\u1E43\u0271\u026F]/g],
-	            ['n', /[\u006E\u24DD\uFF4E\u01F9\u0144\u00F1\u1E45\u0148\u1E47\u0146\u1E4B\u1E49\u019E\u0272\u0149\uA791\uA7A5]/g],
-	            ['nj', /[\u01CC]/g],
-	            ['o', /[\u006F\u24DE\uFF4F\u00F2\u00F3\u00F4\u1ED3\u1ED1\u1ED7\u1ED5\u00F5\u1E4D\u022D\u1E4F\u014D\u1E51\u1E53\u014F\u022F\u0231\u00F6\u022B\u1ECF\u0151\u01D2\u020D\u020F\u01A1\u1EDD\u1EDB\u1EE1\u1EDF\u1EE3\u1ECD\u1ED9\u01EB\u01ED\u00F8\u01FF\u0254\uA74B\uA74D\u0275]/g],
-	            ['oi', /[\u01A3]/g],
-	            ['ou', /[\u0223]/g],
-	            ['oo', /[\uA74F]/g],
-	            ['p', /[\u0070\u24DF\uFF50\u1E55\u1E57\u01A5\u1D7D\uA751\uA753\uA755]/g],
-	            ['q', /[\u0071\u24E0\uFF51\u024B\uA757\uA759]/g],
-	            ['r', /[\u0072\u24E1\uFF52\u0155\u1E59\u0159\u0211\u0213\u1E5B\u1E5D\u0157\u1E5F\u024D\u027D\uA75B\uA7A7\uA783]/g],
-	            ['s', /[\u0073\u24E2\uFF53\u00DF\u015B\u1E65\u015D\u1E61\u0161\u1E67\u1E63\u1E69\u0219\u015F\u023F\uA7A9\uA785\u1E9B]/g],
-	            ['t', /[\u0074\u24E3\uFF54\u1E6B\u1E97\u0165\u1E6D\u021B\u0163\u1E71\u1E6F\u0167\u01AD\u0288\u2C66\uA787]/g],
-	            ['tz', /[\uA729]/g],
-	            ['u', /[\u0075\u24E4\uFF55\u00F9\u00FA\u00FB\u0169\u1E79\u016B\u1E7B\u016D\u00FC\u01DC\u01D8\u01D6\u01DA\u1EE7\u016F\u0171\u01D4\u0215\u0217\u01B0\u1EEB\u1EE9\u1EEF\u1EED\u1EF1\u1EE5\u1E73\u0173\u1E77\u1E75\u0289]/g],
-	            ['v', /[\u0076\u24E5\uFF56\u1E7D\u1E7F\u028B\uA75F\u028C]/g],
-	            ['vy', /[\uA761]/g],
-	            ['w', /[\u0077\u24E6\uFF57\u1E81\u1E83\u0175\u1E87\u1E85\u1E98\u1E89\u2C73]/g],
-	            ['x', /[\u0078\u24E7\uFF58\u1E8B\u1E8D]/g],
-	            ['y', /[\u0079\u24E8\uFF59\u1EF3\u00FD\u0177\u1EF9\u0233\u1E8F\u00FF\u1EF7\u1E99\u1EF5\u01B4\u024F\u1EFF]/g],
-	            ['z', /[\u007A\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763]/g]
-	        ];
-
-	        if (
-	            !mixitup.CORE_VERSION ||
-	            !h.compareVersions(mixitupMultifilter.REQUIRE_CORE_VERSION, mixitup.CORE_VERSION)
-	        ) {
-	            throw new Error(
-	                '[MixItUp Multifilter] MixItUp Multifilter v' +
-	                mixitupMultifilter.EXTENSION_VERSION +
-	                ' requires at least MixItUp v' +
-	                mixitupMultifilter.REQUIRE_CORE_VERSION
-	            );
-	        }
-
-	        /**
-	         * A group of optional callback functions to be invoked at various
-	         * points within the lifecycle of a mixer operation.
-	         *
-	         * @constructor
-	         * @memberof    mixitup.Config
-	         * @name        callbacks
-	         * @namespace
-	         * @public
-	         * @since       3.0.0
-	         */
-
-	        mixitup.ConfigCallbacks.registerAction('afterConstruct', 'multifilter', function() {
-	            /**
-	             * A callback function invoked whenever MultiFilter filter groups
-	             * are parsed. This occurs whenever the user interacts with filter
-	             * group UI, or when the `parseFilterGroups()` API method is called,
-	             * but before the resulting filter operation has been triggered.
-	             *
-	             * By default, this generates the appropriate compound selector and
-	             * filters the mixer using a `multimix()` API call internally. This
-	             * callback can be used to transform the multimix command object sent
-	             * to this API call.
-	             *
-	             * This is particularly useful when additional behavior such as sorting
-	             * or pagination must be taken into account when using the MultiFilter API.
-	             *
-	             * The callback receives the generated multimix command object, and must
-	             * also return a valid multimix command object.
-	             *
-	             * @example <caption>Example: Overriding the default filtering behavior with `onParseFilterGroups`</caption>
-	             * var mixer = mixitup(containerEl, {
-	             *     callbacks: {
-	             *         onParseFilterGroups: function(command) {
-	             *             command.paginate = 3;
-	             *             command.sort = 'default:desc';
-	             *
-	             *             return command;
-	             *         }
-	             *     }
-	             * });
-	             *
-	             * @name        onParseFilterGroups
-	             * @memberof    mixitup.Config.callbacks
-	             * @instance
-	             * @type        {function}
-	             * @default     null
-	             */
-
-	            this.onParseFilterGroups = null;
-	        });
-
-	        /**
-	         * A group of properties defining the behavior of your multifilter UI.
-	         *
-	         * @constructor
-	         * @memberof    mixitup.Config
-	         * @name        multifilter
-	         * @namespace
-	         * @public
-	         * @since       3.0.0
-	         */
-
-	        mixitup.ConfigMultifilter = function() {
-
-	            /**
-	             * A boolean dictating whether or not to enable multifilter functionality.
-	             *
-	             * If `true`, MixItUp will query the DOM for any elements with a
-	             * `data-filter-group` attribute present on instantiation.
-	             *
-	             * @name        enable
-	             * @memberof    mixitup.Config.multifilter
-	             * @instance
-	             * @type        {boolean}
-	             * @default     false
-	             */
-
-	            this.enable = false;
-
-	            /**
-	             * A string dictating the logic to use when concatenating selectors within
-	             * individual filter groups.
-	             *
-	             * If set to `'or'` (default), targets will be shown if they match any
-	             * active filter in the group.
-	             *
-	             * If set to `'and'`, targets will be shown only if they match
-	             * all active filters in the group.
-	             *
-	             * @name        logicWithinGroup
-	             * @memberof    mixitup.Config.multifilter
-	             * @instance
-	             * @type        {string}
-	             * @default     'or'
-	             */
-
-	            this.logicWithinGroup = 'or';
-
-	            /**
-	             * A string dictating the logic to use when concatenating each group's
-	             * selectors into one single selector.
-	             *
-	             * If set to `'and'` (default), targets will be shown only if they match
-	             * the combined active selectors of all groups.
-	             *
-	             * If set to `'or'`, targets will be shown if they match the active selectors
-	             * of any individual group.
-	             *
-	             * @name        logicBetweenGroups
-	             * @memberof    mixitup.Config.multifilter
-	             * @instance
-	             * @type        {string}
-	             * @default     'and'
-	             */
-
-	            this.logicBetweenGroups = 'and';
-
-	            /**
-	             * An integer dictating the minimum number of characters at which the value
-	             * of a text input will be included as a multifilter. This prevents short or
-	             * incomplete words with many potential matches from triggering
-	             * filter operations.
-	             *
-	             * @name        minSearchLength
-	             * @memberof    mixitup.Config.multifilter
-	             * @instance
-	             * @type        {number}
-	             * @default     3
-	             */
-
-	            this.minSearchLength = 3;
-
-	            /**
-	             * A string dictating when the parsing of filter groups should occur.
-	             *
-	             * If set to `'change'` (default), the mixer will be filtered whenever the
-	             * filtering UI is interacted with. The mode provides real-time filtering with
-	             * instant feedback.
-	             *
-	             * If set to `'submit'`, the mixer will only be filtered when a submit button is
-	             * clicked (if using a `<form>` element as a parent). This enables the user to firstly
-	             * make their selection, and then trigger filtering once they have
-	             * finished making their selection.
-	             *
-	             * Alternatively, the `mixer.parseFilterGroups()` method can be called via the API at any
-	             * time to trigger the parsing of filter groups and filter the mixer.
-	             *
-	             * @name        parseOn
-	             * @memberof    mixitup.Config.multifilter
-	             * @instance
-	             * @type        {string}
-	             * @default     'change'
-	             */
-
-	            this.parseOn = 'change';
-
-	            /**
-	             * An integer dictating the duration in ms that must elapse between keyup
-	             * events in order to trigger a change.
-	             *
-	             * Setting a comfortable delay of ~350ms prevents the mixer from being
-	             * thrashed while typing occurs.
-	             *
-	             * @name        keyupThrottleDuration
-	             * @memberof    mixitup.Config.multifilter
-	             * @instance
-	             * @type        {number}
-	             * @default     350
-	             */
-
-	            this.keyupThrottleDuration = 350;
-
-	            h.seal(this);
-	        };
-
-	        /**
-	         * The MixItUp configuration object is extended with properties relating to
-	         * the MultiFilter extension.
-	         *
-	         * For the full list of configuration options, please refer to the MixItUp
-	         * core documentation.
-	         *
-	         * @constructor
-	         * @memberof    mixitup
-	         * @name        Config
-	         * @namespace
-	         * @public
-	         * @since       2.0.0
-	         */
-
-	        mixitup.Config.registerAction('beforeConstruct', 'multifilter', function() {
-	            this.multifilter = new mixitup.ConfigMultifilter();
-	        });
-
-	        mixitup.MultifilterFormEventTracker = function() {
-	            this.form           = null;
-	            this.totalBound     = 0;
-	            this.totalHandled   = 0;
-
-	            h.seal(this);
-	        };
-
-	        mixitup.FilterGroupDom = function() {
-	            this.el     = null;
-	            this.form   = null;
-
-	            h.seal(this);
-	        };
-
-	        mixitup.FilterGroup = function() {
-	            this.name               = '';
-	            this.dom                = new mixitup.FilterGroupDom();
-	            this.activeSelectors    = [];
-	            this.activeFilters      = [];
-	            this.activeToggles      = [];
-	            this.handler            = null;
-	            this.mixer              = null;
-	            this.logic              = 'or';
-	            this.parseOn            = 'change';
-	            this.keyupTimeout       = -1;
-
-	            h.seal(this);
-	        };
-
-	        h.extend(mixitup.FilterGroup.prototype, {
-
-	            /**
-	             * @private
-	             * @param {HTMLELement}     el
-	             * @param {mixitup.Mixer}   mixer
-	             * @return {void}
-	             */
-
-	            init: function(el, mixer) {
-	                var self  = this,
-	                    logic = el.getAttribute('data-logic');
-
-	                self.dom.el = el;
-
-	                this.name = self.dom.el.getAttribute('data-filter-group') || '';
-
-	                self.cacheDom();
-
-	                if (self.dom.form) {
-	                    self.enableButtons();
-	                }
-
-	                self.mixer = mixer;
-
-	                if ((logic && logic.toLowerCase() === 'and') || mixer.config.multifilter.logicWithinGroup === 'and') {
-	                    // override default group logic
-
-	                    self.logic = 'and';
-
-	                }
-
-	                self.bindEvents();
-	            },
-
-	            /**
-	             * @private
-	             * @return {void}
-	             */
-
-	            cacheDom: function() {
-	                var self = this;
-
-	                self.dom.form = h.closestParent(self.dom.el, 'form', true);
-	            },
-
-	            enableButtons: function() {
-	                var self    = this,
-	                    buttons = self.dom.form.querySelectorAll('button[type="submit"]:disabled'),
-	                    button  = null,
-	                    i       = -1;
-
-	                for (i = 0; button = buttons[i]; i++) {
-	                    if (button.disabled) {
-	                        button.disabled = false;
-	                    }
-	                }
-	            },
-
-	            /**
-	             * @private
-	             * @return {void}
-	             */
-
-	            bindEvents: function() {
-	                var self = this;
-
-	                self.handler = function(e) {
-	                    switch (e.type) {
-	                        case 'reset':
-	                        case 'submit':
-	                            self.handleFormEvent(e);
-
-	                            break;
-	                        default:
-	                            self['handle' + h.pascalCase(e.type)](e);
-	                    }
-	                };
-
-	                h.on(self.dom.el, 'click', self.handler);
-	                h.on(self.dom.el, 'change', self.handler);
-	                h.on(self.dom.el, 'keyup', self.handler);
-
-	                if (self.dom.form) {
-	                    h.on(self.dom.form, 'reset', self.handler);
-	                    h.on(self.dom.form, 'submit', self.handler);
-	                }
-	            },
-
-	            /**
-	             * @private
-	             * @return {void}
-	             */
-
-	            unbindEvents: function() {
-	                var self = this;
-
-	                h.off(self.dom.el, 'click', self.handler);
-	                h.off(self.dom.el, 'change', self.handler);
-	                h.off(self.dom.el, 'keyup', self.handler);
-
-	                if (self.dom.form) {
-	                    h.off(self.dom.form, 'reset', self.handler);
-	                    h.off(self.dom.form, 'submit', self.handler);
-	                }
-
-	                self.handler = null;
-	            },
-
-	            /**
-	             * @private
-	             * @param   {MouseEvent} e
-	             * @return  {void}
-	             */
-
-	            handleClick: function(e) {
-	                var self            = this,
-	                    mixer           = self.mixer,
-	                    returnValue     = null,
-	                    controlEl       = h.closestParent(e.target, '[data-filter], [data-toggle]', true),
-	                    controlSelector = '',
-	                    index           = -1,
-	                    selector        = '';
-
-	                if (!controlEl) return;
-
-	                if ((controlSelector = self.mixer.config.selectors.control) && !controlEl.matches(controlSelector)) {
-	                    return;
-	                }
-
-	                e.stopPropagation();
-
-	                if (!mixer.lastClicked) {
-	                    mixer.lastClicked = controlEl;
-	                }
-
-	                if (typeof mixer.config.callbacks.onMixClick === 'function') {
-	                    returnValue = mixer.config.callbacks.onMixClick.call(mixer.lastClicked, mixer.state, e, self);
-
-	                    if (returnValue === false) {
-	                        // User has returned `false` from the callback, so do not handle click
-
-	                        return;
-	                    }
-	                }
-
-	                if (controlEl.matches('[data-filter]')) {
-	                    selector = controlEl.getAttribute('data-filter');
-
-	                    self.activeToggles = [];
-	                    self.activeSelectors = self.activeFilters = [selector];
-	                } else if (controlEl.matches('[data-toggle]')) {
-	                    selector = controlEl.getAttribute('data-toggle');
-
-	                    self.activeFilters = [];
-
-	                    if ((index = self.activeToggles.indexOf(selector)) > -1) {
-	                        self.activeToggles.splice(index, 1);
-	                    } else {
-	                        self.activeToggles.push(selector);
-	                    }
-
-	                    if (self.logic === 'and') {
-	                        // Compress into single node
-
-	                        self.activeSelectors = [self.activeToggles];
-	                    } else {
-	                        self.activeSelectors = self.activeToggles;
-	                    }
-	                }
-
-	                self.updateControls();
-
-	                if (self.mixer.config.multifilter.parseOn === 'change') {
-	                    self.mixer.parseFilterGroups();
-	                }
-	            },
-
-	            /**
-	             * @private
-	             * @param   {Event} e
-	             * @return  {void}
-	             */
-
-	            handleChange: function(e) {
-	                var self    = this,
-	                    input   = e.target;
-
-	                e.stopPropagation();
-
-	                switch(input.type) {
-	                    case 'text':
-	                    case 'search':
-	                    case 'email':
-	                    case 'select-one':
-	                    case 'radio':
-	                        self.getSingleValue(input);
-
-	                        break;
-	                    case 'checkbox':
-	                    case 'select-multiple':
-	                        self.getMultipleValues(input);
-
-	                        break;
-	                }
-
-	                if (self.mixer.config.multifilter.parseOn === 'change') {
-	                    self.mixer.parseFilterGroups();
-	                }
-	            },
-
-	            handleKeyup: function(e) {
-	                var self    = this,
-	                    input   = e.target;
-
-	                // NB: Selects can fire keyup events (e.g. multiselect, textual search)
-
-	                if (['text', 'search', 'email'].indexOf(input.type) < 0) return;
-
-	                if (self.mixer.config.multifilter.parseOn !== 'change') {
-	                    self.mixer.getSingleValue(input);
-
-	                    return;
-	                }
-
-	                clearTimeout(self.keyupTimeout);
-
-	                self.keyupTimeout = setTimeout(function() {
-	                    self.getSingleValue(input);
-	                    self.mixer.parseFilterGroups();
-	                }, self.mixer.config.multifilter.keyupThrottleDuration);
-	            },
-
-	            /**
-	             * @private
-	             * @param   {Event} e
-	             * @return  {void}
-	             */
-
-	            handleFormEvent: function(e) {
-	                var self            = this,
-	                    tracker         = null,
-	                    group           = null,
-	                    i               = -1;
-
-	                if (e.type === 'submit') {
-	                    e.preventDefault();
-	                }
-
-	                if (e.type === 'reset') {
-	                    self.activeFilters    =
-	                    self.activeToggles   =
-	                    self.activeSelectors = [];
-
-	                    self.updateControls();
-	                }
-
-	                if (!self.mixer.multifilterFormEventTracker) {
-	                    tracker = self.mixer.multifilterFormEventTracker = new mixitup.MultifilterFormEventTracker();
-
-	                    tracker.form = e.target;
-
-	                    for (i = 0; group = self.mixer.filterGroups[i]; i++) {
-	                        if (group.dom.form !== e.target) continue;
-
-	                        tracker.totalBound++;
-	                    }
-	                } else {
-	                    tracker = self.mixer.multifilterFormEventTracker;
-	                }
-
-	                if (e.target === tracker.form) {
-	                    tracker.totalHandled++;
-
-	                    if (tracker.totalHandled === tracker.totalBound) {
-	                        self.mixer.multifilterFormEventTracker = null;
-
-	                        if (e.type === 'submit' || self.mixer.config.multifilter.parseOn === 'change') {
-	                            self.mixer.parseFilterGroups();
-	                        }
-	                    }
-	                }
-	            },
-
-	            /**
-	             * @private
-	             * @param   {HTMLELement} input
-	             * @return  {void}
-	             */
-
-	            getSingleValue: function(input) {
-	                var self            = this,
-	                    diacriticMap    = null,
-	                    attributeName   = '',
-	                    selector        = '',
-	                    value           = '',
-	                    i               = -1;
-
-	                if (input.type.match(/text|search|email/g)) {
-	                    attributeName = input.getAttribute('data-search-attribute');
-
-	                    if (!attributeName) {
-	                        throw new Error('[MixItUp MultiFilter] A valid `data-search-attribute` must be present on text inputs');
-	                    }
-
-	                    if (input.value.length < self.mixer.config.multifilter.minSearchLength) {
-	                        self.activeSelectors = self.activeFilters = self.activeToggles = [''];
-
-	                        return;
-	                    }
-
-	                    // Lowercase and trim
-
-	                    value = input.value.toLowerCase().trim();
-
-	                    // Replace diacritics
-
-	                    for (i = 0; (diacriticMap = diacriticsMap[i]); i++) {
-	                        value = value.replace(diacriticMap[1], diacriticMap[0]);
-	                    }
-
-	                    // Strip non-word characters
-
-	                    value = value.replace(/\W+/g, ' ');
-
-	                    selector = '[' + attributeName + '*="' + value + '"]';
-	                } else {
-	                    selector = input.value;
-	                }
-
-	                if (typeof input.value === 'string') {
-	                    self.activeSelectors =
-	                    self.activeToggles =
-	                    self.activeFilters =
-	                            selector ? [selector] : [];
-	                }
-	            },
-
-	            /**
-	             * @private
-	             * @param   {HTMLELement} input
-	             * @return  {void}
-	             */
-
-	            getMultipleValues: function(input) {
-	                var self            = this,
-	                    activeToggles   = [],
-	                    query           = '',
-	                    item            = null,
-	                    items           = null,
-	                    i               = -1;
-
-	                switch (input.type) {
-	                    case 'checkbox':
-	                        query = 'input[type="checkbox"]';
-
-	                        break;
-	                    case 'select-multiple':
-	                        query = 'option';
-	                }
-
-	                items = self.dom.el.querySelectorAll(query);
-
-	                for (i = 0; item = items[i]; i++) {
-	                    if ((item.checked || item.selected) && item.value) {
-	                        activeToggles.push(item.value);
-	                    }
-	                }
-
-	                self.activeFilters = [];
-	                self.activeToggles = activeToggles;
-
-	                if (self.logic === 'and') {
-	                    // Compress into single node
-
-	                    self.activeSelectors = [activeToggles];
-	                } else {
-	                    self.activeSelectors = activeToggles;
-	                }
-	            },
-
-	            /**
-	             * @private
-	             * @param   {Array.<HTMLELement>} [controlEls]
-	             * @return  {void}
-	             */
-
-	            updateControls: function(controlEls) {
-	                var self             = this,
-	                    controlEl        = null,
-	                    controlSelector  = '',
-	                    controlsSelector = '',
-	                    type             = '',
-	                    i                = -1;
-
-	                controlSelector = self.mixer.config.selectors.control.trim();
-
-	                controlsSelector = [
-	                    '[data-filter]' + controlSelector,
-	                    '[data-toggle]' + controlSelector
-	                ].join(', ');
-
-	                controlEls = controlEls || self.dom.el.querySelectorAll(controlsSelector);
-
-	                for (i = 0; controlEl = controlEls[i]; i++) {
-	                    type = Boolean(controlEl.getAttribute('data-toggle')) ? 'toggle' : 'filter';
-
-	                    self.updateControl(controlEl, type);
-	                }
-	            },
-
-	            /**
-	             * @private
-	             * @param   {HTMLELement}   controlEl
-	             * @param   {string}        type
-	             * @return  {void}
-	             */
-
-	            updateControl: function(controlEl, type) {
-	                var self            = this,
-	                    selector        = controlEl.getAttribute('data-' + type),
-	                    activeControls  = self.activeToggles.concat(self.activeFilters),
-	                    activeClassName = '';
-
-	                activeClassName = h.getClassname(self.mixer.config.classNames, type, self.mixer.config.classNames.modifierActive);
-
-	                if (activeControls.indexOf(selector) > -1) {
-	                    h.addClass(controlEl, activeClassName);
-	                } else {
-	                    h.removeClass(controlEl, activeClassName);
-	                }
-	            },
-
-	            /**
-	             * @private
-	             */
-
-	            updateUi: function() {
-	                var self           = this,
-	                    controlEls     = self.dom.el.querySelectorAll('[data-filter], [data-toggle]'),
-	                    inputEls       = self.dom.el.querySelectorAll('input[type="radio"], input[type="checkbox"], option'),
-	                    activeControls = self.activeToggles.concat(self.activeFilters),
-	                    isActive       = false,
-	                    inputEl        = null,
-	                    i              = -1;
-
-	                if (controlEls.length) {
-	                    self.updateControls(controlEls, true);
-	                }
-
-	                for (i = 0; inputEl = inputEls[i]; i++) {
-	                    isActive = activeControls.indexOf(inputEl.value) > -1;
-
-	                    switch (inputEl.tagName.toLowerCase()) {
-	                        case 'option':
-	                            inputEl.selected = isActive;
-
-	                            break;
-	                        case 'input':
-	                            inputEl.checked = isActive;
-
-	                            break;
-	                    }
-	                }
-	            }
-	        });
-
-	        mixitup.MixerDom.registerAction('afterConstruct', 'multifilter', function() {
-	            this.filterGroups = [];
-	        });
-
-	        /**
-	         * The `mixitup.Mixer` class is extended with API methods relating to
-	         * the MultiFilter extension.
-	         *
-	         * For the full list of API methods, please refer to the MixItUp
-	         * core documentation.
-	         *
-	         * @constructor
-	         * @namespace
-	         * @name        Mixer
-	         * @memberof    mixitup
-	         * @public
-	         * @since       3.0.0
-	         */
-
-	        mixitup.Mixer.registerAction('afterConstruct', 'multifilter', function() {
-	            this.filterGroups                   = [];
-	            this.filterGroupsHash               = {};
-	            this.multifilterFormEventTracker    = null;
-	        });
-
-	        mixitup.Mixer.registerAction('afterCacheDom', 'multifilter', function() {
-	            var self    = this,
-	                parent  = null;
-
-	            if (!self.config.multifilter.enable) return;
-
-	            switch (self.config.controls.scope) {
-	                case 'local':
-	                    parent = self.dom.container;
-
-	                    break;
-	                case 'global':
-	                    parent = self.dom.document;
-
-	                    break;
-	                default:
-	                    throw new Error(mixitup.messages.ERROR_CONFIG_INVALID_CONTROLS_SCOPE);
-	            }
-
-	            self.dom.filterGroups = parent.querySelectorAll('[data-filter-group]');
-	        });
-
-	        mixitup.Mixer.registerAction('beforeInitControls', 'multifilter', function() {
-	            var self = this;
-
-	            if (!self.config.multifilter.enable) return;
-
-	            self.config.controls.live = true; // force live controls if multifilter is enabled
-	        });
-
-	        mixitup.Mixer.registerAction('afterSanitizeConfig', 'multifilter', function() {
-	            var self = this;
-
-	            self.config.multifilter.logicBetweenGroups = self.config.multifilter.logicBetweenGroups.toLowerCase().trim();
-	            self.config.multifilter.logicWithinGroup = self.config.multifilter.logicWithinGroup.toLowerCase().trim();
-	        });
-
-	        mixitup.Mixer.registerAction('afterAttach', 'multifilter', function() {
-	            var self = this;
-
-	            if (self.dom.filterGroups.length) {
-	                self.indexFilterGroups();
-	            }
-	        });
-
-	        mixitup.Mixer.registerAction('afterUpdateControls', 'multifilter', function() {
-	            var self    = this,
-	                group   = null,
-	                i       = -1;
-
-	            for (i = 0; group = self.filterGroups[i]; i++) {
-	                group.updateControls();
-	            }
-	        });
-
-	        mixitup.Mixer.registerAction('beforeDestroy', 'multifilter', function() {
-	            var self    = this,
-	                group   = null,
-	                i       = -1;
-
-	            for (i = 0; group = self.filterGroups[i]; i++) {
-	                group.unbindEvents();
-	            }
-	        });
-
-	        mixitup.Mixer.extend(
-	        /** @lends mixitup.Mixer */
-	        {
-	            /**
-	             * @private
-	             * @return {void}
-	             */
-
-	            indexFilterGroups: function() {
-	                var self                = this,
-	                    filterGroup         = null,
-	                    el                  = null,
-	                    i                   = -1;
-
-	                for (i = 0; el = self.dom.filterGroups[i]; i++) {
-	                    filterGroup = new mixitup.FilterGroup();
-
-	                    filterGroup.init(el, self);
-
-	                    self.filterGroups.push(filterGroup);
-
-	                    if (filterGroup.name) {
-	                        // If present, also index by name
-
-	                        if (typeof self.filterGroupsHash[filterGroup.name] !== 'undefined') {
-	                            throw new Error('[MixItUp MultiFilter] A filter group with name "' + filterGroup.name + '" already exists');
-	                        }
-
-	                        self.filterGroupsHash[filterGroup.name] = filterGroup;
-	                    }
-	                }
-	            },
-
-	            /**
-	             * @private
-	             * @instance
-	             * @since   2.0.0
-	             * @param   {Array<*>}  args
-	             * @return  {mixitup.UserInstruction}
-	             */
-
-	            parseParseFilterGroupsArgs: function(args) {
-	                var self        = this,
-	                    instruction = new mixitup.UserInstruction(),
-	                    arg         = null,
-	                    i           = -1;
-
-	                instruction.animate = self.config.animation.enable;
-	                instruction.command = new mixitup.CommandFilter();
-
-	                for (i = 0; i < args.length; i++) {
-	                    arg = args[i];
-
-	                    if (typeof arg === 'boolean') {
-	                        instruction.animate = arg;
-	                    } else if (typeof arg === 'function') {
-	                        instruction.callback = arg;
-	                    }
-	                }
-
-	                h.freeze(instruction);
-
-	                return instruction;
-	            },
-
-	            /**
-	             * Recursively builds up paths between all possible permutations
-	             * of filter group nodes according to the defined logic.
-	             *
-	             * @private
-	             * @return {Array.<Array.<string>>}
-	             */
-
-	            getFilterGroupPaths: function() {
-	                var self       = this,
-	                    buildPath  = null,
-	                    crawl      = null,
-	                    nodes      = null,
-	                    matrix     = [],
-	                    paths      = [],
-	                    trackers   = [],
-	                    i          = -1;
-
-	                for (i = 0; i < self.filterGroups.length; i++) {
-	                    // Filter out groups without any active filters
-
-	                    if ((nodes = self.filterGroups[i].activeSelectors).length) {
-	                        matrix.push(nodes);
-
-	                        // Initialise tracker for each group
-
-	                        trackers.push(0);
-	                    }
-	                }
-
-	                buildPath = function() {
-	                    var node = null,
-	                        path = [],
-	                        i    = -1;
-
-	                    for (i = 0; i < matrix.length; i++) {
-	                        node = matrix[i][trackers[i]];
-
-	                        if (Array.isArray(node)) {
-	                            // AND logic within group
-
-	                            node = node.join('');
-	                        }
-
-	                        path.push(node);
-	                    }
-
-	                    path = h.clean(path);
-
-	                    paths.push(path);
-	                };
-
-	                crawl = function(index) {
-	                    index = index || 0;
-
-	                    var nodes = matrix[index];
-
-	                    while (trackers[index] < nodes.length) {
-	                        if (index < matrix.length - 1) {
-	                            // If not last, recurse
-
-	                            crawl(index + 1);
-	                        } else {
-	                            // Last, build selector
-
-	                            buildPath();
-	                        }
-
-	                        trackers[index]++;
-	                    }
-
-	                    trackers[index] = 0;
-	                };
-
-	                if (!matrix.length) return '';
-
-	                crawl();
-
-	                return paths;
-	            },
-
-	            /**
-	             * Builds up a selector string from a provided paths array.
-	             *
-	             * @private
-	             * @param  {Array.<Array.<string>>} paths
-	             * @return {string}
-	             */
-
-	            buildSelectorFromPaths: function(paths) {
-	                var self           = this,
-	                    path           = null,
-	                    output         = [],
-	                    pathSelector   = '',
-	                    nodeDelineator = '',
-	                    i              = -1;
-
-	                if (!paths.length) {
-	                    return '';
-	                }
-
-	                if (self.config.multifilter.logicBetweenGroups === 'or') {
-	                    nodeDelineator = ', ';
-	                }
-
-	                if (paths.length > 1) {
-	                    for (i = 0; i < paths.length; i++) {
-	                        path = paths[i];
-
-	                        pathSelector = path.join(nodeDelineator);
-
-	                        if (output.indexOf(pathSelector) < 0) {
-	                            output.push(pathSelector);
-	                        }
-	                    }
-
-	                    return output.join(', ');
-	                } else {
-	                    return paths[0].join(nodeDelineator);
-	                }
-	            },
-
-	            /**
-	             * Traverses the currently active filters in all groups, building up a
-	             * compound selector string as per the defined logic. A filter operation
-	             * is then called on the mixer using the resulting selector.
-	             *
-	             * This method can be used to programmatically trigger the parsing of
-	             * filter groups after manipulations to a group's active selector(s) by
-	             * the `.setFilterGroupSelectors()` API method.
-	             *
-	             * @example
-	             *
-	             * .parseFilterGroups([animate] [, callback])
-	             *
-	             * @example <caption>Example: Triggering parsing after programmatically changing the values of a filter group</caption>
-	             *
-	             * mixer.setFilterGroupSelectors('color', ['.green', '.blue']);
-	             *
-	             * mixer.parseFilterGroups();
-	             *
-	             * @public
-	             * @since 3.0.0
-	             * @param       {boolean}   [animate=true]
-	             *      An optional boolean dictating whether the operation should animate, or occur syncronously with no animation. `true` by default.
-	             * @param       {function}  [callback=null]
-	             *      An optional callback function to be invoked after the operation has completed.
-	             * @return      {Promise.<mixitup.State>}
-	             *      A promise resolving with the current state object.
-	             */
-
-	            parseFilterGroups: function() {
-	                var self        = this,
-	                    instruction = self.parseFilterArgs(arguments),
-	                    paths       = self.getFilterGroupPaths(),
-	                    selector    = self.buildSelectorFromPaths(paths),
-	                    callback    = null,
-	                    command     = {};
-
-	                if (selector === '') {
-	                    selector = self.config.controls.toggleDefault;
-	                }
-
-	                instruction.command.selector = selector;
-
-	                command.filter = instruction.command;
-
-	                if (typeof (callback = self.config.callbacks.onParseFilterGroups) === 'function') {
-	                    command = callback(command);
-	                }
-
-	                return self.multimix(command, instruction.animate, instruction.callback);
-	            },
-
-	            /**
-	             * Programmatically sets one or more active selectors for a specific filter
-	             * group and updates the group's UI.
-	             *
-	             * Because MixItUp has no way of knowing how to break down a provided
-	             * compound selector into its component groups, we can not use the
-	             * standard `.filter()` or `toggleOn()/toggleOff()` API methods when using
-	             * the MultiFilter extension. Instead, this method allows us to perform
-	             * multi-dimensional filtering via the API by setting the active selectors of
-	             * individual groups and then triggering the `.parseFilterGroups()` method.
-	             *
-	             * If setting multiple active selectors, do not pass a compound selector.
-	             * Instead, pass an array with each item containing a single selector
-	             * string as in example 2.
-	             *
-	             * @example
-	             *
-	             * .setFilterGroupSelectors(groupName, selectors)
-	             *
-	             * @example <caption>Example 1: Setting a single active selector for a "color" group</caption>
-	             *
-	             * mixer.setFilterGroupSelectors('color', '.green');
-	             *
-	             * mixer.parseFilterGroups();
-	             *
-	             * @example <caption>Example 2: Setting multiple active selectors for a "size" group</caption>
-	             *
-	             * mixer.setFilterGroupSelectors('size', ['.small', '.large']);
-	             *
-	             * mixer.parseFilterGroups();
-	             *
-	             * @public
-	             * @since   3.2.0
-	             * @param   {string}                    groupName   The name of the filter group as defined in the markup via the `data-filter-group` attribute.
-	             * @param   {(string|Array.<string>)}   selectors   A single selector string, or multiple selector strings as an array.
-	             * @return  {void}
-	             */
-
-	            setFilterGroupSelectors: function(groupName, selectors) {
-	                var self            = this,
-	                    filterGroup     = null;
-
-	                selectors = Array.isArray(selectors) ? selectors : [selectors];
-
-	                if (typeof (filterGroup = self.filterGroupsHash[groupName]) === 'undefined') {
-	                    throw new Error('[MixItUp MultiFilter] No filter group could be found with the name "' + groupName + '"');
-	                }
-
-	                filterGroup.activeToggles = selectors.slice();
-
-	                if (filterGroup.logic === 'and') {
-	                    // Compress into single node
-
-	                    filterGroup.activeSelectors = [filterGroup.activeToggles];
-	                } else {
-	                    filterGroup.activeSelectors = filterGroup.activeToggles;
-	                }
-
-	                filterGroup.updateUi(filterGroup.activeToggles);
-	            },
-
-	            /**
-	             * Returns an array of active selectors for a specific filter group.
-	             *
-	             * @example
-	             *
-	             * .getFilterGroupSelectors(groupName)
-	             *
-	             * @example <caption>Example: Retrieving the active selectors for a "size" group</caption>
-	             *
-	             * mixer.getFilterGroupSelectors('size'); // ['.small', '.large']
-	             *
-	             * @public
-	             * @since   3.2.0
-	             * @param   {string}    groupName   The name of the filter group as defined in the markup via the `data-filter-group` attribute.
-	             * @return  {void}
-	             */
-
-	            getFilterGroupSelectors: function(groupName) {
-	                var self        = this,
-	                    filterGroup = null;
-
-	                if (typeof (filterGroup = self.filterGroupsHash[groupName]) === 'undefined') {
-	                    throw new Error('[MixItUp MultiFilter] No filter group could be found with the name "' + groupName + '"');
-	                }
-
-	                return filterGroup.activeSelectors.slice();
-	            }
-	        });
-
-	        mixitup.Facade.registerAction('afterConstruct', 'multifilter', function(mixer) {
-	            this.parseFilterGroups       = mixer.parseFilterGroups.bind(mixer);
-	            this.setFilterGroupSelectors = mixer.setFilterGroupSelectors.bind(mixer);
-	            this.getFilterGroupSelectors = mixer.getFilterGroupSelectors.bind(mixer);
-	        });    };
-
-	    mixitupMultifilter.TYPE                    = 'mixitup-extension';
-	    mixitupMultifilter.NAME                    = 'mixitup-multifilter';
-	    mixitupMultifilter.EXTENSION_VERSION       = '3.3.6';
-	    mixitupMultifilter.REQUIRE_CORE_VERSION    = '^3.1.2';
-
-	    {
-	        module.exports = mixitupMultifilter;
-	    }})(); 
-} (mixitupMultifilter$1));
-
-var mixitupMultifilterExports = mixitupMultifilter$1.exports;
-var mixitupMultifilter = /*@__PURE__*/getDefaultExportFromCjs(mixitupMultifilterExports);
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
 /*!
- * GSAP 3.11.3
+ * GSAP 3.12.1
  * https://greensock.com
  *
- * @license Copyright 2008-2022, GreenSock. All rights reserved.
+ * @license Copyright 2008-2023, GreenSock. All rights reserved.
  * Subject to the terms at https://greensock.com/standard-license or for
  * Club GreenSock members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
@@ -18708,7 +17454,7 @@ var _config = {
 },
     _suppressOverwrites$1,
     _reverting$1,
-    _context$1,
+    _context$2,
     _bigNum$1 = 1e8,
     _tinyNum = 1 / _bigNum$1,
     _2PI = Math.PI * 2,
@@ -18868,9 +17614,9 @@ _parseRelative = function _parseRelative(start, value) {
   }
 },
     _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
-  _lazyTweens.length && _lazyRender();
+  _lazyTweens.length && !_reverting$1 && _lazyRender();
   animation.render(time, suppressEvents, force || _reverting$1 && time < 0 && (animation._initted || animation._startAt));
-  _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
+  _lazyTweens.length && !_reverting$1 && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
 },
     _numericIfPossible = function _numericIfPossible(value) {
   var n = parseFloat(value);
@@ -19003,7 +17749,7 @@ _parseRelative = function _parseRelative(start, value) {
   child._next = child._prev = child.parent = null; // don't delete the _dp just so we can revert if necessary. But parent should be null to indicate the item isn't in a linked list.
 },
     _removeFromParent = function _removeFromParent(child, onlyIfParentHasAutoRemove) {
-  child.parent && (!onlyIfParentHasAutoRemove || child.parent.autoRemoveChildren) && child.parent.remove(child);
+  child.parent && (!onlyIfParentHasAutoRemove || child.parent.autoRemoveChildren) && child.parent.remove && child.parent.remove(child);
   child._act = 0;
 },
     _uncache = function _uncache(animation, child) {
@@ -19344,7 +18090,7 @@ clamp = function clamp(min, max, value) {
 },
     //takes any value and returns an array. If it's a string (and leaveStrings isn't true), it'll use document.querySelectorAll() and convert that to an array. It'll also accept iterables like jQuery objects.
 toArray = function toArray(value, scope, leaveStrings) {
-  return _context$1 && !scope && _context$1.selector ? _context$1.selector(value) : _isString$1(value) && !leaveStrings && (_coreInitted$2 || !_wake()) ? _slice.call((scope || _doc$3).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
+  return _context$2 && !scope && _context$2.selector ? _context$2.selector(value) : _isString$1(value) && !leaveStrings && (_coreInitted$2 || !_wake()) ? _slice.call((scope || _doc$3).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
 },
     selector = function selector(value) {
   value = toArray(value)[0] || _warn("Invalid scope") || {};
@@ -19652,7 +18398,7 @@ distribute = function distribute(v) {
     _callback$1 = function _callback(animation, type, executeLazyFirst) {
   var v = animation.vars,
       callback = v[type],
-      prevContext = _context$1,
+      prevContext = _context$2,
       context = animation._ctx,
       params,
       scope,
@@ -19666,9 +18412,9 @@ distribute = function distribute(v) {
   scope = v.callbackScope || animation;
   executeLazyFirst && _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when a timeline finishes, users expect things to have rendered fully. Imagine an onUpdate on a timeline that reports/checks tweened values.
 
-  context && (_context$1 = context);
+  context && (_context$2 = context);
   result = params ? callback.apply(scope, params) : callback.call(scope);
-  _context$1 = prevContext;
+  _context$2 = prevContext;
   return result;
 },
     _interrupt = function _interrupt(animation) {
@@ -19679,58 +18425,64 @@ distribute = function distribute(v) {
   return animation;
 },
     _quickTween,
+    _registerPluginQueue = [],
     _createPlugin = function _createPlugin(config) {
-  config = !config.name && config["default"] || config; //UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
+  if (_windowExists$2() && config) {
+    // edge case: some build tools may pass in a null/undefined value
+    config = !config.name && config["default"] || config; //UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
 
-  var name = config.name,
-      isFunc = _isFunction$1(config),
-      Plugin = name && !isFunc && config.init ? function () {
-    this._props = [];
-  } : config,
-      //in case someone passes in an object that's not a plugin, like CustomEase
-  instanceDefaults = {
-    init: _emptyFunc,
-    render: _renderPropTweens,
-    add: _addPropTween,
-    kill: _killPropTweensOf,
-    modifier: _addPluginModifier,
-    rawVars: 0
-  },
-      statics = {
-    targetTest: 0,
-    get: 0,
-    getSetter: _getSetter,
-    aliases: {},
-    register: 0
-  };
+    var name = config.name,
+        isFunc = _isFunction$1(config),
+        Plugin = name && !isFunc && config.init ? function () {
+      this._props = [];
+    } : config,
+        //in case someone passes in an object that's not a plugin, like CustomEase
+    instanceDefaults = {
+      init: _emptyFunc,
+      render: _renderPropTweens,
+      add: _addPropTween,
+      kill: _killPropTweensOf,
+      modifier: _addPluginModifier,
+      rawVars: 0
+    },
+        statics = {
+      targetTest: 0,
+      get: 0,
+      getSetter: _getSetter,
+      aliases: {},
+      register: 0
+    };
 
-  _wake();
+    _wake();
 
-  if (config !== Plugin) {
-    if (_plugins[name]) {
-      return;
+    if (config !== Plugin) {
+      if (_plugins[name]) {
+        return;
+      }
+
+      _setDefaults$1(Plugin, _setDefaults$1(_copyExcluding(config, instanceDefaults), statics)); //static methods
+
+
+      _merge(Plugin.prototype, _merge(instanceDefaults, _copyExcluding(config, statics))); //instance methods
+
+
+      _plugins[Plugin.prop = name] = Plugin;
+
+      if (config.targetTest) {
+        _harnessPlugins.push(Plugin);
+
+        _reservedProps[name] = 1;
+      }
+
+      name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin"; //for the global name. "motionPath" should become MotionPathPlugin
     }
 
-    _setDefaults$1(Plugin, _setDefaults$1(_copyExcluding(config, instanceDefaults), statics)); //static methods
+    _addGlobal(name, Plugin);
 
-
-    _merge(Plugin.prototype, _merge(instanceDefaults, _copyExcluding(config, statics))); //instance methods
-
-
-    _plugins[Plugin.prop = name] = Plugin;
-
-    if (config.targetTest) {
-      _harnessPlugins.push(Plugin);
-
-      _reservedProps[name] = 1;
-    }
-
-    name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin"; //for the global name. "motionPath" should become MotionPathPlugin
+    config.register && config.register(gsap$2, Plugin, PropTween);
+  } else {
+    config && _registerPluginQueue.push(config);
   }
-
-  _addGlobal(name, Plugin);
-
-  config.register && config.register(gsap$2, Plugin, PropTween);
 },
 
 /*
@@ -20011,6 +18763,8 @@ _tickerActive,
           _install(_installScope || _win$3.GreenSockGlobals || !_win$3.gsap && _win$3 || {});
 
           _raf = _win$3.requestAnimationFrame;
+
+          _registerPluginQueue.forEach(_createPlugin);
         }
 
         _id && _self.sleep();
@@ -20030,9 +18784,9 @@ _tickerActive,
       _req = _emptyFunc;
     },
     lagSmoothing: function lagSmoothing(threshold, adjustedLag) {
-      _lagThreshold = threshold || 1 / _tinyNum; //zero should be interpreted as basically unlimited
+      _lagThreshold = threshold || Infinity; // zero should be interpreted as basically unlimited
 
-      _adjustedLag = Math.min(adjustedLag, _lagThreshold, 0);
+      _adjustedLag = Math.min(adjustedLag || 33, _lagThreshold);
     },
     fps: function fps(_fps) {
       _gap = 1000 / (_fps || 240);
@@ -20327,10 +19081,10 @@ var Animation = /*#__PURE__*/function () {
 
     this.data = vars.data;
 
-    if (_context$1) {
-      this._ctx = _context$1;
+    if (_context$2) {
+      this._ctx = _context$2;
 
-      _context$1.data.push(this);
+      _context$2.data.push(this);
     }
 
     _tickerActive || _ticker.wake();
@@ -20449,7 +19203,7 @@ var Animation = /*#__PURE__*/function () {
     this._rts = +value || 0;
     this._ts = this._ps || value === -_tinyNum ? 0 : this._rts; // _ts is the functional timeScale which would be 0 if the animation is paused.
 
-    this.totalTime(_clamp$1(-this._delay, this._tDur, tTime), true);
+    this.totalTime(_clamp$1(-Math.abs(this._delay), this._tDur, tTime), true);
 
     _setEnd(this); // if parent.smoothChildTiming was false, the end time didn't get updated in the _alignPlayhead() method, so do it here.
 
@@ -20529,7 +19283,7 @@ var Animation = /*#__PURE__*/function () {
       animation = animation._dp;
     }
 
-    return !this.parent && this.vars.immediateRender ? -1 : time; // the _startAt tweens for .fromTo() and .from() that have immediateRender should always be FIRST in the timeline (important for Recording.revert())
+    return !this.parent && this._sat ? this._sat.vars.immediateRender ? -1 : this._sat.globalTime(rawTime) : time; // the _startAt tweens for .fromTo() and .from() that have immediateRender should always be FIRST in the timeline (important for context.revert()). "_sat" stands for _startAtTween, referring to the parent tween that created the _startAt. We must discern if that tween had immediateRender so that we can know whether or not to prioritize it in revert().
   };
 
   _proto.repeat = function repeat(value) {
@@ -20830,7 +19584,7 @@ var Timeline = /*#__PURE__*/function (_Animation) {
         }
 
         prevIteration = _animationCycle(this._tTime, cycleDuration);
-        !prevTime && this._tTime && prevIteration !== iteration && (prevIteration = iteration); // edge case - if someone does addPause() at the very beginning of a repeating timeline, that pause is technically at the same spot as the end which causes this._time to get set to 0 when the totalTime would normally place the playhead at the end. See https://greensock.com/forums/topic/23823-closing-nav-animation-not-working-on-ie-and-iphone-6-maybe-other-older-browser/?tab=comments#comment-113005
+        !prevTime && this._tTime && prevIteration !== iteration && this._tTime - prevIteration * cycleDuration - this._dur <= 0 && (prevIteration = iteration); // edge case - if someone does addPause() at the very beginning of a repeating timeline, that pause is technically at the same spot as the end which causes this._time to get set to 0 when the totalTime would normally place the playhead at the end. See https://greensock.com/forums/topic/23823-closing-nav-animation-not-working-on-ie-and-iphone-6-maybe-other-older-browser/?tab=comments#comment-113005 also, this._tTime - prevIteration * cycleDuration - this._dur <= 0 just checks to make sure it wasn't previously in the "repeatDelay" portion
 
         if (yoyo && iteration & 1) {
           time = dur - time;
@@ -20904,7 +19658,7 @@ var Timeline = /*#__PURE__*/function (_Animation) {
         prevTime = 0; // upon init, the playhead should always go forward; someone could invalidate() a completed timeline and then if they restart(), that would make child tweens render in reverse order which could lock in the wrong starting values if they build on each other, like tl.to(obj, {x: 100}).to(obj, {x: 0}).
       }
 
-      if (!prevTime && time && !suppressEvents) {
+      if (!prevTime && time && !suppressEvents && !iteration) {
         _callback$1(this, "onStart");
 
         if (this._tTime !== tTime) {
@@ -21602,7 +20356,7 @@ _forceAllPropTweens,
         overwrite: false,
         parent: parent,
         immediateRender: true,
-        lazy: _isNotFalse(lazy),
+        lazy: !prevStartAt && _isNotFalse(lazy),
         startAt: null,
         delay: 0,
         onUpdate: onUpdate,
@@ -21613,6 +20367,8 @@ _forceAllPropTweens,
 
 
       tween._startAt._dp = 0; // don't allow it to get put back into root timeline! Like when revert() is called and totalTime() gets set.
+
+      tween._startAt._sat = tween; // used in globalTime(). _sat stands for _startAtTween
 
       time < 0 && (_reverting$1 || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill); // rare edge case, like if a render is forced in the negative direction of a non-initted tween.
 
@@ -21632,7 +20388,7 @@ _forceAllPropTweens,
           overwrite: false,
           data: "isFromStart",
           //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
-          lazy: immediateRender && _isNotFalse(lazy),
+          lazy: immediateRender && !prevStartAt && _isNotFalse(lazy),
           immediateRender: immediateRender,
           //zero-duration tweens render immediately by default, but if we're not specifically instructed to render this tween immediately, we should skip this and merely _init() to record the starting values (rendering them immediately would push them to completion which is wasteful in that case - we'd have to render(-1) immediately after)
           stagger: 0,
@@ -21644,6 +20400,8 @@ _forceAllPropTweens,
         _removeFromParent(tween._startAt = Tween.set(targets, p));
 
         tween._startAt._dp = 0; // don't allow it to get put back into root timeline!
+
+        tween._startAt._sat = tween; // used in globalTime()
 
         time < 0 && (_reverting$1 ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
         tween._zTime = time;
@@ -22108,7 +20866,7 @@ var Tween = /*#__PURE__*/function (_Animation2) {
         this.ratio = ratio = 1 - ratio;
       }
 
-      if (time && !prevTime && !suppressEvents) {
+      if (time && !prevTime && !suppressEvents && !iteration) {
         _callback$1(this, "onStart");
 
         if (this._tTime !== tTime) {
@@ -22520,6 +21278,7 @@ var _media = [],
     _listeners$1 = {},
     _emptyArray$1 = [],
     _lastMediaTime = 0,
+    _contextID = 0,
     _dispatch$1 = function _dispatch(type) {
   return (_listeners$1[type] || _emptyArray$1).map(function (f) {
     return f();
@@ -22575,12 +21334,19 @@ var Context = /*#__PURE__*/function () {
     this._r = []; // returned/cleanup functions
 
     this.isReverted = false;
+    this.id = _contextID++; // to work around issues that frameworks like Vue cause by making things into Proxies which make it impossible to do something like _media.indexOf(this) because "this" would no longer refer to the Context instance itself - it'd refer to a Proxy! We needed a way to identify the context uniquely
+
     func && this.add(func);
   }
 
   var _proto5 = Context.prototype;
 
   _proto5.add = function add(name, func, scope) {
+    // possible future addition if we need the ability to add() an animation to a context and for whatever reason cannot create that animation inside of a context.add(() => {...}) function.
+    // if (name && _isFunction(name.revert)) {
+    // 	this.data.push(name);
+    // 	return (name._ctx = this);
+    // }
     if (_isFunction$1(name)) {
       scope = func;
       func = name;
@@ -22589,15 +21355,15 @@ var Context = /*#__PURE__*/function () {
 
     var self = this,
         f = function f() {
-      var prev = _context$1,
+      var prev = _context$2,
           prevSelector = self.selector,
           result;
       prev && prev !== self && prev.data.push(self);
       scope && (self.selector = selector(scope));
-      _context$1 = self;
+      _context$2 = self;
       result = func.apply(self, arguments);
       _isFunction$1(result) && self._r.push(result);
-      _context$1 = prev;
+      _context$2 = prev;
       self.selector = prevSelector;
       self.isReverted = false;
       return result;
@@ -22608,10 +21374,10 @@ var Context = /*#__PURE__*/function () {
   };
 
   _proto5.ignore = function ignore(func) {
-    var prev = _context$1;
-    _context$1 = null;
+    var prev = _context$2;
+    _context$2 = null;
     func(this);
-    _context$1 = prev;
+    _context$2 = prev;
   };
 
   _proto5.getTweens = function getTweens() {
@@ -22650,10 +21416,10 @@ var Context = /*#__PURE__*/function () {
         return b.g - a.g || -1;
       }).forEach(function (o) {
         return o.t.revert(revert);
-      }); // note: all of the _startAt tweens should be reverted in reverse order that thy were created, and they'll all have the same globalTime (-1) so the " || -1" in the sort keeps the order properly.
+      }); // note: all of the _startAt tweens should be reverted in reverse order that they were created, and they'll all have the same globalTime (-1) so the " || -1" in the sort keeps the order properly.
 
       this.data.forEach(function (e) {
-        return !(e instanceof Animation) && e.revert && e.revert(revert);
+        return e instanceof Timeline ? e.data !== "nested" && e.kill() : !(e instanceof Tween) && e.revert && e.revert(revert);
       });
 
       this._r.forEach(function (f) {
@@ -22670,9 +21436,12 @@ var Context = /*#__PURE__*/function () {
     this.clear();
 
     if (matchMedia) {
-      var i = _media.indexOf(this);
+      var i = _media.length;
 
-      !!~i && _media.splice(i, 1);
+      while (i--) {
+        // previously, we checked _media.indexOf(this), but some frameworks like Vue enforce Proxy objects that make it impossible to get the proper result that way, so we must use a unique ID number instead.
+        _media[i].id === this.id && _media.splice(i, 1);
+      }
     }
   };
 
@@ -22700,6 +21469,8 @@ var MatchMedia = /*#__PURE__*/function () {
         mq,
         p,
         active;
+    _context$2 && !context.selector && (context.selector = _context$2.selector); // in case a context is created inside a context. Like a gsap.matchMedia() that's inside a scoped gsap.context()
+
     this.contexts.push(context);
     func = context.add("onMatch", func);
     context.queries = conditions;
@@ -22894,7 +21665,7 @@ var _gsap = {
     return tl;
   },
   context: function context(func, scope) {
-    return func ? new Context(func, scope) : _context$1;
+    return func ? new Context(func, scope) : _context$2;
   },
   matchMedia: function matchMedia(scope) {
     return new MatchMedia(scope);
@@ -22960,13 +21731,13 @@ var _gsap = {
       return _reverting$1;
     },
     context: function context(toAdd) {
-      if (toAdd && _context$1) {
-        _context$1.data.push(toAdd);
+      if (toAdd && _context$2) {
+        _context$2.data.push(toAdd);
 
-        toAdd._ctx = _context$1;
+        toAdd._ctx = _context$2;
       }
 
-      return _context$1;
+      return _context$2;
     },
     suppressOverwrites: function suppressOverwrites(value) {
       return _suppressOverwrites$1 = value;
@@ -23088,7 +21859,7 @@ var gsap$2 = _gsap.registerPlugin({
   }
 }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap; //to prevent the core plugins from being dropped via aggressive tree shaking, we must include them in the variable declaration in this way.
 
-Tween.version = Timeline.version = gsap$2.version = "3.11.3";
+Tween.version = Timeline.version = gsap$2.version = "3.12.1";
 _coreReady = 1;
 _windowExists$2() && _wake();
 _easeMap.Power0;
@@ -23111,10 +21882,10 @@ _easeMap.Power0;
     _easeMap.Circ;
 
 /*!
- * CSSPlugin 3.11.3
+ * CSSPlugin 3.12.1
  * https://greensock.com
  *
- * Copyright 2008-2022, GreenSock. All rights reserved.
+ * Copyright 2008-2023, GreenSock. All rights reserved.
  * Subject to the terms at https://greensock.com/standard-license or for
  * Club GreenSock members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
@@ -23193,7 +21964,7 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
   var target = this.target,
       style = target.style;
 
-  if (property in _transformProps) {
+  if (property in _transformProps && style) {
     this.tfm = this.tfm || {};
 
     if (property !== "transform") {
@@ -23201,6 +21972,10 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
       ~property.indexOf(",") ? property.split(",").forEach(function (a) {
         return _this.tfm[a] = _get(target, a);
       }) : this.tfm[property] = target._gsap.x ? target._gsap[property] : _get(target, property); // note: scale would map to "scaleX,scaleY", thus we loop and apply them both.
+    } else {
+      return _propertyAliases.transform.split(",").forEach(function (p) {
+        return _saveStyle.call(_this, p, isNotCSS);
+      });
     }
 
     if (this.props.indexOf(_transformProp$1) >= 0) {
@@ -23234,7 +22009,7 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
 
   for (i = 0; i < props.length; i += 3) {
     // stored like this: property, isNotCSS, value
-    props[i + 1] ? target[props[i]] = props[i + 2] : props[i + 2] ? style[props[i]] = props[i + 2] : style.removeProperty(props[i].replace(_capsExp$1, "-$1").toLowerCase());
+    props[i + 1] ? target[props[i]] = props[i + 2] : props[i + 2] ? style[props[i]] = props[i + 2] : style.removeProperty(props[i].substr(0, 2) === "--" ? props[i] : props[i].replace(_capsExp$1, "-$1").toLowerCase());
   }
 
   if (this.tfm) {
@@ -23249,7 +22024,7 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
 
     i = _reverting();
 
-    if (i && !i.isStart && !style[_transformProp$1]) {
+    if ((!i || !i.isStart) && !style[_transformProp$1]) {
       _removeIndependentTransforms(style);
 
       cache.uncache = 1; // if it's a startAt that's being reverted in the _initTween() of the core, we don't need to uncache transforms. This is purely a performance optimization.
@@ -23263,6 +22038,8 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
     revert: _revertStyle,
     save: _saveStyle
   };
+  target._gsap || gsap$2.core.getCache(target); // just make sure there's a _gsap cache defined because we read from it in _saveStyle() and it's more efficient to just check it here once.
+
   properties && properties.split(",").forEach(function (p) {
     return saver.save(p);
   });
@@ -24522,7 +23299,7 @@ var CSSPlugin = {
           }
 
           if (p === "scale") {
-            this._pt = new PropTween(this._pt, cache, "scaleY", startNum, (relative ? _parseRelative(startNum, relative + endNum) : endNum) - startNum || 0, _renderCSSProp);
+            this._pt = new PropTween(this._pt, cache, "scaleY", cache.scaleY, (relative ? _parseRelative(cache.scaleY, relative + endNum) : endNum) - cache.scaleY || 0, _renderCSSProp);
             this._pt.u = 0;
             props.push("scaleY", p);
             p += "X";
@@ -24583,7 +23360,7 @@ var CSSPlugin = {
           if (p in target) {
             //maybe it's not a style - it could be a property added directly to an element in which case we'll try to animate that.
             this.add(target, p, startValue || target[p], relative ? relative + endValue : endValue, index, targets);
-          } else {
+          } else if (p !== "parseTransform") {
             _missingPlugin(p, endValue);
 
             continue;
@@ -24660,10 +23437,10 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 /*!
- * Observer 3.11.3
+ * Observer 3.12.1
  * https://greensock.com
  *
- * @license Copyright 2008-2022, GreenSock. All rights reserved.
+ * @license Copyright 2008-2023, GreenSock. All rights reserved.
  * Subject to the terms at https://greensock.com/standard-license or for
  * Club GreenSock members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
@@ -24682,6 +23459,7 @@ var gsap$1,
     _root$1,
     _normalizer$1,
     _eventTypes,
+    _context$1,
     _getGSAP$1 = function _getGSAP() {
   return gsap$1 || typeof window !== "undefined" && (gsap$1 = window.gsap) && gsap$1.registerPlugin && gsap$1;
 },
@@ -24777,8 +23555,8 @@ var gsap$1,
     return arguments.length ? _win$1.scrollTo(_horizontal.sc(), value) : _win$1.pageYOffset || _doc$1[_scrollTop] || _docEl$1[_scrollTop] || _body$1[_scrollTop] || 0;
   })
 },
-    _getTarget = function _getTarget(t) {
-  return gsap$1.utils.toArray(t)[0] || (typeof t === "string" && gsap$1.config().nullTargetWarn !== false ? console.warn("Element not found:", t) : null);
+    _getTarget = function _getTarget(t, self) {
+  return (self && self._ctx && self._ctx.selector || gsap$1.utils.toArray)(t)[0] || (typeof t === "string" && gsap$1.config().nullTargetWarn !== false ? console.warn("Element not found:", t) : null);
 },
     _getScrollFunc = function _getScrollFunc(element, _ref) {
   var s = _ref.s,
@@ -24865,6 +23643,9 @@ var gsap$1,
     _body$1 = _doc$1.body;
     _root$1 = [_win$1, _doc$1, _docEl$1, _body$1];
     gsap$1.utils.clamp;
+
+    _context$1 = gsap$1.core.context || function () {};
+
     _pointerType = "onpointerenter" in _body$1 ? "pointer" : "mouse"; // isTouch is 0 if no touch, 1 if ONLY touch, and 2 if it can accommodate touch but also other types like mouse/pointer.
 
     _isTouch = Observer.isTouch = _win$1.matchMedia && _win$1.matchMedia("(hover: none), (pointer: coarse)").matches ? 1 : "ontouchstart" in _win$1 || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0 ? 2 : 0;
@@ -25081,7 +23862,7 @@ var Observer = /*#__PURE__*/function () {
       }
     },
         _onPress = self.onPress = function (e) {
-      if (_ignoreCheck(e, 1)) {
+      if (_ignoreCheck(e, 1) || e && e.button) {
         return;
       }
 
@@ -25104,18 +23885,19 @@ var Observer = /*#__PURE__*/function () {
       self.deltaX = self.deltaY = 0;
       onPress && onPress(self);
     },
-        _onRelease = function _onRelease(e) {
+        _onRelease = self.onRelease = function (e) {
       if (_ignoreCheck(e, 1)) {
         return;
       }
 
       _removeListener$1(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, true);
 
-      var wasDragging = self.isDragging && (Math.abs(self.x - self.startX) > 3 || Math.abs(self.y - self.startY) > 3),
+      var isTrackingDrag = !isNaN(self.y - self.startY),
+          wasDragging = self.isDragging && (Math.abs(self.x - self.startX) > 3 || Math.abs(self.y - self.startY) > 3),
           // some touch devices need some wiggle room in terms of sensing clicks - the finger may move a few pixels.
       eventData = _getEvent(e);
 
-      if (!wasDragging) {
+      if (!wasDragging && isTrackingDrag) {
         self._vx.reset();
 
         self._vy.reset();
@@ -25205,6 +23987,8 @@ var Observer = /*#__PURE__*/function () {
     self.scrollY = scrollFuncY;
     self.isDragging = self.isGesturing = self.isPressed = false;
 
+    _context$1(this);
+
     self.enable = function (e) {
       if (!self.isEnabled) {
         _addListener$1(isViewport ? ownerDoc : target, "scroll", _onScroll$1);
@@ -25280,7 +24064,7 @@ var Observer = /*#__PURE__*/function () {
       }
     };
 
-    self.kill = function () {
+    self.kill = self.revert = function () {
       self.disable();
 
       var i = _observers.indexOf(self);
@@ -25309,7 +24093,7 @@ var Observer = /*#__PURE__*/function () {
 
   return Observer;
 }();
-Observer.version = "3.11.3";
+Observer.version = "3.12.1";
 
 Observer.create = function (vars) {
   return new Observer(vars);
@@ -25330,10 +24114,10 @@ Observer.getById = function (id) {
 _getGSAP$1() && gsap$1.registerPlugin(Observer);
 
 /*!
- * ScrollTrigger 3.11.3
+ * ScrollTrigger 3.12.1
  * https://greensock.com
  *
- * @license Copyright 2008-2022, GreenSock. All rights reserved.
+ * @license Copyright 2008-2023, GreenSock. All rights reserved.
  * Subject to the terms at https://greensock.com/standard-license or for
  * Club GreenSock members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
@@ -25375,7 +24159,19 @@ _startup = 1,
     _time1 = _getTime(),
     _lastScrollTime = 0,
     _enabled = 0,
-    _pointerDownHandler = function _pointerDownHandler() {
+    _parseClamp = function _parseClamp(value, type, self) {
+  var clamp = _isString(value) && (value.substr(0, 6) === "clamp(" || value.indexOf("max") > -1);
+  self["_" + type + "Clamp"] = clamp;
+  return clamp ? value.substr(6, value.length - 7) : value;
+},
+    _keepClamp = function _keepClamp(value, clamp) {
+  return clamp && (!_isString(value) || value.substr(0, 6) !== "clamp(") ? "clamp(" + value + ")" : value;
+},
+    _rafBugFix = function _rafBugFix() {
+  return _enabled && requestAnimationFrame(_rafBugFix);
+},
+    // in some browsers (like Firefox), screen repaints weren't consistent unless we had SOMETHING queued up in requestAnimationFrame()! So this just creates a super simple loop to keep it alive and smooth out repaints.
+_pointerDownHandler = function _pointerDownHandler() {
   return _pointerIsDown = 1;
 },
     _pointerUpHandler = function _pointerUpHandler() {
@@ -25425,7 +24221,7 @@ _startup = 1,
       d2 = _ref2.d2,
       d = _ref2.d,
       a = _ref2.a;
-  return (s = "scroll" + d2) && (a = _getProxyProp(element, s)) ? a() - _getBoundsFunc(element)()[d] : _isViewport(element) ? (_docEl[s] || _body[s]) - (_win["inner" + d2] || _docEl["client" + d2] || _body["client" + d2]) : element[s] - element["offset" + d2];
+  return Math.max(0, (s = "scroll" + d2) && (a = _getProxyProp(element, s)) ? a() - _getBoundsFunc(element)()[d] : _isViewport(element) ? (_docEl[s] || _body[s]) - (_win["inner" + d2] || _docEl["client" + d2] || _body["client" + d2]) : element[s] - element["offset" + d2]);
 },
     _iterateAutoRefresh = function _iterateAutoRefresh(func, events) {
   for (var i = 0; i < _autoRefresh.length; i += 3) {
@@ -25590,7 +24386,12 @@ _startup = 1,
   return element.removeEventListener(type, func, !!capture);
 },
     _wheelListener = function _wheelListener(func, el, scrollFunc) {
-  return scrollFunc && scrollFunc.wheelHandler && func(el, "wheel", scrollFunc);
+  scrollFunc = scrollFunc && scrollFunc.wheelHandler;
+
+  if (scrollFunc) {
+    func(el, "wheel", scrollFunc);
+    func(el, "touchmove", scrollFunc);
+  }
 },
     _markerDefaults = {
   startColor: "green",
@@ -25769,7 +24570,7 @@ _revertRecorded = function _revertRecorded(media) {
   _refreshingAll = ScrollTrigger.isRefreshing = true;
 
   _scrollers.forEach(function (obj) {
-    return _isFunction(obj) && obj.cacheID++ && (obj.rec = obj());
+    return _isFunction(obj) && ++obj.cacheID && (obj.rec = obj());
   }); // force the clearing of the cache because some browsers take a little while to dispatch the "scroll" event and the user may have changed the scroll position and then called ScrollTrigger.refresh() right away
 
 
@@ -25798,14 +24599,16 @@ _revertRecorded = function _revertRecorded(media) {
           original = t.pin[prop];
       t.revert(true, 1);
       t.adjustPinSpacing(t.pin[prop] - original);
-      t.revert(false, 1);
+      t.refresh();
     }
   });
 
   _triggers.forEach(function (t) {
-    return t.vars.end === "max" && t.setPositions(t.start, Math.max(t.start + 1, _maxScroll(t.scroller, t._dir)));
-  }); // the scroller's max scroll position may change after all the ScrollTriggers refreshed (like pinning could push it down), so we need to loop back and correct any with end: "max".
+    // the scroller's max scroll position may change after all the ScrollTriggers refreshed (like pinning could push it down), so we need to loop back and correct any with end: "max". Same for anything with a clamped end
+    var max = _maxScroll(t.scroller, t._dir);
 
+    (t.vars.end === "max" || t._endClamp && t.end > max) && t.setPositions(t.start, Math.max(t.start + 1, max), true);
+  });
 
   refreshInits.forEach(function (result) {
     return result && result.render && result.render(-1);
@@ -25825,6 +24628,7 @@ _revertRecorded = function _revertRecorded(media) {
   _resizeDelay.pause();
 
   _refreshID++;
+  _refreshingAll = 2;
 
   _updateAll(2);
 
@@ -25850,7 +24654,7 @@ _revertRecorded = function _revertRecorded(media) {
         scroll = l && _triggers[0].scroll();
 
     _direction = _lastScroll > scroll ? -1 : 1;
-    _lastScroll = scroll;
+    _refreshingAll || (_lastScroll = scroll);
 
     if (recordVelocity) {
       if (_lastScrollTime && !_pointerIsDown && time - _lastScrollTime > 200) {
@@ -26001,7 +24805,7 @@ _revertRecorded = function _revertRecorded(media) {
 // 	_getSizeFunc(scroller, isViewport, direction);
 // 	return _parsePosition(position, _getTarget(trigger), _getSizeFunc(scroller, isViewport, direction)(), direction, _getScrollFunc(scroller, direction)(), 0, 0, 0, _getOffsetsFunc(scroller, isViewport)(), isViewport ? 0 : parseFloat(_getComputedStyle(scroller)["border" + direction.p2 + _Width]) || 0, 0, containerAnimation ? containerAnimation.duration() : _maxScroll(scroller), containerAnimation);
 // },
-_parsePosition = function _parsePosition(value, trigger, scrollerSize, direction, scroll, marker, markerScroller, self, scrollerBounds, borderWidth, useFixedPosition, scrollerMax, containerAnimation) {
+_parsePosition = function _parsePosition(value, trigger, scrollerSize, direction, scroll, marker, markerScroller, self, scrollerBounds, borderWidth, useFixedPosition, scrollerMax, containerAnimation, clampZeroProp) {
   _isFunction(value) && (value = value(self));
 
   if (_isString(value) && value.substr(0, 3) === "max") {
@@ -26013,6 +24817,7 @@ _parsePosition = function _parsePosition(value, trigger, scrollerSize, direction
       p2,
       element;
   containerAnimation && containerAnimation.seek(0);
+  isNaN(value) || (value = +value); // convert a string number like "45" to an actual number
 
   if (!_isNumber(value)) {
     _isFunction(trigger) && (trigger = trigger(self));
@@ -26021,7 +24826,7 @@ _parsePosition = function _parsePosition(value, trigger, scrollerSize, direction
         localOffset,
         globalOffset,
         display;
-    element = _getTarget(trigger) || _body;
+    element = _getTarget(trigger, self) || _body;
     bounds = _getBounds(element) || {};
 
     if ((!bounds || !bounds.left && !bounds.top) && _getComputedStyle(element).display === "none") {
@@ -26037,8 +24842,14 @@ _parsePosition = function _parsePosition(value, trigger, scrollerSize, direction
     value = bounds[direction.p] - scrollerBounds[direction.p] - borderWidth + localOffset + scroll - globalOffset;
     markerScroller && _positionMarker(markerScroller, globalOffset, direction, scrollerSize - globalOffset < 20 || markerScroller._isStart && globalOffset > 20);
     scrollerSize -= scrollerSize - globalOffset; // adjust for the marker
-  } else if (markerScroller) {
-    _positionMarker(markerScroller, scrollerSize, direction, true);
+  } else {
+    containerAnimation && (value = gsap.utils.mapRange(containerAnimation.scrollTrigger.start, containerAnimation.scrollTrigger.end, 0, scrollerMax, value));
+    markerScroller && _positionMarker(markerScroller, scrollerSize, direction, true);
+  }
+
+  if (clampZeroProp) {
+    self[clampZeroProp] = value || -0.001;
+    value < 0 && (value = 0);
   }
 
   if (marker) {
@@ -26094,6 +24905,28 @@ _parsePosition = function _parsePosition(value, trigger, scrollerSize, direction
     parent.appendChild(element);
   }
 },
+    _interruptionTracker = function _interruptionTracker(getValueFunc, initialValue, onInterrupt) {
+  var last1 = initialValue,
+      last2 = last1;
+  return function (value) {
+    var current = Math.round(getValueFunc()); // round because in some [very uncommon] Windows environments, scroll can get reported with decimals even though it was set without.
+
+    if (current !== last1 && current !== last2 && Math.abs(current - last1) > 3 && Math.abs(current - last2) > 3) {
+      // if the user scrolls, kill the tween. iOS Safari intermittently misreports the scroll position, it may be the most recently-set one or the one before that! When Safari is zoomed (CMD-+), it often misreports as 1 pixel off too! So if we set the scroll position to 125, for example, it'll actually report it as 124.
+      value = current;
+      onInterrupt && onInterrupt();
+    }
+
+    last2 = last1;
+    last1 = value;
+    return value;
+  };
+},
+    _shiftMarker = function _shiftMarker(marker, direction, value) {
+  var vars = {};
+  vars[direction.p] = "+=" + value;
+  gsap.set(marker, vars);
+},
     // _mergeAnimations = animations => {
 // 	let tl = gsap.timeline({smoothChildTiming: true}).startTime(Math.min(...animations.map(a => a.globalTime(0))));
 // 	animations.forEach(a => {let time = a.totalTime(); tl.add(a); a.totalTime(time); });
@@ -26105,34 +24938,32 @@ _getTweenCreator = function _getTweenCreator(scroller, direction) {
   var getScroll = _getScrollFunc(scroller, direction),
       prop = "_scroll" + direction.p2,
       // add a tweenable property to the scroller that's a getter/setter function, like _scrollTop or _scrollLeft. This way, if someone does gsap.killTweensOf(scroller) it'll kill the scroll tween.
-  lastScroll1,
-      lastScroll2,
-      getTween = function getTween(scrollTo, vars, initialValue, change1, change2) {
+  getTween = function getTween(scrollTo, vars, initialValue, change1, change2) {
     var tween = getTween.tween,
         onComplete = vars.onComplete,
         modifiers = {};
     initialValue = initialValue || getScroll();
+
+    var checkForInterruption = _interruptionTracker(getScroll, initialValue, function () {
+      tween.kill();
+      getTween.tween = 0;
+    });
+
     change2 = change1 && change2 || 0; // if change1 is 0, we set that to the difference and ignore change2. Otherwise, there would be a compound effect.
 
     change1 = change1 || scrollTo - initialValue;
     tween && tween.kill();
-    lastScroll1 = Math.round(initialValue);
     vars[prop] = scrollTo;
     vars.modifiers = modifiers;
 
-    modifiers[prop] = function (value) {
-      value = Math.round(getScroll()); // round because in some [very uncommon] Windows environments, it can get reported with decimals even though it was set without.
+    modifiers[prop] = function () {
+      return checkForInterruption(initialValue + change1 * tween.ratio + change2 * tween.ratio * tween.ratio);
+    };
 
-      if (value !== lastScroll1 && value !== lastScroll2 && Math.abs(value - lastScroll1) > 3 && Math.abs(value - lastScroll2) > 3) {
-        // if the user scrolls, kill the tween. iOS Safari intermittently misreports the scroll position, it may be the most recently-set one or the one before that! When Safari is zoomed (CMD-+), it often misreports as 1 pixel off too! So if we set the scroll position to 125, for example, it'll actually report it as 124.
-        tween.kill();
-        getTween.tween = 0;
-      } else {
-        value = initialValue + change1 * tween.ratio + change2 * tween.ratio * tween.ratio;
-      }
+    vars.onUpdate = function () {
+      _scrollers.cache++;
 
-      lastScroll2 = lastScroll1;
-      return lastScroll1 = Math.round(value);
+      _updateAll();
     };
 
     vars.onComplete = function () {
@@ -26153,12 +24984,16 @@ _getTweenCreator = function _getTweenCreator(scroller, direction) {
   _addListener(scroller, "wheel", getScroll.wheelHandler); // Windows machines handle mousewheel scrolling in chunks (like "3 lines per scroll") meaning the typical strategy for cancelling the scroll isn't as sensitive. It's much more likely to match one of the previous 2 scroll event positions. So we kill any snapping as soon as there's a wheel event.
 
 
+  ScrollTrigger.isTouch && _addListener(scroller, "touchmove", getScroll.wheelHandler);
   return getTween;
 };
 
 var ScrollTrigger = /*#__PURE__*/function () {
   function ScrollTrigger(vars, animation) {
     _coreInitted || ScrollTrigger.register(gsap) || console.warn("Please gsap.registerPlugin(ScrollTrigger)");
+
+    _context(this);
+
     this.init(vars, animation);
   }
 
@@ -26216,6 +25051,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
         getScrollerOffsets = _getOffsetsFunc(scroller, isViewport),
         lastSnap = 0,
         lastRefresh = 0,
+        prevProgress = 0,
         scrollFunc = _getScrollFunc(scroller, direction),
         tweenTo,
         pinCache,
@@ -26229,6 +25065,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
         markerStartTrigger,
         markerEndTrigger,
         markerVars,
+        executingOnRefresh,
         change,
         pinOriginalState,
         pinActiveState,
@@ -26242,6 +25079,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
         spacingStart,
         spacerState,
         markerStartSetter,
+        pinMoves,
         markerEndSetter,
         cs,
         snap1,
@@ -26250,14 +25088,13 @@ var ScrollTrigger = /*#__PURE__*/function () {
         scrubSmooth,
         snapDurClamp,
         snapDelayedCall,
-        prevProgress,
         prevScroll,
         prevAnimProgress,
         caMarkerSetter,
-        customRevertReturn;
+        customRevertReturn; // for the sake of efficiency, _startClamp/_endClamp serve like a truthy value indicating that clamping was enabled on the start/end, and ALSO store the actual pre-clamped numeric value. We tap into that in ScrollSmoother for speed effects. So for example, if start="clamp(top bottom)" results in a start of -100 naturally, it would get clamped to 0 but -100 would be stored in _startClamp.
 
-    _context(self);
 
+    self._startClamp = self._endClamp = false;
     self._dir = direction;
     anticipatePin *= 45;
     self.scroller = scroller;
@@ -26286,7 +25123,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
       } else {
         scrubTween ? scrubTween.duration(value) : scrubTween = gsap.to(animation, {
           ease: "expo",
-          totalProgress: "+=0.001",
+          totalProgress: "+=0",
           duration: scrubSmooth,
           paused: true,
           onComplete: function onComplete() {
@@ -26298,15 +25135,14 @@ var ScrollTrigger = /*#__PURE__*/function () {
 
     if (animation) {
       animation.vars.lazy = false;
-      animation._initted || animation.vars.immediateRender !== false && vars.immediateRender !== false && animation.duration() && animation.render(0, true, true);
+      animation._initted && !self.isReverted || animation.vars.immediateRender !== false && vars.immediateRender !== false && animation.duration() && animation.render(0, true, true); // special case: if this ScrollTrigger gets re-initted, a from() tween with a stagger could get initted initially and then reverted on the re-init which means it'll need to get rendered again here to properly display things. Otherwise, See https://greensock.com/forums/topic/36777-scrollsmoother-splittext-nextjs/ and https://codepen.io/GreenSock/pen/eYPyPpd?editors=0010
+
       self.animation = animation.pause();
       animation.scrollTrigger = self;
       self.scrubDuration(scrub);
       snap1 = 0;
       id || (id = animation.vars.id);
     }
-
-    _triggers.push(self);
 
     if (snap) {
       // TODO: potential idea: use legitimate CSS scroll snapping by pushing invisible elements into the DOM that serve as snap positions, and toggle the document.scrollingElement.style.scrollSnapType onToggle. See https://codepen.io/GreenSock/pen/JjLrgWM for a quick proof of concept.
@@ -26386,7 +25222,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
     }
 
     id && (_ids[id] = self);
-    trigger = self.trigger = _getTarget(trigger || pin); // if a trigger has some kind of scroll-related effect applied that could contaminate the "y" or "x" position (like a ScrollSmoother effect), we needed a way to temporarily revert it, so we use the stRevert property of the gsCache. It can return another function that we'll call at the end so it can return to its normal state.
+    trigger = self.trigger = _getTarget(trigger || pin !== true && pin); // if a trigger has some kind of scroll-related effect applied that could contaminate the "y" or "x" position (like a ScrollSmoother effect), we needed a way to temporarily revert it, so we use the stRevert property of the gsCache. It can return another function that we'll call at the end so it can return to its normal state.
 
     customRevertReturn = trigger && trigger._gsap && trigger._gsap.stRevert;
     customRevertReturn && (customRevertReturn = customRevertReturn(self));
@@ -26462,7 +25298,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
           oldParams = containerAnimation.vars.onUpdateParams;
       containerAnimation.eventCallback("onUpdate", function () {
         self.update(0, 0, 1);
-        oldOnUpdate && oldOnUpdate.apply(oldParams || []);
+        oldOnUpdate && oldOnUpdate.apply(containerAnimation, oldParams || []);
       });
     }
 
@@ -26485,10 +25321,6 @@ var ScrollTrigger = /*#__PURE__*/function () {
 
       if (r !== self.isReverted) {
         if (r) {
-          // if (!self.scroll.rec && (_refreshing || _refreshingAll)) {
-          // 	self.scroll.rec = scrollFunc();
-          // 	_refreshingAll && scrollFunc(0);
-          // }
           prevScroll = Math.max(scrollFunc(), self.scroll.rec || 0); // record the scroll so we can revert later (repositioning/pinning things can affect scroll position). In the static refresh() method, we first record all the scroll positions as a reference.
 
           prevProgress = self.progress;
@@ -26500,15 +25332,15 @@ var ScrollTrigger = /*#__PURE__*/function () {
         });
 
         if (r) {
-          _refreshing = 1;
+          _refreshing = self;
           self.update(r); // make sure the pin is back in its original position so that all the measurements are correct. do this BEFORE swapping the pin out
         }
 
-        if (pin) {
+        if (pin && (!pinReparent || !self.isActive)) {
           if (r) {
             _swapPinOut(pin, spacer, pinOriginalState);
           } else {
-            (!pinReparent || !self.isActive) && _swapPinIn(pin, spacer, _getComputedStyle(pin), spacerState);
+            _swapPinIn(pin, spacer, _getComputedStyle(pin), spacerState);
           }
         }
 
@@ -26520,7 +25352,8 @@ var ScrollTrigger = /*#__PURE__*/function () {
       }
     };
 
-    self.refresh = function (soft, force) {
+    self.refresh = function (soft, force, position, pinOffset) {
+      // position is typically only defined if it's coming from setPositions() - it's a way to skip the normal parsing. pinOffset is also only from setPositions() and is mostly related to fancy stuff we need to do in ScrollSmoother with effects
       if ((_refreshing || !self.enabled) && !force) {
         return;
       }
@@ -26532,8 +25365,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
       }
 
       !_refreshingAll && onRefreshInit && onRefreshInit(self);
-      _refreshing = 1;
-      lastRefresh = _getTime();
+      _refreshing = self;
 
       if (tweenTo.tween) {
         tweenTo.tween.kill();
@@ -26550,12 +25382,13 @@ var ScrollTrigger = /*#__PURE__*/function () {
       var size = getScrollerSize(),
           scrollerBounds = getScrollerOffsets(),
           max = containerAnimation ? containerAnimation.duration() : _maxScroll(scroller, direction),
+          isFirstRefresh = change <= 0.01,
           offset = 0,
-          otherPinOffset = 0,
-          parsedEnd = vars.end,
+          otherPinOffset = pinOffset || 0,
+          parsedEnd = _isObject(position) ? position.end : vars.end,
           parsedEndTrigger = vars.endTrigger || trigger,
-          parsedStart = vars.start || (vars.start === 0 || !trigger ? 0 : pin ? "0 0" : "0 100%"),
-          pinnedContainer = self.pinnedContainer = vars.pinnedContainer && _getTarget(vars.pinnedContainer),
+          parsedStart = _isObject(position) ? position.start : vars.start || (vars.start === 0 || !trigger ? 0 : pin ? "0 0" : "0 100%"),
+          pinnedContainer = self.pinnedContainer = vars.pinnedContainer && _getTarget(vars.pinnedContainer, self),
           triggerIndex = trigger && Math.max(0, _triggers.indexOf(self)) || 0,
           i = triggerIndex,
           cs,
@@ -26567,16 +25400,25 @@ var ScrollTrigger = /*#__PURE__*/function () {
           curPin,
           oppositeScroll,
           initted,
-          revertedPins;
+          revertedPins,
+          forcedOverflow,
+          markerStartOffset,
+          markerEndOffset;
+
+      if (markers && _isObject(position)) {
+        // if we alter the start/end positions with .setPositions(), it generally feeds in absolute NUMBERS which don't convey information about where to line up the markers, so to keep it intuitive, we record how far the trigger positions shift after applying the new numbers and then offset by that much in the opposite direction. We do the same to the associated trigger markers too of course.
+        markerStartOffset = gsap.getProperty(markerStartTrigger, direction.p);
+        markerEndOffset = gsap.getProperty(markerEndTrigger, direction.p);
+      }
 
       while (i--) {
         // user might try to pin the same element more than once, so we must find any prior triggers with the same pin, revert them, and determine how long they're pinning so that we can offset things appropriately. Make sure we revert from last to first so that things "rewind" properly.
         curTrigger = _triggers[i];
-        curTrigger.end || curTrigger.refresh(0, 1) || (_refreshing = 1); // if it's a timeline-based trigger that hasn't been fully initialized yet because it's waiting for 1 tick, just force the refresh() here, otherwise if it contains a pin that's supposed to affect other ScrollTriggers further down the page, they won't be adjusted properly.
+        curTrigger.end || curTrigger.refresh(0, 1) || (_refreshing = self); // if it's a timeline-based trigger that hasn't been fully initialized yet because it's waiting for 1 tick, just force the refresh() here, otherwise if it contains a pin that's supposed to affect other ScrollTriggers further down the page, they won't be adjusted properly.
 
         curPin = curTrigger.pin;
 
-        if (curPin && (curPin === trigger || curPin === pin) && !curTrigger.isReverted) {
+        if (curPin && (curPin === trigger || curPin === pin || curPin === pinnedContainer) && !curTrigger.isReverted) {
           revertedPins || (revertedPins = []);
           revertedPins.unshift(curTrigger); // we'll revert from first to last to make sure things reach their end state properly
 
@@ -26591,7 +25433,8 @@ var ScrollTrigger = /*#__PURE__*/function () {
       }
 
       _isFunction(parsedStart) && (parsedStart = parsedStart(self));
-      start = _parsePosition(parsedStart, trigger, size, direction, scrollFunc(), markerStart, markerStartTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation) || (pin ? -0.001 : 0);
+      parsedStart = _parseClamp(parsedStart, "start", self);
+      start = _parsePosition(parsedStart, trigger, size, direction, scrollFunc(), markerStart, markerStartTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation, self._startClamp && "_startClamp") || (pin ? -0.001 : 0);
       _isFunction(parsedEnd) && (parsedEnd = parsedEnd(self));
 
       if (_isString(parsedEnd) && !parsedEnd.indexOf("+=")) {
@@ -26599,14 +25442,14 @@ var ScrollTrigger = /*#__PURE__*/function () {
           parsedEnd = (_isString(parsedStart) ? parsedStart.split(" ")[0] : "") + parsedEnd;
         } else {
           offset = _offsetToPx(parsedEnd.substr(2), size);
-          parsedEnd = _isString(parsedStart) ? parsedStart : start + offset; // _parsePosition won't factor in the offset if the start is a number, so do it here.
+          parsedEnd = _isString(parsedStart) ? parsedStart : (containerAnimation ? gsap.utils.mapRange(0, containerAnimation.duration(), containerAnimation.scrollTrigger.start, containerAnimation.scrollTrigger.end, start) : start) + offset; // _parsePosition won't factor in the offset if the start is a number, so do it here.
 
           parsedEndTrigger = trigger;
         }
       }
 
-      end = Math.max(start, _parsePosition(parsedEnd || (parsedEndTrigger ? "100% 0" : max), parsedEndTrigger, size, direction, scrollFunc() + offset, markerEnd, markerEndTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation)) || -0.001;
-      change = end - start || (start -= 0.01) && 0.001;
+      parsedEnd = _parseClamp(parsedEnd, "end", self);
+      end = Math.max(start, _parsePosition(parsedEnd || (parsedEndTrigger ? "100% 0" : max), parsedEndTrigger, size, direction, scrollFunc() + offset, markerEnd, markerEndTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation, self._endClamp && "_endClamp")) || -0.001;
       offset = 0;
       i = triggerIndex;
 
@@ -26615,9 +25458,9 @@ var ScrollTrigger = /*#__PURE__*/function () {
         curPin = curTrigger.pin;
 
         if (curPin && curTrigger.start - curTrigger._pinPush <= start && !containerAnimation && curTrigger.end > 0) {
-          cs = curTrigger.end - curTrigger.start;
+          cs = curTrigger.end - (self._startClamp ? Math.max(0, curTrigger.start) : curTrigger.start);
 
-          if ((curPin === trigger && curTrigger.start - curTrigger._pinPush < start || curPin === pinnedContainer) && !_isNumber(parsedStart)) {
+          if ((curPin === trigger && curTrigger.start - curTrigger._pinPush < start || curPin === pinnedContainer) && isNaN(parsedStart)) {
             // numeric start values shouldn't be offset at all - treat them as absolute
             offset += cs * (1 - curTrigger.progress);
           }
@@ -26628,6 +25471,20 @@ var ScrollTrigger = /*#__PURE__*/function () {
 
       start += offset;
       end += offset;
+      self._startClamp && (self._startClamp += offset);
+
+      if (self._endClamp && !_refreshingAll) {
+        self._endClamp = end || -0.001;
+        end = Math.min(end, _maxScroll(scroller, direction));
+      }
+
+      change = end - start || (start -= 0.01) && 0.001;
+
+      if (isFirstRefresh) {
+        // on the very first refresh(), the prevProgress couldn't have been accurate yet because the start/end were never calculated, so we set it here. Before 3.11.5, it could lead to an inaccurate scroll position restoration with snapping.
+        prevProgress = gsap.utils.clamp(0, 1, gsap.utils.normalize(start, end, prevScroll));
+      }
+
       self._pinPush = otherPinOffset;
 
       if (markerStart && offset) {
@@ -26644,7 +25501,20 @@ var ScrollTrigger = /*#__PURE__*/function () {
         scroll = scrollFunc(); // recalculate because the triggers can affect the scroll
 
         pinStart = parseFloat(pinGetter(direction.a)) + otherPinOffset;
-        !max && end > 1 && ((isViewport ? _body : scroller).style["overflow-" + direction.a] = "scroll"); // makes sure the scroller has a scrollbar, otherwise if something has width: 100%, for example, it would be too big (exclude the scrollbar). See https://greensock.com/forums/topic/25182-scrolltrigger-width-of-page-increase-where-markers-are-set-to-false/
+
+        if (!max && end > 1) {
+          // makes sure the scroller has a scrollbar, otherwise if something has width: 100%, for example, it would be too big (exclude the scrollbar). See https://greensock.com/forums/topic/25182-scrolltrigger-width-of-page-increase-where-markers-are-set-to-false/
+          forcedOverflow = (isViewport ? _doc.scrollingElement || _docEl : scroller).style;
+          forcedOverflow = {
+            style: forcedOverflow,
+            value: forcedOverflow["overflow" + direction.a.toUpperCase()]
+          };
+
+          if (isViewport && _getComputedStyle(_body)["overflow" + direction.a.toUpperCase()] !== "scroll") {
+            // avoid an extra scrollbar if BOTH <html> and <body> have overflow set to "scroll"
+            forcedOverflow.style["overflow" + direction.a.toUpperCase()] = "scroll";
+          }
+        }
 
         _swapPinIn(pin, spacer, cs);
 
@@ -26700,7 +25570,8 @@ var ScrollTrigger = /*#__PURE__*/function () {
 
           animation.render(animation.duration(), true, true);
           pinChange = pinGetter(direction.a) - pinStart + change + otherPinOffset;
-          change !== pinChange && useFixedPosition && pinActiveState.splice(pinActiveState.length - 2, 2); // transform is the last property/value set in the state Array. Since the animation is controlling that, we should omit it.
+          pinMoves = Math.abs(change - pinChange) > 1;
+          useFixedPosition && pinMoves && pinActiveState.splice(pinActiveState.length - 2, 2); // transform is the last property/value set in the state Array. Since the animation is controlling that, we should omit it.
 
           animation.render(0, true, true);
           initted || animation.invalidate(true);
@@ -26710,6 +25581,8 @@ var ScrollTrigger = /*#__PURE__*/function () {
         } else {
           pinChange = change;
         }
+
+        forcedOverflow && (forcedOverflow.value ? forcedOverflow.style["overflow" + direction.a.toUpperCase()] = forcedOverflow.value : forcedOverflow.style.removeProperty("overflow-" + direction.a));
       } else if (trigger && scrollFunc() && !containerAnimation) {
         // it may be INSIDE a pinned element, so walk up the tree and look for any elements with _pinOffset to compensate because anything with pinSpacing that's already scrolled would throw off the measurements in getBoundingClientRect()
         bounds = trigger.parentNode;
@@ -26737,6 +25610,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
       }
 
       self.revert(false, true);
+      lastRefresh = _getTime();
 
       if (snapDelayedCall) {
         lastSnap = -1;
@@ -26746,18 +25620,40 @@ var ScrollTrigger = /*#__PURE__*/function () {
       }
 
       _refreshing = 0;
-      animation && isToggle && (animation._initted || prevAnimProgress) && animation.progress() !== prevAnimProgress && animation.progress(prevAnimProgress, true).render(animation.time(), true, true); // must force a re-render because if saveStyles() was used on the target(s), the styles could have been wiped out during the refresh().
+      animation && isToggle && (animation._initted || prevAnimProgress) && animation.progress() !== prevAnimProgress && animation.progress(prevAnimProgress || 0, true).render(animation.time(), true, true); // must force a re-render because if saveStyles() was used on the target(s), the styles could have been wiped out during the refresh().
 
-      if (prevProgress !== self.progress || containerAnimation) {
+      if (isFirstRefresh || prevProgress !== self.progress || containerAnimation) {
         // ensures that the direction is set properly (when refreshing, progress is set back to 0 initially, then back again to wherever it needs to be) and that callbacks are triggered.
-        animation && !isToggle && animation.totalProgress(prevProgress, true); // to avoid issues where animation callbacks like onStart aren't triggered.
+        animation && !isToggle && animation.totalProgress(containerAnimation && start < -0.001 && !prevProgress ? gsap.utils.normalize(start, end, 0) : prevProgress, true); // to avoid issues where animation callbacks like onStart aren't triggered.
 
-        self.progress = (scroll1 - start) / change === prevProgress ? 0 : prevProgress;
+        self.progress = isFirstRefresh || (scroll1 - start) / change === prevProgress ? 0 : prevProgress;
       }
 
-      pin && pinSpacing && (spacer._pinOffset = Math.round(self.progress * pinChange)); //			scrubTween && scrubTween.invalidate();
+      pin && pinSpacing && (spacer._pinOffset = Math.round(self.progress * pinChange));
+      scrubTween && scrubTween.invalidate();
 
-      onRefresh && !_refreshingAll && onRefresh(self); // when refreshing all, we do extra work to correct pinnedContainer sizes and ensure things don't exceed the maxScroll, so we should do all the refreshes at the end after all that work so that the start/end values are corrected.
+      if (!isNaN(markerStartOffset)) {
+        // numbers were passed in for the position which are absolute, so instead of just putting the markers at the very bottom of the viewport, we figure out how far they shifted down (it's safe to assume they were originally positioned in closer relation to the trigger element with values like "top", "center", a percentage or whatever, so we offset that much in the opposite direction to basically revert them to the relative position thy were at previously.
+        markerStartOffset -= gsap.getProperty(markerStartTrigger, direction.p);
+        markerEndOffset -= gsap.getProperty(markerEndTrigger, direction.p);
+
+        _shiftMarker(markerStartTrigger, direction, markerStartOffset);
+
+        _shiftMarker(markerStart, direction, markerStartOffset - (pinOffset || 0));
+
+        _shiftMarker(markerEndTrigger, direction, markerEndOffset);
+
+        _shiftMarker(markerEnd, direction, markerEndOffset - (pinOffset || 0));
+      }
+
+      isFirstRefresh && !_refreshingAll && self.update(); // edge case - when you reload a page when it's already scrolled down, some browsers fire a "scroll" event before DOMContentLoaded, triggering an updateAll(). If we don't update the self.progress as part of refresh(), then when it happens next, it may record prevProgress as 0 when it really shouldn't, potentially causing a callback in an animation to fire again.
+
+      if (onRefresh && !_refreshingAll && !executingOnRefresh) {
+        // when refreshing all, we do extra work to correct pinnedContainer sizes and ensure things don't exceed the maxScroll, so we should do all the refreshes at the end after all that work so that the start/end values are corrected.
+        executingOnRefresh = true;
+        onRefresh(self);
+        executingOnRefresh = false;
+      }
     };
 
     self.getVelocity = function () {
@@ -26792,7 +25688,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
         return;
       }
 
-      var scroll = _refreshingAll ? prevScroll : self.scroll(),
+      var scroll = _refreshingAll === true ? prevScroll : self.scroll(),
           p = reset ? 0 : (scroll - start) / change,
           clipped = p < 0 ? 0 : p > 1 ? 1 : p || 0,
           prevProgress = self.progress,
@@ -26843,7 +25739,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
 
         if (!isToggle) {
           if (scrubTween && !_refreshing && !_startup) {
-            (containerAnimation || _primary && _primary !== self) && scrubTween.render(scrubTween._dp._time - scrubTween._start); // if there's a scrub on both the container animation and this one (or a ScrollSmoother), the update order would cause this one not to have rendered yet, so it wouldn't make any progress before we .restart() it heading toward the new progress so it'd appear stuck thus we force a render here.
+            scrubTween._dp._time - scrubTween._start !== scrubTween._time && scrubTween.render(scrubTween._dp._time - scrubTween._start); // if there's a scrub on both the container animation and this one (or a ScrollSmoother), the update order would cause this one not to have rendered yet, so it wouldn't make any progress before we .restart() it heading toward the new progress so it'd appear stuck thus we force a render here.
 
             if (scrubTween.resetTo) {
               scrubTween.resetTo("totalProgress", clipped, animation._tTime / animation._tDur);
@@ -26853,7 +25749,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
               scrubTween.invalidate().restart();
             }
           } else if (animation) {
-            animation.totalProgress(clipped, !!_refreshing);
+            animation.totalProgress(clipped, !!(_refreshing && (lastRefresh || reset)));
           }
         }
 
@@ -26878,7 +25774,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
 
             _setState(isActive || isAtMax ? pinActiveState : pinState);
 
-            pinChange !== change && clipped < 1 && isActive || pinSetter(pinStart + (clipped === 1 && !isAtMax ? pinChange : 0));
+            pinMoves && clipped < 1 && isActive || pinSetter(pinStart + (clipped === 1 && !isAtMax ? pinChange : 0));
           }
         }
 
@@ -26962,22 +25858,27 @@ var ScrollTrigger = /*#__PURE__*/function () {
       return snap && tweenTo ? tweenTo.tween : scrubTween;
     };
 
-    self.setPositions = function (newStart, newEnd) {
+    self.setPositions = function (newStart, newEnd, keepClamp, pinOffset) {
       // doesn't persist after refresh()! Intended to be a way to override values that were set during refresh(), like you could set it in onRefresh()
-      if (pin) {
-        pinStart += newStart - start;
-        pinChange += newEnd - newStart - change;
-        pinSpacing === _padding && self.adjustPinSpacing(newEnd - newStart - change);
+      if (containerAnimation) {
+        // convert ratios into scroll positions. Remember, start/end values on ScrollTriggers that have a containerAnimation refer to the time (in seconds), NOT scroll positions.
+        var st = containerAnimation.scrollTrigger,
+            duration = containerAnimation.duration(),
+            _change = st.end - st.start;
+
+        newStart = st.start + _change * newStart / duration;
+        newEnd = st.start + _change * newEnd / duration;
       }
 
-      self.start = start = newStart;
-      self.end = end = newEnd;
-      change = newEnd - newStart;
+      self.refresh(false, false, {
+        start: _keepClamp(newStart, keepClamp && !!self._startClamp),
+        end: _keepClamp(newEnd, keepClamp && !!self._endClamp)
+      }, pinOffset);
       self.update();
     };
 
     self.adjustPinSpacing = function (amount) {
-      if (spacerState) {
+      if (spacerState && amount) {
         var i = spacerState.indexOf(direction.d) + 1;
         spacerState[i] = parseFloat(spacerState[i]) + amount + _px;
         spacerState[1] = parseFloat(spacerState[1]) + amount + _px;
@@ -27062,11 +25963,26 @@ var ScrollTrigger = /*#__PURE__*/function () {
       vars.onKill && vars.onKill(self);
     };
 
+    _triggers.push(self);
+
     self.enable(false, false);
     customRevertReturn && customRevertReturn(self);
-    !animation || !animation.add || change ? self.refresh() : gsap.delayedCall(0.01, function () {
-      return start || end || self.refresh();
-    }) && (change = 0.01) && (start = end = 0); // if the animation is a timeline, it may not have been populated yet, so it wouldn't render at the proper place on the first refresh(), thus we should schedule one for the next tick. If "change" is defined, we know it must be re-enabling, thus we can refresh() right away.
+
+    if (animation && animation.add && !change) {
+      // if the animation is a timeline, it may not have been populated yet, so it wouldn't render at the proper place on the first refresh(), thus we should schedule one for the next tick. If "change" is defined, we know it must be re-enabling, thus we can refresh() right away.
+      var updateFunc = self.update; // some browsers may fire a scroll event BEFORE a tick elapses and/or the DOMContentLoaded fires. So there's a chance update() will be called BEFORE a refresh() has happened on a Timeline-attached ScrollTrigger which means the start/end won't be calculated yet. We don't want to add conditional logic inside the update() method (like check to see if end is defined and if not, force a refresh()) because that's a function that gets hit a LOT (performance). So we swap out the real update() method for this one that'll re-attach it the first time it gets called and of course forces a refresh().
+
+      self.update = function () {
+        self.update = updateFunc;
+        start || end || self.refresh();
+      };
+
+      gsap.delayedCall(0.01, self.update);
+      change = 0.01;
+      start = end = 0;
+    } else {
+      self.refresh();
+    }
 
     pin && _queueRefreshAll(); // pinning could affect the positions of other things, so make sure we queue a full refresh()
   };
@@ -27135,10 +26051,14 @@ var ScrollTrigger = /*#__PURE__*/function () {
       _context = gsap.core.context || _passThrough;
       _suppressOverwrites = gsap.core.suppressOverwrites || _passThrough;
       _scrollRestoration = _win.history.scrollRestoration || "auto";
+      _lastScroll = _win.pageYOffset;
       gsap.core.globals("ScrollTrigger", ScrollTrigger); // must register the global manually because in Internet Explorer, functions (classes) don't have a "name" property.
 
       if (_body) {
         _enabled = 1;
+
+        _rafBugFix();
+
         Observer.register(gsap); // isTouch is 0 if no touch, 1 if ONLY touch, and 2 if it can accommodate touch but also other types like mouse/pointer.
 
         ScrollTrigger.isTouch = Observer.isTouch;
@@ -27301,7 +26221,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
   };
 
   ScrollTrigger.killAll = function killAll(allowListeners) {
-    _triggers.forEach(function (t) {
+    _triggers.slice(0).forEach(function (t) {
       return t.vars.id !== "ScrollSmoother" && t.kill();
     });
 
@@ -27316,7 +26236,7 @@ var ScrollTrigger = /*#__PURE__*/function () {
 
   return ScrollTrigger;
 }();
-ScrollTrigger.version = "3.11.3";
+ScrollTrigger.version = "3.12.1";
 
 ScrollTrigger.saveStyles = function (targets) {
   return targets ? _toArray(targets).forEach(function (target) {
@@ -27343,7 +26263,10 @@ ScrollTrigger.refresh = function (safe) {
   return safe ? _onResize() : (_coreInitted || ScrollTrigger.register()) && _refreshAll(true);
 };
 
-ScrollTrigger.update = _updateAll;
+ScrollTrigger.update = function (force) {
+  return ++_scrollers.cache && _updateAll(force === true ? 2 : 0);
+};
+
 ScrollTrigger.clearScrollMemory = _clearScrollMemory;
 
 ScrollTrigger.maxScroll = function (element, horizontal) {
@@ -27460,11 +26383,11 @@ var _clampScrollAndGetDurationMultiplier = function _clampScrollAndGetDurationMu
 
   if (!cache._isScrollT || time - cache._isScrollT > 2000) {
     // cache for 2 seconds to improve performance.
-    while (node && node.scrollHeight <= node.clientHeight) {
+    while (node && node !== _body && (node.scrollHeight <= node.clientHeight && node.scrollWidth <= node.clientWidth || !(_overflow[(cs = _getComputedStyle(node)).overflowY] || _overflow[cs.overflowX]))) {
       node = node.parentNode;
     }
 
-    cache._isScroll = node && !_isViewport(node) && node !== target && (_overflow[(cs = _getComputedStyle(node)).overflowY] || _overflow[cs.overflowX]);
+    cache._isScroll = node && node !== target && !_isViewport(node) && (_overflow[(cs = _getComputedStyle(node)).overflowY] || _overflow[cs.overflowX]);
     cache._isScrollT = time;
   }
 
@@ -27514,6 +26437,7 @@ _inputObserver = function _inputObserver(target, type, inputs, nested) {
       normalizeScrollX = _vars2.normalizeScrollX,
       momentum = _vars2.momentum,
       allowNestedScroll = _vars2.allowNestedScroll,
+      onRelease = _vars2.onRelease,
       self,
       maxY,
       target = _getTarget(vars.target) || _docEl,
@@ -27596,6 +26520,7 @@ _inputObserver = function _inputObserver(target, type, inputs, nested) {
   };
 
   vars.onPress = function () {
+    skipTouchMove = false;
     var prevScale = scale;
     scale = _round((_win.visualViewport && _win.visualViewport.scale || 1) / initialScale);
     tween.pause();
@@ -27642,6 +26567,8 @@ _inputObserver = function _inputObserver(target, type, inputs, nested) {
         });
       }
     }
+
+    onRelease && onRelease(self);
   };
 
   vars.onWheel = function () {
@@ -27708,8 +26635,15 @@ _inputObserver = function _inputObserver(target, type, inputs, nested) {
     paused: true,
     scrollX: normalizeScrollX ? "+=0.1" : "+=0",
     scrollY: "+=0.1",
+    modifiers: {
+      scrollY: _interruptionTracker(scrollFuncY, scrollFuncY(), function () {
+        return tween.pause();
+      })
+    },
+    onUpdate: _updateAll,
     onComplete: onStopDelayedCall.vars.onComplete
-  });
+  }); // we need the modifier to sense if the scroll position is altered outside of the momentum tween (like with a scrollTo tween) so we can pause() it to prevent conflicts.
+
   return self;
 };
 
