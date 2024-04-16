@@ -5694,6 +5694,7 @@ function Lazy({
 }
 
 /* eslint no-underscore-dangle: "off" */
+
 function Autoplay({
   swiper,
   extendParams,
@@ -23145,6 +23146,7 @@ _easeMap.Power0;
  * @author: Jack Doyle, jack@greensock.com
 */
 
+
 var _win$2,
     _doc$2,
     _docElement,
@@ -25376,6 +25378,7 @@ _getGSAP$1() && gsap$1.registerPlugin(Observer);
  * Club GreenSock members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
 */
+
 
 var gsap,
     _coreInitted,
@@ -28003,14 +28006,15 @@ ELs_inViewport.forEach(EL => {
 //Custom Cursor
 const cursor = document.querySelector(".c-cursor"),
       cursorDot = document.querySelector(".c-cursor__dot"),
-      links = document.querySelectorAll("a,.menu-toggle,.fltrs li");
+      links = document.querySelectorAll("a,.menu-toggle,.fltrs li, button");
       document.querySelector(".frnt_prjcts");
       const nvrtd = document.querySelectorAll(".c-nvrtd");
       document.querySelectorAll(".ttl").innerHTML;
       const prjcts = document.querySelectorAll(".prjct"),
       msg = document.querySelector(".c-cursor__msg"),
       drag = document.querySelectorAll(".swiper-slide");
-
+      
+      
 window.addEventListener('mousemove', e => {
   cursor.setAttribute("style", "transform: matrix(1, 0, 0, 1, "+e.clientX+", "+e.clientY+")");
   });
@@ -28040,6 +28044,8 @@ window.addEventListener('mousemove', e => {
             (drag[n].onmouseleave = function () {
               cursor.classList.remove("c-cursor__drag");
             });
+    
+  
 
     prjcts.forEach(prjct => {
       prjct.addEventListener('mouseover', function () {

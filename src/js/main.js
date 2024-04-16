@@ -61,14 +61,15 @@ ELs_inViewport.forEach(EL => {
 //Custom Cursor
 const cursor = document.querySelector(".c-cursor"),
       cursorDot = document.querySelector(".c-cursor__dot"),
-      links = document.querySelectorAll("a,.menu-toggle,.fltrs li"),
+      links = document.querySelectorAll("a,.menu-toggle,.fltrs li, button"),
       teaser = document.querySelector(".frnt_prjcts"),
       nvrtd = document.querySelectorAll(".c-nvrtd"),
       ttl = document.querySelectorAll(".ttl").innerHTML,
       prjcts = document.querySelectorAll(".prjct"),
       msg = document.querySelector(".c-cursor__msg"),
       drag = document.querySelectorAll(".swiper-slide");
-
+      
+      
 window.addEventListener('mousemove', e => {
   cursor.setAttribute("style", "transform: matrix(1, 0, 0, 1, "+e.clientX+", "+e.clientY+")")
   });
@@ -98,6 +99,8 @@ window.addEventListener('mousemove', e => {
             (drag[n].onmouseleave = function () {
               cursor.classList.remove("c-cursor__drag");
             });
+    
+  
 
     prjcts.forEach(prjct => {
       prjct.addEventListener('mouseover', function () {
