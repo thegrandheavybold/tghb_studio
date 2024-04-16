@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@netlify/plugin-lighthouse": "^6.0.0",
     "mixitup": "^3.3.1"
   }
 }

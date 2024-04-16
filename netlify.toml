@@ -33,3 +33,11 @@
   from = "/assets/img/original/*"
   to = "https://tghb-studio-dev.netlify.app/assets/img/:splat"
   status = 302
+
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  # to audit a specific absolute url
+  [[plugins.inputs.audits]]
+    url = "https://www.tghb.studio/de/"
