@@ -40,4 +40,16 @@
 
   # to audit a specific absolute url
   [[plugins.inputs.audits]]
-    url = "https://www.tghb.studio/de/"
+    url = "https://tghb.studio/de"
+
+  # to audit a specific absolute url
+  [[plugins.inputs.audits]]
+    url = "https://tghb.studio/de/projekte/"
+
+  # to audit a specific absolute url
+  [[plugins.inputs.audits]]
+    url = "https://tghb.studio/de/leistungen/"
+  
+  # to audit a specific absolute url
+  [[plugins.inputs.audits]]
+    url = "https://tghb.studio/de/studio/"
