@@ -40,7 +40,7 @@
 
   # to audit a specific absolute url
   [[plugins.inputs.audits]]
-    url = "https://tghb.studio/de"
+    url = "https://tghb.studio/de/"
 
   # to audit a specific absolute url
   [[plugins.inputs.audits]]
