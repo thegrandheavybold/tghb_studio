@@ -113,7 +113,7 @@ metaImage: tghb.studio_pegasus-club__og.png
     <div class="frnt_prjcts">
 
       <div class="tsr">
-
+        
         {% for post in collections.posts_de.slice(9, 13) | reverse %}
           {% if loop.first %}<ul class="grd">{% endif %}
             {% set counter = ( counter | default(0) ) + 1 %}

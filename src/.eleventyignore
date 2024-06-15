@@ -1,3 +1,4 @@
 .eleventyignore
 pages
 assets/images
+js/mixitup-multifilter

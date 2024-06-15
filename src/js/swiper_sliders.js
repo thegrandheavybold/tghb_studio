@@ -637,3 +637,63 @@ const gumbrechtSldr5 = new Swiper('.gumbrecht_05__sldr', {
   }
 
 });
+
+const lvr1 = new Swiper('.lvr_01__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2500
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
+
+const lvr2 = new Swiper('.lvr_02__sldr', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  preloadImages: false,
+  lazy: true,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+
+  modules: [Pagination, Autoplay, Lazy],
+
+  lazy: {
+    loadPrevNext: true
+   },
+   speed: 800,
+   autoplay: {
+     delay: 2800
+   },
+  pagination: {
+    el: '.swiper-bullets',
+    type: 'bullets',
+    clickable: true
+  },
+
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }
+
+});
