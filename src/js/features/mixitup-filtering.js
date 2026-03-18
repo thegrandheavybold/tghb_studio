@@ -1,5 +1,5 @@
 import mixitup from 'mixitup'
-import mixitupMultifilter from 'mixitup-multifilter/dist/mixitup-multifilter.js'
+import mixitupMultifilter from 'mixitup-multifilter'
 
 mixitup.use(mixitupMultifilter)
 

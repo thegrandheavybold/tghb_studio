@@ -52,7 +52,7 @@
     "src": "assets/img/tghb_studio_landesmuseum__24_l.svg"
   },
   "js/core/animations.js": {
-    "file": "assets/js/animations-jPTR74gQ.js",
+    "file": "assets/js/animations-C71iVKRW.js",
     "name": "animations",
     "src": "js/core/animations.js",
     "isDynamicEntry": true,
@@ -79,7 +79,7 @@
     ]
   },
   "js/core/cursor.js": {
-    "file": "assets/js/cursor--YnVRiS0.js",
+    "file": "assets/js/cursor-mPb-L--0.js",
     "name": "cursor",
     "src": "js/core/cursor.js",
     "isDynamicEntry": true,
@@ -105,7 +105,7 @@
     ]
   },
   "js/core/parallax.js": {
-    "file": "assets/js/parallax-DbR6BUXB.js",
+    "file": "assets/js/parallax-BdFJBQow.js",
     "name": "parallax",
     "src": "js/core/parallax.js",
     "isDynamicEntry": true,
@@ -132,7 +132,7 @@
     ]
   },
   "js/features/mixitup-filtering.js": {
-    "file": "assets/js/mixitup-filtering-j45UHXKB.js",
+    "file": "assets/js/mixitup-filtering-CD9Tpr77.js",
     "name": "mixitup-filtering",
     "src": "js/features/mixitup-filtering.js",
     "isDynamicEntry": true
@@ -156,7 +156,7 @@
     "isDynamicEntry": true
   },
   "js/main.js": {
-    "file": "assets/js/main-sEhNHf9W.js",
+    "file": "assets/js/main-B5ipcxoj.js",
     "name": "main",
     "src": "js/main.js",
     "isEntry": true,

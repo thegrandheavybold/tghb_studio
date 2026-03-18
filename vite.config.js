@@ -37,7 +37,7 @@ export default defineConfig(({ mode }) => {
     },
 
     optimizeDeps: {
-      include: ['mixitup-multifilter/dist/mixitup-multifilter.js']
+      include: ['mixitup-multifilter']
     },
 
     build: {
