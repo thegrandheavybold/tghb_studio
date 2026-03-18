@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ locale }}" id="{{ page.fileSlug }}">
+<html class="no-js {{ bgcolor }}" lang="{{ locale }}" id="{{ page.fileSlug }}">
   <head>
     <meta charset="utf-8">
-    <title>{{seoTitle}} · {{ site[locale].metaTitle }}</title>
+    {% set seoBaseTitle = seoTitle or title or i18n[locale].seo.metaTitle %}
+    {% set brandSuffix = i18n[locale].seo.metaTitle %}
+    {% set fullSeoTitle = seoBaseTitle %}
+    {% if brandSuffix and brandSuffix not in seoBaseTitle %}
+    {% set fullSeoTitle = seoBaseTitle + " · " + brandSuffix %}
+    {% endif %}
+    <title>{{ fullSeoTitle }}</title>
     <meta name="description" content="{{seoDescription}}">
+    {% if robots %}
+    <meta name="robots" content="{{ robots }}">
+    {% endif %}
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- hreflang -->
-    <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ page.url }}">
-    
+    {%- if translationKey -%}
+    {%- set defaultUrl = "" -%}
+    {%- for item in collections.all -%}
+    {% if item.data.translationKey == translationKey %}
+    <link rel="alternate" hreflang="{{ item.data.locale or item.data.lang }}" href="{{ site.url }}{{ item.url }}" />
+    {%- if (item.data.locale or item.data.lang) == "en" -%}
+    {%- set defaultUrl = item.url -%}
+    {%- endif -%}
+    {%- endif -%}
+    {%- endfor -%}
+    {% if defaultUrl %}
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ defaultUrl }}" />
+    {%- endif -%}
+    {% endif %}
 
     <!-- ccm19 cookie consent -->
     <script src="https://cloud.ccm19.de/app.js?apiKey=f4e9833e6bd5ae8cdae0ba5486194d84fd2e3d8535eb04f0&amp;domain=661d307ea55b0353db086eb3" referrerpolicy="origin"></script>
@@ -21,29 +43,86 @@
     <link rel="manifest" href="/assets/fav/site.webmanifest">
 
     <!-- styles -->
-    <link rel="preload" href="/assets/fonts/CircularStd-Book.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/CircularStd-Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/style.css">
+    {% set fontBook = vite["assets/fonts/CircularStd-Book.woff2"] %}
+    {% set fontBold = vite["assets/fonts/CircularStd-Bold.woff2"] %}
 
+    {% if fontBook %}
+    <link rel="preload"
+          href="/{{ fontBook.file }}"
+          as="font"
+          type="font/woff2"
+          crossorigin>
+    {% endif %}
+
+    {% if fontBold %}
+    <link rel="preload"
+          href="/{{ fontBold.file }}"
+          as="font"
+          type="font/woff2"
+          crossorigin>
+    {% endif %}
+
+    {% set style = vite["sass/style.sass"] %}
+    {% if isServeMode %}
+    <!-- Vite Dev CSS -->
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/js/main.js"></script>
+    {% elseif style and style.file %}
+    <link rel="stylesheet" href="/{{ style.file }}">
+    {% endif %}
+    
     <meta name="theme-color" content="#383838">
 
+    {% set socialImage = metaImage or featuredImage or "tghb.studio_hero__01_l.jpg" %}
+    {% set socialMeta = socialImage | imageMeta %}
+
     <!-- open graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ seoTitle }} · {{ site[locale].metaTitle }}">
-    <meta property="og:image" content="{{ site.url }}/assets/img/{{ metaImage }}">
-    <meta property="og:image:secure_url" content="{{ site.url }}/assets/img/{{ metaImage }}}">
+    {% set pageOgType = ogType or "website" %}
+    {% if "/projects/" in page.url %}
+    {% set pageOgType = "article" %}
+    {% endif %}
+    <meta property="og:type" content="{{ pageOgType }}">
+    <meta property="og:title" content="{{ fullSeoTitle }}">
+    {% if socialImage %}
+    <meta property="og:image" content="{{ site.url }}/assets/img/{{ socialImage }}">
+    <meta property="og:image:secure_url" content="{{ site.url }}/assets/img/{{ socialImage }}">
+    {% if socialMeta and socialMeta.width and socialMeta.height %}
+    <meta property="og:image:width" content="{{ socialMeta.width }}">
+    <meta property="og:image:height" content="{{ socialMeta.height }}">
+    {% endif %}
+    {% endif %}
     <meta property="og:site_name" content="{{ site.name }}">
     <meta property="og:description" content="{{ seoDescription }}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 
     <!-- twitter -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="{{ site.authorTwitter }}">
     <meta name="twitter:creator" content="{{ site.authorTwitter }}">
-    <meta name="twitter:title" content="{{ seoTitle }} · {{ site[locale].metaTitle }}">
+    <meta name="twitter:title" content="{{ fullSeoTitle }}">
     <meta name="twitter:description" content="{{ seoDescription }}">
-    <meta name="twitter:image" content="{{ site.url }}/assets/img/{{ metaImage }}">
+    {% if socialImage %}
+    <meta name="twitter:image" content="{{ site.url }}/assets/img/{{ socialImage }}">
+    <meta name="twitter:image:alt" content="{{ seoTitle }}">
+    {% endif %}
     <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "{{ site.name }}",
+        "url": "{{ site.url }}"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site.name }}",
+        "url": "{{ site.url }}"
+      }
+    </script>
 
   </head>
   <svg style="display:none;">
@@ -94,3 +173,10 @@
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2Q9VPP"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <div id="transition-clone"></div>
+
+    <div id="wipe-wrapper" aria-hidden="true">
+      <div class="wipe-layer wipe-back"></div>
+      <div class="wipe-layer wipe-front"></div>
+    </div>

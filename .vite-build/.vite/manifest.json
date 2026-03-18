@@ -1,0 +1,202 @@
+{
+  "_ScrollTrigger-QUtb4GpP.js": {
+    "file": "assets/js/ScrollTrigger-QUtb4GpP.js",
+    "name": "ScrollTrigger"
+  },
+  "assets/fonts/CircularStd-Bold.woff2": {
+    "file": "assets/fonts/CircularStd-Bold-CxwFRm5F.woff2",
+    "src": "assets/fonts/CircularStd-Bold.woff2"
+  },
+  "assets/fonts/CircularStd-Book.woff2": {
+    "file": "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
+    "src": "assets/fonts/CircularStd-Book.woff2"
+  },
+  "assets/img/tghb.studio_buchmesse__01_l.jpg": {
+    "file": "assets/img/tghb.studio_buchmesse__01_l-kexDzgUu.jpg",
+    "src": "assets/img/tghb.studio_buchmesse__01_l.jpg"
+  },
+  "assets/img/tghb.studio_cocoonclub__09_l.jpg": {
+    "file": "assets/img/tghb.studio_cocoonclub__09_l-BfYthfQA.jpg",
+    "src": "assets/img/tghb.studio_cocoonclub__09_l.jpg"
+  },
+  "assets/img/tghb.studio_emporium__01_l.jpg": {
+    "file": "assets/img/tghb.studio_emporium__01_l-DNFnKqjy.jpg",
+    "src": "assets/img/tghb.studio_emporium__01_l.jpg"
+  },
+  "assets/img/tghb.studio_mvd__01_l.jpg": {
+    "file": "assets/img/tghb.studio_mvd__01_l-I2ml3DN0.jpg",
+    "src": "assets/img/tghb.studio_mvd__01_l.jpg"
+  },
+  "assets/img/tghb_artshow_cc__01.jpg": {
+    "file": "assets/img/tghb_artshow_cc__01-Cl5c5qnO.jpg",
+    "src": "assets/img/tghb_artshow_cc__01.jpg"
+  },
+  "assets/img/tghb_blckwhtTV__01.jpg": {
+    "file": "assets/img/tghb_blckwhtTV__01-QMjjpXDo.jpg",
+    "src": "assets/img/tghb_blckwhtTV__01.jpg"
+  },
+  "assets/img/tghb_orbit63_typeface__01.jpg": {
+    "file": "assets/img/tghb_orbit63_typeface__01-BLoSacPp.jpg",
+    "src": "assets/img/tghb_orbit63_typeface__01.jpg"
+  },
+  "assets/img/tghb_studio__gumbrecht__01_l.jpg": {
+    "file": "assets/img/tghb_studio__gumbrecht__01_l-S-nM5ki3.jpg",
+    "src": "assets/img/tghb_studio__gumbrecht__01_l.jpg"
+  },
+  "assets/img/tghb_studio__snd__01_l.jpg": {
+    "file": "assets/img/tghb_studio__snd__01_l-C9rO3mkn.jpg",
+    "src": "assets/img/tghb_studio__snd__01_l.jpg"
+  },
+  "assets/img/tghb_studio_landesmuseum__24_l.svg": {
+    "file": "assets/img/tghb_studio_landesmuseum__24_l-1P8tAkCL.svg",
+    "src": "assets/img/tghb_studio_landesmuseum__24_l.svg"
+  },
+  "js/core/animations.js": {
+    "file": "assets/js/animations-BrSLWjV5.js",
+    "name": "animations",
+    "src": "js/core/animations.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "js/main.js",
+      "_ScrollTrigger-QUtb4GpP.js"
+    ],
+    "css": [
+      "assets/css/style-CTb1Ww7K.css"
+    ],
+    "assets": [
+      "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
+      "assets/fonts/CircularStd-Bold-CxwFRm5F.woff2",
+      "assets/img/tghb.studio_cocoonclub__09_l-BfYthfQA.jpg",
+      "assets/img/tghb.studio_buchmesse__01_l-kexDzgUu.jpg",
+      "assets/img/tghb.studio_mvd__01_l-I2ml3DN0.jpg",
+      "assets/img/tghb.studio_emporium__01_l-DNFnKqjy.jpg",
+      "assets/img/tghb_studio__snd__01_l-C9rO3mkn.jpg",
+      "assets/img/tghb_studio__gumbrecht__01_l-S-nM5ki3.jpg",
+      "assets/img/tghb_studio_landesmuseum__24_l-1P8tAkCL.svg",
+      "assets/img/tghb_orbit63_typeface__01-BLoSacPp.jpg",
+      "assets/img/tghb_artshow_cc__01-Cl5c5qnO.jpg",
+      "assets/img/tghb_blckwhtTV__01-QMjjpXDo.jpg"
+    ]
+  },
+  "js/core/cursor.js": {
+    "file": "assets/js/cursor-sIju27-G.js",
+    "name": "cursor",
+    "src": "js/core/cursor.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "js/main.js"
+    ],
+    "css": [
+      "assets/css/style-CTb1Ww7K.css"
+    ],
+    "assets": [
+      "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
+      "assets/fonts/CircularStd-Bold-CxwFRm5F.woff2",
+      "assets/img/tghb.studio_cocoonclub__09_l-BfYthfQA.jpg",
+      "assets/img/tghb.studio_buchmesse__01_l-kexDzgUu.jpg",
+      "assets/img/tghb.studio_mvd__01_l-I2ml3DN0.jpg",
+      "assets/img/tghb.studio_emporium__01_l-DNFnKqjy.jpg",
+      "assets/img/tghb_studio__snd__01_l-C9rO3mkn.jpg",
+      "assets/img/tghb_studio__gumbrecht__01_l-S-nM5ki3.jpg",
+      "assets/img/tghb_studio_landesmuseum__24_l-1P8tAkCL.svg",
+      "assets/img/tghb_orbit63_typeface__01-BLoSacPp.jpg",
+      "assets/img/tghb_artshow_cc__01-Cl5c5qnO.jpg",
+      "assets/img/tghb_blckwhtTV__01-QMjjpXDo.jpg"
+    ]
+  },
+  "js/core/parallax.js": {
+    "file": "assets/js/parallax-CPoj0o0k.js",
+    "name": "parallax",
+    "src": "js/core/parallax.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "js/main.js",
+      "_ScrollTrigger-QUtb4GpP.js"
+    ],
+    "css": [
+      "assets/css/style-CTb1Ww7K.css"
+    ],
+    "assets": [
+      "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
+      "assets/fonts/CircularStd-Bold-CxwFRm5F.woff2",
+      "assets/img/tghb.studio_cocoonclub__09_l-BfYthfQA.jpg",
+      "assets/img/tghb.studio_buchmesse__01_l-kexDzgUu.jpg",
+      "assets/img/tghb.studio_mvd__01_l-I2ml3DN0.jpg",
+      "assets/img/tghb.studio_emporium__01_l-DNFnKqjy.jpg",
+      "assets/img/tghb_studio__snd__01_l-C9rO3mkn.jpg",
+      "assets/img/tghb_studio__gumbrecht__01_l-S-nM5ki3.jpg",
+      "assets/img/tghb_studio_landesmuseum__24_l-1P8tAkCL.svg",
+      "assets/img/tghb_orbit63_typeface__01-BLoSacPp.jpg",
+      "assets/img/tghb_artshow_cc__01-Cl5c5qnO.jpg",
+      "assets/img/tghb_blckwhtTV__01-QMjjpXDo.jpg"
+    ]
+  },
+  "js/features/mixitup-filtering.js": {
+    "file": "assets/js/mixitup-filtering-j45UHXKB.js",
+    "name": "mixitup-filtering",
+    "src": "js/features/mixitup-filtering.js",
+    "isDynamicEntry": true
+  },
+  "js/features/nncLightbox.js": {
+    "file": "assets/js/nncLightbox-CyyCnkRj.js",
+    "name": "nncLightbox",
+    "src": "js/features/nncLightbox.js",
+    "isDynamicEntry": true
+  },
+  "js/features/nncStickyChrome.js": {
+    "file": "assets/js/nncStickyChrome-CO1sT2z5.js",
+    "name": "nncStickyChrome",
+    "src": "js/features/nncStickyChrome.js",
+    "isDynamicEntry": true
+  },
+  "js/features/slider.js": {
+    "file": "assets/js/slider-CheTP5Ec.js",
+    "name": "slider",
+    "src": "js/features/slider.js",
+    "isDynamicEntry": true
+  },
+  "js/main.js": {
+    "file": "assets/js/main-7axvVflc.js",
+    "name": "main",
+    "src": "js/main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "js/core/cursor.js",
+      "js/core/animations.js",
+      "js/core/parallax.js",
+      "js/features/slider.js",
+      "js/features/mixitup-filtering.js",
+      "js/utils/nncVideoHover.js",
+      "js/features/nncLightbox.js",
+      "js/features/nncStickyChrome.js"
+    ],
+    "css": [
+      "assets/css/style-CTb1Ww7K.css"
+    ],
+    "assets": [
+      "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
+      "assets/fonts/CircularStd-Bold-CxwFRm5F.woff2",
+      "assets/img/tghb.studio_cocoonclub__09_l-BfYthfQA.jpg",
+      "assets/img/tghb.studio_buchmesse__01_l-kexDzgUu.jpg",
+      "assets/img/tghb.studio_mvd__01_l-I2ml3DN0.jpg",
+      "assets/img/tghb.studio_emporium__01_l-DNFnKqjy.jpg",
+      "assets/img/tghb_studio__snd__01_l-C9rO3mkn.jpg",
+      "assets/img/tghb_studio__gumbrecht__01_l-S-nM5ki3.jpg",
+      "assets/img/tghb_studio_landesmuseum__24_l-1P8tAkCL.svg",
+      "assets/img/tghb_orbit63_typeface__01-BLoSacPp.jpg",
+      "assets/img/tghb_artshow_cc__01-Cl5c5qnO.jpg",
+      "assets/img/tghb_blckwhtTV__01-QMjjpXDo.jpg"
+    ]
+  },
+  "js/utils/nncVideoHover.js": {
+    "file": "assets/js/nncVideoHover-pcvk6d22.js",
+    "name": "nncVideoHover",
+    "src": "js/utils/nncVideoHover.js",
+    "isDynamicEntry": true
+  },
+  "sass/style.sass": {
+    "file": "assets/css/style-CTb1Ww7K.css",
+    "src": "sass/style.sass",
+    "isEntry": true
+  }
+}

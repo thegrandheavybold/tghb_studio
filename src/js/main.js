@@ -1,120 +1,76 @@
-//JS Support check and touch screen check
-var html = document.querySelector("html");
-  html.classList.remove("no-js");
-  html.classList.add("js");
+import '../sass/style.sass'
 
-function is_touch_device() {
-  return !!('ontouchstart' in window);
+// Core
+import './core/base.js'
+import './core/menu.js'
+
+const onDomReady = (callback) => {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', callback, { once: true })
+    return
+  }
+
+  callback()
 }
 
-  if(is_touch_device()) {
-    html.classList.add("touch");
-  }
-  else {
-    html.classList.remove("touch");
-  }
+// Cursor nur Desktop
+const isTouch = matchMedia('(hover: none)').matches
+if (!isTouch) {
+  import('./core/cursor.js')
+}
 
+// Scroll animations
+if (document.querySelector('[data-animate]')) {
+  import('./core/animations.js')
+}
 
-//Import Navigation
-import 'navigation.js'
+// Parallax separat
+if (document.querySelector('[data-parallax]')) {
+  import('./core/parallax.js')
+}
 
-//Import Lazy Load Image
-import 'lazy.js'
+// Slider
+if (document.querySelector('.swiper')) {
+  import('./features/slider.js')
+}
 
-//Import Swiper Sliders
-import 'swiper_sliders.js'
+// Mixitup
+if (document.querySelector('[data-logic]')) {
+  import('./features/mixitup-filtering.js')
+}
 
+// Page Transition
+import { initDoubleWipeEntry } from './core/doubleWipeEntry.js'
+import { initDoubleWipeTransition } from './core/doubleWipeTransition.js'
 
-//Scroll & Parallax Function
-window.addEventListener('scroll', function(e) {
+onDomReady(() => {
+  initDoubleWipeEntry()
+  initDoubleWipeTransition()
+})
 
-  const target = document.querySelector('.parallax');
-
-  var scrolled = window.pageYOffset;
-  var rate = scrolled * .35;
-
-    if (target){
-      target.style.transform = 'translate3D(0px, '+rate+'px, 0px)';
-    }
-
-});
-
-//Fade in when in view Function
-const inViewport = (entries) => {
-  entries.forEach(entry => {
-    entry.target.classList.toggle("is_inview", entry.isIntersecting);
-  });
-};
-
-const Obs = new IntersectionObserver(inViewport);
-const obsOptions = {
-  threshold: 1
-};
-
-// Attach observer to every [data-inview] element:
-const ELs_inViewport = document.querySelectorAll('[data]');
-ELs_inViewport.forEach(EL => {
-  Obs.observe(EL, obsOptions);
-});
-
-
-//Custom Cursor
-const cursor = document.querySelector(".c-cursor"),
-      cursorDot = document.querySelector(".c-cursor__dot"),
-      links = document.querySelectorAll("a,.menu-toggle,.fltrs li, button"),
-      teaser = document.querySelector(".frnt_prjcts"),
-      nvrtd = document.querySelectorAll(".c-nvrtd"),
-      ttl = document.querySelectorAll(".ttl").innerHTML,
-      prjcts = document.querySelectorAll(".prjct"),
-      msg = document.querySelector(".c-cursor__msg"),
-      drag = document.querySelectorAll(".swiper-slide");
-      
-      
-window.addEventListener('mousemove', e => {
-  cursor.setAttribute("style", "transform: matrix(1, 0, 0, 1, "+e.clientX+", "+e.clientY+")")
-  });
-    if (links.length)
-      for (var n = 0; n < links.length; n++)
-          (links[n].onmouseenter = function () {
-            cursor.classList.add("c-cursor__hovering");
-          }),
-            (links[n].onmouseleave = function () {
-              cursor.classList.remove("c-cursor__hovering");
-            });
-
-    if (nvrtd.length)
-      for (var n = 0; n < nvrtd.length; n++)
-          (nvrtd[n].onmouseenter = function () {
-            cursorDot.classList.add("c-cursor__inverted");
-          }),
-            (nvrtd[n].onmouseleave = function () {
-              cursorDot.classList.remove("c-cursor__inverted");
-            });
-
-    if (drag.length)
-      for (var n = 0; n < drag.length; n++)
-          (drag[n].onmouseenter = function () {
-            cursor.classList.add("c-cursor__drag");
-          }),
-            (drag[n].onmouseleave = function () {
-              cursor.classList.remove("c-cursor__drag");
-            });
-    
-  
-
-    prjcts.forEach(prjct => {
-      prjct.addEventListener('mouseover', function () {
-        msg.classList.add("visible")
-        msg.innerHTML = prjct.querySelector('.ttl').innerHTML
-      })
-      prjct.addEventListener('mouseout', function () {
-        msg.classList.remove("visible")
-      })
+// NNC Video Hover: only load on pages that actually render NNC preview videos
+if (document.querySelector('.nnc-video-preview')) {
+  import('./utils/nncVideoHover.js').then(({ initNncVideoHover }) => {
+    onDomReady(() => {
+      initNncVideoHover()
     })
+  })
+}
 
+// NNC Lightbox: only load on pages with NNC triggers/lightbox markup
+if (document.querySelector('.nnc-trigger') || document.getElementById('nncLightbox')) {
+  import('./features/nncLightbox.js').then(({ initNncLightbox }) => {
+    onDomReady(() => {
+      initNncLightbox()
+    })
+  })
+}
 
-//mixitup filtering
-import 'mixitup-filtering.js'
-
-//gsap magic
-import 'gsap-triggers.js'
+// NNC sticky chrome: single blur surface for header + filter once filter is sticky
+if (document.documentElement.id === 'nevernotcooking' && document.querySelector('.nnc-filter-shell')) {
+  import('./features/nncStickyChrome.js').then(({ initNncStickyChrome }) => {
+    onDomReady(() => {
+      initNncStickyChrome()
+    })
+  })
+}

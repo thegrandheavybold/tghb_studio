@@ -1,0 +1,172 @@
+/* ================================
+   FULLSCREEN MENU BASE
+ ================================ */
+
+.menu
+  position: fixed
+  inset: 0
+  width: 100vw
+  height: 100vh
+  background: $neon
+  z-index: 100
+  overflow-y: auto
+
+  opacity: 0
+  visibility: hidden
+  pointer-events: none
+
+  .wrapper
+    height: 100%
+
+/* Scroll lock when open */
+body.menu-open
+  overflow: hidden
+
+
+/* ================================
+   MENU CONTENT LAYOUT
+ ================================ */
+
+.menu__content
+  display: flex
+  justify-content: space-around
+  flex-wrap: wrap
+  align-content: center
+  padding: 15vw 0 0
+
+
+/* ================================
+   MAIN MENU LINKS
+ ================================ */
+
+.menu__items
+  display: flex
+  flex-direction: column
+
+  ul.menu__links
+    list-style: none
+    margin: 0
+    padding: 0
+
+    li
+      a
+        display: block
+        text-decoration: none
+        text-transform: capitalize
+        color: $gray
+        font-size: min(max(17vw), 81px)
+        line-height: min(max(21vw), 84px)
+        letter-spacing: -0.2rem
+
+
+/* ================================
+   MENU INFO BLOCK
+ ================================ */
+
+.menu__info
+  display: flex
+  flex-direction: column
+
+  ul
+    list-style: none
+    margin: 1rem 0
+    padding: 0
+
+    li
+      font-size: min(max(6vw), 21px)
+      line-height: min(max(7vw), 33px)
+
+      span.copyrights
+        font-family: $font__pre
+        font-size: min(max(4vw), 16px)
+        line-height: min(max(7vw), 33px)
+
+  .legal
+    text-transform: capitalize
+
+    li:first-of-type
+      text-transform: uppercase
+
+
+/* ================================
+   HEADER NAV BASE
+ ================================ */
+
+.main-navigation
+  width: 8rem
+  height: 6rem
+  display: flex
+  align-items: center
+  justify-content: center
+
+  ul
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    height: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+
+    li
+      &:hover > a,
+      &.focus > a
+        color: $gray
+
+      &:hover > a::after,
+      &.focus > a::after
+        transform: translateY(-4.8rem) scaleX(1)
+
+      a
+        display: block
+        text-decoration: none
+        color: $gray
+        font-size: 4rem
+        height: 6rem
+
+        &::after
+          content: ''
+          background: $gray
+          height: 4rem
+          left: 2rem
+          display: block
+          position: relative
+          transform: translateY(-4.8rem) scaleX(0)
+          transform-origin: 100% 0%
+          z-index: -1
+
+
+  .current_page_item > a,
+  .current-menu-item > a,
+  .current_page_ancestor > a,
+  .current-menu-ancestor > a
+    color: $gray
+
+  .current_page_item > a::after,
+  .current-menu-item > a::after,
+  .current_page_ancestor > a::after,
+  .current-menu-ancestor > a::after
+    transform: translateY(-1rem) scaleY(.15)
+
+
+/* ================================
+   LANGUAGE SWITCHER
+ =============================== */
+
+ul.lg_nav
+  list-style: none
+  display: flex
+  margin: 3rem 0 0
+
+  li.lg_nav__item
+    width: auto
+
+    &:nth-child(1)
+      margin: 0 2rem 0 0
+
+    a.lg_nav__link
+      font-family: $font__book
+
+      &.is-active
+        font-family: $font__bold

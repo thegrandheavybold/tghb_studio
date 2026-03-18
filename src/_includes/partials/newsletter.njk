@@ -2,12 +2,13 @@
 
   <div class="wrapper grd">
 
-    <div class="sctn_ttl" data="fade-up">Newsletter</div>
+    <div class="sctn_ttl" data-animate="fade-up">Newsletter</div>
 
     <div class="frnt_sctn__hdr">
 
-      <h1 data="fade-up st">{{ translate[locale].newsletterHead }}</h1>
-      <h1 data="fade-up nd">{{ translate[locale].newsletterAction }} <a href="/{{ locale }}/newsletter/index.html">Newsletter</a></h1>
+      <h1 data-animate="fade-up" data-delay="0.2">{{ i18n[locale].ui.newsletterHead }}</h1>
+      <h1 data-animate="fade-up" data-delay="0.3">{{ i18n[locale].ui.newsletterAction }}<a href="{{ 'newsletter' | nav_url(locale) }}">Newsletter</a></h1>
+
 
     </div>
 

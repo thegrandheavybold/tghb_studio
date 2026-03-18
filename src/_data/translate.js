@@ -1,28 +1,12 @@
-module.exports = {
+import i18n from "./i18n.js";
+
+export default {
   de: {
-    contact: "Kontakt",
-    newClient: "neuer Klient",
-    hello: "Hallo",
-    newColleague: "neuer Kollege",
-    newsletterHead: "Bleibe auf dem Laufenden.",
-    newsletterAction: "Abonniere unseren",
-    attitude: "Haltung",
-    projects: "Projekte",
-    projectPDF: "Projekt PDF",
-    services: "Leistungen",
-    all_projects: "Alle Projekte"
+    services: i18n.de.nav.services,
+    projectPDF: i18n.de.ui.projectPDF
   },
   en: {
-    contact: "Contact",
-    newClient: "new Client",
-    hello: "Hello",
-    newColleague: "new Colleague",
-    newsletterHead: "Stay up to date.",
-    newsletterAction: "Subscribe to our",
-    attitude: "Attitude",
-    projects: "Projects",
-    projectPDF: "Project PDF",
-    services: "Services",
-    all_projects: "All Projects"
+    services: i18n.en.nav.services,
+    projectPDF: i18n.en.ui.projectPDF
   }
 };

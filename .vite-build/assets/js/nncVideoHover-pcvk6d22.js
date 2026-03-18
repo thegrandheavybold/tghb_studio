@@ -1,0 +1,1 @@
+function r(){if(!window.matchMedia("(hover: hover)").matches)return;document.querySelectorAll(".nnc-video-preview").forEach(e=>{const n=e.closest(".nnc-item");n.addEventListener("mouseenter",()=>{e.play().catch(()=>{})}),n.addEventListener("mouseleave",()=>{e.pause(),e.currentTime=0})})}export{r as initNncVideoHover};

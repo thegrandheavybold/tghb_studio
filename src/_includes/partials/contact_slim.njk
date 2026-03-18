@@ -2,13 +2,13 @@
 
   <div class="wrapper grd">
 
-    <div class="sctn_ttl" data="fade-up">{{ translate[locale].contact }}</div>
+    <div class="sctn_ttl" data-animate="fade-up">{{ i18n[locale].ui.contact }}</div>
 
     <div class="frnt_sctn__hdr grd">
 
-      <h4 class="cntct_slim__item" data="fade-up st"><a href="mailto:{{ contact[locale].email }}">E-Mail</a></h1>
+      <h4 class="cntct_slim__item" data-animate="fade-up" data-delay="0.2"><a href="mailto:{{ i18n[locale].contact.email }}">E-Mail</a></h4>
 
-      <h4 class="cntct_slim__item" data="fade-up nd"><a href="tel:">{{ contact[locale].main_phone }}</a></h1>
+      <h4 class="cntct_slim__item" data-animate="fade-up" data-delay="0.3"><a href="tel:{{ i18n[locale].contact.phone }}">{{ i18n[locale].contact.phone }}</a></h4>
 
     </div>
 

@@ -1,58 +1,29 @@
-[build]
-  CI= "npm run build"
-  publish = "dist"
-  NODE_ENV = "20.11.1"
-
-
 [dev]
-  CI= "npm run build"
+  command = "npx @11ty/eleventy --serve"
+  port = 8888
+  targetPort = 8080
 
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24.10.0"
 
 [build.processing.html]
   pretty_urls = true
 
-
-[[redirects]]
-  from = "/assets/img/tiny/*"
-  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=20"
-  status = 302
-
-[[redirects]]
-  from = "/assets/img/small/*"
-  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=480"
-  status = 302
-
-[[redirects]]
-  from = "/assets/img/medium/*"
-  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=768"
-  status = 302
-
-[[redirects]]
-  from = "/assets/img/large/*"
-  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat?nf_resize=fit&w=1024"
-  status = 302
-
-[[redirects]]
-  from = "/assets/img/original/*"
-  to = "https://tghb-studio-dev.netlify.app/assets/img/:splat"
-  status = 302
-
-
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
 
-  # to audit a specific absolute url
   [[plugins.inputs.audits]]
     url = "https://tghb.studio/de/"
 
-  # to audit a specific absolute url
   [[plugins.inputs.audits]]
     url = "https://tghb.studio/de/projekte/"
 
-  # to audit a specific absolute url
   [[plugins.inputs.audits]]
     url = "https://tghb.studio/de/leistungen/"
-  
-  # to audit a specific absolute url
+
   [[plugins.inputs.audits]]
     url = "https://tghb.studio/de/studio/"

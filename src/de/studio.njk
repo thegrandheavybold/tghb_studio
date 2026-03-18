@@ -1,0 +1,207 @@
+---
+title: Studio
+translationKey: "studio"
+
+seoTitle: Branding, Digital & Raum Designstudio
+seoDescription: Designstudio in Köln und Frankfurt für Branding, Kommunikationsdesign, Digital Design und räumliche Markenerlebnisse.
+metaImage: tghb.studio_cologne_l.jpg
+---
+
+<section class="pg_hro" data-parallax="0.3">
+  <div class="wrapper">
+
+    <div class="sctn__hdr __50 grd">
+
+      <div class="spn2" data-animate="fade-up">
+        <h1>Bold, <span>never Regular</span>.</h1>
+      </div>
+
+      <div class="sbln_lnk spn2" data-animate="fade-up" data-delay="0.2">
+
+        <p class="intro">Wir entwickeln Marken, Websites und Markenräume von Strategie bis Umsetzung.</p>
+
+        {#<a class="lnk__18" href="/{{ locale }}/index.html">
+          <svg class="download_btn">
+            <use xlink:href="#download_btn"></use>
+          </svg> Studioportrait PDF</a>#}
+
+      </div>
+
+  </div>
+</section>
+{#
+<section class="hro __50">
+  {% lazypicture "placeholder.jpg", "Placeholder"%}
+</section>
+#}
+<section class="studio_shrt wht">
+  <div class="wrapper">
+    <h3 data-animate="fade-up">
+      <strong>TheGrandHeavyBold</strong> ist ein inhabergeführtes und interdisziplinäres Designstudio in Köln und Frankfurt. Wir entwickeln Markenidentitäten, Kommunikationsdesign, Websites und räumliche Markenerlebnisse für Unternehmen, Kultur und Bildung. Strategie, Gestaltung und Realisation greifen bei uns ganzheitlich ineinander.
+    </h3>
+  </div>
+</section>
+
+<section class="network drk">
+  <div class="wrapper">
+
+    <div class="sctn_ttl" data-animate="fade-up">Netzwerk</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2" data-animate="fade-up">
+        <h1>Ein Kernteam und ein Netzwerk von Spezialisten.</h1>
+      </div>
+
+      <div class="sbln_lnk spn2" data-animate="fade-up" data-delay="0.2">
+
+        <p class="intro">Für jedes Projekt stellen wir ein crossfunktionales Team von Fachleuten ganz speziell zusammen.</p>
+
+      </div>
+
+    </div>
+
+    <div class="network_imgs grd">
+
+      <div class="network_imgs__item" data-animate="fade-up">
+        {% lazypicture "tghb_studio-christian_kriegsheim.jpg", "Christian Kriegsheim | Founder & Designer"%}
+        <p class="copy"><strong>Christian Kriegsheim</strong></p>
+        <p>Gründer / Designer</p>
+      </div>
+      <div class="network_imgs__item" data-animate="fade-up" data-delay="0.2">
+        {% lazypicture "tghb_studio-tomas_nims-matousek.jpg", "Tomáš Nims-Matoušek | Founder & Designer"%}
+        <p class="copy"><strong>Tomáš Nims-Matoušek</strong></p>
+        <p>Gründer / Designer</p>
+      </div>
+      <div class="network_imgs__item" data-animate="fade-up" data-delay="0.3">
+        {% lazypicture "tghb_studio-felicity_nims-matousek.jpg", "Felicity Nims-Matoušek | Illustration & Motion Design"%}
+        <p class="copy"><strong>Felicity Nims-Matoušek</strong></p>
+        <p>Illustration & Motion Design</p>
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
+{#
+<section class="hro __75">
+  {% lazypicture "placeholder.jpg", "Placeholder"%}
+</section>
+#}
+<section class="ccrdntls">
+  <div class="wrapper">
+
+    <div class="sctn_ttl" data-animate="fade-up">Referenzen</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2" data-animate="fade-up">
+        <h1>In good company.</h1>
+      </div>
+
+      <div class="sbln_lnk spn2" data-animate="fade-up" data-delay="0.2">
+
+        <p class="intro">Erfolgreiche Projekte beginnen mit mutigen Auftraggeber:innen.</p>
+
+      </div>
+
+    </div>
+
+    <ul class="crdntls_list">
+
+      {% for clients in clientList.de %}
+
+      <li class="crdntls__item" data-animate="fade-up"><h1>{{ clients }}</h1></li>
+
+      {% endfor %}
+
+    </ul>
+
+  </div>
+</section>
+
+<section class="lctns" id="contact">
+  <div class="wrapper">
+
+    <div class="sctn_ttl" data-animate="fade-up">Standorte</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2" data-animate="fade-up">
+        <h1>Remote-First und vor den Toren der Welt.</h1>
+      </div>
+
+      <div class="sbln_lnk spn2" data-animate="fade-up" data-delay="0.2">
+
+        <p class="intro">Wir sind in Deutschland ansässig, aber unser Team ist international, agil und informell.</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="lctns_nf">
+
+    <div class="lctns_list">
+
+      <div class="lctns__items grd">
+
+        <div class="item__1" data-animate="fade-up">
+          {% lazypicture "tghb.studio_cologne_l.jpg", "Bureau Cologne"%}
+        </div>
+
+        <div class="item__2 lctns__nf">
+
+          <h2 data-animate="fade-up">Cologne</h2>
+          <span data-animate="fade-up" data-delay="0.2">
+            <a href="tel:{{ i18n[locale].footer.locations.cgn.phone }}">{{ i18n[locale].footer.locations.cgn.phone }}</a>
+            <a href="mailto:kriegsheim@tghb.studio">kriegsheim@tghb.studio</a>
+            <span>{{ i18n[locale].footer.locations.cgn.street }} {{ i18n[locale].footer.locations.cgn.number }}<br />
+            {{ i18n[locale].footer.locations.cgn.postcode }} {{ i18n[locale].footer.locations.cgn.city }}</span>
+          </span>
+
+          <a class="lnk__18" target="_blank" href="https://www.google.com/maps/dir//S%C3%B6mmeringstra%C3%9Fe+71,+50823+K%C3%B6ln/@50.9468776,6.912763,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47bf253c42d1422b:0xa43b4cf674da8bfb!2m2!1d6.9149517!2d50.9468742?ucbcb=1" data-animate="fade-up" data-delay="0.3">
+            Route <svg class="external_btn">
+              <use xlink:href="#external_btn"></use>
+            </svg></a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="lctns_list lft">
+
+      <div class="lctns__items grd">
+
+        <div class="item__1" data-animate="fade-up">
+          {% lazypicture "tghb.studio_frankfurt_l.jpg", "Bureau & Production Frankfurt"%}
+        </div>
+
+        <div class="item__2 lctns__nf">
+
+          <h2 data-animate="fade-up">Frankfurt</h2>
+          <span data-animate="fade-up" data-delay="0.2">
+            <a href="tel:{{ i18n[locale].footer.locations.ffm.phone }}">{{ i18n[locale].footer.locations.ffm.phone }}</a>
+            <a href="mailto:matousek@tghb.studio">matousek@tghb.studio</a>
+            <span>{{ i18n[locale].footer.locations.ffm.street }} {{ i18n[locale].footer.locations.ffm.number }}<br />
+            {{ i18n[locale].footer.locations.ffm.postcode }} {{ i18n[locale].footer.locations.ffm.city }}</span>
+          </span>
+
+          <a class="lnk__18" target="_blank" href="https://www.google.com/maps/dir//Herzbergstra%C3%9Fe+4,+61138+Niederdorfelden/@50.1929701,8.7934953,18.2z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47bd054dc5a2ad53:0xa7d592b7ae369e5b!2m2!1d8.79389!2d50.19292?ucbcb=1" data-animate="fade-up" data-delay="0.3">
+            Route <svg class="external_btn">
+              <use xlink:href="#external_btn"></use>
+            </svg></a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

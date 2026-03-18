@@ -1,0 +1,179 @@
+---
+title: NeverNotCooking
+description: Daily habits of Designers from TheGrandHeavyBold.
+slug: nevernotcooking
+translationKey: "nevernotcooking"
+
+
+seoTitle: NeverNotCooking - Experimental Design Journal
+seoDescription: Daily visual experiments in design, motion, typography and art by TheGrandHeavyBold.
+metaImage: tghb.studio_hero__03_l.jpg
+bgcolor: blkwht
+---
+
+<section class="pg_hro {{ page.fileSlug }}" data-parallax="0.2">
+  <div class="wrapper">
+    <div class="sctn__hdr __35 grd">
+      <div class="spn2">
+        <h1 data-animate="fade-up">{{ title }}.</h1>
+      </div>
+      <div class="sbln_lnk spn2">
+        <p class="intro" data-animate="fade-up" data-delay="0.2">
+          Creatives are always cooking — ideas, visuals, concepts. NeverNotCooking is our ongoing playground for experimentation, visual culture and unfinished thoughts. A place where ideas are tested, refined, remixed and sometimes burned — but never left untouched.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pg_hro nnc-filter-shell">
+  <div class="wrapper">
+    <div class="sctn__hdr grd">
+      <ul class="spn2 fltrs nnc-filter" data-logic="and" data-animate="fade-up" data-delay="0.3">
+        <li data-filter="all"><h6 class="h6 link">All</h6><sub id="all-nnc"></sub></li>
+        <li data-filter=".ai"><h6 class="h6 link">AI</h6><sub id="ai-nnc"></sub></li>
+        <li data-filter=".apparel"><h6 class="h6 link">Apparel</h6><sub id="apparel-nnc"></sub></li>
+        <li data-filter=".art"><h6 class="h6 link">Art</h6><sub id="art-nnc"></sub></li>
+        <li data-filter=".corporate"><h6 class="h6 link">Corporate</h6><sub id="corporate-nnc"></sub></li>
+        <li data-filter=".editorial"><h6 class="h6 link">Editorial</h6><sub id="editorial-nnc"></sub></li>
+        <li data-filter=".gfx"><h6 class="h6 link">Gfx</h6><sub id="gfx-nnc"></sub></li>
+        <li data-filter=".illustration"><h6 class="h6 link">Illustration</h6><sub id="illustration-nnc"></sub></li>
+        <li data-filter=".interior"><h6 class="h6 link">Interior</h6><sub id="interior-nnc"></sub></li>
+        <li data-filter=".motion"><h6 class="h6 link">Motion</h6><sub id="motion-nnc"></sub></li>
+        <li data-filter=".murals"><h6 class="h6 link">Murals</h6><sub id="murals-nnc"></sub></li>
+        <li data-filter=".objects"><h6 class="h6 link">Objects</h6><sub id="objects-nnc"></sub></li>
+        <li data-filter=".photography"><h6 class="h6 link">Photography</h6><sub id="photography-nnc"></sub></li>
+        <li data-filter=".product"><h6 class="h6 link">Product</h6><sub id="product-nnc"></sub></li>
+        <li data-filter=".typography"><h6 class="h6 link">Typography</h6><sub id="typography-nnc"></sub></li>
+        <li data-filter=".uiux"><h6 class="h6 link">UI/UX</h6><sub id="uiux-nnc"></sub></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="nnc-feed-shell">
+  <div class="wrapper_w_img">
+
+    {# --- NNC Collection --- #}
+    {% set nncCollection = collections["nevernotcooking_" + locale] %}
+
+    {# --- Detect serve/dev --- #}
+    {% set isDev = (eleventy and eleventy.env and eleventy.env.runMode == "serve") %}
+
+    <ul class="nnc-feed">
+    {% for post in nncCollection %}
+      <li class="nnc-item mix {{ post.data.filters | join(' ') }}" data-animate="fade-up">
+        {% set firstMedia = post.data.media[0] %}
+
+        <a href="{{ post.url }}" class="nnc-trigger" data-index="{{ loop.index0 }}" data-no-transition>
+          <figure class="nnc-figure">
+
+            {% if firstMedia.type == "image" %}
+              {% set imageSrc = (firstMedia.src or "") | replace("/assets/img/", "") | replace("assets/img/", "") %}
+
+              {% if isDev %}
+                {# ✅ LOCAL DEV: use plain local image (no netlify image CDN) #}
+                <img
+                  src="/assets/img/{{ imageSrc }}"
+                  alt="{{ firstMedia.alt or post.data.title }}"
+                  loading="lazy"
+                  decoding="async"
+                >
+              {% else %}
+                {# ✅ PRODUCTION: use Netlify Image CDN #}
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="
+                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=320&fm=avif 320w,
+                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=640&fm=avif 640w,
+                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=900&fm=avif 900w
+                    "
+                    sizes="(min-width:1440px) 16vw, (min-width:1024px) 20vw, (min-width:768px) 25vw, 50vw"
+                  >
+                  <source
+                    type="image/webp"
+                    srcset="
+                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=320&fm=webp 320w,
+                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=640&fm=webp 640w,
+                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=900&fm=webp 900w
+                    "
+                    sizes="(min-width:1440px) 16vw, (min-width:1024px) 20vw, (min-width:768px) 25vw, 50vw"
+                  >
+                  <img
+                    src="/.netlify/images?url=/assets/img/{{ imageSrc }}&w=640"
+                    alt="{{ firstMedia.alt or post.data.title }}"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </picture>
+              {% endif %}
+
+            {% elseif firstMedia.type == "video" %}
+              {% set videoPoster = (firstMedia.poster or "") | replace("/assets/img/", "") | replace("assets/img/", "") %}
+              {% set videoPreview = (firstMedia.preview or "") | replace("/assets/video/", "") | replace("assets/video/", "") %}
+
+              {# Video preview stays local in dev and prod (your assets/video) #}
+              <video
+                class="nnc-video-preview"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="/assets/img/{{ videoPoster }}"
+              >
+                <source src="/assets/video/{{ videoPreview }}" type="video/mp4">
+              </video>
+
+            {% endif %}
+
+          </figure>
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+
+
+{# 🔥 Data Bridge for Lightbox #}
+<script>
+  window.NNC_ITEMS = [
+  {% for item in nncCollection %}
+    {
+      url: "{{ item.url }}",
+      title: {{ item.data.title | dump | safe }},
+      description: {{ (item.data.description or "") | dump | safe }},
+      descriptionHtml: {{ ((item.data.description or "") | markdown) | dump | safe }},
+      tags: {{ (item.data.hashtags or []) | dump | safe }},
+      media: {{ (item.data.media or []) | dump | safe }}
+    }{% if not loop.last %},{% endif %}
+  {% endfor %}
+  ];
+</script>
+
+<div class="nnc-lightbox" id="nncLightbox" data-gallery-url="{{ page.url }}" hidden>
+  <div class="nnc-lightbox__inner">
+
+    <button class="nnc-lightbox__close menu-toggle" type="button" aria-label="Close lightbox" aria-expanded="false">
+      <div class="hamburger" aria-hidden="true">
+        <span></span>
+      </div>
+    </button>
+
+    <div class="nnc-lightbox__media-wrapper">
+      <button class="nnc-lightbox__nav nnc-lightbox__prev" aria-label="Previous media">‹</button>
+      <div class="nnc-lightbox__media"></div>
+      <button class="nnc-lightbox__nav nnc-lightbox__next" aria-label="Next media">›</button>
+    </div>
+
+    <div class="nnc-lightbox__meta">
+      <h2 class="nnc-lightbox__title"></h2>
+      <div class="nnc-lightbox__description"></div>
+      <div class="nnc-lightbox__tags"></div>
+    </div>
+
+  </div>
+</div>

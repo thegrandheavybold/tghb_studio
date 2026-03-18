@@ -1,0 +1,50 @@
+.frnt_sctn__hdr
+  grid-column: span 4
+
+.sctn__hdr
+  align-items: baseline
+  width: 100%
+  align-content: center
+
+  h1
+    span
+      font-family: $font__book
+
+  .sbln_lnk p
+    margin: 0 0 1rem 0
+
+.case
+  .col1_4
+    grid-column: 1/4
+
+  .col4_7
+    grid-column: 4/7
+
+.tsrs
+  .cntr
+    margin-top: 9vw
+    margin-bottom: 6vw
+
+.qts
+  background: $neon
+  //height: 75vh
+
+.qts_swiper
+  grid-column: span 4
+  display: flex
+  flex-direction: column
+  overflow-x: hidden
+
+.ppl
+  position: relative
+
+
+.cntct_slm
+  .cntct_slim__item:nth-of-type(2)
+    grid-column: span 2
+
+
+
+@media only screen and (max-width: 420px)
+  .qts_swiper, .frnt_sctn__hdr
+    grid-column: span 1

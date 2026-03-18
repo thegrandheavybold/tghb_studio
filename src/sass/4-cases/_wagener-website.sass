@@ -1,0 +1,60 @@
+.wagener-website
+  background: #00575f
+
+  .sctn__hdr
+    h1,
+    .intro
+      color: #D9FF2B
+
+.wagener-website__a
+  .grd
+    grid-template-areas: 'a b' 'a c' 'd c'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+      align-self: center
+
+    .item__3
+      grid-area: c
+
+    .item__4
+      grid-area: d
+
+.wagener-website__b
+  .grd
+    grid-template-areas: 'a b' 'c b' 'c d' 'e d' 'f g' 'f .'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+      align-self: flex-start
+
+    .item__4
+      grid-area: d
+
+    .item__5
+      grid-area: e
+      align-self: flex-start
+
+    .item__6
+      grid-area: f
+    
+    .item__7
+      grid-area: g
+
+@media only screen and (max-width: 768px)
+  .wagener-website__a
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d'
+
+  .wagener-website__b
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f' 'g g'

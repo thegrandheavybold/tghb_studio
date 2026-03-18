@@ -7,6 +7,7 @@ ul.fltrs
   li
     display: flex
     flex-wrap: nowrap
+    align-items: flex-start
     margin-top: 3vw
     margin-right: 3vw
     &:last-child
@@ -15,6 +16,12 @@ ul.fltrs
     h6
       margin: 0
 
+    sub
+      margin-left: .25rem
+      font-size: .65rem
+      line-height: 1
+      vertical-align: super
+
     &.prjcts-fltr-active > h6.link::before
       visibility: visible
       transform: scaleX(1)
@@ -22,7 +29,23 @@ ul.fltrs
 @media only screen and (max-width: 1024px)
   ul.fltrs
     margin-top: 10vw
+  
+  html#nevernotcooking
+    ul.fltrs
+      margin-top: 3vw
 
 @media only screen and (max-width: 768px)
   ul.fltrs
     margin-top: 21vw
+
+  html#nevernotcooking
+    ul.fltrs
+      margin-top: 3vw
+
+html#nevernotcooking
+  ul.fltrs
+    li
+      margin-top: 0
+      margin-right: 2vw
+      .link::before
+        background: $light

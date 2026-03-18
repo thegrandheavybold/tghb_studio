@@ -4,7 +4,7 @@ header
   top: 0
   width: 100vw
   background: transparent
-  z-index: 100
+  z-index: 200
 
   .header_bar
     display: flex
@@ -15,9 +15,10 @@ header
       display: flex
       align-items: center
 
-    h6.tghb_subline
+    h1.tghb_subline
       margin: 0 17px
       color: $black
+      letter-spacing: 0
       span
         font-family: $font__book
 
@@ -36,3 +37,18 @@ header
     display: none
     opacity: 0
     visibility: hidden
+
+
+html.blkwht 
+  header 
+    .header_bar
+      h1.tghb_subline
+        color: $white
+        transition: color ease .9s
+        will-change: color
+
+html.blkwht.toggled 
+  header 
+    .header_bar
+      h1.tghb_subline
+        color: $black

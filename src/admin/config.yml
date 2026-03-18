@@ -1,0 +1,108 @@
+backend:
+  name: github
+  repo: thegrandheavybold/tghb_studio
+  branch: main
+local_backend: true
+
+media_folder: "src/assets/img"
+public_folder: "/assets/img"
+
+locale: "en"
+publish_mode: simple
+i18n:
+  structure: multiple_folders
+  locales: [en, de]
+  default_locale: en
+
+collections:
+  - name: "nevernotcooking"
+    label: "NeverNotCooking"
+    folder: "src/nevernotcooking/en/items"
+    create: true
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    identifier_field: "title"
+    summary: "{{title}} ({{locale}})"
+    slug: "nnc-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, date_format: "YYYY-MM-DD", i18n: duplicate }
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+        required: false
+        i18n: true
+        buttons: ["bold", "italic", "link", "quote"]
+        editor_components: []
+      - label: "Filters"
+        name: "filters"
+        widget: "select"
+        multiple: true
+        i18n: duplicate
+        options:
+          - { label: "AI", value: "ai" }
+          - { label: "Apparel", value: "apparel" }
+          - { label: "Art", value: "art" }
+          - { label: "Corporate", value: "corporate" }
+          - { label: "Editorial", value: "editorial" }
+          - { label: "Gfx", value: "gfx" }
+          - { label: "Illustration", value: "illustration" }
+          - { label: "Interior", value: "interior" }
+          - { label: "Motion", value: "motion" }
+          - { label: "Murals", value: "murals" }
+          - { label: "Objects", value: "objects" }
+          - { label: "Photography", value: "photography" }
+          - { label: "Product", value: "product" }
+          - { label: "Typography", value: "typography" }
+          - { label: "UI/UX", value: "uiux" }
+      - label: "Hashtags"
+        name: "hashtags"
+        widget: "list"
+        required: false
+        i18n: duplicate
+        field: { label: "Tag", widget: "string" }
+      - label: "Media"
+        name: "media"
+        widget: "list"
+        i18n: duplicate
+        summary: "{{fields.type}} {{fields.src}}{{fields.full}}"
+        fields:
+          - label: "Type"
+            name: "type"
+            widget: "select"
+            options: ["image", "video"]
+            default: "image"
+          - label: "Image Source"
+            name: "src"
+            widget: "image"
+            required: false
+            i18n: duplicate
+            media_folder: "src/assets/img"
+            public_folder: "/assets/img"
+            hint: "Upload or choose an image from src/assets/img"
+          - label: "Video Preview"
+            name: "preview"
+            widget: "file"
+            required: false
+            i18n: duplicate
+            media_folder: "src/assets/video"
+            public_folder: "/assets/video"
+            hint: "Upload or choose preview video from src/assets/video (optional)"
+          - label: "Video Full"
+            name: "full"
+            widget: "file"
+            required: false
+            i18n: duplicate
+            media_folder: "src/assets/video"
+            public_folder: "/assets/video"
+            hint: "Upload or choose full video from src/assets/video (optional)"
+          - label: "Video Poster"
+            name: "poster"
+            widget: "image"
+            required: false
+            i18n: duplicate
+            media_folder: "src/assets/img"
+            public_folder: "/assets/img"
+            hint: "Upload or choose poster image from src/assets/img (optional)"
+          - { label: "Alt Text", name: "alt", widget: "string", required: false, i18n: true }

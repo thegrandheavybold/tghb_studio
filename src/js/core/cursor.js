@@ -1,0 +1,75 @@
+//Custom Cursor
+import { gsap } from "./gsapSetup.js";
+
+export function initCursor() {
+
+  const cursor = document.querySelector('.c-cursor');
+  const cursorDot = document.querySelector('.c-cursor__dot');
+  const msg = document.querySelector('.c-cursor__msg');
+
+  if (!cursor || !cursorDot) return;
+
+  // Smooth movement
+  window.addEventListener('mousemove', (e) => {
+    gsap.to(cursor, {
+      x: e.clientX,
+      y: e.clientY,
+      duration: 0.2,
+      ease: "power3.out"
+    });
+  });
+
+  // Hover states
+  document.querySelectorAll('a, button, .menu-toggle, .fltrs li')
+    .forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('c-cursor__hovering');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('c-cursor__hovering');
+      });
+    });
+
+  // Inverted elements
+  document.querySelectorAll('.c-nvrtd')
+    .forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorDot.classList.add('c-cursor__inverted');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorDot.classList.remove('c-cursor__inverted');
+      });
+    });
+
+  // Drag state (Swiper)
+  document.querySelectorAll('.swiper-slide')
+    .forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('c-cursor__drag');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('c-cursor__drag');
+      });
+    });
+
+  // Project title preview
+  document.querySelectorAll('.prjct')
+    .forEach(prjct => {
+
+      const title = prjct.querySelector('.ttl');
+
+      if (!title || !msg) return;
+
+      prjct.addEventListener('mouseenter', () => {
+        msg.classList.add('visible');
+        msg.innerHTML = title.innerHTML;
+      });
+
+      prjct.addEventListener('mouseleave', () => {
+        msg.classList.remove('visible');
+      });
+
+    });
+}
+
+initCursor();

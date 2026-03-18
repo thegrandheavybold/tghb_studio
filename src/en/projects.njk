@@ -1,0 +1,76 @@
+---
+title: Projects
+
+translationKey: "projects"
+
+seoTitle: Branding, Editorial & Digital Design Projects
+seoDescription: Selected case studies in brand identity, communication, editorial, digital products and spatial design. Built for impact and clarity.
+metaImage: tghb.studio_pegasus-club__og_l.png
+---
+
+<h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+  Branding, Communication and Digital Design Projects by TheGrandHeavyBold
+</h1>
+
+<section class="pg_hro">
+  <div class="wrapper">
+
+    <div class="sctn__hdr grd">
+
+      <ul class="spn2 fltrs" data-logic="and">
+        <li data-filter="all"><h6 class="h6 link">All</h6><sub id="all-prjcts"></sub></li>
+        <li data-filter=".identity"><h6 class="h6 link">Identity</h6><sub id="dntty-prjcts"></sub></li>
+        <li data-filter=".communication"><h6 class="h6 link">Communication</h6><sub id="cmmnctn-prjcts"></sub></li>
+        <li data-filter=".digital"><h6 class="h6 link">Digital</h6><sub id="dgtl-prjcts"></sub></li>
+        <li data-filter=".interior"><h6 class="h6 link">Interior</h6><sub id="ntrr-prjcts"></sub></li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+  <div class="wrapper_w_img">
+
+    <ul class="grd prjcts">
+
+      {% set posts = collections['posts_' + locale] | reverse %}
+
+      {% for post in posts %}
+
+        <li 
+          class="item__{{ loop.index }} prjct mix {{ post.data.tags | join(' ') }}" 
+          data-animate="fade-up"
+        >
+
+          <article>
+            <a href="{{ post.url }}" id="{{ post.data.slug }}">
+
+              <figure>
+
+                {% lazypicture post.data.featuredImage, post.data.title %}
+
+                <figcaption>
+                  <span class="ttl">
+                    {{ post.data.title }}
+                    <svg class="teaser_btn">
+                      <use xlink:href="#teaser_btn"></use>
+                    </svg>
+                  </span>
+                </figcaption>
+
+              </figure>
+
+            </a>
+          </article>
+
+        </li>
+
+      {% endfor %}
+
+    </ul>
+
+  </div>
+</section>

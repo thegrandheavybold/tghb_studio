@@ -1,0 +1,32 @@
+{% set collectionName = "projects_" + locale %}
+{% set list = collections[collectionName] %}
+{% set next = list | nextItem(page) %}
+
+{% if next %}
+
+  <a class="next-project" href="{{ next.url }}">
+
+    <section class="pg_hro next-preview {{ next.fileSlug }} {{ next.data.tags | join(' ') }}" data-parallax="0.3">
+
+      <div class="wrapper">
+
+        <div class="sctn__hdr __50 grd">
+
+          <div class="spn2">
+            <h1 data-animate="fade-up">{{ next.data.title }}.</h1>
+          </div>
+
+          <div class="sbln_lnk spn2">
+            <p class="h6" data-animate="fade-up" data-delay="0.2">{{ i18n[locale].ui.next_project }}</p>
+            <p class="intro" data-animate="fade-up" data-delay="0.4">{{ next.data.description }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </a>
+
+{% endif %}

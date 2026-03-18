@@ -1,0 +1,177 @@
+---
+title: Home
+
+permalink: "/"
+translationKey: "home"
+
+seoTitle: Branding, Design & Web
+seoDescription: Branding studio in Cologne and Frankfurt for brand identity design, communication design and custom website development.
+metaImage: tghb.studio_pegasus-club__og_l.png
+---
+
+<section class="frnt_hro">
+
+  <div class="wrapper">
+    <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+      Branding Studio in Cologne and Frankfurt for Brand Identity, Design and Web Development
+    </h1>
+
+    <h2 data-animate="fade-up">Strategy & Identity, <br>Design & Realization.</h2>
+
+  </div>
+
+    {%- include "partials/hero_slider.njk" -%}
+
+</section>
+
+<section class="frnt_sctn wht">
+
+  <div class="wrapper">
+
+    <div class="sctn_ttl" data-animate="fade-up">{{ i18n[locale].nav.services }}</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2" data-animate="fade-up">
+        <h2>Brand experiences & products that excite and inspire.</h2>
+      </div>
+
+      <div class="sbln_lnk spn2" data-animate="fade-up" data-delay="0.2">
+
+        <p class="intro">Brand strategy, visual identity design and digital communication from Cologne and Frankfurt.</p>
+
+        <div class="teaser__links">
+
+          <a class="lnk__18 hypr" href="{{ 'services' | nav_url(locale) }}">
+            <svg class="hyperlink_btn">
+              <use xlink:href="#hyperlink_btn"></use>
+            </svg> All Services</a>
+
+          <a class="lnk__18 hypr" href="{{ 'studio' | nav_url(locale) }}">
+            <svg class="hyperlink_btn">
+              <use xlink:href="#hyperlink_btn"></use>
+            </svg> More about us</a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="frnt_srvcs__clmns">
+      <div class="grd">
+        <div class="clmn__1" data-animate="fade-up">
+          <h6>Identity & Strategy</h6>
+          <p>
+            At the beginning of a project, we jointly explore the purpose, significance and relationships of your company in an open dialogue. We reveal what makes your company, your product unique and create a distinctive and clear identity. Based on this, we develop a communication strategy for sustainable success.
+          </p>
+        </div>
+
+        <div class="clmn__2" data-animate="fade-up" data-delay="0.2">
+          <h6>Layout</h6>
+          <p>
+            We bring your brand's visual attitude to life. Cross-media, in real or virtual space, and based on a well-founded brand strategy. We develop the necessary characteristic appearance of your brand and make the value of your brand visible in order to ensure your recognition and positive perception.
+          </p>
+        </div>
+
+        <div class="clmn__3" data-animate="fade-up" data-delay="0.3">
+          <h6>Realization</h6>
+          <p>
+            The measure of our work is the quality of your interaction. In a fast and complex world, we create simple and intelligent solutions. Whether analog or digital, we translate abstract content with unconventional ideas into emotional design and make your brand visible and tangible and ensure an unmistakable brand experience at the cutting edge.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="frnt_sctn tsrs drk">
+
+  <div class="wrapper">
+
+    <div class="sctn_ttl" data-animate="fade-up">{{ i18n[locale].nav.projects }}</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2" data-animate="fade-up" data-delay="0.2">
+        <h2>Strategic, progressive and sustainable.</h2>
+      </div>
+
+      <div class="ntr_lnk spn2" data-animate="fade-up" data-delay="0.3">
+
+        <p class="intro">We understand communication holistically and deliver everything from a single source.</p>
+
+        <a class="lnk__18" href="{{ 'projects' | nav_url(locale) }}">
+          <svg class="hyperlink_btn">
+            <use xlink:href="#hyperlink_btn"></use>
+          </svg> {{ i18n[locale].nav.projects }}</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="frnt_prjcts">
+
+      <div class="tsr">
+        <ul class="grd">
+
+          {% set posts = collections['posts_' + locale] | reverse %}
+          {% for post in posts.slice(0, 4) %}
+
+            <li class="item__{{ loop.index }} c-nvrtd" data-animate="fade-up">
+
+              <article>
+                <a href="{{ post.url }}">
+
+                  <figure>
+
+                    {% lazypicture post.data.featuredImage, post.data.title %}
+
+                    <figcaption>
+                      <div class="teaser_intro wrapper_ntr">
+                        <h2>{{ post.data.title }}</h2>
+                        <h5>{{ post.data.description }}</h5>
+
+                        <svg class="teaser_btn">
+                          <use xlink:href="#teaser_btn"></use>
+                        </svg>
+                      </div>
+                    </figcaption>
+
+                  </figure>
+
+                </a>
+              </article>
+
+            </li>
+
+          {% endfor %}
+
+        </ul>
+      </div>
+
+
+    <div class="cntr">
+      <a class="big__link" href="{{ 'projects' | nav_url(locale) }}" data-animate="fade-up">{{ i18n[locale].ui.allProjects }}</a>
+    </div>
+
+  </div>
+
+</section>
+
+{%- include "partials/qts_slider_en.njk" -%}
+
+<section class="ppl">
+
+  {%- include "partials/team_slider.njk" -%}
+
+</section>
+
+{%- include "partials/newsletter.njk" -%}
+
+{%- include "partials/contact.njk" -%}

@@ -1,0 +1,7 @@
+{
+  "permalink": "/nevernotcooking/{{ page.fileSlug }}/",
+  "layout": "layouts/nnc-item.njk",
+  "lang": "en",
+  "locale": "en",
+  "tags": "nevernotcooking_en"
+}

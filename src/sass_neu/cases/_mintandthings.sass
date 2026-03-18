@@ -1,0 +1,71 @@
+.mintandthings
+  background: #D2E9DA
+
+.mintandthings__a
+  .grd
+    grid-template-areas: 'a b' 'a b' 'c d' 'c d' 'e f' 'e g' 'e g'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+
+    .item__4
+      grid-area: d
+
+    .item__5
+      grid-area: e
+      align-self: center
+
+    .item__6
+      grid-area: f
+
+    .item__7
+      grid-area: g
+
+
+.mintandthings__b
+  .grd
+    grid-template-areas: 'a b' 'a b' 'c d'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+
+    .item__4
+      grid-area: d
+
+
+section:nth-of-type(8)
+  margin-top: min(6vw,2.688rem)
+
+//.mt_logo__1, .mt_logo__2
+  width: 500px
+  height: auto
+  display: block
+  position: absolute
+
+//.mt_logo__1
+  top: -25rem
+
+//.mt_logo__2
+  bottom: 8rem
+  right: 0
+
+@media only screen and (max-width: 768px)
+  .mintandthings__a
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d' 'e e' 'f f' 'g g'
+
+  .mintandthings__b
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d'

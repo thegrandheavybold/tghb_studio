@@ -1,3 +1,10 @@
-.parallax
+[data-parallax] 
+  will-change: transform
+
+[data-parallax] 
   position: relative
-  z-index: -1 !important
+  z-index: 1
+
+[data-parallax] + * 
+  position: relative
+  z-index: 2

@@ -1,0 +1,52 @@
+.artshow-cc
+  background: url("/assets/img/tghb_artshow_cc__01.jpg")
+  background-size: cover
+  background-position: center center
+
+  .sctn__hdr
+    h1,
+    .intro
+      color: #E88F9B
+
+.artshow-cc__a
+  .grd
+    grid-template-areas: 'a b' 'a c' 'd c'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+      align-self: center
+
+    .item__3
+      grid-area: c
+
+    .item__4
+      grid-area: d
+
+.artshow-cc__b
+  .grd
+    grid-template-areas: 'a b' 'c b' 'c d'
+
+    .item__1
+      grid-area: a
+
+    .item__2
+      grid-area: b
+
+    .item__3
+      grid-area: c
+
+    .item__4
+      grid-area: d
+      align-self: flex-start
+
+@media only screen and (max-width: 768px)
+  .artshow-cc__a
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d'
+
+  .artshow-cc__b
+    .grd
+      grid-template-areas: 'a a' 'b b' 'c c' 'd d'

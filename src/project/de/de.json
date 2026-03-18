@@ -1,0 +1,7 @@
+{
+  "permalink": "/{{ locale }}/projects/{{ page.fileSlug }}/",
+  "layout": "layouts/project.njk",
+  "lang": "de",
+  "locale": "de",
+  "tags": "projects_de"
+}

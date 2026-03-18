@@ -1,0 +1,75 @@
+---
+title: Projects
+translationKey: "projects"
+
+seoTitle: Projekte für Branding, Editorial & Digital Design
+seoDescription: Ausgewählte Cases aus Markenidentität, Kommunikation, Editorial, digitalen Produkten und räumlicher Gestaltung.
+metaImage: tghb.studio_pegasus-club__og_l.png
+---
+
+<h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+  Projekte für Branding, Kommunikation und Digital Design von TheGrandHeavyBold
+</h1>
+
+<section class="pg_hro">
+  <div class="wrapper">
+
+    <div class="sctn__hdr grd">
+
+      <ul class="spn2 fltrs" data-logic="and">
+        <li data-filter="all"><h2 class="h6 link">Alle</h2><sub id="all-prjcts"></sub></li>
+        <li data-filter=".identity"><h2 class="h6 link">Identität</h2><sub id="dntty-prjcts"></sub></li>
+        <li data-filter=".communication"><h2 class="h6 link">Kommunikation</h2><sub id="cmmnctn-prjcts"></sub></li>
+        <li data-filter=".digital"><h2 class="h6 link">Digital</h2><sub id="dgtl-prjcts"></sub></li>
+        <li data-filter=".interior"><h2 class="h6 link">Interior</h2><sub id="ntrr-prjcts"></sub></li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+  <div class="wrapper_w_img">
+
+    <ul class="grd prjcts">
+
+      {% set posts = collections['posts_' + locale] | reverse %}
+
+      {% for post in posts %}
+
+        <li 
+          class="item__{{ loop.index }} prjct mix {{ post.data.tags | join(' ') }}" 
+          data-animate="fade-up"
+        >
+
+          <article>
+            <a href="{{ post.url }}" id="{{ post.data.slug }}">
+
+              <figure>
+
+                {% lazypicture post.data.featuredImage, post.data.title %}
+
+                <figcaption>
+                  <span class="ttl">
+                    {{ post.data.title }}
+                    <svg class="teaser_btn">
+                      <use xlink:href="#teaser_btn"></use>
+                    </svg>
+                  </span>
+                </figcaption>
+
+              </figure>
+
+            </a>
+          </article>
+
+        </li>
+
+      {% endfor %}
+
+    </ul>
+
+  </div>
+</section>

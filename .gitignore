@@ -1,6 +1,7 @@
 config.codekit3
 **/node_modules/**
 dist
+__MACOSX
 .DS_Store
 .BridgeSort
 src/assets/images
@@ -9,3 +10,5 @@ src/assets/images
 .netlify
 .idea
 mixitup-multifilter
+src/redirects.txt
+ticket/

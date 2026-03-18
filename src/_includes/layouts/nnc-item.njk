@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+---
+
+<section class="nnc-post">
+  <div class="wrapper">
+
+    <h1>{{ title }}</h1>
+
+    {% for item in media %}
+      {% if item.type == "image" %}
+        <img
+          src="/.netlify/images?url=/assets/img/{{ item.src }}&w=1600"
+          alt="{{ item.alt }}"
+        >
+      {% endif %}
+    {% endfor %}
+
+    {% if description %}
+      <div class="nnc-post__description">{{ description | markdown | safe }}</div>
+    {% endif %}
+
+    {% if hashtags %}
+      <ul class="tags">
+        {% for tag in hashtags %}
+          <li>#{{ tag }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>
+</section>

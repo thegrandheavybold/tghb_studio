@@ -1,143 +1,111 @@
 .menu
-	width: 100vw
-	height: 100vh
-	position: fixed
-	top: 0
-	left: 0
-	background: $neon
-	transition: all ease .7s
-	transition-property: transform, opacity
-	will-change: transform, opacity
-	z-index: -1
-	overflow-x: scroll
+  width: 100vw
+  height: 100vh
+  position: fixed
+  top: 0
+  left: 0
+  background: $neon
+  z-index: 190
+  overflow-y: auto
 
-.menu-toggle[aria-expanded= "false"] + .menu
-	transform: scale(0)
-	transition: all ease .7s
+  opacity: 0
+  visibility: hidden
+  pointer-events: none
 
-.menu-toggle[aria-expanded="true"] + .menu
-	transform: scale(1)
-	opacity: 1
-	visibility: visible
-	display: block
+
+body.menu-open
+  overflow: hidden
+  .menu
+    pointer-events: auto
+
+  // Keep filter visible above menu overlay, but non-interactive while menu is open.
+  .nnc-filter-shell
+    visibility: visible
+    pointer-events: none
+
+  header
+    background: transparent
+    backdrop-filter: none
+    -webkit-backdrop-filter: none
+
+    .header_bar
+      h1.tghb_subline
+        color: $black
+        transition: color .8s cubic-bezier(.19, 1, .22, 1)
+
+    .tghb_logo
+      fill: $black
+      transition: fill .8s cubic-bezier(.19, 1, .22, 1)
+
+    .hamburger
+      span, span::before, span::after
+        background: $black
+        transition: background-color .8s cubic-bezier(.19, 1, .22, 1)
 
 .menu__content
-	display: flex
-	//height: 100%
-	justify-content: space-around
-	flex-wrap: wrap
-	align-content: center
-	padding: 15vw 0 0
-
-	.menu__items
-		display: flex
-		flex-direction: column
-		ul.menu__links
-			li
-				a
-					text-transform: capitalize
-					font-size: min(max(17vw), 81px)
-					line-height: min(max(21vw), 84px)
-					letter-spacing: -0.2rem
+  display: flex
+  justify-content: space-around
+  flex-wrap: wrap
+  align-content: center
+  padding: 15vw 0 0
 
 
-	.menu__info
-		display: flex
-		flex-direction: column
+.menu__items
+  display: flex
+  flex-direction: column
 
-		ul
-			list-style: none
-			margin: 1rem 0
-			padding: 0
+  ul.menu__links
+    list-style: none
+    margin: 0
+    padding: 0
 
-			li
-				font-size: min(max(6vw), 21px)
-				line-height: min(max(7vw), 33px)
-
-
-				span.copyrights
-					font-family: $font__pre
-					font-size: min(max(4vw), 16px)
-					line-height: min(max(7vw), 33px)
+    li
+      a
+        text-transform: capitalize
+        font-size: min(max(17vw), 81px)
+        line-height: min(max(21vw), 84px)
+        letter-spacing: -0.2rem
 
 
-		.legal
-			text-transform: capitalize
-		.legal
-			li:first-of-type
-				text-transform: uppercase
+.menu__info
+  display: flex
+  flex-direction: column
 
-//.main-navigation
-	width: 8rem
-	height: 6rem
-	display: flex
-	align-items: center
-	justify-content: center
+  ul
+    list-style: none
+    margin: 1rem 0
+    padding: 0
 
-	//ul
-		display: flex
-		justify-content: center
-		align-items: center
-		flex-direction: column
-		//flex-wrap: wrap
-		height: 100%
-		list-style: none
-		margin: 0
-		padding: 0
+    li
+      font-size: min(max(6vw), 21px)
+      line-height: min(max(7vw), 33px)
 
-		li
-			&:hover > a,
-			&.focus > a
-				color: $gray
+      span.copyrights
+        font-family: $font__pre
+        font-size: min(max(4vw), 16px)
+        line-height: min(max(7vw), 33px)
 
-			&:hover > a::after,
-			&.focus > a::after
-				transform: translateY(-4.8rem) scaleX(1)
+  .legal
+    text-transform: capitalize
 
-			a
-				display: block
-				text-decoration: none
-				color: $gray
-				font-size: 4rem
-				height: 6rem
-				transition: all ease .7s
-				&::after
-					content: ''
-					background: $gray
-					height: 4rem
-					left: 2rem
-					display: block
-					position: relative
-					transform: translateY(-4.8rem) scaleX(0)
-					transform-origin: 100% 0%
-					z-index: -1
-					transition: all ease .7s
+    li:first-of-type
+      text-transform: uppercase
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a
-		color: $gray
-	.current_page_item > a::after,
-	.current-menu-item > a::after,
-	.current_page_ancestor > a::after,
-	.current-menu-ancestor > a::after
-		transform: translateY(-1rem) scaleY(.15)
 
-// Language Switcher
+/* Language Switcher */
 ul.lg_nav
-	list-style: none
-	display: flex
-	margin: 3rem 0 0
+  list-style: none
+  display: flex
+  margin: 3rem 0 0
 
-	li.lg_nav__item
-		width: auto
+  li.lg_nav__item
+    width: auto
 
-		&:nth-child(1)
-			margin: 0 2rem 0 0
+    &:nth-child(1)
+      margin: 0 2rem 0 0
 
-		a.lg_nav__link
-			font-family: $font__book
+    a.lg_nav__link
+      font-family: $font__book
 
-			&.is-active
-				font-family: $font__bold
+      &.is-active
+        font-family: $font__bold

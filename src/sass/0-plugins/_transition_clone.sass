@@ -1,0 +1,50 @@
+#transition-clone 
+  position: fixed
+  inset: 0
+  z-index: 9999
+  pointer-events: none
+  overflow: hidden
+
+#wipe-layer 
+  position: fixed
+  inset: 0
+  background: #000 
+  transform: translateY(100%)
+  z-index: 99999
+  pointer-events: none
+
+
+// ------------------------------------------------------------
+// Double Wipe Layers
+// ------------------------------------------------------------
+
+#wipe-wrapper
+  position: fixed
+  inset: 0
+  z-index: 99999
+  pointer-events: none
+
+.wipe-layer
+  position: absolute
+  inset: 0
+  will-change: transform
+  backface-visibility: hidden
+
+.wipe-back
+  background: $gray
+
+.wipe-front
+  background: $neon
+
+
+// ------------------------------------------------------------
+// Header FOUC Prevention (CSS only, no JS)
+// ------------------------------------------------------------
+
+.site-header
+  opacity: 0
+
+html
+  &.css-ready
+    .site-header
+      opacity: 1

@@ -1,0 +1,177 @@
+---
+title: Startseite
+
+translationKey: "home"
+
+seoTitle: Branding, Design & Webstudio
+seoDescription: Branding Studio in Köln und Frankfurt für Markenidentität, Kommunikationsdesign und individuelle Website-Entwicklung.
+metaImage: tghb.studio_pegasus-club__og_l.png
+---
+
+<section class="frnt_hro" data-parallax="0.3">
+
+  <div class="wrapper">
+    <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+      Branding Studio in Köln und Frankfurt für Markenidentität, Design und Webentwicklung
+    </h1>
+
+    <h2 data-animate="fade-up">Strategie & Identität, <br>Gestaltung & Realisation.</h2>
+
+  </div>
+
+    {%- include "partials/hero_slider.njk" -%}
+
+</section>
+
+<section class="frnt_sctn wht">
+
+  <div class="wrapper">
+
+    <div class="sctn_ttl" data-animate="fade-up">{{ i18n[locale].nav.services }}</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2" data-animate="fade-up">
+        <h2>Markenerlebnisse & Produkte die begeistern und inspirieren.</h2>
+      </div>
+
+      <div class="sbln_lnk spn2" data-animate="fade-up" data-delay="0.2">
+
+        <p class="intro">Markenstrategie, visuelle Identität und digitale Kommunikation aus Köln und Frankfurt.</p>
+
+        <div class="teaser__links">
+
+          <a class="lnk__18 hypr" href="{{ 'services' | nav_url(locale) }}">
+            <svg class="hyperlink_btn">
+              <use xlink:href="#hyperlink_btn"></use>
+            </svg> Alle Leistungen</a>
+
+          <a class="lnk__18 hypr" href="{{ 'studio' | nav_url(locale) }}">
+            <svg class="hyperlink_btn">
+              <use xlink:href="#hyperlink_btn"></use>
+            </svg> Mehr über uns</a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="frnt_srvcs__clmns">
+      <div class="grd">
+        <div class="clmn__1" data-animate="fade-up">
+          <h6>Identität & Strategie</h6>
+          <p>
+            In einem offenen Dialog explorieren wir gemeinsam zum Beginn eines Projekts den Zweck, die Bedeutung und die Beziehungen Ihrer Unternehmung. Wir legen frei was Ihr Unternemen, Ihr Produkt einzigartig macht und erschaffen eine unverwechselbare und klare Identität. Darauf basierend entwickeln wir eine Kommunikationsstrategie für nachhaltigen Erfolg.
+          </p>
+        </div>
+
+        <div class="clmn__2" data-animate="fade-up" data-delay="0.2">
+          <h6>Gestaltung</h6>
+          <p>
+            Wir erwecken die visuelle Haltung Ihrer Marke zum Leben. Medienübergreifend, im realen oder virtuellen Raum, und auf Basis einer fundierten Markenstrategie. Wir entwickeln den nötigen charakteristischen Auftritt Ihrer Marke und machen den Wert Ihrer Marke sichtbar um Ihr die Wiedererkennbarkeit und die positive Wahrnehmung zu sichern.
+          </p>
+        </div>
+
+        <div class="clmn__3" data-animate="fade-up" data-delay="0.3">
+          <h6>Realisation</h6>
+          <p>
+            Das Maß für unsere Arbeit ist die Qualität Ihrer Interaktion. In einer schnellen und komplexen Welt schaffen wir einfache und intelligente Lösungen. Ob analog oder digital, wir übersetzen abstrakte Inhalte mit un­konventio­nellen Ideen in emotionales Design und machen Ihre Marke sichtbar und erlebbar und sorgen für ein unverwechselbares Marken­erleb­nis am Puls der Zeit.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="frnt_sctn tsrs drk">
+
+  <div class="wrapper">
+
+    <div class="sctn_ttl" data-animate="fade-up">{{ i18n[locale].nav.projects }}</div>
+
+    <div class="sctn__hdr grd spcr">
+
+      <div class="spn2" data-animate="fade-up" data-delay="0.2">
+        <h2>Strategisch, progressiv und nachhaltig.</h2>
+      </div>
+
+      <div class="ntr_lnk spn2" data-animate="fade-up" data-delay="0.3">
+
+        <p class="intro">Wir verstehen Kommunikation ganzheitlich und liefern alles aus einer Hand.</p>
+
+        <a class="lnk__18" href="/{{ 'projects' | nav_url(locale) }}">
+          <svg class="hyperlink_btn">
+            <use xlink:href="#hyperlink_btn"></use>
+          </svg> {{ i18n[locale].ui.allProjects }}</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="frnt_prjcts">
+
+      <div class="tsr">
+        <ul class="grd">
+
+          {% set posts = collections['posts_' + locale] | reverse %}
+          {% for post in posts.slice(0, 4) %}
+
+            <li class="item__{{ loop.index }} c-nvrtd" data-animate="fade-up">
+
+              <article>
+                <a href="{{ post.url }}">
+
+                  <figure>
+
+                    {% lazypicture post.data.featuredImage, post.data.title %}
+
+                    <figcaption>
+                      <div class="teaser_intro wrapper_ntr">
+                        <h2>{{ post.data.title }}</h2>
+                        <h5>{{ post.data.description }}</h5>
+
+                        <svg class="teaser_btn">
+                          <use xlink:href="#teaser_btn"></use>
+                        </svg>
+                      </div>
+                    </figcaption>
+
+                  </figure>
+
+                </a>
+              </article>
+
+            </li>
+
+          {% endfor %}
+
+        </ul>
+      </div>
+
+
+
+    <div class="cntr">
+      <a class="big__link" href="{{ 'projects' | nav_url(locale) }}" data-animate="fade-up">{{ i18n[locale].ui.allProjects }}</a>
+    </div>
+
+  </div>
+
+</section>
+
+{%- include "partials/qts_slider_de.njk" -%}
+
+<section class="ppl">
+
+  {%- include "partials/team_slider.njk" -%}
+
+</section>
+
+{%- include "partials/newsletter.njk" -%}
+
+{%- include "partials/contact.njk" -%}

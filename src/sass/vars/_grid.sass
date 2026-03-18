@@ -7,6 +7,13 @@
 @mixin row-gap
   margin-bottom: min(6vw,2.688rem)
 
+@mixin wrapper-padding($pt, $pb, $px)
+  .wrapper
+    padding-top: $pt
+    padding-bottom: $pb
+    padding-left: $px
+    padding-right: $px
+
 .grdcss
   display: grid
   grid-template-columns: repeat(auto-fit, minmax(249px, 1fr))
@@ -51,7 +58,7 @@
 
 .wrapper_w_img
   @include wrapper(48,48)
-  padding: min(max(5vw), 3.024rem)
+  padding: clamp(1.5rem, 5vw, 3.024rem)
 
 .wrapper_zr_wdth
   @include wrapper(48,0)
@@ -65,12 +72,12 @@
 header
   .wrapper
     //@include wrapper(41,48)
-    padding-top: min(max(5vw), 2.583rem)
-    padding-bottom: min(max(5vw), 2.583rem)
-    padding-left: min(max(5vw), 3.024rem)
-    padding-right: min(max(5vw), 3.024rem)
+    padding-top: clamp(1.5rem, 5vw, 2.583rem)
+    padding-bottom: clamp(1.5rem, 5vw, 2.583rem)
+    padding-left: clamp(1.5rem, 5vw, 3.024rem)
+    padding-right: clamp(1.5rem, 5vw, 3.024rem)
     @media only screen and (max-width: 920px) and (max-height: 420px)
-      padding: min(max(5vw), 3.024rem)
+      padding: clamp(1.25rem, 5vw, 3.024rem)
 
 footer
   .legal
@@ -82,19 +89,40 @@ footer
     .legal
       order: 5
 
-@media only screen and (max-width: 768px) and (orientation: portrait)
-  .wrapper
-    padding-top: min(max(5vw), 2.583rem)
-    padding-bottom: min(max(5vw), 2.583rem)
-    padding-left: min(max(5vw), 3.024rem)
-    padding-right: min(max(5vw), 3.024rem)
+@include s
+  @media only screen and (orientation: portrait)
+    @include wrapper-padding(max(5vw, 2.583rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
 
-@media only screen and (max-width: 1024px) and (orientation: landscape)
-  .wrapper
-    padding-top: min(max(5vw), 10rem)
-    padding-bottom: min(max(5vw), 2.583rem)
-    padding-left: min(max(5vw), 3.024rem)
-    padding-right: min(max(5vw), 3.024rem)
+  @media only screen and (orientation: landscape)
+    @include wrapper-padding(min(max(5vw, 2.583rem), 10rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
+
+@include m
+  @media only screen and (orientation: portrait)
+    @include wrapper-padding(max(5vw, 2.583rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
+
+  @media only screen and (orientation: landscape)
+    @include wrapper-padding(min(max(5vw, 2.583rem), 10rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
+
+@include l
+  @media only screen and (orientation: portrait)
+    @include wrapper-padding(max(5vw, 2.583rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
+
+  @media only screen and (orientation: landscape)
+    @include wrapper-padding(min(max(5vw, 2.583rem), 10rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
+
+@include xl
+  @media only screen and (orientation: portrait)
+    @include wrapper-padding(max(5vw, 2.583rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
+
+  @media only screen and (orientation: landscape)
+    @include wrapper-padding(min(max(5vw, 2.583rem), 10rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
+
+@include xxl
+  @media only screen and (orientation: portrait)
+    @include wrapper-padding(max(5vw, 2.583rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
+
+  @media only screen and (orientation: landscape)
+    @include wrapper-padding(min(max(5vw, 2.583rem), 10rem), max(5vw, 2.583rem), max(5vw, 3.024rem))
 
 
 @media only screen and (max-width: 420px) and (orientation: portrait)
