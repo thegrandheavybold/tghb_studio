@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b74f01acbff429a84f4b966de9b698ff19455de8c1e900c4b0fe4db9299a62b9
-size 1649
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2560" height="2880" viewBox="0 0 2560 2880">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="fond" d="M0,0H2560V2880H0Z" transform="translate(981 5101)" fill="#4d805a"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_335" data-name="Rectangle 335" width="3037" height="3034.369" transform="translate(0 0)" fill="#d9d5b2"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_48" data-name="Mask Group 48" transform="translate(-981 -5101)" clip-path="url(#clip-path)">
+    <path id="fond-2" data-name="fond" d="M0,0H2560V2880H0Z" transform="translate(981 5101)" fill="#4d805a"/>
+    <g id="Group_347" data-name="Group 347" transform="translate(-41 5197.916)">
+      <g id="Group_346" data-name="Group 346" transform="translate(0 0)">
+        <g id="Group_345" data-name="Group 345" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+          <path id="Path_1136" data-name="Path 1136" d="M1518.329,3034.06C681.106,3034.06,0,2353.511,0,1517.007S681.106,0,1518.329,0,3036.684,680.516,3036.684,1517.007,2355.552,3034.06,1518.329,3034.06m0-2878.958c-751.6,0-1363.086,610.964-1363.086,1361.905,0,750.987,611.487,1361.938,1363.086,1361.938,751.625,0,1363.119-610.951,1363.119-1361.938,0-750.942-611.494-1361.905-1363.119-1361.905" transform="translate(1.106 -0.129)" fill="#d9d5b2"/>
+          <path id="Path_1137" data-name="Path 1137" d="M127.335,123.828h194.68L808.723,1416.917l486.7-1293.089h194.686L895,1695.414H722.435Z" transform="translate(710.716 689.235)" fill="#d9d5b2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a4e71abb3ec40c9d9e2573c7050064aa93d3d1dcfb510021ba035e522d667146
-size 854
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440">
+  <g id="Group_109" data-name="Group 109" transform="translate(-42 -2872.084)">
+    <rect id="Rectangle_94" data-name="Rectangle 94" width="510" height="1440" transform="translate(555 2872.084)" fill="#67b8c7"/>
+    <rect id="Rectangle_124" data-name="Rectangle 124" width="513" height="1440" transform="translate(42 2872.084)" fill="#252935"/>
+    <rect id="Rectangle_95" data-name="Rectangle 95" width="514" height="1440" transform="translate(1065 2872.084)" fill="#ecea80"/>
+    <rect id="Rectangle_123" data-name="Rectangle 123" width="513" height="1440" transform="translate(2089 2872.084)" fill="#dd1539"/>
+    <rect id="Rectangle_125" data-name="Rectangle 125" width="510" height="1440" transform="translate(1579 2872.084)" fill="#d2e7d9"/>
+  </g>
+</svg>

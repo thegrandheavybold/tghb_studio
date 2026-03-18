@@ -1,3 +1,71 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6388b89a4b7fdce4deea41dea5dbbf970969b475b140f85ff6c8500f1967f7b2
-size 4033
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2560 1707">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f8d790;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: #ffccca;
+      }
+
+      .cls-4 {
+        fill: #ffcccb;
+      }
+
+      .cls-5 {
+        fill: #fe8f5c;
+      }
+
+      .cls-6 {
+        fill: #fa9060;
+      }
+
+      .cls-7 {
+        fill: #fa905c;
+      }
+
+      .cls-8 {
+        fill: #fff;
+      }
+
+      .cls-9 {
+        fill: #584e93;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle_256" data-name="Rectangle 256" class="cls-8" x="853" y=".6" width="854" height="852.7"/>
+  <path id="Path_1003" data-name="Path 1003" class="cls-9" d="M1280,426.6l426.7,426.7h-853.3l426.7-426.7h0Z"/>
+  <path id="Path_1004" data-name="Path 1004" class="cls-6" d="M1706.7.5h-853.3l426.7,426.7L1706.7.5Z"/>
+  <rect id="Rectangle_257" data-name="Rectangle 257" class="cls-8" x=".3" y="853" width="852.7" height="854"/>
+  <path id="Path_1005" data-name="Path 1005" class="cls-6" d="M0,1706.3l853.3-853.3H0v853.3Z"/>
+  <path id="Path_1006" data-name="Path 1006" class="cls-1" d="M0,1058.1c0-113.2,91.8-205,205-205s205,91.8,205,205-91.8,205-205,205S0,1171.4,0,1058.1"/>
+  <path id="Path_1007" data-name="Path 1007" class="cls-4" d="M443.3,1501.3c0-113.2,91.8-205,205-205s205,91.8,205,205-91.8,205-205,205-205-91.8-205-205"/>
+  <rect id="Rectangle_258" data-name="Rectangle 258" class="cls-3" x="1707" y="853" width="852.7" height="854"/>
+  <path id="Path_1008" data-name="Path 1008" class="cls-8" d="M1706.7,853v853.3c471.3,0,853.3-382,853.3-853.3h-853.3Z"/>
+  <path id="Path_1009" data-name="Path 1009" class="cls-1" d="M1706.7,853.1v426.7c235.6,0,426.7-191,426.7-426.7h-426.7Z"/>
+  <rect id="Rectangle_259" data-name="Rectangle 259" class="cls-9" x="853.5" y="852.7" width="853.2" height="854"/>
+  <path id="Path_1010" data-name="Path 1010" class="cls-1" d="M1706.7,853h-853.3c0,226.3,89.9,443.3,249.9,603.4,160.1,160,377.1,249.9,603.4,249.9v-853.3h0Z"/>
+  <path id="Path_1011" data-name="Path 1011" class="cls-5" d="M1706.7,853.1h-426.7c0,113.2,45,221.7,125,301.7,80,80,188.5,124.9,301.7,125v-426.7h0Z"/>
+  <rect id="Rectangle_260" data-name="Rectangle 260" class="cls-9" x="1707" y=".6" width="852.7" height="852.7"/>
+  <rect id="Rectangle_261" data-name="Rectangle 261" class="cls-3" x="1707" y=".6" width="427" height="852.7"/>
+  <path id="Path_1012" data-name="Path 1012" class="cls-9" d="M1706.7,853.2h426.7c0-113.2-45-221.7-125-301.7s-188.5-124.9-301.7-125v426.7Z"/>
+  <path id="Path_1013" data-name="Path 1013" class="cls-7" d="M2560,853.2v-426.7h-426.7l426.7,426.7Z"/>
+  <path id="Path_1014" data-name="Path 1014" class="cls-1" d="M2560,426.7V0h-426.7l426.7,426.7Z"/>
+  <rect id="Rectangle_262" data-name="Rectangle 262" class="cls-8" y="0" width="852.8" height="852.8"/>
+  <path id="Path_1015" data-name="Path 1015" class="cls-5" d="M426.4,426.9H.7c0-113,44.8-221.5,124.7-301.5C205.2,45.5,313.5.6,426.4.5v426.4Z"/>
+  <rect id="Rectangle_263" data-name="Rectangle 263" class="cls-1" x="1.4" y="426.8" width="425.7" height="426.4"/>
+  <rect id="Rectangle_264" data-name="Rectangle 264" class="cls-1" x="426.4" y=".5" width="425.3" height="426.4"/>
+  <rect id="Rectangle_265" data-name="Rectangle 265" class="cls-9" x="426.7" y="426.7" width="426.4" height="426.4"/>
+  <path class="cls-8" d="M853.5,426.7h-.2c0-113-45-221.4-124.9-301.3C648.5,45.5,540,.5,426.9.5v213.2c56.4.1,110.5,22.6,150.4,62.4,39.9,39.9,62.4,94.1,62.4,150.5h-213c0,.1-426,.1-426,.1,0,113.1,44.9,221.5,124.9,301.5,80,79.9,188.4,124.9,301.5,124.9h0c235.4-.2,426.3-191.1,426.4-426.5h0ZM426.9,640c-56.4,0-110.5-22.5-150.3-62.4-39.9-40-62.4-94.2-62.3-150.8h425.3c0,117.6-95.1,213-212.7,213.2h0Z"/>
+  <rect id="Rectangle_266" data-name="Rectangle 266" class="cls-2" x=".3" y=".6" width="2559.3" height="1706.4"/>
+</svg>

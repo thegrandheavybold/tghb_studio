@@ -1,3 +1,86 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a85afede6d978c24781338c938369e3fecb6d3650417412c735aaf2d54592d91
-size 4643
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2560 2880">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f8d790;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        stroke-width: 0px;
+      }
+
+      .cls-10 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: #ffccca;
+      }
+
+      .cls-4 {
+        fill: #ffcccb;
+      }
+
+      .cls-5 {
+        fill: #fe8f5c;
+      }
+
+      .cls-6 {
+        fill: #fa9060;
+      }
+
+      .cls-7 {
+        fill: #fa905c;
+      }
+
+      .cls-8 {
+        fill: #fff;
+      }
+
+      .cls-9 {
+        fill: #584e93;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" y="0" width="2560" height="2880"/>
+    </clipPath>
+  </defs>
+  <g class="cls-10">
+    <g id="Group_43" data-name="Group 43">
+      <g id="Group_336" data-name="Group 336">
+        <rect id="Rectangle_324" data-name="Rectangle 324" class="cls-8" x="-2.6" y="968.7" width="1282.6" height="1282.6"/>
+        <path id="Path_1115" data-name="Path 1115" class="cls-9" d="M638.7,1610l641.3-641.3v1282.5l-641.3-641.3h0Z"/>
+        <path id="Path_1116" data-name="Path 1116" class="cls-6" d="M-1.8,968.7v1282.5l641.3-641.3L-1.8,968.7Z"/>
+        <rect id="Rectangle_325" data-name="Rectangle 325" class="cls-8" x="1280" y="2251.3" width="1282.6" height="1282.6"/>
+        <path id="Path_1117" data-name="Path 1117" class="cls-6" d="M2562.5,3533.8l-1282.5-1282.5v1282.5h1282.5Z"/>
+        <path id="Path_1118" data-name="Path 1118" class="cls-1" d="M1588.1,3533.8c-170.2,0-308.1-137.9-308.1-308.1s137.9-308.1,308.1-308.1,308.1,137.9,308.1,308.1-137.9,308.1-308.1,308.1"/>
+        <path id="Path_1119" data-name="Path 1119" class="cls-4" d="M2250.4,2879.2c-170.2,0-308.1-137.9-308.1-308.1s138-308.1,308.1-308.1,308.1,137.9,308.1,308.1-137.9,308.1-308.1,308.1"/>
+        <rect id="Rectangle_326" data-name="Rectangle 326" class="cls-3" x="1280" y="-313.8" width="1282.6" height="1282.6"/>
+        <path id="Path_1120" data-name="Path 1120" class="cls-8" d="M1280,968.7h1282.5c0-708.3-574.2-1282.5-1282.5-1282.5h0V968.7Z"/>
+        <path id="Path_1121" data-name="Path 1121" class="cls-1" d="M1280,968.7h641.3c0-354.2-287.1-641.3-641.3-641.3h0v641.3Z"/>
+        <rect id="Rectangle_327" data-name="Rectangle 327" class="cls-9" x="1280" y="968.7" width="1282.6" height="1282.6"/>
+        <path id="Path_1122" data-name="Path 1122" class="cls-1" d="M1280,968.7v1282.5c708.3,0,1282.5-574.2,1282.5-1282.5h-1282.5Z"/>
+        <path id="Path_1123" data-name="Path 1123" class="cls-5" d="M1280,968.7v641.3c354.2,0,641.3-287.1,641.3-641.3h-641.3Z"/>
+        <rect id="Rectangle_328" data-name="Rectangle 328" class="cls-9" x="-2.6" y="-313.8" width="1282.6" height="1282.6"/>
+        <rect id="Rectangle_329" data-name="Rectangle 329" class="cls-3" x="-2.5" y="327.4" width="1282.5" height="641.3"/>
+        <path id="Path_1124" data-name="Path 1124" class="cls-9" d="M1280,968.7V327.4c-354.2,0-641.3,287.1-641.3,641.3h641.3Z"/>
+        <path id="Path_1125" data-name="Path 1125" class="cls-7" d="M1280-313.8h-641.3V327.4l641.3-641.3h0Z"/>
+        <path id="Path_1126" data-name="Path 1126" class="cls-1" d="M638.7-313.8H-2.5V327.4L638.7-313.8Z"/>
+        <rect id="Rectangle_330" data-name="Rectangle 330" class="cls-8" x="-1.8" y="2250.5" width="1282.5" height="1282.5"/>
+        <path id="Path_1127" data-name="Path 1127" class="cls-5" d="M639.5,2891.7v641.3C285.3,3533-1.8,3245.9-1.8,2891.7h641.3Z"/>
+        <rect id="Rectangle_331" data-name="Rectangle 331" class="cls-9" x="639.5" y="2250.5" width="641.3" height="641.3"/>
+        <rect id="Rectangle_332" data-name="Rectangle 332" class="cls-1" x="639.5" y="2891.7" width="641.3" height="641.3"/>
+        <path id="Path_1130" data-name="Path 1130" class="cls-8" d="M639.5,2891.7h641.3c0,354.2-287.1,641.3-641.3,641.3h0v-641.3h0Z"/>
+        <path id="Path_1131" data-name="Path 1131" class="cls-1" d="M639.5,2891.7h320.6c0,177.1-143.5,320.6-320.6,320.6h0v-320.6Z"/>
+        <rect id="Rectangle_333" data-name="Rectangle 333" class="cls-1" x="-1.8" y="2250.5" width="641.3" height="641.3"/>
+        <path class="cls-8" d="M639.5,2250.4C285.3,2250.4-1.8,2537.5-1.8,2891.7h320.7c0-177.1,143.5-320.6,320.6-320.6s320.6,143.5,320.6,320.6h320.7c0-354.2-287.1-641.3-641.3-641.3Z"/>
+        <rect id="Rectangle_334" data-name="Rectangle 334" class="cls-2" x="-2.6" y="-313.8" width="2565.1" height="3847.7"/>
+      </g>
+    </g>
+  </g>
+</svg>
