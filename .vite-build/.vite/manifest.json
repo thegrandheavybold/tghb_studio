@@ -1,6 +1,6 @@
 {
-  "_ScrollTrigger-QUtb4GpP.js": {
-    "file": "assets/js/ScrollTrigger-QUtb4GpP.js",
+  "_ScrollTrigger-Cv03IO65.js": {
+    "file": "assets/js/ScrollTrigger-Cv03IO65.js",
     "name": "ScrollTrigger"
   },
   "assets/fonts/CircularStd-Bold.woff2": {
@@ -52,16 +52,16 @@
     "src": "assets/img/tghb_studio_landesmuseum__24_l.svg"
   },
   "js/core/animations.js": {
-    "file": "assets/js/animations-BrSLWjV5.js",
+    "file": "assets/js/animations-jPTR74gQ.js",
     "name": "animations",
     "src": "js/core/animations.js",
     "isDynamicEntry": true,
     "imports": [
       "js/main.js",
-      "_ScrollTrigger-QUtb4GpP.js"
+      "_ScrollTrigger-Cv03IO65.js"
     ],
     "css": [
-      "assets/css/style-CTb1Ww7K.css"
+      "assets/css/style-CzHoD4uV.css"
     ],
     "assets": [
       "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
@@ -79,7 +79,7 @@
     ]
   },
   "js/core/cursor.js": {
-    "file": "assets/js/cursor-sIju27-G.js",
+    "file": "assets/js/cursor--YnVRiS0.js",
     "name": "cursor",
     "src": "js/core/cursor.js",
     "isDynamicEntry": true,
@@ -87,7 +87,7 @@
       "js/main.js"
     ],
     "css": [
-      "assets/css/style-CTb1Ww7K.css"
+      "assets/css/style-CzHoD4uV.css"
     ],
     "assets": [
       "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
@@ -105,16 +105,16 @@
     ]
   },
   "js/core/parallax.js": {
-    "file": "assets/js/parallax-CPoj0o0k.js",
+    "file": "assets/js/parallax-DbR6BUXB.js",
     "name": "parallax",
     "src": "js/core/parallax.js",
     "isDynamicEntry": true,
     "imports": [
       "js/main.js",
-      "_ScrollTrigger-QUtb4GpP.js"
+      "_ScrollTrigger-Cv03IO65.js"
     ],
     "css": [
-      "assets/css/style-CTb1Ww7K.css"
+      "assets/css/style-CzHoD4uV.css"
     ],
     "assets": [
       "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
@@ -150,13 +150,13 @@
     "isDynamicEntry": true
   },
   "js/features/slider.js": {
-    "file": "assets/js/slider-CheTP5Ec.js",
+    "file": "assets/js/slider-67t8oh8k.js",
     "name": "slider",
     "src": "js/features/slider.js",
     "isDynamicEntry": true
   },
   "js/main.js": {
-    "file": "assets/js/main-7axvVflc.js",
+    "file": "assets/js/main-sEhNHf9W.js",
     "name": "main",
     "src": "js/main.js",
     "isEntry": true,
@@ -171,7 +171,7 @@
       "js/features/nncStickyChrome.js"
     ],
     "css": [
-      "assets/css/style-CTb1Ww7K.css"
+      "assets/css/style-CzHoD4uV.css"
     ],
     "assets": [
       "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
@@ -195,7 +195,7 @@
     "isDynamicEntry": true
   },
   "sass/style.sass": {
-    "file": "assets/css/style-CTb1Ww7K.css",
+    "file": "assets/css/style-CzHoD4uV.css",
     "src": "sass/style.sass",
     "isEntry": true
   }
