@@ -7,10 +7,9 @@ const warnedFiles = new Set();
 const imageRoot = path.join(process.cwd(), "src/assets/img");
 
 function getFallbackSize(imageName) {
-  const isPortrait = /_p\./i.test(imageName);
-  return isPortrait
-    ? { width: 900, height: 1200 }
-    : { width: 1200, height: 900 };
+  // Suffix-agnostic fallback (no _l/_p dependency).
+  // Real dimensions should come from image-size; this is only a safety net.
+  return { width: 1200, height: 900 };
 }
 
 function readImageMeta(imageName) {
@@ -73,6 +72,9 @@ function resolveImageName(imageName) {
     stemVariants.add(rawStem.replace(/^tghb\.studio__/, "tghb_studio__"));
   }
 
+  // Backward-compatible filename lookup:
+  // support legacy assets that still use _l/_p suffixes,
+  // without relying on suffixes for ratio/fallback logic.
   const suffixVariants = rawStem.match(/_(l|p)$/i) ? [""] : ["", "_l", "_p"];
 
   for (const stem of stemVariants) {
