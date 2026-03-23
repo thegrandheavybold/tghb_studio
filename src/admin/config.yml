@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: thegrandheavybold/tghb_studio
+  name: git-gateway
   branch: main
 
 media_folder: "src/assets/img"
