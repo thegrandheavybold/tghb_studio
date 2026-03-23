@@ -77,31 +77,31 @@ collections:
             widget: "image"
             required: false
             i18n: duplicate
-            media_folder: "src/assets/img"
-            public_folder: "/assets/img"
-            hint: "Upload or choose an image from src/assets/img"
+            media_folder: "/src/assets/img/upload"
+            public_folder: "/assets/img/upload"
+            hint: "Upload to src/assets/img/upload or choose an existing image from src/assets/img"
           - label: "Video Preview"
             name: "preview"
             widget: "file"
             required: false
             i18n: duplicate
-            media_folder: "src/assets/video"
-            public_folder: "/assets/video"
-            hint: "Upload or choose preview video from src/assets/video (optional)"
+            media_folder: "/src/assets/video/upload"
+            public_folder: "/assets/video/upload"
+            hint: "Upload to src/assets/video/upload or choose an existing preview video (optional)"
           - label: "Video Full"
             name: "full"
             widget: "file"
             required: false
             i18n: duplicate
-            media_folder: "src/assets/video"
-            public_folder: "/assets/video"
-            hint: "Upload or choose full video from src/assets/video (optional)"
+            media_folder: "/src/assets/video/upload"
+            public_folder: "/assets/video/upload"
+            hint: "Upload to src/assets/video/upload or choose an existing full video (optional)"
           - label: "Video Poster"
             name: "poster"
             widget: "image"
             required: false
             i18n: duplicate
-            media_folder: "src/assets/img"
-            public_folder: "/assets/img"
-            hint: "Upload or choose poster image from src/assets/img (optional)"
+            media_folder: "/src/assets/img/upload"
+            public_folder: "/assets/img/upload"
+            hint: "Upload to src/assets/img/upload or choose an existing poster image (optional)"
           - { label: "Alt Text", name: "alt", widget: "string", required: false, i18n: true }
