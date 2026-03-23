@@ -123,6 +123,22 @@
         "url": "{{ site.url }}"
       }
     </script>
+    <script>
+      (function() {
+        var hash = window.location.hash || "";
+        var needsIdentityRedirect =
+          hash.indexOf("#invite_token=") === 0 ||
+          hash.indexOf("#confirmation_token=") === 0 ||
+          hash.indexOf("#recovery_token=") === 0 ||
+          hash.indexOf("#email_change_token=") === 0;
+
+        if (!needsIdentityRedirect || window.location.pathname.indexOf("/admin") === 0) {
+          return;
+        }
+
+        window.location.replace("/admin/" + hash);
+      })();
+    </script>
 
   </head>
   <svg style="display:none;">
