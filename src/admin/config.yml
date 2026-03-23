@@ -2,7 +2,6 @@ backend:
   name: github
   repo: thegrandheavybold/tghb_studio
   branch: main
-local_backend: true
 
 media_folder: "src/assets/img"
 public_folder: "/assets/img"

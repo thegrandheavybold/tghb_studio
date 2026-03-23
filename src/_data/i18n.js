@@ -4,7 +4,7 @@ export default {
       projects: "Projekte",
       services: "Leistungen",
       studio: "Studio",
-      nevernotcooking: "#"
+      nevernotcooking: "#nnc"
     },
 
     ui: {
@@ -67,7 +67,7 @@ export default {
       projects: "Projects",
       services: "Services",
       studio: "Studio",
-      nevernotcooking: "#"
+      nevernotcooking: "#nnc"
     },
 
     ui: {
