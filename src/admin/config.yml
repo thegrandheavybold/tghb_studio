@@ -2,7 +2,7 @@ backend:
   name: github
   repo: thegrandheavybold/tghb_studio
   branch: main
-  site_domain: 3738d4c9-95d7-4504-8cad-52f0bf2f8248
+  site_domain: 3738d4c9-95d7-4504-8cad-52f0bf2f8248.netlify.app
 
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
