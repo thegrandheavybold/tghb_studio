@@ -9,8 +9,10 @@ layout: layouts/base.njk
 
     {% for item in media %}
       {% if item.type == "image" %}
+        {% set imageSrc = (item.src or "") | replace("assets/img/", "") | replace("/assets/img/", "") %}
+        {% set imageUrl = "/assets/img/" + imageSrc %}
         <img
-          src="/.netlify/images?url=/assets/img/{{ item.src }}&w=1600"
+          src="/.netlify/images?url={{ imageUrl }}&w=1600"
           alt="{{ item.alt }}"
         >
       {% endif %}

@@ -17,16 +17,17 @@ collections:
   - name: "nevernotcooking"
     label: "NeverNotCooking"
     folder: "src/nevernotcooking"
-    path: "{{locale}}/items/{{slug}}"
+    path: "items/{{slug}}"
     create: true
     i18n: true
     extension: "md"
     format: "frontmatter"
     identifier_field: "title"
     summary: "{{title}} ({{locale}})"
-    slug: "nnc-{{slug}}"
+    slug: "nnc-{{fields.slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL slug without / and ideally without punctuation, e.g. pray-for-me", i18n: duplicate }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, date_format: "YYYY-MM-DD", i18n: duplicate }
       - label: "Description"
         name: "description"
@@ -60,6 +61,8 @@ collections:
         name: "hashtags"
         widget: "list"
         required: false
+        allow_add: true
+        collapsed: false
         i18n: duplicate
         field: { label: "Tag", widget: "string" }
       - label: "Media"

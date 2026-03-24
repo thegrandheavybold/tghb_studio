@@ -71,12 +71,13 @@ bgcolor: blkwht
           <figure class="nnc-figure">
 
             {% if firstMedia.type == "image" %}
-              {% set imageSrc = (firstMedia.src or "") | replace("/assets/img/", "") | replace("assets/img/", "") %}
+              {% set imageSrc = (firstMedia.src or "") | replace("assets/img/", "") | replace("/assets/img/", "") %}
+              {% set imageUrl = "/assets/img/" + imageSrc %}
 
               {% if isDev %}
                 {# ✅ LOCAL DEV: use plain local image (no netlify image CDN) #}
                 <img
-                  src="/assets/img/{{ imageSrc }}"
+                  src="{{ imageUrl }}"
                   alt="{{ firstMedia.alt or post.data.title }}"
                   loading="lazy"
                   decoding="async"
@@ -87,23 +88,23 @@ bgcolor: blkwht
                   <source
                     type="image/avif"
                     srcset="
-                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=320&fm=avif 320w,
-                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=640&fm=avif 640w,
-                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=900&fm=avif 900w
+                      /.netlify/images?url={{ imageUrl }}&w=320&fm=avif 320w,
+                      /.netlify/images?url={{ imageUrl }}&w=640&fm=avif 640w,
+                      /.netlify/images?url={{ imageUrl }}&w=900&fm=avif 900w
                     "
                     sizes="(min-width:1440px) 16vw, (min-width:1024px) 20vw, (min-width:768px) 25vw, 50vw"
                   >
                   <source
                     type="image/webp"
                     srcset="
-                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=320&fm=webp 320w,
-                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=640&fm=webp 640w,
-                      /.netlify/images?url=/assets/img/{{ imageSrc }}&w=900&fm=webp 900w
+                      /.netlify/images?url={{ imageUrl }}&w=320&fm=webp 320w,
+                      /.netlify/images?url={{ imageUrl }}&w=640&fm=webp 640w,
+                      /.netlify/images?url={{ imageUrl }}&w=900&fm=webp 900w
                     "
                     sizes="(min-width:1440px) 16vw, (min-width:1024px) 20vw, (min-width:768px) 25vw, 50vw"
                   >
                   <img
-                    src="/.netlify/images?url=/assets/img/{{ imageSrc }}&w=640"
+                    src="/.netlify/images?url={{ imageUrl }}&w=640"
                     alt="{{ firstMedia.alt or post.data.title }}"
                     loading="lazy"
                     decoding="async"
@@ -112,8 +113,10 @@ bgcolor: blkwht
               {% endif %}
 
             {% elseif firstMedia.type == "video" %}
-              {% set videoPoster = (firstMedia.poster or "") | replace("/assets/img/", "") | replace("assets/img/", "") %}
-              {% set videoPreview = (firstMedia.preview or "") | replace("/assets/video/", "") | replace("assets/video/", "") %}
+              {% set videoPoster = (firstMedia.poster or "") | replace("assets/img/", "") | replace("/assets/img/", "") %}
+              {% set videoPreview = (firstMedia.preview or "") | replace("assets/video/", "") | replace("/assets/video/", "") %}
+              {% set videoPosterUrl = "/assets/img/" + videoPoster %}
+              {% set videoPreviewUrl = "/assets/video/" + videoPreview %}
 
               {# Video preview stays local in dev and prod (your assets/video) #}
               <video
@@ -122,9 +125,9 @@ bgcolor: blkwht
                 loop
                 playsinline
                 preload="metadata"
-                poster="/assets/img/{{ videoPoster }}"
+                poster="{{ videoPosterUrl }}"
               >
-                <source src="/assets/video/{{ videoPreview }}" type="video/mp4">
+                <source src="{{ videoPreviewUrl }}" type="video/mp4">
               </video>
 
             {% endif %}
