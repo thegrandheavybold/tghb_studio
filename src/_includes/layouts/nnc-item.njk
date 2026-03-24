@@ -25,7 +25,10 @@ layout: layouts/base.njk
     {% if hashtags %}
       <ul class="tags">
         {% for tag in hashtags %}
-          <li>#{{ tag }}</li>
+          {% set normalizedTag = (tag or "") | replace("#", "") | trim %}
+          {% if normalizedTag %}
+            <li>#{{ normalizedTag }}</li>
+          {% endif %}
         {% endfor %}
       </ul>
     {% endif %}

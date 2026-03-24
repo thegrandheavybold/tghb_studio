@@ -45,6 +45,7 @@ collections:
           - { label: "AI", value: "ai" }
           - { label: "Apparel", value: "apparel" }
           - { label: "Art", value: "art" }
+          - { label: "Branding", value: "branding" }
           - { label: "Corporate", value: "corporate" }
           - { label: "Editorial", value: "editorial" }
           - { label: "Gfx", value: "gfx" }

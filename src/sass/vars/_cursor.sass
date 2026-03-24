@@ -38,12 +38,25 @@ html.touch
     &.visible
       opacity: 1
       transform: translateX(0)
-    span
+    .c-cursor__headline
+      display: block
+      font-family: inherit
+      font-size: inherit
+      line-height: inherit
+    span:not(.c-cursor__headline)
       font-family: $font__book
       font-size: min(max(5vw), 26px)
       line-height: min(max(5vw), 32px)
       height: auto
       display: block
+    &--light
+      color: #F5F4F4
+
+      .c-cursor__headline
+        font-family: $font__bold
+
+      .teaser_btn
+        stroke: #F5F4F4
   &__inverted
     background-color: $mid_gray
 
@@ -68,6 +81,10 @@ html.touch
   &.visible
     .teaser_btn
       stroke-dashoffset: 300
+
+  &.c-cursor__msg--light
+    .teaser_btn
+      stroke: #F5F4F4
 
 
 

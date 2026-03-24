@@ -35,6 +35,7 @@ bgcolor: blkwht
         <li data-filter=".ai"><h6 class="h6 link">AI</h6><sub id="ai-nnc"></sub></li>
         <li data-filter=".apparel"><h6 class="h6 link">Apparel</h6><sub id="apparel-nnc"></sub></li>
         <li data-filter=".art"><h6 class="h6 link">Art</h6><sub id="art-nnc"></sub></li>
+        <li data-filter=".branding"><h6 class="h6 link">Branding</h6><sub id="branding-nnc"></sub></li>
         <li data-filter=".corporate"><h6 class="h6 link">Corporate</h6><sub id="corporate-nnc"></sub></li>
         <li data-filter=".editorial"><h6 class="h6 link">Editorial</h6><sub id="editorial-nnc"></sub></li>
         <li data-filter=".gfx"><h6 class="h6 link">Gfx</h6><sub id="gfx-nnc"></sub></li>
@@ -67,7 +68,7 @@ bgcolor: blkwht
       <li class="nnc-item mix {{ post.data.filters | join(' ') }}" data-animate="fade-up">
         {% set firstMedia = post.data.media[0] %}
 
-        <a href="{{ post.url }}" class="nnc-trigger" data-index="{{ loop.index0 }}" data-no-transition>
+        <a href="{{ post.url }}" class="nnc-trigger" data-index="{{ loop.index0 }}" data-no-transition data-cursor-title="{{ post.data.title }}">
           <figure class="nnc-figure">
 
             {% if firstMedia.type == "image" %}

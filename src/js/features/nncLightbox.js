@@ -25,6 +25,11 @@ export function initNncLightbox() {
       .replace(/^\//, "");
   };
 
+  const normalizeTagValue = (value) => {
+    if (!value || typeof value !== "string") return "";
+    return value.replace(/^#+/, "").trim();
+  };
+
   const setScrollLock = (lock) => {
     document.body.style.overflow = lock ? "hidden" : "";
   };
@@ -75,8 +80,11 @@ export function initNncLightbox() {
     tagsEl.innerHTML = "";
 
     (item.tags || []).forEach((tag) => {
+      const normalizedTag = normalizeTagValue(tag);
+      if (!normalizedTag) return;
+
       const span = document.createElement("span");
-      span.textContent = `#${tag}`;
+      span.textContent = `#${normalizedTag}`;
       tagsEl.appendChild(span);
     });
   };
