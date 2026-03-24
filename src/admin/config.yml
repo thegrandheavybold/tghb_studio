@@ -16,7 +16,8 @@ i18n:
 collections:
   - name: "nevernotcooking"
     label: "NeverNotCooking"
-    folder: "src/nevernotcooking/en/items"
+    folder: "src/nevernotcooking"
+    path: "{{locale}}/items/{{slug}}"
     create: true
     i18n: true
     extension: "md"
@@ -66,42 +67,50 @@ collections:
         widget: "list"
         i18n: duplicate
         summary: "{{fields.type}} {{fields.src}}{{fields.full}}"
-        fields:
-          - label: "Type"
-            name: "type"
-            widget: "select"
-            options: ["image", "video"]
-            default: "image"
-          - label: "Image Source"
-            name: "src"
-            widget: "image"
-            required: false
-            i18n: duplicate
-            media_folder: "/src/assets/img/upload"
-            public_folder: "/assets/img/upload"
-            hint: "Upload to src/assets/img/upload or choose an existing image from src/assets/img"
-          - label: "Video Preview"
-            name: "preview"
-            widget: "file"
-            required: false
-            i18n: duplicate
-            media_folder: "/src/assets/video/upload"
-            public_folder: "/assets/video/upload"
-            hint: "Upload to src/assets/video/upload or choose an existing preview video (optional)"
-          - label: "Video Full"
-            name: "full"
-            widget: "file"
-            required: false
-            i18n: duplicate
-            media_folder: "/src/assets/video/upload"
-            public_folder: "/assets/video/upload"
-            hint: "Upload to src/assets/video/upload or choose an existing full video (optional)"
-          - label: "Video Poster"
-            name: "poster"
-            widget: "image"
-            required: false
-            i18n: duplicate
-            media_folder: "/src/assets/img/upload"
-            public_folder: "/assets/img/upload"
-            hint: "Upload to src/assets/img/upload or choose an existing poster image (optional)"
-          - { label: "Alt Text", name: "alt", widget: "string", required: false, i18n: true }
+        types:
+          - label: "Image"
+            name: "image"
+            widget: "object"
+            summary: "{{fields.type}} {{fields.src}}"
+            fields:
+              - { label: "Type", name: "type", widget: "hidden", default: "image" }
+              - label: "Image Source"
+                name: "src"
+                widget: "image"
+                required: true
+                i18n: duplicate
+                media_folder: "/src/assets/img/upload"
+                public_folder: "/assets/img/upload"
+                hint: "Upload to src/assets/img/upload or choose an existing image from src/assets/img"
+              - { label: "Alt Text", name: "alt", widget: "string", required: false, i18n: true }
+          - label: "Video"
+            name: "video"
+            widget: "object"
+            summary: "{{fields.type}} {{fields.full}}{{fields.preview}}"
+            fields:
+              - { label: "Type", name: "type", widget: "hidden", default: "video" }
+              - label: "Video Preview"
+                name: "preview"
+                widget: "file"
+                required: false
+                i18n: duplicate
+                media_folder: "/src/assets/video/upload"
+                public_folder: "/assets/video/upload"
+                hint: "Upload to src/assets/video/upload or choose an existing preview video (optional)"
+              - label: "Video Full"
+                name: "full"
+                widget: "file"
+                required: false
+                i18n: duplicate
+                media_folder: "/src/assets/video/upload"
+                public_folder: "/assets/video/upload"
+                hint: "Upload to src/assets/video/upload or choose an existing full video (optional)"
+              - label: "Video Poster"
+                name: "poster"
+                widget: "image"
+                required: false
+                i18n: duplicate
+                media_folder: "/src/assets/img/upload"
+                public_folder: "/assets/img/upload"
+                hint: "Upload to src/assets/img/upload or choose an existing poster image (optional)"
+              - { label: "Alt Text", name: "alt", widget: "string", required: false, i18n: true }
