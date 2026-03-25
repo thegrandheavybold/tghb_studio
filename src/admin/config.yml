@@ -24,10 +24,10 @@ collections:
     format: "frontmatter"
     identifier_field: "title"
     summary: "{{title}} ({{locale}})"
-    slug: "nnc-{{fields.slug}}"
+    slug: "{{fields.slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string", i18n: true }
-      - { label: "Slug", name: "slug", widget: "string", hint: "URL slug without / and ideally without punctuation, e.g. pray-for-me", i18n: duplicate }
+      - { label: "Slug", name: "slug", widget: "string", hint: "Will be prefilled from the title. You can still edit it manually, e.g. pray-for-me", i18n: duplicate }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, date_format: "YYYY-MM-DD", i18n: duplicate }
       - label: "Description"
         name: "description"
@@ -60,12 +60,10 @@ collections:
           - { label: "UI/UX", value: "uiux" }
       - label: "Hashtags"
         name: "hashtags"
-        widget: "list"
+        widget: "text"
         required: false
-        allow_add: true
-        collapsed: false
         i18n: duplicate
-        field: { label: "Tag", widget: "string" }
+        hint: "Paste hashtags here, one per line or comma separated. # is optional."
       - label: "Media"
         name: "media"
         widget: "list"

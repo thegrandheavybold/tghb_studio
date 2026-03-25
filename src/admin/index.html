@@ -8,5 +8,94 @@
   <body>
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      (function () {
+        const slugify = (value) =>
+          (value || "")
+            .toString()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            .replace(/-{2,}/g, "-");
+
+        const titleSelectors = [
+          'input[name="title"]',
+          'textarea[name="title"]',
+          '[data-field-name="title"] input',
+          '[data-field-name="title"] textarea'
+        ];
+
+        const slugSelectors = [
+          'input[name="slug"]',
+          'textarea[name="slug"]',
+          '[data-field-name="slug"] input',
+          '[data-field-name="slug"] textarea'
+        ];
+
+        const getFirstMatch = (selectors) => {
+          for (const selector of selectors) {
+            const el = document.querySelector(selector);
+            if (el) return el;
+          }
+          return null;
+        };
+
+        const bindSlugSync = () => {
+          const titleInput = getFirstMatch(titleSelectors);
+          const slugInput = getFirstMatch(slugSelectors);
+
+          if (!titleInput || !slugInput || slugInput.dataset.slugSyncBound === "true") {
+            return;
+          }
+
+          slugInput.dataset.slugSyncBound = "true";
+
+          const syncSlug = () => {
+            const generatedSlug = slugify(titleInput.value);
+            const currentSlug = slugInput.value.trim();
+            const lastAutoSlug = slugInput.dataset.lastAutoSlug || "";
+            const manualOverride = slugInput.dataset.manualOverride === "true";
+
+            if (!generatedSlug) {
+              if (!manualOverride) {
+                slugInput.value = "";
+                slugInput.dataset.lastAutoSlug = "";
+                slugInput.dispatchEvent(new Event("input", { bubbles: true }));
+              }
+              return;
+            }
+
+            if (!manualOverride || !currentSlug || currentSlug === lastAutoSlug) {
+              slugInput.value = generatedSlug;
+              slugInput.dataset.lastAutoSlug = generatedSlug;
+              slugInput.dispatchEvent(new Event("input", { bubbles: true }));
+            }
+          };
+
+          titleInput.addEventListener("input", syncSlug);
+
+          slugInput.addEventListener("input", () => {
+            const currentSlug = slugInput.value.trim();
+            const generatedSlug = slugify(titleInput.value);
+
+            slugInput.dataset.manualOverride =
+              currentSlug && currentSlug !== generatedSlug ? "true" : "false";
+
+            if (!currentSlug) {
+              slugInput.dataset.manualOverride = "false";
+            }
+          });
+
+          syncSlug();
+        };
+
+        const observer = new MutationObserver(() => bindSlugSync());
+        observer.observe(document.body, { childList: true, subtree: true });
+        document.addEventListener("DOMContentLoaded", bindSlugSync);
+        window.addEventListener("load", bindSlugSync);
+      })();
+    </script>
   </body>
 </html>
