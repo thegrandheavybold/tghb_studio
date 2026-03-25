@@ -1,4 +1,4 @@
-import{g as i}from"./main-8PqJUreZ.js";/* empty css              */function a(){const t=document.querySelector(".c-cursor"),o=document.querySelector(".c-cursor__dot"),r=document.querySelector(".c-cursor__msg");if(!t||!o)return;const c=(e,s={})=>{const{light:l=!1}=s,n=(e||"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;");r.classList.toggle("c-cursor__msg--light",l),r.innerHTML=`
+import{g as i}from"./main-GEPEgXXI.js";/* empty css              */function a(){const t=document.querySelector(".c-cursor"),o=document.querySelector(".c-cursor__dot"),r=document.querySelector(".c-cursor__msg");if(!t||!o)return;const c=(e,s={})=>{const{light:l=!1}=s,n=(e||"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;");r.classList.toggle("c-cursor__msg--light",l),r.innerHTML=`
       <span class="c-cursor__headline">${n}</span>
       <svg class="teaser_btn">
         <use xlink:href="#teaser_btn"></use>

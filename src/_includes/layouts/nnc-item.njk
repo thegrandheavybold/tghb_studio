@@ -4,6 +4,24 @@ layout: layouts/base.njk
 
 <section class="nnc-post">
   <div class="wrapper">
+    {% if locale == "de" %}
+      {% set galleryUrl = "/de/nevernotcooking/" %}
+    {% else %}
+      {% set galleryUrl = "/nevernotcooking/" %}
+    {% endif %}
+
+    <script>
+      (function () {
+        if (typeof window === "undefined") return;
+
+        var galleryUrl = {{ galleryUrl | dump | safe }};
+        var slug = {{ page.fileSlug | dump | safe }};
+        var target = new URL(galleryUrl, window.location.origin);
+
+        target.searchParams.set("lightbox", slug);
+        window.location.replace(target.toString());
+      })();
+    </script>
 
     <h1>{{ title }}</h1>
 

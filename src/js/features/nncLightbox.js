@@ -30,6 +30,11 @@ export function initNncLightbox() {
     return value.replace(/^#+/, "").trim();
   };
 
+  const findItemIndexBySlug = (slug) => {
+    if (!slug) return -1;
+    return items.findIndex((item) => item.slug === slug);
+  };
+
   const setScrollLock = (lock) => {
     document.body.style.overflow = lock ? "hidden" : "";
   };
@@ -199,4 +204,12 @@ export function initNncLightbox() {
       close();
     }
   });
+
+  const requestedSlug = new URL(window.location.href).searchParams.get("lightbox");
+  const requestedIndex = findItemIndexBySlug(requestedSlug);
+
+  if (requestedIndex > -1) {
+    open(requestedIndex, { push: false });
+    history.replaceState({ nncLightbox: true, index: requestedIndex }, "", items[requestedIndex].url);
+  }
 }

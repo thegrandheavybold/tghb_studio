@@ -148,6 +148,7 @@ bgcolor: blkwht
   window.NNC_ITEMS = [
   {% for item in nncCollection %}
     {
+      slug: {{ item.page.fileSlug | dump | safe }},
       url: "{{ item.url }}",
       title: {{ item.data.title | dump | safe }},
       description: {{ (item.data.description or "") | dump | safe }},
