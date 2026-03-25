@@ -1,5 +1,5 @@
 ---
-title: taschen_Konzept — NØRD Premium Kollektion
+title: Taschenkonzept — NØRD Premium Kollektion
 slug: bag_concept — NØRD
 date: 2025-11-12
 description: |-
