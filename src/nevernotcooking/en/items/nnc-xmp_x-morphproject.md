@@ -1,5 +1,5 @@
 ---
-title: xmp_x-morphproject — Generative X System
+title: xmp_x-morphproject
 slug: xmp_x-morphproject
 date: 2026-03-25
 description: xmp_x-morphproject explores how a single “X” can evolve into a dynamic visual system through rotation and duplication. The study demonstrates how minimal geometric input can generate scalable, modular identities with a strong futuristic aesthetic.  By transforming the X form, a series of bold symbols and compositions emerge — bridging experimental graphic design, digital culture, and tech-driven branding. The result is a flexible design language built on repetition, structure, and transformation.
