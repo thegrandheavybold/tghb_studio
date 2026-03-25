@@ -1,9 +1,9 @@
 ---
-title: bag_concept — NØRD Premium Collection
+title: NØRD
 slug: bag_concept — NØRD
 date: 2025-11-12
 description: |-
-  A future-oriented bag collection exploring sculptural forms, modular design systems, and origami-inspired construction within the context of contemporary luxury.
+  bag_concept — NØRD Premium Collection. A future-oriented bag collection exploring sculptural forms, modular design systems, and origami-inspired construction within the context of contemporary luxury.
   Developed following the design approach of tghb.studio, the concept combines Scandinavian minimalism, innovation, and high-end craftsmanship into a distinctive and forward-looking visual identity.
 filters:
   - editorial
