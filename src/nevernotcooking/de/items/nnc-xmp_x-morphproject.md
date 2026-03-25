@@ -1,5 +1,5 @@
 ---
-title: xmp_x-morphproject — Generatives X-System
+title: xmp_x-morphproject
 slug: xmp_x-morphproject
 date: 2026-03-25
 description: |-
