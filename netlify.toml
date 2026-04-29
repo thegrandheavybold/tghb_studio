@@ -20,10 +20,10 @@
     url = "https://tghb.studio/de/"
 
   [[plugins.inputs.audits]]
-    url = "https://tghb.studio/de/projekte/"
+    url = "https://tghb.studio/de/projects/"
 
   [[plugins.inputs.audits]]
-    url = "https://tghb.studio/de/leistungen/"
+    url = "https://tghb.studio/de/services/"
 
   [[plugins.inputs.audits]]
     url = "https://tghb.studio/de/studio/"

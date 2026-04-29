@@ -1,0 +1,12 @@
+# Legacy German slugs
+/de/projekte        /de/projects       301
+/de/projekte/       /de/projects/      301
+/de/projekte/*      /de/projects/:splat 301
+
+/de/leistungen      /de/services       301
+/de/leistungen/     /de/services/      301
+
+/de/impressum       /de/imprint        301
+/de/impressum/      /de/imprint/       301
+/de/Impressum       /de/imprint        301
+/de/Impressum/      /de/imprint/       301
