@@ -1,6 +1,8 @@
 import { getImageRenderDimensions } from "./imageMeta.js";
+import { withBrandContext } from "./altText.js";
 
 export default function picture(imageName, imageAlt) {
+  const finalAlt = withBrandContext(imageAlt);
 
   const widths = [400, 800, 1200];
   const { baseWidth, baseHeight, resolvedImageName } = getImageRenderDimensions(
@@ -29,7 +31,7 @@ export default function picture(imageName, imageAlt) {
     src="/.netlify/images?url=/assets/img/${resolvedImageName}&w=${baseWidth}"
     srcset="${srcsetDefault}"
     sizes="100vw"
-    alt="${imageAlt}"
+    alt="${finalAlt}"
     loading="lazy"
     decoding="async"
     width="${baseWidth}"

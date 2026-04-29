@@ -1,4 +1,5 @@
 import { getImageRenderDimensions } from "./imageMeta.js";
+import { withBrandContext } from "./altText.js";
 
 export default function lazyPicture(
   imageName,
@@ -9,6 +10,7 @@ export default function lazyPicture(
     priority = false
   } = {}
 ) {
+  const finalAlt = withBrandContext(imageAlt);
 
   const loading = priority ? "eager" : "lazy";
   const fetchpriority = priority ? 'fetchpriority="high"' : "";
@@ -38,7 +40,7 @@ export default function lazyPicture(
     src="/.netlify/images?url=/assets/img/${resolvedImageName}&w=${baseWidth}"
     srcset="${srcsetDefault}"
     sizes="${sizes}"
-    alt="${imageAlt}"
+    alt="${finalAlt}"
     width="${baseWidth}"
     height="${baseHeight}"
     loading="${loading}"

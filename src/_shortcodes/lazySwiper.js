@@ -1,4 +1,5 @@
 import { getImageRenderDimensions } from "./imageMeta.js";
+import { withBrandContext } from "./altText.js";
 
 export default function lazySwiper(
   imageName,
@@ -11,6 +12,7 @@ export default function lazySwiper(
     height
   } = {}
 ) {
+  const finalAlt = withBrandContext(imageAlt);
 
   const loading = isFirst ? "eager" : "lazy";
   const fetchpriority = isFirst ? 'fetchpriority="high"' : "";
@@ -41,7 +43,7 @@ export default function lazySwiper(
     src="/.netlify/images?url=/assets/img/${resolvedImageName}&w=${baseWidth}"
     srcset="${srcsetDefault}"
     sizes="${sizes}"
-    alt="${imageAlt}"
+    alt="${finalAlt}"
     loading="${loading}"
     decoding="async"
     width="${finalWidth}"

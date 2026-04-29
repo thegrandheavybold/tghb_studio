@@ -1,3 +1,5 @@
+import { withNncBrandContext } from "../../../_shortcodes/altText.js";
+
 function inferLocale(inputPath) {
   if (inputPath.includes("/items/en/")) {
     return "en";
@@ -34,6 +36,20 @@ export default {
     lang: data => inferLocale(data.page.inputPath),
     tags: data => `nevernotcooking_${inferLocale(data.page.inputPath)}`,
     hashtags: data => normalizeHashtags(data.hashtags),
+    media: data => (
+      Array.isArray(data.media)
+        ? data.media.map((item) => {
+            if (!item || item.type !== "image") {
+              return item;
+            }
+
+            return {
+              ...item,
+              alt: withNncBrandContext(item.alt, data.title)
+            };
+          })
+        : []
+    ),
     layout: "layouts/nnc-item.njk",
     permalink: data => {
       const locale = inferLocale(data.page.inputPath);
