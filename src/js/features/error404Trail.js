@@ -2,14 +2,14 @@ import { gsap } from "../core/gsapSetup.js";
 
 const COPY = {
   de: {
-    eyebrow: "404 / Seite nicht gefunden",
+    eyebrow: "Error 404",
     title: "Seite nicht gefunden.",
     body: "Die gesuchte Seite ist nicht mehr verfügbar. Nutze die Links unten, um weiterzumachen.",
     projectsLabel: "Projekte",
     studioLabel: "Studio"
   },
   en: {
-    eyebrow: "404 / Page not found",
+    eyebrow: "Error 404",
     title: "Page not found.",
     body: "The page you were looking for is no longer here. Use the links below to continue.",
     projectsLabel: "Projects",
