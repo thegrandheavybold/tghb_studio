@@ -1,11 +1,15 @@
 import Swiper from 'swiper'
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules'
+import { isFigmaCaptureMode } from '../utils/figmaCapture.js'
+
+const captureMode = isFigmaCaptureMode()
 
 const baseConfig = {
-  loop: true,
+  loop: !captureMode,
   slidesPerView: 1,
   watchSlidesProgress: true,
-  preloadImages: false
+  preloadImages: captureMode,
+  allowTouchMove: !captureMode
 }
 
 function initSlider(selector, options = {}) {
@@ -38,13 +42,15 @@ function initSlider(selector, options = {}) {
 
 if (document.querySelector('.hro__sldr')) {
   initSlider('.hro__sldr', {
-    modules: [Autoplay, EffectFade],
+    modules: captureMode ? [EffectFade] : [Autoplay, EffectFade],
     effect: 'fade',
     fadeEffect: { crossFade: true },
-    speed: 800,
-    autoplay: {
-      delay: 8000
-    }
+    speed: captureMode ? 0 : 800,
+    ...(captureMode ? {} : {
+      autoplay: {
+        delay: 8000
+      }
+    })
   })
 }
 
@@ -103,11 +109,13 @@ if (document.querySelector(`
     .lvr_01__sldr,
     .lvr_02__sldr
   `, {
-    modules: [Pagination, Autoplay],
-    speed: 800,
-    autoplay: {
-      delay: 2500
-    },
+    modules: captureMode ? [Pagination] : [Pagination, Autoplay],
+    speed: captureMode ? 0 : 800,
+    ...(captureMode ? {} : {
+      autoplay: {
+        delay: 2500
+      }
+    }),
     pagination: {
       clickable: true
     }

@@ -34,7 +34,25 @@
     {% endif %}
 
     <!-- ccm19 cookie consent -->
-    <script src="https://cloud.ccm19.de/app.js?apiKey=f4e9833e6bd5ae8cdae0ba5486194d84fd2e3d8535eb04f0&amp;domain=661d307ea55b0353db086eb3" referrerpolicy="origin"></script>
+    <script>
+      (function () {
+        var search = new URLSearchParams(window.location.search || "");
+        var hash = window.location.hash || "";
+        var captureFlag = search.has("figmaCapture")
+          ? (function () {
+              var value = (search.get("figmaCapture") || "").toLowerCase();
+              return value === "" || value === "1" || value === "true" || value === "yes";
+            })()
+          : false;
+
+        if (captureFlag || hash.indexOf("figmacapture=") !== -1) return;
+
+        var script = document.createElement("script");
+        script.src = "https://cloud.ccm19.de/app.js?apiKey=f4e9833e6bd5ae8cdae0ba5486194d84fd2e3d8535eb04f0&domain=661d307ea55b0353db086eb3";
+        script.referrerPolicy = "origin";
+        document.head.appendChild(script);
+      })();
+    </script>
 
     <!-- favicon -->
     <link rel="icon" href="/assets/fav/favicon.ico" sizes="any">

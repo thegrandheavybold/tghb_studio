@@ -1,4 +1,5 @@
 import '../sass/style.sass'
+import { isFigmaCaptureMode, stabilizeForFigmaCapture } from './utils/figmaCapture.js'
 
 // Core
 import './core/base.js'
@@ -13,19 +14,21 @@ const onDomReady = (callback) => {
   callback()
 }
 
+const captureMode = isFigmaCaptureMode()
+
 // Cursor nur Desktop
 const isTouch = matchMedia('(hover: none)').matches
-if (!isTouch) {
+if (!isTouch && !captureMode) {
   import('./core/cursor.js')
 }
 
 // Scroll animations
-if (document.querySelector('[data-animate]')) {
+if (!captureMode && document.querySelector('[data-animate]')) {
   import('./core/animations.js')
 }
 
 // Parallax separat
-if (document.querySelector('[data-parallax]')) {
+if (!captureMode && document.querySelector('[data-parallax]')) {
   import('./core/parallax.js')
 }
 
@@ -35,7 +38,7 @@ if (document.querySelector('.swiper')) {
 }
 
 // Mixitup
-if (document.querySelector('[data-logic]')) {
+if (!captureMode && document.querySelector('[data-logic]')) {
   import('./features/mixitup-filtering.js')
 }
 
@@ -44,8 +47,10 @@ import { initDoubleWipeEntry } from './core/doubleWipeEntry.js'
 import { initDoubleWipeTransition } from './core/doubleWipeTransition.js'
 
 onDomReady(() => {
-  initDoubleWipeEntry()
-  initDoubleWipeTransition()
+  if (!captureMode) {
+    initDoubleWipeEntry()
+    initDoubleWipeTransition()
+  }
 })
 
 // NNC Video Hover: only load on pages that actually render NNC preview videos
@@ -72,5 +77,19 @@ if (document.documentElement.id === 'nevernotcooking' && document.querySelector(
     onDomReady(() => {
       initNncStickyChrome()
     })
+  })
+}
+
+if (document.querySelector('[data-error-trail]')) {
+  import('./features/error404Trail.js').then(({ initError404Trail }) => {
+    onDomReady(() => {
+      initError404Trail()
+    })
+  })
+}
+
+if (captureMode) {
+  onDomReady(() => {
+    stabilizeForFigmaCapture()
   })
 }

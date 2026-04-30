@@ -1,0 +1,247 @@
+.error404
+  position: relative
+  min-height: 1133px
+  color: $white
+  background: #040404
+  overflow: hidden
+  isolation: isolate
+
+.error404__trail-stage
+  position: absolute
+  inset: 0
+  z-index: 1
+  overflow: hidden
+  pointer-events: none
+  background-color: #050505
+
+.error404__trail-image
+  position: absolute
+  inset: -3%
+  background-size: cover
+  background-position: center center
+  background-repeat: no-repeat
+  opacity: 0
+  will-change: transform, opacity, filter
+  transform: translate3d(0, 0, 0) scale(1.015)
+  filter: saturate(1.02) contrast(1.03) brightness(0.9)
+
+.error404__trail-image--base
+  opacity: 1
+  transform: translate3d(0, 0, 0) scale(1)
+  filter: saturate(0.94) contrast(1.02) brightness(0.76)
+
+.error404__trail-image--split
+  display: grid
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+  gap: 0
+  background: none
+
+.error404__trail-pane
+  display: block
+  width: 100%
+  height: 100%
+  background-size: cover
+  background-position: center center
+  background-repeat: no-repeat
+
+.error404__gradient
+  position: absolute
+  inset: 0
+  z-index: 2
+  pointer-events: none
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.34) 30%, rgba(0, 0, 0, 0.72) 100%)
+
+.error404__overlay
+  position: relative
+  z-index: 3
+  min-height: 100%
+
+  .wrapper
+    min-height: 100%
+
+.error404__hero
+  position: relative
+  min-height: 1133px
+  padding-top: 211px
+  padding-bottom: 220px
+
+.error404__eyebrow
+  margin: 0
+  font-size: 18px
+  line-height: 27px
+  color: $white
+
+.error404__section
+  position: relative
+  z-index: 3
+  margin-top: 60px
+  max-width: 1360px
+  align-items: start
+
+.error404__title
+  margin: 0
+  font-family: $font__book
+  font-size: 72px
+  line-height: 75px
+  color: $white
+
+.error404__copy
+  display: grid
+  gap: 16px
+  align-content: start
+  padding-top: 30px
+  max-width: 660px
+
+.error404__body
+  margin: 0
+  font-family: $font__book
+  font-size: 33px
+  line-height: 45px
+  color: $white
+  max-width: 100%
+
+.error404__inline-link
+  color: inherit
+  text-decoration: underline
+  text-underline-offset: 2px
+
+.error404 .link
+  color: $white !important
+
+  &:visited,
+  &:hover,
+  &:focus,
+  &:active
+    color: $white !important
+
+.error404__actions
+  display: flex
+  gap: 56px
+  margin: 0
+  padding: 0
+  list-style: none
+
+.error404__action
+  display: inline-flex
+  align-items: center
+  gap: 0.55rem
+  color: $white !important
+
+  &:visited,
+  &:hover,
+  &:focus,
+  &:active
+    color: $white !important
+
+  span
+    color: inherit
+
+  .hyperlink_btn
+    stroke: $white
+
+.error404__code
+  position: absolute
+  left: 50%
+  bottom: 0
+  z-index: 1
+  width: 100%
+  transform: translateX(-50%)
+  margin: 0
+  font-family: "Circular Std", "CircularStd-Bold", $font__bold, sans-serif
+  font-size: clamp(320px, 54vw, 820px)
+  line-height: 0.62
+  letter-spacing: 0
+  text-align: center
+  color: $white
+  opacity: 0.5
+  font-weight: 700
+  user-select: none
+  pointer-events: none
+  white-space: nowrap
+  mix-blend-mode: soft-light
+
+.error404.is-static
+  .error404__trail-stage
+    opacity: 0.92
+
+@media only screen and (max-width: 1512px)
+  .error404
+    min-height: 100vh
+
+  .error404__hero
+    min-height: 100vh
+    padding-top: clamp(120px, 14vw, 180px)
+    padding-bottom: clamp(140px, 22vw, 240px)
+
+  .error404__section
+    grid-template-columns: 1fr
+    row-gap: 24px
+
+  .error404__title
+    font-size: clamp(46px, 7vw, 72px)
+    line-height: 1.04
+
+  .error404__body
+    font-size: clamp(22px, 3vw, 33px)
+    line-height: 1.3
+
+  .error404__copy
+    padding-top: 0
+
+  .error404__actions
+    gap: 24px
+    flex-wrap: wrap
+
+  .error404__code
+    font-size: clamp(260px, 52vw, 640px)
+
+@media only screen and (max-width: 980px)
+  .error404__hero
+    padding-top: clamp(106px, 16vw, 150px)
+    padding-bottom: clamp(132px, 24vw, 200px)
+
+  .error404__eyebrow
+    font-size: 16px
+    line-height: 24px
+
+  .error404__title
+    font-size: clamp(38px, 9vw, 52px)
+    line-height: 1.06
+
+  .error404__body
+    font-size: clamp(18px, 3.8vw, 26px)
+    line-height: 1.28
+
+  .error404__actions
+    gap: 16px 22px
+
+  .error404__code
+    font-size: clamp(200px, 48vw, 460px)
+    opacity: 0.42
+
+@media only screen and (max-width: 640px)
+  .error404__hero
+    padding-top: clamp(96px, 18vw, 130px)
+    padding-bottom: clamp(120px, 24vw, 170px)
+
+  .error404__section
+    margin-top: 34px
+    row-gap: 18px
+
+  .error404__title
+    font-size: clamp(30px, 10vw, 40px)
+    line-height: 1.07
+
+  .error404__body
+    font-size: clamp(16px, 4.8vw, 20px)
+    line-height: 1.35
+
+  .error404__actions
+    flex-direction: column
+    align-items: flex-start
+    gap: 12px
+
+  .error404__code
+    font-size: clamp(150px, 44vw, 300px)
+    line-height: 0.66
+    opacity: 0.36

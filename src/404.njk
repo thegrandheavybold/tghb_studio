@@ -1,0 +1,115 @@
+---
+permalink: /404.html
+locale: en
+lang: en
+bgcolor: blkwht
+title: 404
+seoTitle: 404 – Page not found / Seite nicht gefunden
+seoDescription: The requested page could not be found. Return to home, projects or studio at TheGrandHeavyBold.
+metaImage: tghb.studio_pegasus-club__og_l.png
+robots: noindex,follow
+---
+
+{%- include "partials/head.njk" -%}
+{%- include "partials/header.njk" -%}
+
+<main class="error404" data-error-trail aria-label="404 background scene">
+  <div class="error404__trail-stage" aria-hidden="true"></div>
+  <div class="error404__gradient" aria-hidden="true"></div>
+  <div class="error404__overlay">
+    <div class="wrapper">
+      <section class="error404__hero">
+        <p class="error404__eyebrow" data-error-copy="eyebrow">404 / Page not found</p>
+
+        <div class="sctn__hdr grd error404__section">
+          <div class="spn2">
+            <h1 class="error404__title" data-error-copy="title">Page not found.</h1>
+          </div>
+
+          <div class="spn2 error404__copy">
+            <p class="error404__body" data-error-copy="body">
+              The page you were looking for is no longer here. Use the links below to continue.
+            </p>
+
+            <nav aria-label="404 actions">
+              <ul class="error404__actions">
+                <li>
+                  <a class="lnk__18 hypr error404__action" data-error-link="projects" href="/projects/">
+                    <svg class="hyperlink_btn" aria-hidden="true">
+                      <use xlink:href="#hyperlink_btn"></use>
+                    </svg>
+                    <span data-error-copy="projectsLabel">Projects</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="lnk__18 hypr error404__action" data-error-link="studio" href="/studio/">
+                    <svg class="hyperlink_btn" aria-hidden="true">
+                      <use xlink:href="#hyperlink_btn"></use>
+                    </svg>
+                    <span data-error-copy="studioLabel">Studio</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <p class="error404__code" aria-hidden="true">404</p>
+      </section>
+    </div>
+  </div>
+
+  <script type="application/json" id="error404-images">
+    {{ [
+      "/assets/img/tghb.studio_pegasus-club__01_l.jpg",
+      { "split": ["/assets/img/tghb.studio_pegasus-club__02_p.jpg", "/assets/img/tghb.studio_mintandthings__10_p.jpg"] },
+      "/assets/img/tghb.studio_mintandthings__09_l.jpg",
+      "/assets/img/tghb_artshow_cc__05.jpg",
+      { "split": ["/assets/img/tghb_blckwhtTV__13.jpg", "/assets/img/tghb_wagener_website__04.jpg"] },
+      "/assets/img/tghb_orbit63_typeface__05.jpg",
+      "/assets/img/tghb_wagener_website__03.jpg",
+      { "split": ["/assets/img/tghb.studio_graceyoung__05_p.jpg", "/assets/img/tghb.studio_coffeegasm__10_p.jpg"] },
+      "/assets/img/tghb_studio_landesmuseum__15_l.jpg",
+      "/assets/img/tghb_studio__gumbrecht__01_l.jpg",
+      "/assets/img/tghb.studio_coffeegasm__12_l.jpg",
+      "/assets/img/tghb.studio_graceyoung__07_l.jpg",
+      { "split": ["/assets/img/tghb_orbit63_typeface__04.jpg", "/assets/img/tghb_artshow_cc__07.jpg"] },
+      "/assets/img/tghb.studio_cocoonclub__09_l.jpg",
+      "/assets/img/tghb.studio__bl_shydirty__20_l.jpg",
+      { "split": ["/assets/img/tghb.studio__bl_shydirty__06_p.jpg", "/assets/img/tghb.studio__bl_shydirty__13_p.jpg"] },
+      "/assets/img/tghb.studio_services__01_p.jpg",
+      "/assets/img/tghb.studio_services__02_p.jpg",
+      "/assets/img/tghb.studio_services__03_p.jpg",
+      "/assets/img/tghb.studio_services__06_p.jpg",
+      "/assets/img/tghb.studio_services__07_p.jpg",
+      "/assets/img/tghb.studio_image__01_l.jpg",
+      "/assets/img/tghb.studio_image__02_l.jpg",
+      "/assets/img/tghb.studio_cologne_l.jpg",
+      "/assets/img/tghb.studio_frankfurt_l.jpg",
+      "/assets/img/tghb_studio-christian_kriegsheim_p.jpg",
+      "/assets/img/tghb_studio-tomas_nims-matousek_p.jpg",
+      "/assets/img/tghb_studio-felicity_nims-matousek_p.jpg",
+      { "split": ["/assets/img/tghb.studio_services__01_p.jpg", "/assets/img/tghb.studio_services__02_p.jpg"] },
+      { "split": ["/assets/img/tghb.studio_services__06_p.jpg", "/assets/img/tghb.studio_services__07_p.jpg"] },
+      { "split": ["/assets/img/tghb.studio_cologne_l.jpg", "/assets/img/tghb.studio_frankfurt_l.jpg"] },
+      { "split": ["/assets/img/tghb_studio-christian_kriegsheim_p.jpg", "/assets/img/tghb_studio-felicity_nims-matousek_p.jpg"] }
+    ] | dump | safe }}
+  </script>
+</main>
+
+{% set script = vite["js/main.js"] %}
+{% if not isServeMode and script and script.file %}
+  <script type="module" src="/{{ script.file }}"></script>
+{% endif %}
+
+<div class="c-cursor">
+  <span class="c-cursor__dot"></span>
+  <span class="c-cursor__msg">
+    <svg class="teaser_btn">
+      <use xlink:href="#teaser_btn"></use>
+    </svg>
+  </span>
+</div>
+
+</body>
+</html>

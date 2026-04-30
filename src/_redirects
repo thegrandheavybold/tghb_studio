@@ -10,3 +10,7 @@
 /de/impressum/      /de/imprint/       301
 /de/Impressum       /de/imprint        301
 /de/Impressum/      /de/imprint/       301
+
+# Localized 404 handling
+/de/*               /de/404.html       404
+/*                  /404.html          404

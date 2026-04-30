@@ -52,7 +52,7 @@
     "src": "assets/img/tghb_studio_landesmuseum__24_l.svg"
   },
   "js/core/animations.js": {
-    "file": "assets/js/animations-DhJiLQak.js",
+    "file": "assets/js/animations-B3Y_7Gcd.js",
     "name": "animations",
     "src": "js/core/animations.js",
     "isDynamicEntry": true,
@@ -61,7 +61,7 @@
       "_ScrollTrigger-Cv03IO65.js"
     ],
     "css": [
-      "assets/css/style-B2ZUvTAQ.css"
+      "assets/css/style-ng6-UmCV.css"
     ],
     "assets": [
       "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
@@ -79,7 +79,7 @@
     ]
   },
   "js/core/cursor.js": {
-    "file": "assets/js/cursor-DkDio5ax.js",
+    "file": "assets/js/cursor-CJYH0XD8.js",
     "name": "cursor",
     "src": "js/core/cursor.js",
     "isDynamicEntry": true,
@@ -87,7 +87,7 @@
       "js/main.js"
     ],
     "css": [
-      "assets/css/style-B2ZUvTAQ.css"
+      "assets/css/style-ng6-UmCV.css"
     ],
     "assets": [
       "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
@@ -105,7 +105,7 @@
     ]
   },
   "js/core/parallax.js": {
-    "file": "assets/js/parallax-D6_e33ny.js",
+    "file": "assets/js/parallax-COqerWXK.js",
     "name": "parallax",
     "src": "js/core/parallax.js",
     "isDynamicEntry": true,
@@ -114,7 +114,33 @@
       "_ScrollTrigger-Cv03IO65.js"
     ],
     "css": [
-      "assets/css/style-B2ZUvTAQ.css"
+      "assets/css/style-ng6-UmCV.css"
+    ],
+    "assets": [
+      "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
+      "assets/fonts/CircularStd-Bold-CxwFRm5F.woff2",
+      "assets/img/tghb.studio_cocoonclub__09_l-BfYthfQA.jpg",
+      "assets/img/tghb.studio_buchmesse__01_l-kexDzgUu.jpg",
+      "assets/img/tghb.studio_mvd__01_l-I2ml3DN0.jpg",
+      "assets/img/tghb.studio_emporium__01_l-DNFnKqjy.jpg",
+      "assets/img/tghb_studio__snd__01_l-C9rO3mkn.jpg",
+      "assets/img/tghb_studio__gumbrecht__01_l-S-nM5ki3.jpg",
+      "assets/img/tghb_studio_landesmuseum__24_l-1P8tAkCL.svg",
+      "assets/img/tghb_orbit63_typeface__01-BLoSacPp.jpg",
+      "assets/img/tghb_artshow_cc__01-Cl5c5qnO.jpg",
+      "assets/img/tghb_blckwhtTV__01-QMjjpXDo.jpg"
+    ]
+  },
+  "js/features/error404Trail.js": {
+    "file": "assets/js/error404Trail-CX6vTMSN.js",
+    "name": "error404Trail",
+    "src": "js/features/error404Trail.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "js/main.js"
+    ],
+    "css": [
+      "assets/css/style-ng6-UmCV.css"
     ],
     "assets": [
       "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
@@ -150,13 +176,33 @@
     "isDynamicEntry": true
   },
   "js/features/slider.js": {
-    "file": "assets/js/slider-67t8oh8k.js",
+    "file": "assets/js/slider-DVPsE2hU.js",
     "name": "slider",
     "src": "js/features/slider.js",
-    "isDynamicEntry": true
+    "isDynamicEntry": true,
+    "imports": [
+      "js/main.js"
+    ],
+    "css": [
+      "assets/css/style-ng6-UmCV.css"
+    ],
+    "assets": [
+      "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
+      "assets/fonts/CircularStd-Bold-CxwFRm5F.woff2",
+      "assets/img/tghb.studio_cocoonclub__09_l-BfYthfQA.jpg",
+      "assets/img/tghb.studio_buchmesse__01_l-kexDzgUu.jpg",
+      "assets/img/tghb.studio_mvd__01_l-I2ml3DN0.jpg",
+      "assets/img/tghb.studio_emporium__01_l-DNFnKqjy.jpg",
+      "assets/img/tghb_studio__snd__01_l-C9rO3mkn.jpg",
+      "assets/img/tghb_studio__gumbrecht__01_l-S-nM5ki3.jpg",
+      "assets/img/tghb_studio_landesmuseum__24_l-1P8tAkCL.svg",
+      "assets/img/tghb_orbit63_typeface__01-BLoSacPp.jpg",
+      "assets/img/tghb_artshow_cc__01-Cl5c5qnO.jpg",
+      "assets/img/tghb_blckwhtTV__01-QMjjpXDo.jpg"
+    ]
   },
   "js/main.js": {
-    "file": "assets/js/main-GEPEgXXI.js",
+    "file": "assets/js/main-jvu3Hj5J.js",
     "name": "main",
     "src": "js/main.js",
     "isEntry": true,
@@ -168,10 +214,11 @@
       "js/features/mixitup-filtering.js",
       "js/utils/nncVideoHover.js",
       "js/features/nncLightbox.js",
-      "js/features/nncStickyChrome.js"
+      "js/features/nncStickyChrome.js",
+      "js/features/error404Trail.js"
     ],
     "css": [
-      "assets/css/style-B2ZUvTAQ.css"
+      "assets/css/style-ng6-UmCV.css"
     ],
     "assets": [
       "assets/fonts/CircularStd-Book-CAd4JRwS.woff2",
@@ -195,7 +242,7 @@
     "isDynamicEntry": true
   },
   "sass/style.sass": {
-    "file": "assets/css/style-B2ZUvTAQ.css",
+    "file": "assets/css/style-ng6-UmCV.css",
     "src": "sass/style.sass",
     "isEntry": true
   }
